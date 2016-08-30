@@ -3,7 +3,11 @@
 <title>Static Call Graph - [STM32F7-DISCO\STM32F7-DISCO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32F7-DISCO\STM32F7-DISCO.axf</H1><HR>
+<<<<<<< HEAD
 <BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Tue Aug 30 16:29:35 2016
+=======
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Tue Aug 30 15:48:58 2016
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -519,7 +523,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<<<<<<< HEAD
 <P><STRONG><a name="[8d]"></a>AUDIO_PLAYER_Start</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, waveplayer.o(i.AUDIO_PLAYER_Start))
+=======
+<P><STRONG><a name="[8d]"></a>AUDIO_PLAYER_Start</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, waveplayer.o(i.AUDIO_PLAYER_Start))
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = AUDIO_PLAYER_Start &rArr; BSP_AUDIO_OUT_Init &rArr; BSP_AUDIO_OUT_ClockConfig &rArr; HAL_RCCEx_PeriphCLKConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_AUDIO_OUT_SetAudioFrameSlot
@@ -529,8 +537,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<<<<<<< HEAD
 <P><STRONG><a name="[94]"></a>AUDIO_Process</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, waveplayer.o(i.AUDIO_Process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = AUDIO_Process
+=======
+<P><STRONG><a name="[94]"></a>AUDIO_Process</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, waveplayer.o(i.AUDIO_Process))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = AUDIO_Process
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_AUDIO_OUT_TransferComplete_CallBack
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_AUDIO_OUT_HalfTransfer_CallBack
@@ -554,7 +567,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[93]"></a>BSP_AUDIO_OUT_HalfTransfer_CallBack</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, waveplayer.o(i.BSP_AUDIO_OUT_HalfTransfer_CallBack))
+<<<<<<< HEAD
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = BSP_AUDIO_OUT_HalfTransfer_CallBack &rArr; AUDIO_Process
+=======
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BSP_AUDIO_OUT_HalfTransfer_CallBack &rArr; AUDIO_Process
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AUDIO_Process
 </UL>
@@ -603,7 +620,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a0]"></a>BSP_AUDIO_OUT_TransferComplete_CallBack</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, waveplayer.o(i.BSP_AUDIO_OUT_TransferComplete_CallBack))
+<<<<<<< HEAD
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = BSP_AUDIO_OUT_TransferComplete_CallBack &rArr; AUDIO_Process
+=======
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BSP_AUDIO_OUT_TransferComplete_CallBack &rArr; AUDIO_Process
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AUDIO_Process
 </UL>
@@ -930,7 +951,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[cb]"></a>HAL_SAI_TxCpltCallback</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32746g_discovery_audio.o(i.HAL_SAI_TxCpltCallback))
+<<<<<<< HEAD
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_SAI_TxCpltCallback &rArr; BSP_AUDIO_OUT_TransferComplete_CallBack &rArr; AUDIO_Process
+=======
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_SAI_TxCpltCallback &rArr; BSP_AUDIO_OUT_TransferComplete_CallBack &rArr; AUDIO_Process
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_AUDIO_OUT_TransferComplete_CallBack
 </UL>
@@ -938,7 +963,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[cc]"></a>HAL_SAI_TxHalfCpltCallback</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32746g_discovery_audio.o(i.HAL_SAI_TxHalfCpltCallback))
+<<<<<<< HEAD
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_SAI_TxHalfCpltCallback &rArr; BSP_AUDIO_OUT_HalfTransfer_CallBack &rArr; AUDIO_Process
+=======
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_SAI_TxHalfCpltCallback &rArr; BSP_AUDIO_OUT_HalfTransfer_CallBack &rArr; AUDIO_Process
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_AUDIO_OUT_HalfTransfer_CallBack
 </UL>
@@ -1348,10 +1377,17 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<<<<<<< HEAD
 <P><STRONG><a name="[71]"></a>pFreq</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, phasor.o(i.pFreq))
 <BR>[Address Reference Count : 1]<UL><LI> phasor.o(i.tPInit)
 </UL>
 <P><STRONG><a name="[72]"></a>pStep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, phasor.o(i.pStep))
+=======
+<P><STRONG><a name="[71]"></a>pFreq</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, phasor.o(i.pFreq))
+<BR>[Address Reference Count : 1]<UL><LI> phasor.o(i.tPInit)
+</UL>
+<P><STRONG><a name="[72]"></a>pStep</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, phasor.o(i.pStep))
+>>>>>>> 207f92201c03fee0f83c32fe41dc5f462fa75f0f
 <BR>[Address Reference Count : 1]<UL><LI> phasor.o(i.tPInit)
 </UL><P>
 <H3>
