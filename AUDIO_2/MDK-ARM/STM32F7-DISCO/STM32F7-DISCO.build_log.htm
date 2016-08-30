@@ -27,27 +27,13 @@ Project File Date:  08/29/2016
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F7-DISCO'
-compiling stm32f7xx_it.c...
-compiling main.c...
-../Src/main.c(64): warning:  #177-D: function "AUDIO_InitApplication" was declared but never referenced
-  static void AUDIO_InitApplication(void)
-../Src/main.c: 1 warning, 0 errors
 compiling waveplayer.c...
 ../Src/waveplayer.c(11): warning:  #177-D: variable "BufferCtl" was declared but never referenced
   static AUDIO_OUT_BufferTypeDef  BufferCtl;
 ../Src/waveplayer.c: 1 warning, 0 errors
-compiling phasor.c...
-..\Src\phasor.c(6): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	p->inc = (1.0 / ((float)
-UDIO_FREQ / freq))/2.0;
-..\Src\phasor.c(15): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	if (p->phase >= 1.0) p->phase -= 1.0; 
-..\Src\phasor.c(15): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	if (p->phase >= 1.0) p->phase -= 1.0; 
-..\Src\phasor.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=14008 RO-data=536 RW-data=96 ZI-data=2768  
-"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=13048 RO-data=536 RW-data=96 ZI-data=2768  
+"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -65,7 +51,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
