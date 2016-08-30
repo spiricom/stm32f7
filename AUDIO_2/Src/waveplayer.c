@@ -32,7 +32,7 @@ static uint8_t PlayerInit(uint32_t AudioFreq);
 AUDIO_ErrorTypeDef AUDIO_PLAYER_Init(void)
 {
 	tPInit(&tP1);
-	(tP1).freq(&tP1,55.);
+	(tP1).freq(&tP1,400.3f);
 	
 	
   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, uwVolume, I2S_AUDIOFREQ_48K) == 0)
@@ -82,7 +82,7 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 	} else if (state == TRANSFER_COMPLETE) {
 		idx = 0;
 	}
-
+	testSig++;
 	//uint8_t samp = 0x00;
 	//for debugging
 	pA = tP1.phase;
@@ -90,7 +90,7 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 	
 	for (i = 0; i < AUDIO_OUT_BUFFER_TX_SIZE/2; i++) {
 		
-		samp = (tP1).step(&tP1);
+		samp = (uint16_t)((tP1).step(&tP1) * (float)0xFFFF);
 		//samp = (tP1).samp(&tP1);
 		//samp = (uint8_t)(((float)i/(AUDIO_OUT_TRANSFER_SIZE/2)) * 0xFF); 
 		

@@ -12,6 +12,8 @@ static void SystemClock_Config(void);
 static void AUDIO_InitApplication(void);
 static void CPU_CACHE_Enable(void);
 
+uint16_t testSig = 0;
+
 /* Private functions ---------------------------------------------------------*/
 
 /**

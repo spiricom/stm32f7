@@ -12,7 +12,7 @@
 
 
 /* Exported Defines ----------------------------------------------------------*/
-#define AUDIO_OUT_BUFFER_SIZE                      4
+#define AUDIO_OUT_BUFFER_SIZE                      256
 #define AUDIO_OUT_BUFFER_TX_SIZE									AUDIO_OUT_BUFFER_SIZE/2
 #define AUDIO_FREQ 																AUDIO_FREQUENCY_48K
 
@@ -44,6 +44,7 @@ typedef enum {
   AUDIO_ERROR_INVALID_VALUE,     
 }AUDIO_ErrorTypeDef;
 
+extern uint16_t testSig;
 
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/

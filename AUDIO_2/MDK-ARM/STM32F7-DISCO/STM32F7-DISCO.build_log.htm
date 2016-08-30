@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.20.0.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Michael Mulshine, Princeton University, LIC=----
+License Information: Jeff Snyder, Princeton University, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.20
@@ -21,33 +21,25 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
 Dialog DLL:      TCM.DLL V1.14.9.0
  
 <h2>Project:</h2>
-C:\Documents\en.stm32cubef7\STM32Cube_FW_F7_V1.4.0\Projects\STM32746G-Discovery\Applications\Audio\AUDIO_2\MDK-ARM\Project.uvprojx
-Project File Date:  08/29/2016
+C:\Users\Jeff Snyder\Documents\STM32Cube_FW_F7_V1.4.0\Projects\STM32746G-Discovery\Applications\Audio\AUDIO_2\MDK-ARM\Project.uvprojx
+Project File Date:  08/30/2016
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F7-DISCO'
-compiling stm32f7xx_it.c...
 compiling main.c...
-../Src/main.c(64): warning:  #177-D: function "AUDIO_InitApplication" was declared but never referenced
+../Src/main.c(66): warning:  #177-D: function "AUDIO_InitApplication" was declared but never referenced
   static void AUDIO_InitApplication(void)
 ../Src/main.c: 1 warning, 0 errors
+compiling stm32f7xx_it.c...
 compiling waveplayer.c...
 ../Src/waveplayer.c(11): warning:  #177-D: variable "BufferCtl" was declared but never referenced
   static AUDIO_OUT_BufferTypeDef  BufferCtl;
 ../Src/waveplayer.c: 1 warning, 0 errors
 compiling phasor.c...
-..\Src\phasor.c(6): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	p->inc = (1.0 / ((float)
-UDIO_FREQ / freq))/2.0;
-..\Src\phasor.c(15): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	if (p->phase >= 1.0) p->phase -= 1.0; 
-..\Src\phasor.c(15): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	if (p->phase >= 1.0) p->phase -= 1.0; 
-..\Src\phasor.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=14008 RO-data=536 RW-data=96 ZI-data=2768  
-"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=13076 RO-data=536 RW-data=92 ZI-data=3284  
+"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -58,14 +50,14 @@ Package Vendor: ARM
    * Component: CORE Version: 5.0.0
 
 <h2>Collection of Component include folders:</h2>
-  C:\Documents\en.stm32cubef7\STM32Cube_FW_F7_V1.4.0\Projects\STM32746G-Discovery\Applications\Audio\AUDIO_2\MDK-ARM\RTE
+  C:\Users\Jeff Snyder\Documents\STM32Cube_FW_F7_V1.4.0\Projects\STM32746G-Discovery\Applications\Audio\AUDIO_2\MDK-ARM\RTE
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include
   C:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
