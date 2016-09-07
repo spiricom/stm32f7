@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;audio2/Debug/audio2.elf&apos; to &apos;.elf&apos;" description="Rename resource &apos;audio2.elf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Debug/audio2.elf" name=".elf" stamp="1473196020364" updateReferences="true"/>
+</session>

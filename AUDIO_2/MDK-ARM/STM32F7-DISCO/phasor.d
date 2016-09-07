@@ -46,3 +46,5 @@ stm32f7-disco\phasor.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/stm327
 stm32f7-disco\phasor.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_audio.h
 stm32f7-disco\phasor.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/../Components/wm8994/wm8994.h
 stm32f7-disco\phasor.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/../Components/wm8994/../Common/audio.h
+stm32f7-disco\phasor.o: ../Inc/globals.h
+stm32f7-disco\phasor.o: ../Inc/main.h

@@ -3,68 +3,22 @@
 #include "wavetable.h"
 #include "phasor.h"
 
-/* Private define ------------------------------------------------------------*/
-
-/* Private macro -------------------------------------------------------------*/
-/* Private typedef -----------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-static AUDIO_OUT_BufferTypeDef  BufferCtl;
-static __IO uint32_t uwVolume = 10;
-
+int aBufferSize = 0.0f;
+__IO uint32_t gVolume = (uint32_t)VOLUME;
 tPhasor tP1;
-float pA,pB;
 uint16_t buff[AUDIO_OUT_BUFFER_SIZE];
-uint16_t samp;
 
+//static AUDIO_OUT_BufferTypeDef  BufferCtl;
 
+float incD;
+uint16_t samp = 0x0000;
 
-/* Private function prototypes -----------------------------------------------*/
-static uint8_t PlayerInit(uint32_t AudioFreq);
+float freq = TP1_FREQ;
+float phase = 0.0f;
+float inc = 0.0f;
 
 
 /* Private functions ---------------------------------------------------------*/
-
-/**
-  * @brief  Initializes Audio Interface.
-  * @param  None
-  * @retval Audio error
-  */
-AUDIO_ErrorTypeDef AUDIO_PLAYER_Init(void)
-{
-	tPInit(&tP1);
-	(tP1).freq(&tP1,440.0f);
-	
-	
-  if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, uwVolume, I2S_AUDIOFREQ_48K) == 0)
-  {
-    return AUDIO_ERROR_NONE;
-  }
-  else
-  {
-    return AUDIO_ERROR_IO;
-  }
-}
-
-/**
-  * @brief  Starts Audio streaming.    
-  * @param  idx: 
-  * @retval Audio error
-  */ 
-AUDIO_ErrorTypeDef AUDIO_PLAYER_Start()
-{
-		int i;
-    /*Adjust the Audio frequency */
-    PlayerInit(AUDIO_FREQ); 
-
-		for (i = 0; i < AUDIO_OUT_BUFFER_SIZE; i++) {
-			buff[i] = 0x00; 
-		}
-
-    BSP_AUDIO_OUT_Play((uint16_t*)&buff[0], AUDIO_OUT_BUFFER_SIZE);
-          
-		return AUDIO_ERROR_NONE;
-}
-
 /**
   * @brief  Manages Audio process. 
   * @param  None
@@ -78,28 +32,75 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 	if (state == TRANSFER_NONE) {
 		return AUDIO_ERROR_IO;
 	} else if (state == TRANSFER_HALF) {
-		idx = AUDIO_OUT_BUFFER_SIZE/2;
-	} else if (state == TRANSFER_COMPLETE) {
 		idx = 0;
+	} else if (state == TRANSFER_COMPLETE) {
+		idx = AUDIO_OUT_BUFFER_SIZE/2;
 	}
 
-	//uint8_t samp = 0x00;
-	//for debugging
-	pA = tP1.phase;
-	pB = tP1.inc;
+
 	
-	for (i = 0; i < AUDIO_OUT_BUFFER_TX_SIZE/2; i++) {
+	for (i = 0; i < (AUDIO_OUT_BUFFER_TX_SIZE/2); i++) {
 		
-		samp = (uint16_t)((tP1).step(&tP1) * 0xFFFF);
-		//samp = (tP1).samp(&tP1);
-		//samp = (uint8_t)(((float)i/(AUDIO_OUT_TRANSFER_SIZE/2)) * 0xFF); 
 		
-		buff[idx+2*i] = samp;
-		buff[idx+2*i+1] = samp;	
+		buff[idx+2*i] =  samp;
+		buff[idx+2*i+1] =  samp;	
+		
+		samp =(uint16_t)(0xFFFF * (tP1).step(&tP1));
+		
+		/*
+		phase += inc;
+		if (phase >= 1.0f) phase -= 1.0f;
+		
+		samp = phase * 0xffff; 
+		*/
+		
+		
 	}
   
   return audio_error;
 }
+
+
+/**
+  * @brief  Initializes Audio Interface.
+  * @param  None
+  * @retval Audio error
+  */
+AUDIO_ErrorTypeDef AUDIO_Init(void)
+{
+	tPInit(&tP1);
+	(tP1).freq(&tP1,TP1_FREQ);
+	
+	inc = (freq/(float)SAMPLE_RATE)/2.0f;
+	incD = inc;
+	
+	BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, VOLUME, I2S_AUDIOFREQ_48K);
+	BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);  // PCM 2-channel
+	
+	return AUDIO_ERROR_NONE;
+}
+
+
+
+/**
+  * @brief  Starts Audio streaming.    
+  * @param  idx: 
+  * @retval Audio error
+  */ 
+AUDIO_ErrorTypeDef AUDIO_Start()
+{
+		int i;
+
+		for (i = 0; i < AUDIO_OUT_BUFFER_SIZE; i++) {
+			buff[i] = 0x00; 
+		}
+		
+		BSP_AUDIO_OUT_Play((uint16_t*)&buff[0], AUDIO_OUT_BUFFER_SIZE);
+          
+		return AUDIO_ERROR_NONE;
+}
+
+
 
 /**
   * @brief  Stops Audio streaming.
@@ -130,28 +131,6 @@ void BSP_AUDIO_OUT_TransferComplete_CallBack(void)
 void BSP_AUDIO_OUT_HalfTransfer_CallBack(void)
 { 
 	AUDIO_Process(TRANSFER_HALF); 
-}
-/*******************************************************************************
-                            Static Functions
-*******************************************************************************/
-
-/**
-  * @brief  Initializes the Wave player.
-  * @param  AudioFreq: Audio sampling frequency
-  * @retval None
-  */
-static uint8_t PlayerInit(uint32_t AudioFreq)
-{ 
-  /* Initialize the Audio codec and all related peripherals (I2S, I2C, IOExpander, IOs...) */  
-  if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_BOTH, uwVolume, AudioFreq) != 0)
-  {
-    return 1;
-  }
-  else
-  {
-    BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);
-    return 0;
-  } 
 }
 
 

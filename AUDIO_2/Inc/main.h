@@ -10,15 +10,11 @@
 #include "stm32746g_discovery.h"
 #include "stm32746g_discovery_audio.h"
 
-
-/* Exported Defines ----------------------------------------------------------*/
-#define AUDIO_OUT_BUFFER_SIZE                      4
-#define AUDIO_OUT_BUFFER_TX_SIZE									AUDIO_OUT_BUFFER_SIZE/2
-#define AUDIO_FREQ 																AUDIO_FREQUENCY_48K
+#include "globals.h"
 
 
-/* Exported types ------------------------------------------------------------*/
 
+/* Exported Defines ----------------------------------------------------------*/ 
 
 /* Application State Machine Structure */
 typedef enum {

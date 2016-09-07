@@ -1,0 +1,6 @@
+15:22:38 **** Incremental Build of configuration Debug for project openstm32_AUDIO2 ****
+make all 
+make: Nothing to be done for `all'.
+
+15:22:39 Build Finished (took 423ms)
+

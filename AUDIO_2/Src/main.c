@@ -2,17 +2,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "waveplayer.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
 
-/* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
-static void AUDIO_InitApplication(void);
 static void CPU_CACHE_Enable(void);
 
-/* Private functions ---------------------------------------------------------*/
+
 
 /**
   * @brief  Main program
@@ -39,8 +33,8 @@ int main(void)
   BSP_LED_Init(LED1);
   
   /* Init Audio interface */
-  AUDIO_PLAYER_Init();
-	AUDIO_PLAYER_Start();
+  AUDIO_Init();
+	AUDIO_Start();
   
   /* Run Application (Blocking mode) */
   while (1)
@@ -48,6 +42,7 @@ int main(void)
 		// Toggle LED1.
     BSP_LED_Toggle(LED1);
 		HAL_Delay(1000);
+		
   }
 }
 
@@ -55,16 +50,6 @@ int main(void)
 /*******************************************************************************
                             Static Function
 *******************************************************************************/
-
-/**
-  * @brief  Audio Application Init.
-  * @param  None
-  * @retval None
-  */
-static void AUDIO_InitApplication(void)
-{
-  
-}
 
 
 /**
@@ -97,6 +82,7 @@ static void SystemClock_Config(void)
   /* Enable HSE Oscillator and activate PLL with HSE as source */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+	RCC_OscInitStruct.HSIState = RCC_HSI_OFF;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 25;
@@ -117,17 +103,6 @@ static void SystemClock_Config(void)
     while(1) { ; }
   }
 
-  /* Select PLLSAI output as USB clock source */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_CLK48;
-  PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLLSAIP;
-  PeriphClkInitStruct.PLLSAI.PLLSAIN = 192;
-  PeriphClkInitStruct.PLLSAI.PLLSAIQ = 4; 
-  PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV4;
-  ret = HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
-  if(ret != HAL_OK)
-  {
-    while(1) { ; }
-  }
   
   /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 clocks dividers */
   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
@@ -183,7 +158,7 @@ void BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void
 //    RCC_ExCLKInitStruct.PLLI2S.PLLI2SP = 8;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SN = 344;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SQ = 7;
-    RCC_ExCLKInitStruct.PLLI2SDivQ = 1;
+    RCC_ExCLKInitStruct.PLLI2SDivQ = 1; // was 1
     HAL_RCCEx_PeriphCLKConfig(&RCC_ExCLKInitStruct);
   }
 }

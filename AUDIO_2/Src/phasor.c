@@ -3,7 +3,7 @@
 
 static int pFreq(tPhasor *p, float freq) {
 	
-	p->inc = (freq/(float)AUDIO_FREQ)/2.0f;
+	p->inc = (freq/(float)SAMPLE_RATE)/2.0f;
 	
 	return 0;
 }

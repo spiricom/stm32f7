@@ -45,4 +45,6 @@ stm32f7-disco\stm32f7xx_it.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/
 stm32f7-disco\stm32f7xx_it.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_audio.h
 stm32f7-disco\stm32f7xx_it.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/../Components/wm8994/wm8994.h
 stm32f7-disco\stm32f7xx_it.o: ../../../../../../Drivers/BSP/STM32746G-Discovery/../Components/wm8994/../Common/audio.h
+stm32f7-disco\stm32f7xx_it.o: ../Inc/globals.h
+stm32f7-disco\stm32f7xx_it.o: ../Inc/main.h
 stm32f7-disco\stm32f7xx_it.o: ../Inc/stm32f7xx_it.h

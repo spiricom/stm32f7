@@ -1,0 +1,6 @@
+15:22:36 **** Incremental Build of configuration Debug for project stm32746g-eval_hal_lib ****
+make all 
+make: Nothing to be done for `all'.
+
+15:22:38 Build Finished (took 1s.901ms)
+
