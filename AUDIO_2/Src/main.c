@@ -7,7 +7,6 @@ static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
 
 
-
 /**
   * @brief  Main program
   * @param  None

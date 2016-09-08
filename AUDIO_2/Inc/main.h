@@ -13,7 +13,6 @@
 #include "globals.h"
 
 
-
 /* Exported Defines ----------------------------------------------------------*/ 
 
 /* Application State Machine Structure */
@@ -40,6 +39,7 @@ typedef enum {
   AUDIO_ERROR_INVALID_VALUE,     
 }AUDIO_ErrorTypeDef;
 
+extern uint16_t testSig;
 
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/

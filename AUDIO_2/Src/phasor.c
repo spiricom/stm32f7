@@ -13,6 +13,7 @@ static float pStep(tPhasor *p) {
 	p->phase += p->inc;
 	
 	if (p->phase >= 1.0f) p->phase -= 1.0f; 
+
 	
 	return p->phase;
 	
@@ -28,6 +29,7 @@ static uint16_t pSamp(tPhasor *p) {
 */
 
 int tPInit(tPhasor *p) {
+
 	p->phase = 0.0f;
 	p->inc = 0.0f;
 	p->freq = &pFreq;

@@ -36,8 +36,6 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 	} else if (state == TRANSFER_COMPLETE) {
 		idx = AUDIO_OUT_BUFFER_SIZE/2;
 	}
-
-
 	
 	for (i = 0; i < (AUDIO_OUT_BUFFER_TX_SIZE/2); i++) {
 		
@@ -73,6 +71,9 @@ AUDIO_ErrorTypeDef AUDIO_Init(void)
 	
 	inc = (freq/(float)SAMPLE_RATE)/2.0f;
 	incD = inc;
+
+	(tP1).freq(&tP1,440.0f);
+
 	
 	BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, VOLUME, I2S_AUDIOFREQ_48K);
 	BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);  // PCM 2-channel
@@ -99,7 +100,6 @@ AUDIO_ErrorTypeDef AUDIO_Start()
           
 		return AUDIO_ERROR_NONE;
 }
-
 
 
 /**
