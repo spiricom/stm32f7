@@ -4,7 +4,7 @@
 #define AUDIO_OUT_BUFFER_SIZE									(AUDIO_OUT_BUFFER_SIZE_IN + (4 - (AUDIO_OUT_BUFFER_SIZE_IN % 4)))
 #define AUDIO_OUT_BUFFER_TX_SIZE									AUDIO_OUT_BUFFER_SIZE/2
 #define SAMPLE_RATE 															AUDIO_FREQUENCY_48K
-#define VOLUME 																		15
+#define VOLUME 																		75
 
 #define TWO_TO_15 32768.f
 

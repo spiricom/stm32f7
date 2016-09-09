@@ -40,7 +40,8 @@ typedef enum {
 }AUDIO_ErrorTypeDef;
 
 extern uint16_t testSig;
-
+extern uint16_t test1_Wave;
+extern uint16_t buff[AUDIO_OUT_BUFFER_SIZE];
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */

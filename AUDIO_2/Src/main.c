@@ -2,9 +2,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "waveplayer.h"
 
+uint16_t test1_Wave;
 
 static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
+
 
 
 /**
@@ -40,8 +42,9 @@ int main(void)
   {
 		// Toggle LED1.
     BSP_LED_Toggle(LED1);
-		HAL_Delay(1000);
-		
+		HAL_Delay(1);
+		test1_Wave++;
+		//Waveform_trace++;
   }
 }
 
@@ -87,7 +90,7 @@ static void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 25;
   RCC_OscInitStruct.PLL.PLLN = 432;  
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 9;
+  RCC_OscInitStruct.PLL.PLLQ = 2; // was originally 9 ????? -JS and MM
 
   ret = HAL_RCC_OscConfig(&RCC_OscInitStruct);
   if(ret != HAL_OK)
@@ -157,7 +160,7 @@ void BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void
 //    RCC_ExCLKInitStruct.PLLI2S.PLLI2SP = 8;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SN = 344;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SQ = 7;
-    RCC_ExCLKInitStruct.PLLI2SDivQ = 1; // was 1
+    RCC_ExCLKInitStruct.PLLI2SDivQ = 4; // was 1
     HAL_RCCEx_PeriphCLKConfig(&RCC_ExCLKInitStruct);
   }
 }

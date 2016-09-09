@@ -44,7 +44,7 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 		buff[idx+2*i+1] =  samp;	
 		
 		samp =(uint16_t)(0xFFFF * (tP1).step(&tP1));
-		
+
 		/*
 		phase += inc;
 		if (phase >= 1.0f) phase -= 1.0f;
