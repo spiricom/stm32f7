@@ -3,7 +3,7 @@
 
 static int pFreq(tPhasor *p, float freq) {
 	
-	p->inc = (freq/(float)SAMPLE_RATE)/2.0f;
+	p->inc = (freq/(float)SAMPLE_RATE);
 	
 	return 0;
 }
@@ -14,7 +14,6 @@ static float pStep(tPhasor *p) {
 	
 	if (p->phase >= 1.0f) p->phase -= 1.0f; 
 
-	
 	return p->phase;
 	
 }

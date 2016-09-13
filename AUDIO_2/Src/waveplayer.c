@@ -6,16 +6,22 @@
 int aBufferSize = 0.0f;
 __IO uint32_t gVolume = (uint32_t)VOLUME;
 tPhasor tP1;
-uint16_t buff[AUDIO_OUT_BUFFER_SIZE];
+int16_t buff[AUDIO_OUT_BUFFER_SIZE];
 
 //static AUDIO_OUT_BufferTypeDef  BufferCtl;
 
 float incD;
-uint16_t samp = 0x0000;
+int16_t samp = 0x0000;
 
 float freq = TP1_FREQ;
 float phase = 0.0f;
 float inc = 0.0f;
+
+int INDEX = 0;
+int idx = 0;
+
+int FLAG1 = 0;
+
 
 
 /* Private functions ---------------------------------------------------------*/
@@ -26,33 +32,31 @@ float inc = 0.0f;
   */
 AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 {
-	int idx, i;
-	
   AUDIO_ErrorTypeDef audio_error = AUDIO_ERROR_NONE;
 	if (state == TRANSFER_NONE) {
 		return AUDIO_ERROR_IO;
 	} else if (state == TRANSFER_HALF) {
-		idx = 0;
-	} else if (state == TRANSFER_COMPLETE) {
 		idx = AUDIO_OUT_BUFFER_SIZE/2;
+	} else if (state == TRANSFER_COMPLETE) {
+		idx = 0;	
 	}
-	
-	for (i = 0; i < (AUDIO_OUT_BUFFER_TX_SIZE/2); i++) {
-		
-		
-		buff[idx+2*i] =  samp;
-		buff[idx+2*i+1] =  samp;	
-		
-		samp =(uint16_t)(0xFFFF * (tP1).step(&tP1));
 
-		/*
-		phase += inc;
-		if (phase >= 1.0f) phase -= 1.0f;
-		
-		samp = phase * 0xffff; 
-		*/
-		
-		
+	for (INDEX = 0; INDEX < (AUDIO_OUT_BUFFER_SIZE/2); INDEX++) {
+		if ((INDEX & 1) == 0) {
+			float phase =  (tP1).step(&tP1);
+			float temp = WAVETABLE2_SIZE * phase;
+			int16_t intPart = (uint16_t)temp;
+			float fracPart = temp - (float)intPart;
+			int16_t samp0 = (uint16_t)(sinewave[intPart]);
+			if (++intPart >= WAVETABLE2_SIZE) intPart = 0;
+			int16_t samp1 = (uint16_t)(sinewave[intPart]);
+			samp = (samp0 + (samp1 - samp0) * fracPart);
+		} 
+		buff[idx+INDEX] =  samp;
+
+		//samp = (uint16_t)(sinewave[(int)(WAVETABLE2_SIZE * phase)] + 32768.0);
+		//samp = (uint16_t) (phase * 65535.0f);
+			
 	}
   
   return audio_error;
@@ -71,11 +75,8 @@ AUDIO_ErrorTypeDef AUDIO_Init(void)
 	
 	inc = (freq/(float)SAMPLE_RATE)/2.0f;
 	incD = inc;
-
-	(tP1).freq(&tP1,440.0f);
-
 	
-	BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, VOLUME, I2S_AUDIOFREQ_48K);
+	FLAG1 = BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, VOLUME, I2S_AUDIOFREQ_48K);
 	BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);  // PCM 2-channel
 	
 	return AUDIO_ERROR_NONE;
