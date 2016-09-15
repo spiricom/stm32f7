@@ -31,7 +31,7 @@
 "stm32f7-disco\waveplayer.o"
 "stm32f7-disco\main.o"
 "stm32f7-disco\stm32f7xx_it.o"
-"stm32f7-disco\phasor.o"
+"stm32f7-disco\audiounits.o"
 "stm32f7-disco\startup_stm32f746xx.o"
 --library_type=microlib --strict --scatter "STM32F7-DISCO\STM32F7-DISCO.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

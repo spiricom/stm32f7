@@ -1,36 +1,6 @@
-#include "phasor.h"
-
-// PHASOR
-static int pFreq(tPhasor *p, float freq) {
-	
-	p->inc = (freq/p->srate);
-	
-	return 0;
-}
-
-static float pStep(tPhasor *p) {
-	
-	p->phase += p->inc;
-	
-	if (p->phase >= 1.0f) p->phase -= 1.0f; 
-
-	return p->phase;
-}
-
-int tPhasorInit(tPhasor *p, float sr) {
-
-	p->phase = 0.0f;
-	p->inc = 0.0f;
-	p->srate = sr;
-	p->freq = &pFreq;
-	p->step = &pStep;
-	//p->samp = &pSamp;
-	
-	return 0; 
-}
+#include "cycle.h"
 
 
-// CYCLE
 static int cFreq(tCycle *c, float freq) {	
 	
 	(c->tP).freq(&(c->tP),freq);

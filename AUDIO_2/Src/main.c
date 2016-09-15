@@ -2,12 +2,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "waveplayer.h"
 
-uint16_t test1_Wave;
-
 static void SystemClock_Config(void);
 static void CPU_CACHE_Enable(void);
 
-
+float sweep,pwswp;
 
 /**
   * @brief  Main program
@@ -36,15 +34,24 @@ int main(void)
   /* Init Audio interface */
   AUDIO_Init();
 	AUDIO_Start();
-  
+	
+	sweep = 20.0;
+  pwswp = 0.5;
   /* Run Application (Blocking mode) */
   while (1)
   {
 		// Toggle LED1.
-    BSP_LED_Toggle(LED1);
+    //BSP_LED_Toggle(LED1);
+		sweep += .01;
+		pwswp += .0001;
+		if (sweep > 15020) sweep -= 15000;
+		if (pwswp > 1.0) pwswp -= 1.0;
+		(tP1).pwidth(&tP1,pwswp);
+		(tP1).freq(&tP1,sweep);
+		(tS1).freq(&tS1,sweep);
+		(tC1).freq(&tC1,sweep);
+		(tT1).freq(&tT1,sweep);
 		HAL_Delay(1);
-		test1_Wave++;
-		//Waveform_trace++;
   }
 }
 
@@ -52,7 +59,6 @@ int main(void)
 /*******************************************************************************
                             Static Function
 *******************************************************************************/
-
 
 /**
   * @brief  System Clock Configuration
@@ -159,9 +165,92 @@ void BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void
 //    RCC_ExCLKInitStruct.PLLI2S.PLLI2SP = 8;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SN = 344;
     RCC_ExCLKInitStruct.PLLI2S.PLLI2SQ = 7;
-    RCC_ExCLKInitStruct.PLLI2SDivQ = 4; // was 1
+    RCC_ExCLKInitStruct.PLLI2SDivQ = 1; // was 1
     HAL_RCCEx_PeriphCLKConfig(&RCC_ExCLKInitStruct);
   }
+}
+
+/**
+  * @brief  Initializes BSP_AUDIO_OUT MSP.
+  * @param  hsai: SAI handle
+  * @param  Params
+  * @retval None
+  */
+void BSP_AUDIO_OUT_MspInit(SAI_HandleTypeDef *hsai, void *Params)
+{ 
+  static DMA_HandleTypeDef hdma_sai_tx;
+  GPIO_InitTypeDef  gpio_init_structure;  
+
+  /* Enable SAI clock */
+  AUDIO_OUT_SAIx_CLK_ENABLE();
+  
+  /* Enable GPIO clock */
+  AUDIO_OUT_SAIx_MCLK_ENABLE();
+  AUDIO_OUT_SAIx_SCK_SD_ENABLE();
+  AUDIO_OUT_SAIx_FS_ENABLE();
+  /* CODEC_SAI pins configuration: FS, SCK, MCK and SD pins ------------------*/
+  gpio_init_structure.Pin = AUDIO_OUT_SAIx_FS_PIN;
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Pull = GPIO_NOPULL;
+  gpio_init_structure.Speed = GPIO_SPEED_HIGH;
+  gpio_init_structure.Alternate = AUDIO_OUT_SAIx_FS_SD_MCLK_AF;
+  HAL_GPIO_Init(AUDIO_OUT_SAIx_FS_GPIO_PORT, &gpio_init_structure);
+
+  gpio_init_structure.Pin = AUDIO_OUT_SAIx_SCK_PIN;
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Pull = GPIO_NOPULL;
+  gpio_init_structure.Speed = GPIO_SPEED_HIGH;
+  gpio_init_structure.Alternate = AUDIO_OUT_SAIx_SCK_AF;
+  HAL_GPIO_Init(AUDIO_OUT_SAIx_SCK_SD_GPIO_PORT, &gpio_init_structure);
+
+  gpio_init_structure.Pin =  AUDIO_OUT_SAIx_SD_PIN;
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Pull = GPIO_NOPULL;
+  gpio_init_structure.Speed = GPIO_SPEED_HIGH;
+  gpio_init_structure.Alternate = AUDIO_OUT_SAIx_FS_SD_MCLK_AF;
+  HAL_GPIO_Init(AUDIO_OUT_SAIx_SCK_SD_GPIO_PORT, &gpio_init_structure);
+
+  gpio_init_structure.Pin = AUDIO_OUT_SAIx_MCLK_PIN;
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Pull = GPIO_NOPULL;
+  gpio_init_structure.Speed = GPIO_SPEED_HIGH;
+  gpio_init_structure.Alternate = AUDIO_OUT_SAIx_FS_SD_MCLK_AF;
+  HAL_GPIO_Init(AUDIO_OUT_SAIx_MCLK_GPIO_PORT, &gpio_init_structure);
+
+  /* Enable the DMA clock */
+  AUDIO_OUT_SAIx_DMAx_CLK_ENABLE();
+    
+  if(hsai->Instance == AUDIO_OUT_SAIx)
+  {
+    /* Configure the hdma_saiTx handle parameters */   
+    hdma_sai_tx.Init.Channel             = AUDIO_OUT_SAIx_DMAx_CHANNEL;
+    hdma_sai_tx.Init.Direction           = DMA_MEMORY_TO_PERIPH;
+    hdma_sai_tx.Init.PeriphInc           = DMA_PINC_DISABLE;
+    hdma_sai_tx.Init.MemInc              = DMA_MINC_ENABLE;
+    hdma_sai_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD; //0x00000800U
+    hdma_sai_tx.Init.MemDataAlignment    = DMA_PDATAALIGN_HALFWORD; //was DMA_MDATAALIGN_HALFWORD: 0x00002000U
+    hdma_sai_tx.Init.Mode                = DMA_CIRCULAR;
+    hdma_sai_tx.Init.Priority            = DMA_PRIORITY_HIGH;
+    hdma_sai_tx.Init.FIFOMode            = DMA_FIFOMODE_ENABLE;         
+    hdma_sai_tx.Init.FIFOThreshold       = DMA_FIFO_THRESHOLD_FULL;
+    hdma_sai_tx.Init.MemBurst            = DMA_MBURST_SINGLE;
+    hdma_sai_tx.Init.PeriphBurst         = DMA_PBURST_SINGLE; 
+    
+    hdma_sai_tx.Instance = AUDIO_OUT_SAIx_DMAx_STREAM;
+    
+    /* Associate the DMA handle */
+    __HAL_LINKDMA(hsai, hdmatx, hdma_sai_tx);
+    
+    /* Deinitialize the Stream for new transfer */
+    HAL_DMA_DeInit(&hdma_sai_tx);
+    
+    /* Configure the DMA Stream */
+    HAL_DMA_Init(&hdma_sai_tx);      
+  }
+  
+  /* SAI DMA IRQ Channel configuration */
+  HAL_NVIC_SetPriority(AUDIO_OUT_SAIx_DMAx_IRQ, AUDIO_OUT_IRQ_PREPRIO, 0);
+  HAL_NVIC_EnableIRQ(AUDIO_OUT_SAIx_DMAx_IRQ); 
 }
 
 #ifdef  USE_FULL_ASSERT

@@ -10,7 +10,10 @@
 #include "stm32746g_discovery.h"
 #include "stm32746g_discovery_audio.h"
 
+#include "audiounits.h"
+
 #include "globals.h"
+
 
 
 /* Exported Defines ----------------------------------------------------------*/ 
