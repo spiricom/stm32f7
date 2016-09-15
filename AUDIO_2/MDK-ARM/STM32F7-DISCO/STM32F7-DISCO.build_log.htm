@@ -27,23 +27,17 @@ Project File Date:  09/12/2016
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F7-DISCO'
-compiling waveplayer.c...
-compiling stm32f7xx_it.c...
 compiling main.c...
-../Src/main.c(45): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  		sweep += .01;
-../Src/main.c(46): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  		pwswp += .0001;
-../Src/main.c(48): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(49): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   		if (pwswp > 1.0) pwswp -= 1.0;
-../Src/main.c(48): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+../Src/main.c(49): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   		if (pwswp > 1.0) pwswp -= 1.0;
-../Src/main.c(87): warning:  #177-D: variable "PeriphClkInitStruct" was declared but never referenced
+../Src/main.c(90): warning:  #177-D: variable "PeriphClkInitStruct" was declared but never referenced
     RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
-../Src/main.c: 5 warnings, 0 errors
+../Src/main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=14516 RO-data=4632 RW-data=92 ZI-data=3492  
-"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=14792 RO-data=8728 RW-data=96 ZI-data=3528  
+"STM32F7-DISCO\STM32F7-DISCO.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +55,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

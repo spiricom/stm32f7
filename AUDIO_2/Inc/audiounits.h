@@ -15,7 +15,7 @@ int tPhasorInit(tPhasor *p, float sr);
 typedef struct _tSawtooth{ 
 	tPhasor tP;
 	int(*freq)(struct _tSawtooth *self, float freq);
-	int16_t(*step)(struct _tSawtooth *self);
+	float(*step)(struct _tSawtooth *self);
 } tSawtooth;
 
 int tSawtoothInit(tSawtooth *t, float sr);
@@ -24,7 +24,7 @@ int tSawtoothInit(tSawtooth *t, float sr);
 typedef struct _tTriangle{ 
 	tPhasor tP;
 	int(*freq)(struct _tTriangle *self, float freq);
-	int16_t(*step)(struct _tTriangle *self);
+	float(*step)(struct _tTriangle *self);
 } tTriangle;
 
 int tTriangleInit(tTriangle *t, float sr);
@@ -35,7 +35,7 @@ typedef struct _tPulse{
 	float pw; 
 	int(*pwidth)(struct _tPulse *self, float pwidth);
 	int(*freq)(struct _tPulse *self, float freq);
-	int16_t(*step)(struct _tPulse *self);
+	float(*step)(struct _tPulse *self);
 } tPulse;
 
 int tPulseInit(tPulse *t, float sr, float pwidth);
@@ -43,11 +43,11 @@ int tPulseInit(tPulse *t, float sr, float pwidth);
 /* Cycle */
 typedef struct _tCycle { 
 	tPhasor tP;
-	const int16_t *wt; //wavetable
+	const float *wt; //wavetable
 	int wtlen; //wavetable length
 	int(*freq)(struct _tCycle *self, float freq);
-	int16_t(*step)(struct _tCycle *self);
+	float(*step)(struct _tCycle *self);
 } tCycle;
 
-int tCycleInit(tCycle *c, float sr, const int16_t *table, int len);
+int tCycleInit(tCycle *c, float sr, const float *table, int len);
 

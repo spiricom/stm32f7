@@ -10,13 +10,16 @@
 
 #define TP1_FREQ 220.0f
 
-extern tPulse tP1; 
-extern tCycle tC1;
-extern tSawtooth tS1;
-extern tTriangle tT1;
+extern tPulse pulse1; 
+extern tCycle sin1;
+extern tCycle sin2;
+extern tSawtooth saw1;
+extern tTriangle tri1;
+
+extern float sweep;
 
 extern int16_t buff[AUDIO_OUT_BUFFER_SIZE];
-extern int16_t samp;
+extern float fsamp;
 
 extern int INDEX;
 extern int idx;

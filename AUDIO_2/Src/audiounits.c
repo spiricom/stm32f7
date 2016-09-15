@@ -39,9 +39,9 @@ static int sawtoothFreq(tSawtooth *s, float freq) {
 	return 0;
 }
 
-static int16_t sawtoothStep(tSawtooth *s) {
+static float sawtoothStep(tSawtooth *s) {
 	float phase =  ((s->tP).step(&(s->tP)) * 2.0f) - 1.0f;
-	return (int16_t)(phase * 0x8000); 
+	return phase; 
 }
 
 
@@ -62,11 +62,11 @@ static int triangleFreq(tTriangle *t, float freq) {
 	return 0;
 }
 
-static int16_t triangleStep(tTriangle *t) {
+static float triangleStep(tTriangle *t) {
 	float phase =  (t->tP).step(&(t->tP)) * 2.0f; 
 	if (phase > 1.0f) phase = 2.0f - phase; 
 	phase = (phase * 2.0f) - 1.0f;
-	return (int16_t)(phase * 0x8000);
+	return phase;
 	
 }
 
@@ -96,10 +96,10 @@ static int pulseFreq(tPulse *pl, float freq) {
 	return 0;
 }
 
-static int16_t pulseStep(tPulse *pl) {
+static float pulseStep(tPulse *pl) {
 	float phase =  ((pl->tP).step(&(pl->tP)) * 2.0f)-1.0f; 
-	if (phase < pl->pw) return (int16_t)INT16_MAX;
-	else return (int16_t)INT16_MIN;
+	if (phase < pl->pw) return 1.0f;
+	else return -1.0f;
 }
 
 
@@ -122,20 +122,20 @@ static int cFreq(tCycle *c, float freq) {
 	return 0;
 }
 
-static int16_t cStep(tCycle *c) {
+static float cStep(tCycle *c) {
 	
 	float phase =  (c->tP).step(&(c->tP));
 	float temp = c->wtlen * phase;
 	int intPart = (int)temp;
 	float fracPart = temp - (float)intPart;
-	int16_t samp0 = (int16_t)(c->wt[intPart]);
+	float samp0 = c->wt[intPart];
 	if (++intPart >= c->wtlen) intPart = 0;
-	int16_t samp1 = (int16_t)(c->wt[intPart]);
+	float samp1 = c->wt[intPart];
 	return (samp0 + (samp1 - samp0) * fracPart);
 }
 
 
-int tCycleInit(tCycle *c, float sr, const int16_t *table, int len) {
+int tCycleInit(tCycle *c, float sr, const float *table, int len) {
 
 	tPhasorInit(&(c->tP),sr);
 	c->wt = table; 

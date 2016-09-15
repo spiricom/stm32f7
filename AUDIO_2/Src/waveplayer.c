@@ -6,12 +6,13 @@ int aBufferSize = 0.0f;
 __IO uint32_t gVolume = (uint32_t)VOLUME;
 int16_t buff[AUDIO_OUT_BUFFER_SIZE];
 
-int16_t samp = 0x0000;
+float fsamp = 0.0f;
 
-tCycle tC1;
-tSawtooth tS1;
-tTriangle tT1;
-tPulse tP1;
+tCycle sin2;
+tCycle sin1;
+tSawtooth saw1;
+tTriangle tri1;
+tPulse pulse1;
 
 int INDEX = 0;
 int idx = 0;
@@ -37,16 +38,12 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
 
 	for (INDEX = 0; INDEX < (AUDIO_OUT_BUFFER_SIZE/2); INDEX++) {
 		if ((INDEX & 1) == 0) {
-			//samp = (tP1).step(&tP1);
-			//samp = (tT1).step(&tT1);
-			//samp = (tS1).step(&tS1);
-			samp = (tC1).step(&tC1);
+				float mod = sin2.step(&sin2);
+				sin1.freq(&sin1,(((mod+1.0f)/2.0f) * 1000.) + 20.f);
+				fsamp = sin1.step(&sin1);
 		} 
-		buff[idx+INDEX] =  samp;
-
-		//samp = (uint16_t)(sinewave[(int)(WAVETABLE2_SIZE * phase)] + 32768.0);
-		//samp = (uint16_t) (phase * 65535.0f);
-			
+		
+		buff[idx+INDEX] =  (int16_t)(fsamp * INT16_MAX);
 	}
   
   return audio_error;
@@ -60,10 +57,11 @@ AUDIO_ErrorTypeDef AUDIO_Process(AUDIO_OUT_TransferStateTypeDef state)
   */
 AUDIO_ErrorTypeDef AUDIO_Init(void)
 {
-	tPulseInit(&tP1, SAMPLE_RATE, 0.5f);
-	tSawtoothInit(&tS1, SAMPLE_RATE);
-	tTriangleInit(&tT1, SAMPLE_RATE);
-	tCycleInit(&tC1, SAMPLE_RATE, sinewave, WAVETABLE2_SIZE);
+	tPulseInit(&pulse1, SAMPLE_RATE, 0.5f);
+	tSawtoothInit(&saw1, SAMPLE_RATE);
+	tTriangleInit(&tri1, SAMPLE_RATE);
+	tCycleInit(&sin1, SAMPLE_RATE, sinewave, SINE_TABLE_SIZE);
+	tCycleInit(&sin2, SAMPLE_RATE, sinewave, SINE_TABLE_SIZE);
 
 	BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, VOLUME, I2S_AUDIOFREQ_48K);
 	BSP_AUDIO_OUT_SetAudioFrameSlot(CODEC_AUDIOFRAME_SLOT_02);  // PCM 2-channel

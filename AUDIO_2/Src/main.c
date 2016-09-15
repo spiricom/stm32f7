@@ -42,15 +42,18 @@ int main(void)
   {
 		// Toggle LED1.
     //BSP_LED_Toggle(LED1);
-		sweep += .01;
-		pwswp += .0001;
+		
+		sweep += .001f;
+		pwswp += .0001f;
 		if (sweep > 15020) sweep -= 15000;
 		if (pwswp > 1.0) pwswp -= 1.0;
-		(tP1).pwidth(&tP1,pwswp);
-		(tP1).freq(&tP1,sweep);
-		(tS1).freq(&tS1,sweep);
-		(tC1).freq(&tC1,sweep);
-		(tT1).freq(&tT1,sweep);
+		(pulse1).pwidth(&pulse1,pwswp);
+		(pulse1).freq(&pulse1,sweep);
+		//(sin1).freq(&sin1,sweep);
+		(sin2).freq(&sin2,sweep);
+		(tri1).freq(&tri1,sweep);
+		(saw1).freq(&saw1,sweep);
+		
 		HAL_Delay(1);
   }
 }
