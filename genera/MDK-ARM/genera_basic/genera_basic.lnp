@@ -1,4 +1,4 @@
---cpu Cortex-M7.fp.dp
+--cpu Cortex-M7.fp.sp
 "genera_basic\stm32f7xx_hal_sai_ex.o"
 "genera_basic\stm32f7xx_hal_spi.o"
 "genera_basic\stm32f7xx_hal_dma.o"
@@ -28,6 +28,8 @@
 "genera_basic\stm32f7xx_hal_msp.o"
 "genera_basic\audiostream.o"
 "genera_basic\codec.o"
+"genera_basic\oops.o"
+"genera_basic\oopswt.o"
 --library_type=microlib --strict --scatter "genera_basic\genera_basic.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
