@@ -29,7 +29,14 @@
 "genera_basic\audiostream.o"
 "genera_basic\codec.o"
 "genera_basic\oops.o"
-"genera_basic\oopswt.o"
+"genera_basic\oopsdelay.o"
+"genera_basic\oopsfilter.o"
+"genera_basic\oopsinstrument.o"
+"genera_basic\oopsmath.o"
+"genera_basic\oopsoscillator.o"
+"genera_basic\oopsreverb.o"
+"genera_basic\oopsutilities.o"
+"genera_basic\oopswavetables.o"
 --library_type=microlib --strict --scatter "genera_basic\genera_basic.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

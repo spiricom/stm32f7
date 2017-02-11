@@ -540,19 +540,29 @@
               <FilePath>..\Src\audiostream.c</FilePath>
             </File>
             <File>
-              <FileName>codec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Inc\codec.h</FilePath>
-            </File>
-            <File>
               <FileName>codec.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\codec.c</FilePath>
             </File>
             <File>
-              <FileName>OOPSBase.h</FileName>
+              <FileName>codec.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Inc\OOPSBase.h</FilePath>
+              <FilePath>..\Inc\codec.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSTest.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSTest.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>OOPS</GroupName>
+          <Files>
+            <File>
+              <FileName>OOPSWavetables.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSWavetables.h</FilePath>
             </File>
             <File>
               <FileName>OOPS.h</FileName>
@@ -560,9 +570,44 @@
               <FilePath>..\Inc\OOPS.h</FilePath>
             </File>
             <File>
-              <FileName>OOPSWT.h</FileName>
+              <FileName>OOPSCore.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Inc\OOPSWT.h</FilePath>
+              <FilePath>..\Inc\OOPSCore.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSDelay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSDelay.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSFilter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSFilter.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSInstrument.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSInstrument.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMath.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSMath.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSOscillator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSOscillator.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSReverb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSReverb.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSUtilities.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSUtilities.h</FilePath>
             </File>
             <File>
               <FileName>OOPS.c</FileName>
@@ -570,14 +615,49 @@
               <FilePath>..\Src\OOPS.c</FilePath>
             </File>
             <File>
-              <FileName>OOPSWT.c</FileName>
+              <FileName>OOPSDelay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\OOPSWT.c</FilePath>
+              <FilePath>..\Src\OOPSDelay.c</FilePath>
             </File>
             <File>
-              <FileName>OOPSTest.h</FileName>
+              <FileName>OOPSFilter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSFilter.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSInstrument.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSInstrument.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMath.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSMath.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSOscillator.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSOscillator.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSReverb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSReverb.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSUtilities.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSUtilities.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSWavetables.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSWavetables.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMemConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Inc\OOPSTest.h</FilePath>
+              <FilePath>..\Inc\OOPSMemConfig.h</FilePath>
             </File>
           </Files>
         </Group>

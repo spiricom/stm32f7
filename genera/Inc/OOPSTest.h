@@ -1,11 +1,16 @@
 #include "OOPS.h"
 
-#define NUM_SINES 1
-#define NB 2
+#define NUM_OSC 16
 
-float pluckBuff1[REV_DELAY_LENGTH];
+//tStifKarp* sk;
+//float skBuff[2][DELAY_LENGTH];
 
-tPluck pluck1;
+tSawtooth* saw[8];
+tEnvelope* env;
+tSVFE* svf;
 
 
-tCycle mySine[NUM_SINES];
+//tCycle* osc;
+
+
+
