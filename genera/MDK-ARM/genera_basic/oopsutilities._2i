@@ -1,0 +1,6 @@
+-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99
+-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"
+-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include
+-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include
+-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx
+-o genera_basic\oopsutilities.o --omf_browse genera_basic\oopsutilities.crf --depend genera_basic\oopsutilities.d --feedback "genera_basic\genera_basic.fed" "..\Src\OOPSUtilities.c"
