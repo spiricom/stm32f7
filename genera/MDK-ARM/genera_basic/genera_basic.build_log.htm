@@ -22,15 +22,22 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\genera_basic.uvprojx
-Project File Date:  01/24/2017
+Project File Date:  03/13/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
-compiling audiostream.c...
+compiling OOPSUtilities.c...
+..\Src\OOPSUtilities.c(57): warning:  #177-D: variable "c_dB"  was declared but never referenced
+      float slope, overshoot, c_dB;
+..\Src\OOPSUtilities.c(162): warning:  #173-D: floating-point value does not fit in required integral type
+          attackIndex = ((int16_t)(8192.0f * 8.0f))-1;
+..\Src\OOPSUtilities.c(179): warning:  #173-D: floating-point value does not fit in required integral type
+          decayIndex = ((int16_t)(8192.0f * 8.0f))-1;
+..\Src\OOPSUtilities.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=14092 RO-data=541232 RW-data=44 ZI-data=301884  
-"genera_basic\genera_basic.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=16612 RO-data=631344 RW-data=44 ZI-data=303452  
+"genera_basic\genera_basic.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,7 +55,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

@@ -92,6 +92,14 @@ void OOPSSetSampleRate(float sampleRate)
 #if N_STIFKARP 
 		 for (int i = 0; i < oops.registryIndex[T_STIFKARP]; i++)       OOPSSampleRateChanged(tStifKarpRegistry[i]);
 #endif
+
+#if N_NEURON 
+		 for (int i = 0; i < oops.registryIndex[T_NEURON]; i++)         OOPSSampleRateChanged(tNeuronRegistry[i]);
+#endif
+    
+#if N_COMPRESSOR
+        for (int i = 0; i < oops.registryIndex[T_COMPRESSOR]; i++)         OOPSSampleRateChanged(tCompressorRegistry[i]);
+#endif
 }
 
 float OOPSGetSampleRate()

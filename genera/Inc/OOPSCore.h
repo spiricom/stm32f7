@@ -14,6 +14,16 @@
 #include "OOPSMemConfig.h"
 
 #include "OOPSMath.h"
+typedef struct _tCompressor
+{
+    int tauAttack, tauRelease;
+    float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
+    
+    float x_G[2], y_G[2], x_T[2], y_T[2];
+    
+    void (*sampleRateChanged)(struct _tCompressor *self);
+    
+}tCompressor;
 
 typedef struct _tPhasor
 {
@@ -387,6 +397,35 @@ typedef struct _tNRev
     
 } tNRev;
 
+typedef enum NeuronMode
+{
+    NeuronNormal = 0,
+    NeuronTanh,
+    NeuronAaltoShaper,
+    NeuronModeNil
+} NeuronMode;
+
+typedef struct _tNeuron
+{
+    
+    tPoleZero* f;
+    
+    NeuronMode mode;
+    
+    float voltage, current;
+    float timeStep;
+    
+    float alpha[3];
+    float beta[3];
+    float rate[3];
+    float V[3];
+    float P[3];
+    float gK, gN, gL, C;
+    
+    void (*sampleRateChanged)(struct _tNeuron *self);
+    
+} tNeuron;
+
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
 void     tPhasorSampleRateChanged (tPhasor *p);
@@ -404,6 +443,9 @@ void     tPRCRevSampleRateChanged (tPRCRev *c);
 void     tNRevSampleRateChanged (tNRev *c);
 void     tPluckSampleRateChanged (tPluck *c);
 void     tStifKarpSampleRateChanged (tStifKarp *c);
+
+void     tNeuronSampleRateChanged(tNeuron* n);
+void     tCompressorSampleRateChanged(tCompressor* n);
 
 typedef enum OOPSRegistryIndex
 {
@@ -433,6 +475,8 @@ typedef enum OOPSRegistryIndex
     T_NREV,
     T_PLUCK,
     T_STIFKARP,
+    T_NEURON,
+    T_COMPRESSOR,
     T_INDEXCNT
 }OOPSRegistryIndex;
 
@@ -547,7 +591,16 @@ typedef struct _OOPS
 #if N_STIFKARP
     tStifKarp          tStifKarpRegistry        [N_STIFKARP];
 #endif
-     
+    
+#if N_NEURON
+    tNeuron            tNeuronRegistry          [N_NEURON];
+#endif
+    
+#if N_COMPRESSOR    
+    tCompressor        tCompressorRegistry      [N_COMPRESSOR];
+#endif
+    
+    
     int registryIndex[T_INDEXCNT];
 		
 } OOPS;

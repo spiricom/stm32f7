@@ -14,17 +14,25 @@
 #include "OOPSMath.h"
 #include "OOPSCore.h"
 
-/* PRCRev: Reverb, adapted from STK, algorithm by Perry Cook. */
-tPRCRev* tPRCRevInit      (float t60, float delayBuffers[3][DELAY_LENGTH]);
-void     tPRCRevSetT60    (tPRCRev*  const, float t60);
-void     tPRCRevSetMix    (tPRCRev*  const, float mix);
-float    tPRCRevTick      (tPRCRev*  const, float input);
+/* PRCRev: Reverb, reimplemented from STK (Cook and Scavone). */
+tPRCRev*    tPRCRevInit      (float t60);
+float       tPRCRevTick      (tPRCRev*  const, float input);
 
-/* NRev: Reverb, adpated from STK. */
-tNRev*   tNRevInit   (float t60, float delayBuffers[14][DELAY_LENGTH]);
-void     tNRevSetT60 (tNRev*  const, float t60);
-void     tNRevSetMix (tNRev*  const, float mix);
-float    tNRevTick   (tNRev*  const, float input);
+// Set reverb time in seconds.
+void        tPRCRevSetT60    (tPRCRev*  const, float t60);
+
+// Set mix between dry input and wet output signal.
+void        tPRCRevSetMix    (tPRCRev*  const, float mix);
+
+/* NRev: Reverb, reimplemented from STK (Cook and Scavone). */
+tNRev*      tNRevInit   (float t60);
+float       tNRevTick   (tNRev*  const, float input);
+
+// Set reverb time in seconds.
+void        tNRevSetT60 (tNRev*  const, float t60);
+
+// Set mix between dry input and wet output signal.
+void        tNRevSetMix (tNRev*  const, float mix);
 
 
 #endif  // OOPSREVERB_H_INCLUDED

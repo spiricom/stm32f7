@@ -5,7 +5,7 @@
 
 #include "codec.h"
 
-#define AUDIO_BUFFER_SIZE             128 //four is the lowest number that makes sense -- 2 samples for each computed sample (L/R), and then half buffer fills
+#define AUDIO_BUFFER_SIZE             256 //four is the lowest number that makes sense -- 2 samples for each computed sample (L/R), and then half buffer fills
 #define HALF_BUFFER_SIZE      (AUDIO_BUFFER_SIZE/2)
 
 /* Ping-Pong buffer used for audio play */
@@ -163,12 +163,14 @@ float audioTick(float audioIn) {
 	
 	for (int i = 0; i < 2; i++)
 	{
-		//sample += 0.1f * tSawtoothTick(saw[i]);
+		sample += 0.1f * tSawtoothTick(saw[i]);
 	}
-	//sample = sample * 0.0f;
-	//+sample = sample * tEnvelopeTick(env);
-	//sample = tSVFETick(svf, sample);
-	//sample += 0.5f * tCycleTick(osc);
+	sample = sample * 0.0f;
+	sample = sample * tEnvelopeTick(env);
+	sample = tSVFETick(svf, sample);
+	
+	
+	sample = audioIn;
 	
 	return sample;
 }

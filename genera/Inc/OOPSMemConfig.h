@@ -19,14 +19,19 @@
  *                                                                                                       *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#define SHAPER1_TABLE_SIZE 65536
+extern const float shaper1[SHAPER1_TABLE_SIZE];
+
 // Arbitrary number of instances.
 #define NI 5
 
 //#define     N_MYOBJECT            0   // Zero instances is fine.
+#define     N_COMPRESSOR        NI
 #define     N_PRCREV            1
 #define     N_NREV              1
 #define     N_PLUCK             1
 #define     N_STIFKARP          1
+#define     N_NEURON            5
 #define     N_PHASOR            NI
 #define     N_CYCLE             NI
 #define     N_SAWTOOTH          NI
@@ -35,9 +40,9 @@
 #define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) // StifKarp and Pluck each contain 1 Noise component.
 #define     N_ONEPOLE           NI + (1 * N_PLUCK)
 #define     N_TWOPOLE           NI
-#define     N_ONEZERO           NI + (1 * N_STIFKARP) + (1 * N_PLUCK)
+#define     N_ONEZERO           NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (1 * N_NEURON)
 #define     N_TWOZERO           NI
-#define     N_POLEZERO          NI
+#define     N_POLEZERO          NI + (1 * N_NEURON)
 #define     N_BIQUAD            NI + (4 * N_STIFKARP)
 #define     N_SVF               NI
 #define     N_SVFE              NI
@@ -47,17 +52,18 @@
 #define     N_DELAYA            NI + (1 * N_PRCREV) + (1 * N_STIFKARP)
 #define     N_ENVELOPE          NI
 #define     N_ADSR              NI
-#define     N_RAMP              NI
+#define     N_RAMP              4 + N_NEURON
+
 #define     N_ENVELOPEFOLLOW    NI
 
 #define     DELAY_LENGTH        2048    // The maximum delay length of all Delay/DelayL/DelayA components.
                                         // Feel free to change to suit memory constraints or desired delay max length / functionality.
 
-#define     INC_MISC_WT         0       // Set this to 1 if you are interested in the mtof1, adc1, tanh1, and shaper1 wavetables
+#define     INC_MISC_WT         0     // Set this to 1 if you are interested in the mtof1, adc1, tanh1, and shaper1 wavetables
                                         // and have spare memory.
 
 // Preprocessor defines to determine whether to include component files in build.
-#define INC_UTILITIES       (N_ENVELOPE || N_ENVELOPEFOLLOW || N_RAMP || N_ADSR)
+#define INC_UTILITIES       (N_ENVELOPE || N_ENVELOPEFOLLOW || N_RAMP || N_ADSR || N_COMPRESSOR)
 #define INC_DELAY           (N_DELAY || N_DELAYL || N_DELAYA)
 #define INC_FILTER          (N_ONEPOLE || N_TWOPOLE || N_ONEZERO || N_TWOZERO || N_POLEZERO || N_BIQUAD || N_SVF || N_SVFE || N_HIGHPASS)
 #define INC_OSCILLATOR      (N_PHASOR || N_SAWTOOTH || N_CYCLE || N_TRIANGLE || N_SQUARE || N_NOISE)

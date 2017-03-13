@@ -12,7 +12,99 @@
 #include "OOPSWavetables.h"
 #include "OOPS.h"
 
+#if N_COMPRESSOR
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Compressor ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
 
+/*
+tCompressor*    tCompressorInit(int tauAttack, int tauRelease)
+{
+    tCompressor* c = &oops.tCompressorRegistry[oops.registryIndex[T_COMPRESSOR]++];
+    
+    c->tauAttack = tauAttack;
+    c->tauRelease = tauRelease;
+    
+    c->x_G[0] = 0.0f, c->x_G[1] = 0.0f,
+    c->y_G[0] = 0.0f, c->y_G[1] = 0.0f,
+    c->x_T[0] = 0.0f, c->x_T[1] = 0.0f,
+    c->y_T[0] = 0.0f, c->y_T[1] = 0.0f;
+    
+    c->T = 0.0f; // Threshold
+    c->R = 1.0f; // compression Ratio
+    c->M = 0.0f; // decibel Make-up gain
+    c->W = 0.0f; // decibel Width of knee transition
+    
+    return c;
+}
+*/
+tCompressor*    tCompressorInit(void)
+{
+    tCompressor* c = &oops.tCompressorRegistry[oops.registryIndex[T_COMPRESSOR]++];
+    
+    c->tauAttack = 100;
+    c->tauRelease = 100;
+    
+    c->T = 0.0f; // Threshold
+    c->R = 0.5f; // compression Ratio
+    c->M = 3.0f; // decibel Width of knee transition
+    c->W = 1.0f; // decibel Make-up gain
+    
+    return c;
+}
+
+int ccount = 0;
+float tCompressorTick(tCompressor* c, float in)
+{
+    float slope, overshoot, c_dB;
+    float alphaAtt, alphaRel;
+    
+    float in_db = 20.0f * log10f( fmaxf( fabsf( in), 0.000001f)), out_db = 0.0f;
+    
+    c->y_T[1] = c->y_T[0];
+    
+    slope = c->R - 1.0f; // feed-forward topology; was 1/C->R - 1 
+    
+    overshoot = in_db - c->T;
+    
+    
+    
+    if (overshoot <= -(c->W * 0.5f))
+        out_db = in_db;
+    else if ((overshoot > -(c->W * 0.5f)) && (overshoot < (c->W * 0.5f)))
+        out_db = in_db + slope * (powf((overshoot + c->W*0.5f),2) / (2.0f * c->W)); // .^ 2 ???
+    else if (overshoot >= (c->W * 0.5f))
+        out_db = in_db + slope * overshoot;
+    
+    
+    
+    c->x_T[0] = out_db - in_db;
+    
+    alphaAtt = expf(-1.0f/(0.001f * c->tauAttack * oops.sampleRate));
+    alphaRel = expf(-1.0f/(0.001f * c->tauRelease * oops.sampleRate));
+    
+    if (c->x_T[0] > c->y_T[1])
+        c->y_T[0] = alphaAtt * c->y_T[1] + (1-alphaAtt) * c->x_T[0];
+    else
+        c->y_T[0] = alphaRel * c->y_T[1] + (1-alphaRel) * c->x_T[0];
+    
+    float attenuation = powf(10.0f, ((c->M - c->y_T[0])/20.0f));
+    
+    /*
+    if (++ccount > 5000)
+    {
+        
+        ccount = 0;
+        DBG(".5width: " + String(c->W * 0.5f));
+        DBG("slope: " + String(slope) + " overshoot: " + String(overshoot));
+        DBG("attenuation: " + String(attenuation));
+    }
+    */
+    return attenuation * in;
+    
+
+}
+
+
+#endif
 #if N_ENVELOPE
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Envelope ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
 tEnvelope*    tEnvelopeInit(float attack, float decay, oBool loop)

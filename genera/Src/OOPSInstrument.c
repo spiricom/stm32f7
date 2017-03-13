@@ -216,7 +216,7 @@ void    tStifKarpSetFrequency  (tStifKarp* const p, float frequency )
     
 }
 
-//! Set the stretch "factor" of the string (0.0 - 1.0).
+// Set the stretch "factor" of the string (0.0 - 1.0).
 void    tStifKarpSetStretch         (tStifKarp* const p, float stretch )
 {
     p->stretching = stretch;
@@ -241,7 +241,7 @@ void    tStifKarpSetStretch         (tStifKarp* const p, float stretch )
     }
 }
 
-//! Set the pluck or "excitation" position along the string (0.0 - 1.0).
+// Set the pluck or "excitation" position along the string (0.0 - 1.0).
 void    tStifKarpSetPickupPosition  (tStifKarp* const p, float position )
 {
     if (position < 0.0f)        p->pickupPosition = 0.0f;
@@ -251,7 +251,7 @@ void    tStifKarpSetPickupPosition  (tStifKarp* const p, float position )
     tDelayLSetDelay(p->combDelay, 0.5f * p->pickupPosition * p->lastLength);
 }
 
-//! Set the base loop gain.
+// Set the base loop gain.
 void    tStifKarpSetBaseLoopGain    (tStifKarp* const p, float aGain )
 {
     p->baseLoopGain = aGain;

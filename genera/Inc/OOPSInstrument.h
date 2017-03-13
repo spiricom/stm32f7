@@ -17,11 +17,23 @@
 /* tPluck */
 tPluck*     tPluckInit          (float lowestFrequency, float delayBuff[DELAY_LENGTH]);
 float       tPluckTick          (tPluck*  const);
+
+// Pluck the string.
 void        tPluckPluck         (tPluck*  const, float amplitude);
-void        tPluckNoteOn        (tPluck*  const, float frequency, float amplitude ); // Start a note with the given frequency and amplitude.;
-void        tPluckNoteOff       (tPluck*  const, float amplitude ); // Stop a note with the given amplitude (speed of decay).
-void        tPluckSetFrequency  (tPluck*  const, float frequency ); // Set instrument parameters for a particular frequency.
-void        tPluckControlChange (tPluck*  const, int number, float value); // Perform the control change specified by \e number and \e value (0.0 - 128.0).
+
+// Start a note with the given frequency and amplitude.;
+void        tPluckNoteOn        (tPluck*  const, float frequency, float amplitude );
+
+// Stop a note with the given amplitude (speed of decay).
+void        tPluckNoteOff       (tPluck*  const, float amplitude );
+
+// Set instrument parameters for a particular frequency.
+void        tPluckSetFrequency  (tPluck*  const, float frequency );
+
+// Perform the control change specified by \e number and \e value (0.0 - 128.0).
+void        tPluckControlChange (tPluck*  const, int number, float value);
+
+// tPluck Utilities.
 float       tPluckGetLastOut    (tPluck*  const);
 
 /* tStifKarp */
@@ -35,14 +47,33 @@ typedef enum SKControlType
 
 tStifKarp*  tStifKarpInit               (float lowestFrequency, float delayBuff[2][DELAY_LENGTH]);
 float       tStifKarpTick               (tStifKarp*  const);
+
+// Pluck the string.
 void        tStifKarpPluck              (tStifKarp*  const, float amplitude);
-void        tStifKarpNoteOn             (tStifKarp*  const, float frequency, float amplitude ); // Start a note with the given frequency and amplitude.;
-void        tStifKarpNoteOff            (tStifKarp*  const, float amplitude ); // Stop a note with the given amplitude (speed of decay).
-void        tStifKarpSetFrequency       (tStifKarp*  const, float frequency ); // Set instrument parameters for a particular frequency.
-void        tStifKarpControlChange      (tStifKarp*  const, SKControlType type, float value); // Perform the control change specified by \e number and \e value (0.0 - 128.0).
-void        tStifKarpSetStretch         (tStifKarp*  const, float stretch );//! Set the stretch "factor" of the string (0.0 - 1.0).
-void        tStifKarpSetPickupPosition  (tStifKarp*  const, float position ); //! Set the pluck or "excitation" position along the string (0.0 - 1.0).
-void        tStifKarpSetBaseLoopGain    (tStifKarp*  const, float aGain ); //! Set the base loop gain.
+
+// Start a note with the given frequency and amplitude.;
+void        tStifKarpNoteOn             (tStifKarp*  const, float frequency, float amplitude );
+
+// Stop a note with the given amplitude (speed of decay).
+void        tStifKarpNoteOff            (tStifKarp*  const, float amplitude );
+
+// Set instrument parameters for a particular frequency.
+void        tStifKarpSetFrequency       (tStifKarp*  const, float frequency );
+
+// Perform the control change specified by \e number and \e value (0.0 - 128.0).
+// Use SKPickPosition, SKStringDamping, or SKDetune for type.
+void        tStifKarpControlChange      (tStifKarp*  const, SKControlType type, float value);
+
+// Set the stretch "factor" of the string (0.0 - 1.0).
+void        tStifKarpSetStretch         (tStifKarp*  const, float stretch );
+
+// Set the pluck or "excitation" position along the string (0.0 - 1.0).
+void        tStifKarpSetPickupPosition  (tStifKarp*  const, float position );
+
+// Set the base loop gain.
+void        tStifKarpSetBaseLoopGain    (tStifKarp*  const, float aGain );
+
+// tStifKarp utilities.
 float       tStifKarpGetLastOut         (tStifKarp*  const);
 
 

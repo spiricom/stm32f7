@@ -12,29 +12,44 @@
 #define OOPSUTILITIES_H_INCLUDED
 
 #include "OOPSCore.h"
+/* Compressor */
+
+//tCompressor*            tCompressorInit    (float tauAttack, float tauRelease);
+tCompressor*            tCompressorInit    (void);
+float                   tCompressorTick    (tCompressor* const, float input);
+
 
 /* Attack-Decay envelope */
-tEnvelope*  tEnvelopeInit      (float attack, float decay, oBool loop);
-int         tEnvelopeSetAttack (tEnvelope*  const, float attack);
-int         tEnvelopeSetDecay  (tEnvelope*  const, float decay);
-int         tEnvelopeLoop      (tEnvelope*  const, oBool loop);
-int         tEnvelopeOn        (tEnvelope*  const, float velocity);
-float       tEnvelopeTick      (tEnvelope*  const);
+tEnvelope*              tEnvelopeInit      (float attack, float decay, oBool loop);
+float                   tEnvelopeTick      (tEnvelope*  const);
 
-/* Attack-Decay-Sustain-Release envelope. */
-tADSR*      tADSRInit(float attack, float decay, float sustain, float release);
+int                     tEnvelopeSetAttack (tEnvelope*  const, float attack);
+
+int                     tEnvelopeSetDecay  (tEnvelope*  const, float decay);
+
+int                     tEnvelopeLoop      (tEnvelope*  const, oBool loop);
+
+int                     tEnvelopeOn        (tEnvelope*  const, float velocity);
+
+/* ADSR coming soon. */
 
 /* Ramp */
-tRamp*      tRampInit  (float time, int samples_per_tick);
-int         tRampSetTime(tRamp*  const, float time);
-int         tRampSetDest(tRamp*  const, float dest);
-float       tRampTick   (tRamp*  const);
+tRamp*                  tRampInit   (float time, int samplesPerTick);
+float                   tRampTick   (tRamp*  const);
+
+int                     tRampSetTime(tRamp*  const, float time);
+
+int                     tRampSetDest(tRamp*  const, float dest);
+
+
 
 /* Envelope Follower */
 tEnvelopeFollower*      tEnvelopeFollowerInit           (float attackThreshold, float decayCoeff);
-int                     tEnvelopeFollowerDecayCoeff     (tEnvelopeFollower*  const, float decayCoeff);
-int                     tEnvelopeFollowerAttackThresh   (tEnvelopeFollower*  const, float attackThresh);
 float                   tEnvelopeFollowerTick           (tEnvelopeFollower*  const, float x);
+
+int                     tEnvelopeFollowerDecayCoeff     (tEnvelopeFollower*  const, float decayCoeff);
+
+int                     tEnvelopeFollowerAttackThresh   (tEnvelopeFollower*  const, float attackThresh);
 
 
 #endif  // OOPSUTILITIES_H_INCLUDED

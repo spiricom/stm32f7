@@ -13,13 +13,17 @@
 
 #include "OOPSMemConfig.h"
 
+
+
+
+
+
 #define SINE_TABLE_SIZE 2048
 #define SAW_TABLE_SIZE 2048
 #define SQR_TABLE_SIZE 2048
 #define TRI_TABLE_SIZE 2048
 #define EXP_DECAY_TABLE_SIZE 65536
 #define ATTACK_DECAY_INC_TABLE_SIZE 65536
-#define SHAPER1_TABLE_SIZE 65536
 #define TANH1_TABLE_SIZE 65536
 #define ADC1_TABLE_SIZE 4096
 #define MTOF1_TABLE_SIZE 4096
@@ -55,7 +59,7 @@ extern const float filtertan[FILTERTAN_TABLE_SIZE];
 #if INC_MISC_WT
 extern const float mtof1[MTOF1_TABLE_SIZE];
 extern const float adc1[ADC1_TABLE_SIZE];
-extern const float shaper1[SHAPER1_TABLE_SIZE];
+
 extern const float tanh1[TANH1_TABLE_SIZE];
 #endif
 

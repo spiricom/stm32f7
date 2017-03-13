@@ -12,6 +12,205 @@
 #include "OOPSOscillator.h"
 #include "OOPS.h"
 
+#if N_NEURON
+
+void     tNeuronSampleRateChanged(tNeuron* n)
+{
+    
+}
+
+tNeuron*    tNeuronInit(void)
+{
+    tNeuron* n = &oops.tNeuronRegistry[oops.registryIndex[T_CYCLE]++];
+
+    n->f = tPoleZeroInit();
+    tPoleZeroSetBlockZero(n->f, 0.99f);
+    
+    n->timeStep = 1.0f / 50.0f;
+    
+    n->current = 0.0f; // 100.0f for sound
+    n->voltage = 0.0f;
+    
+    n->mode = NeuronNormal;
+    
+    n->P[0] = 0.0f;
+    n->P[1] = 0.0f;
+    n->P[2] = 1.0f;
+    
+    n->V[0] = -12.0f;
+    n->V[1] = 115.0f;
+    n->V[2] = 10.613f;
+    
+    n->gK = 36.0f;
+    n->gN = 120.0f;
+    n->gL = 0.3f;
+    n->C = 1.0f;
+    
+    n->rate[2] = n->gL/n->C;
+    
+    n->sampleRateChanged = &tNeuronSampleRateChanged;
+    return n;
+}
+
+void   tNeuronReset(tNeuron* const n)
+{
+    
+    tPoleZeroSetBlockZero(n->f, 0.99f);
+    
+    n->timeStep = 1.0f / 50.0f;
+    
+    n->current = 0.0f; // 100.0f for sound
+    n->voltage = 0.0f;
+    
+    n->mode = NeuronNormal;
+    
+    n->P[0] = 0.0f;
+    n->P[1] = 0.0f;
+    n->P[2] = 1.0f;
+    
+    n->V[0] = -12.0f;
+    n->V[1] = 115.0f;
+    n->V[2] = 10.613f;
+    
+    n->gK = 36.0f;
+    n->gN = 120.0f;
+    n->gL = 0.3f;
+    n->C = 1.0f;
+    
+    n->rate[2] = n->gL/n->C;
+}
+
+
+void        tNeuronSetV1(tNeuron* const n, float V1)
+{
+    n->V[0] = V1;
+}
+
+
+void        tNeuronSetV2(tNeuron* const n, float V2)
+{
+    n->V[1] = V2;
+}
+
+void        tNeuronSetV3(tNeuron* const n, float V3)
+{
+    n->V[2] = V3;
+}
+
+void        tNeuronSetTimeStep(tNeuron* const n, float timeStep)
+{
+    n->timeStep = timeStep;
+}
+
+void        tNeuronSetK(tNeuron* const n, float K)
+{
+    n->gK = K;
+}
+
+void        tNeuronSetL(tNeuron* const n, float L)
+{
+    n->gL = L;
+    n->rate[2] = n->gL/n->C;
+}
+
+void        tNeuronSetN(tNeuron* const n, float N)
+{
+    n->gN = N;
+}
+
+void        tNeuronSetC(tNeuron* const n, float C)
+{
+    n->C = C;
+    n->rate[2] = n->gL/n->C;
+}
+
+float   tNeuronTick(tNeuron* const n)
+{
+    float output = 0.0f;
+    float voltage = n->voltage;
+    
+    n->alpha[0] = (0.01f * (10.0f - voltage)) / (expf((10.0f - voltage)/10.0f) - 1.0f);
+    n->alpha[1] = (0.1f * (25.0f-voltage)) / (expf((25.0f-voltage)/10.0f) - 1.0f);
+    n->alpha[2] = (0.07f * expf((-1.0f * voltage)/20.0f));
+    
+    n->beta[0] = (0.125f * expf((-1.0f* voltage)/80.0f));
+    n->beta[1] = (4.0f * expf((-1.0f * voltage)/18.0f));
+    n->beta[2] = (1.0f / (expf((30.0f-voltage)/10.0f) + 1.0f));
+    
+    for (int i = 0; i < 3; i++)
+    {
+        n->P[i] = (n->alpha[i] * n->timeStep) + ((1.0f - ((n->alpha[i] + n->beta[i]) * n->timeStep)) * n->P[i]);
+        
+        if (n->P[i] > 1.0f)         n->P[i] = 0.0f;
+        else if (n->P[i] < -1.0f)   n->P[i] = 0.0f;
+    }
+    // rate[0]= k ; rate[1] = Na ; rate[2] = l
+    n->rate[0] = ((n->gK * powf(n->P[0], 4.0f)) / n->C);
+    n->rate[1] = ((n->gN * powf(n->P[1], 3.0f) * n->P[2]) / n->C);
+    
+    //calculate the final membrane voltage based on the computed variables
+    n->voltage = voltage +
+                (n->timeStep * n->current / n->C) -
+                (n->timeStep * ( n->rate[0] * (voltage - n->V[0]) + n->rate[1] * (voltage - n->V[1]) + n->rate[2] * (voltage - n->V[2])));
+    
+    if (n->mode == NeuronTanh)
+    {
+        n->voltage = 100.0f * tanhf(0.01f * n->voltage);
+    }
+    else if (n->mode == NeuronAaltoShaper)
+    {
+        float shapeVoltage = 0.01f * n->voltage;
+        
+        float w, c, xc, xc2, xc4;
+
+        float sqrt8 = 2.82842712475;
+
+        float wscale = 1.30612244898;
+        float m_drive = 1.0f;
+
+        xc = OOPS_clip(-sqrt8, shapeVoltage, sqrt8);
+
+        xc2 = xc*xc;
+
+        c = 0.5 * shapeVoltage * (3.0 - (xc2));
+
+        xc4 = xc2 * xc2;
+
+        w = (1.0 - xc2 * 0.25 + xc4 * 0.015625) * wscale;
+
+        shapeVoltage = w * (c + 0.05 * xc2) * (m_drive + 0.75);
+        
+        n->voltage = 100.0f * shapeVoltage;
+    }
+    
+    
+    if (n->voltage > 100.0f)  n->voltage = 100.0f;
+    else if (n->voltage < -100.) n->voltage = -100.0f;
+    
+    //(inputCurrent + (voltage - ((voltage * timeStep) / timeConstant)) + P[0] + P[1] + P[2]) => voltage;
+    // now we should have a result
+    //set the output voltage to the "step" ugen, which controls the DAC.
+    output = n->voltage * 0.01f; // volts
+    
+    output = tPoleZeroTick(n->f, output);
+    
+    return output;
+
+}
+
+void        tNeuronSetMode  (tNeuron* const n, NeuronMode mode)
+{
+    n->mode = mode;
+}
+
+void        tNeuronSetCurrent  (tNeuron* const n, float current)
+{
+    n->current = current;
+}
+
+#endif
+
+
 #if N_CYCLE
 // Cycle
 tCycle*    tCycleInit(void)

@@ -13,7 +13,7 @@
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ PRCRev ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
 #if N_PRCREV
-tPRCRev*    tPRCRevInit(float t60, float delayBuffers[3][DELAY_LENGTH])
+tPRCRev*    tPRCRevInit(float t60)
 {
     tPRCRev* r = &oops.tPRCRevRegistry[oops.registryIndex[T_PRCREV]++];
     
@@ -109,8 +109,8 @@ void     tPRCRevSampleRateChanged (tPRCRev* const r)
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ NRev ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
-#if N_REV
-tNRev*    tNRevInit(float t60, float delayBuffers[14][DELAY_LENGTH])
+#if N_NREV
+tNRev*    tNRevInit(float t60)
 {
     tNRev* r = &oops.tNRevRegistry[oops.registryIndex[T_NREV]++];
     
