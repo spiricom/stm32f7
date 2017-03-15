@@ -5,9 +5,14 @@
 //tStifKarp* sk;
 //float skBuff[2][DELAY_LENGTH];
 
-tSawtooth* saw[8];
-tEnvelope* env;
-tSVFE* svf;
+tCycle* mySine;
+
+tRamp* inputRamp[8];
+
+// Feedback trombone signal chain
+tSVF* svf;
+tCompressor* myComp;
+tDelayA* del;
 
 
 //tCycle* osc;

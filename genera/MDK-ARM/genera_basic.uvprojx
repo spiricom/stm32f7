@@ -530,6 +530,11 @@
               <FilePath>../Src/stm32f7xx_hal_msp.c</FilePath>
             </File>
             <File>
+              <FileName>OOPSTest.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSTest.h</FilePath>
+            </File>
+            <File>
               <FileName>audiostream.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Inc\audiostream.h</FilePath>
@@ -548,11 +553,6 @@
               <FileName>codec.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Inc\codec.h</FilePath>
-            </File>
-            <File>
-              <FileName>OOPSTest.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Inc\OOPSTest.h</FilePath>
             </File>
           </Files>
         </Group>
