@@ -2,20 +2,19 @@
 
 #define NUM_OSC 16
 
-//tStifKarp* sk;
-//float skBuff[2][DELAY_LENGTH];
 
-tCycle* mySine;
+tStifKarp* sk;
+float skBuff[2][DELAY_LENGTH];
 
-tRamp* inputRamp[8];
+tNoise* noise;
 
-// Feedback trombone signal chain
-tSVF* svf;
-tCompressor* myComp;
-tDelayA* del;
+tCycle* sine;
 
+#define NUM_OSC 5
+tSawtooth* saw[NUM_OSC];
+tEnvelope* env;
+tSVFE* svf;
+tSVFE* sawSvf;
+tRamp* ramp[9];
 
-//tCycle* osc;
-
-
-
+tNRev* rev;

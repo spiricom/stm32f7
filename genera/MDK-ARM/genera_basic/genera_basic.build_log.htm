@@ -22,15 +22,24 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\genera_basic.uvprojx
-Project File Date:  03/15/2017
+Project File Date:  03/29/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
 compiling audiostream.c...
+../Inc/OOPSTest.h(13): warning:  #47-D: incompatible redefinition of macro "NUM_OSC"  (declared at line 3)
+  #define NUM_OSC 5
+../Inc/OOPSTest.h(20): warning:  #1-D: last line of file ends without a newline
+  tNRev* rev;
+..\Src\audiostream.c(207): warning:  #940-D: missing return statement at end of non-void function "audioTick" 
+  }
+..\Src\audiostream.c(194): warning:  #177-D: variable "sample"  was declared but never referenced
+  	float sample = 0.0f;
+..\Src\audiostream.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=19060 RO-data=1024 RW-data=52 ZI-data=304476  
-"genera_basic\genera_basic.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=27964 RO-data=107596 RW-data=64 ZI-data=327032  
+"genera_basic\genera_basic.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
