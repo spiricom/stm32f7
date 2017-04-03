@@ -5,9 +5,9 @@
 
 #include "codec.h"
 
-#define AUDIO_BUFFER_SIZE      2048 //four is the lowest number that makes sense -- 2 samples for each computed sample (L/R), and then half buffer fills
-#define HALF_BUFFER_SIZE      (AUDIO_BUFFER_SIZE/2)
-#define AUDIO_FRAME_SIZE      (HALF_BUFFER_SIZE / 2)
+#define AUDIO_FRAME_SIZE      512
+#define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
+#define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
 /* Ping-Pong buffer used for audio play */
 int16_t audioOutBuffer[AUDIO_BUFFER_SIZE];
@@ -16,7 +16,6 @@ int16_t audioInBuffer[AUDIO_BUFFER_SIZE];
 
 uint16_t* adcVals;
 
-float audioTick(float audioIn, int channel);
 float audioTickR(float audioIn);
 float audioTickL(float audioIn);
 float randomNumber(void);
@@ -52,7 +51,6 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	//now to send all the necessary messages to the codec
 	AudioCodec_init(hi2c);
 	
-
 	HAL_Delay(100);
 	
 	adcVals = myADCarray;
@@ -68,28 +66,25 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 		saw[i] = tSawtoothInit();
 	}
 	
-
+	//these are for if you want to comment in the super-simple test noise and sine wave instead of the 
+	// more complex example
+	//comment these in if you want them
+	// if you want to use other elements in the OOPS library, add them in the OOPSTest file, and then init them like this
+	/*
 	noise = tNoiseInit(WhiteNoise);
-	
 	sine = tCycleInit();
 	tCycleSetFreq(sine, 220.0f);
+	*/
 	
-	//del = tDelayAInit(2000);
-	rev = tNRevInit(8.0f);
-	tNRevSetMix(rev,1.0f);
-	//env = tEnvelopeInit(10.0f, 1000.0f, OFALSE);
 	svf = tSVFEInit(SVFTypeBandpass, 2096, 1.0);
 	sawSvf = tSVFEInit(SVFTypeLowpass, 2096, 1.3);
-	//osc = tCycleInit();
-	
-	//tCycleSetFreq(osc, 215.0f);
 	
 	tStifKarpSetFrequency(sk, 110.0f);
-	
 	tStifKarpControlChange(sk, SKStringDamping, 60);
 	tStifKarpControlChange(sk, SKDetune, 128.0f);
 	tStifKarpControlChange(sk, SKPickPosition, 60);
 	
+	//these are used to smooth input parameters (knob settings for now)
 	for (int i = 0; i < 9; i++)
 	{
 		ramp[i] = tRampInit(20.0f, AUDIO_FRAME_SIZE);
@@ -115,8 +110,6 @@ void audioFrame(uint16_t buffer_offset)
 	{
 		tRampSetDest(ramp[i+4],((float)(((4095 - adcVals[i]) >> 2) + 40)));
 		tSawtoothSetFreq(saw[i], tRampTick(ramp[i+4]));
-		
-		//tSawtoothSetFreq(saw[i], ((float)(((4095 - adcVals[i]) >> 2) + 40)));
 	}
 	
 	tSVFESetFreq(svf, 4095 - adcVals[0]);
@@ -142,23 +135,23 @@ void audioFrame(uint16_t buffer_offset)
 	uint16_t counterMax = (adcVals[5] >> 4);
 	if (counter++ >= counterMax) 
 	{
-		counter = 0;
-		
+		counter = 0;		
 		tStifKarpPluck(sk, 0.99f);
-		//tEnvelopeOn(env, 1.0);
 	}	
  
 	for (ij = 0; ij < (HALF_BUFFER_SIZE); ij++)
 	{
 		if ((ij & 1) == 0) 
 		{
-			//current_sample = (int16_t)(tNoiseTick(noise) * TWO_TO_15);
-			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
+			//Left channel input and output
+			//current_sample = (int16_t)(tNoiseTick(noise) * TWO_TO_15); //comment this in instead for simple white noise
+			current_sample = (int16_t)(audioTickL((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
 		} 
 		else 
 		{
-			//current_sample = (int16_t)(tCycleTick(sine) * TWO_TO_15);
-			current_sample = (int16_t)(audioTickL((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
+			//Right channel input and output
+			//current_sample = (int16_t)(tCycleTick(sine) * TWO_TO_15); // comment this in instead for simple sine wave
+			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
 		}
 		
 		audioOutBuffer[buffer_offset + ij] = current_sample;
@@ -168,42 +161,30 @@ void audioFrame(uint16_t buffer_offset)
 
 float audioTickL(float audioIn)
 {
-		float sample = 0.9f * tStifKarpTick(sk);
-		
-		sample =  tSVFETick(svf, sample);
-		
-		return sample;
+	//use audioIn if you want the input sample	
 	
+	float sample = 0.0f;
+
+	for (int i = 0; i < NUM_OSC; i++)
+	{
+		sample += 0.13f * tSawtoothTick(saw[i]); // sawtooth waves
+	}
+
+	sample =  tSVFETick(sawSvf, sample); //through a filter
+	return sample;
 }
 
 float audioTickR(float audioIn)
 {
-		float sample = 0.0f;
 	
-		for (int i = 0; i < NUM_OSC; i++)
-		{
-			sample += 0.13f * tSawtoothTick(saw[i]);
-		}
-		
-		sample =  tSVFETick(sawSvf, sample);
-		return sample;
-}
+	//use audioIn if you want the input sample
+	
+	float sample = 0.9f * tStifKarpTick(sk); //karplus strong pluck
 
-float audioTick(float audioIn, int channel) {
+	sample =  tSVFETick(svf, sample); //through a filter
+
+	return sample;
 	
-	float sample = 0.0f;
-	
-	if (channel == 1)
-	{
-		
-	}	
-	else
-	{
-		
-		
-		
-		
-	}
 }
 
 
@@ -217,6 +198,7 @@ void HAL_SAI_TxHalfCpltCallback(SAI_HandleTypeDef *hsai)
   audioFrame(0);
 }
 
+// the recieve callbacks are synchronous with the transmit ones, and are therefore not needed
 void HAL_I2S_RxCpltCallback(SAI_HandleTypeDef *hsai)
 {
 	;
