@@ -16,8 +16,8 @@ int16_t audioInBuffer[AUDIO_BUFFER_SIZE];
 
 uint16_t* adcVals;
 
-float audioTickR(float audioIn);
 float audioTickL(float audioIn);
+float audioTickR(float audioIn);
 float randomNumber(void);
 void audioFrame(uint16_t buffer_offset);
 
