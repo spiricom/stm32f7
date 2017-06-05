@@ -42,6 +42,8 @@ tCompressor*    tCompressorInit(void)
     
     c->tauAttack = 100;
     c->tauRelease = 100;
+	
+	  c->isActive = OFALSE;
     
     c->T = 0.0f; // Threshold
     c->R = 0.5f; // compression Ratio
@@ -68,11 +70,20 @@ float tCompressorTick(tCompressor* c, float in)
     
     
     if (overshoot <= -(c->W * 0.5f))
+		{
         out_db = in_db;
+			  c->isActive = OFALSE;
+		}
     else if ((overshoot > -(c->W * 0.5f)) && (overshoot < (c->W * 0.5f)))
+		{
         out_db = in_db + slope * (powf((overshoot + c->W*0.5f),2) / (2.0f * c->W)); // .^ 2 ???
+			  c->isActive = OTRUE;
+		}
     else if (overshoot >= (c->W * 0.5f))
+		{
         out_db = in_db + slope * overshoot;
+			  c->isActive = OTRUE;
+		}
     
     
     

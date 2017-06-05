@@ -24,6 +24,7 @@ static HAL_DMA_StateTypeDef spi1rx;
 float audioTick(float audioIn);
 float randomNumber(void);
 void audioFrame(uint16_t buffer_offset);
+float LN2;
 
 
 
@@ -65,6 +66,14 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	hrandom = hrand;
 
 	myCompressor = tCompressorInit();
+	filter = tSVFInit( SVFTypeBandpass, 2000,  100.0f);
+	
+	
+	myCompressor->M = 0.0f;
+	myCompressor->W = 24.0f;
+	
+	LN2 = log(2.0f);
+	
 }
 
 
@@ -73,10 +82,38 @@ int counter = 0;
 int flip = 1;
 int envTimeout;
 
+
+
+float val; 
+
+float knobs[6];
+
 void audioFrame(uint16_t buffer_offset)
 {
 	uint16_t i = 0;
 	int16_t current_sample = 0;  
+	
+	//int tauAttack, tauRelease;
+  //float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
+	for (int i = 0; i < 6; i++)	knobs[i] = (4096.0f - adcVals[i]) / 4096.0f;
+	
+	float bw0 = (float) pow(10,-7.0f*knobs[5]+2.0f); // sets the size of a normal bandwidth
+	float n = 15*knobs[4]; // sets which harmonic to focus on 
+
+	val =  1.0f/(LN2 * bw0 ) -LN2 *bw0/24.0f + ( 0.5f/(LN2*LN2* bw0) + bw0/48.0f)*(n-1);
+	myCompressor->T = knobs[0] * -60.0f ;
+	myCompressor->R = knobs[1] * 24.0f ; 
+	myCompressor->tauAttack = knobs[2] * 1024.0f;
+	myCompressor->tauRelease = knobs[3] * 1024.0f;
+	
+	
+	tSVFSetFreq(filter, 58.27f*n);
+	tSVFSetQ(filter,val );
+	
+	if (myCompressor->isActive) HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+	else												HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+	
+	
 	
 	for (i = 0; i < (HALF_BUFFER_SIZE); i++)
 	{
@@ -96,9 +133,13 @@ void audioFrame(uint16_t buffer_offset)
 
 float audioTick(float audioIn) {
 	
-	float sample = 0.0f;
+	float sample = audioIn;
 	
-	sample = tCompressorTick(myCompressor, audioIn);
+	
+	sample = tCompressorTick(myCompressor, sample);
+	
+	
+	sample = tSVFTick(filter, sample);
 	
 	return sample;
 }
