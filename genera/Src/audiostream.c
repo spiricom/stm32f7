@@ -60,7 +60,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	hrandom = hrand;
 	
-	sk = tStifKarpInit(220.0f, skBuff);
+	sk = tStifKarpInit(220.0f);
 	for (int i = 0; i < NUM_OSC; i++)
 	{
 		saw[i] = tSawtoothInit();

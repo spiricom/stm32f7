@@ -1,8 +1,5 @@
 #include "OOPS.h"
 
-#define NUM_OSC 16
-
-
 tStifKarp* sk;
 float skBuff[2][DELAY_LENGTH];
 

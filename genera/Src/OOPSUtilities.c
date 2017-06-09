@@ -15,8 +15,7 @@
 #if N_COMPRESSOR
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Compressor ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
 
-/*
-tCompressor*    tCompressorInit(int tauAttack, int tauRelease)
+tCompressor*    tCompressorInit(float tauAttack, float tauRelease)
 {
     tCompressor* c = &oops.tCompressorRegistry[oops.registryIndex[T_COMPRESSOR]++];
     
@@ -32,21 +31,6 @@ tCompressor*    tCompressorInit(int tauAttack, int tauRelease)
     c->R = 1.0f; // compression Ratio
     c->M = 0.0f; // decibel Make-up gain
     c->W = 0.0f; // decibel Width of knee transition
-    
-    return c;
-}
-*/
-tCompressor*    tCompressorInit(void)
-{
-    tCompressor* c = &oops.tCompressorRegistry[oops.registryIndex[T_COMPRESSOR]++];
-    
-    c->tauAttack = 100;
-    c->tauRelease = 100;
-    
-    c->T = 0.0f; // Threshold
-    c->R = 0.5f; // compression Ratio
-    c->M = 3.0f; // decibel Width of knee transition
-    c->W = 1.0f; // decibel Make-up gain
     
     return c;
 }
