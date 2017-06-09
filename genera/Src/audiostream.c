@@ -51,7 +51,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	//now to send all the necessary messages to the codec
 	AudioCodec_init(hi2c);
 	
-	HAL_Delay(100);
+	//HAL_Delay(100);
 	
 	adcVals = myADCarray;
 	// set up the I2S driver to send audio data to the codec (and retrieve input as well)	
