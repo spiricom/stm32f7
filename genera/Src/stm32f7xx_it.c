@@ -73,6 +73,7 @@ void HardFault_Handler(void)
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
   }
   /* USER CODE BEGIN HardFault_IRQn 1 */
 
@@ -89,6 +90,7 @@ void MemManage_Handler(void)
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
   {
+		 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET); //blue
   }
   /* USER CODE BEGIN MemoryManagement_IRQn 1 */
 
@@ -105,6 +107,7 @@ void BusFault_Handler(void)
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
   {
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET); //green
   }
   /* USER CODE BEGIN BusFault_IRQn 1 */
 
@@ -121,6 +124,7 @@ void UsageFault_Handler(void)
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
   {
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET); //red
   }
   /* USER CODE BEGIN UsageFault_IRQn 1 */
 

@@ -435,6 +435,11 @@ void t808HihatSetOscBandpassFreq(t808Hihat* const hihat, float freq)
     tSVFESetFreq(hihat->bandpassOsc,freq);
 }
 
+void t808HihatSetStickBandpassFreq(t808Hihat* const hihat, float freq)
+{
+    tSVFESetFreq(hihat->bandpassStick,freq);
+}
+
 
 void t808HihatSetOscFreq(t808Hihat* const hihat, float freq)
 {
@@ -463,8 +468,8 @@ t808Hihat* t808HihatInit(void)
     hihat->bandpassStick = tSVFEInit(SVFTypeBandpass,2500.0,1.5f);
     hihat->bandpassOsc = tSVFEInit(SVFTypeBandpass,3500,0.5f);
     
-    hihat->envGain = tEnvelopeInit(5.0f, 50.0f, OFALSE);
-    hihat->envStick = tEnvelopeInit(5.0f, 15.0f, OFALSE);
+    hihat->envGain = tEnvelopeInit(1.0f, 50.0f, OFALSE);
+    hihat->envStick = tEnvelopeInit(1.0f, 15.0f, OFALSE);
     
     hihat->highpass = tHighpassInit(7000.0f);
     

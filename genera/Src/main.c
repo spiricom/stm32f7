@@ -79,14 +79,6 @@ static void MX_RNG_Init(void);
 static void MX_SAI1_Init(void);
 static void MX_SPI4_Init(void);
 
-/* USER CODE BEGIN PFP */
-/* Private function prototypes -----------------------------------------------*/
-
-/* USER CODE END PFP */
-
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 #define NUM_ADC_CHANNELS 12
 
@@ -96,13 +88,6 @@ uint16_t test = 0;
 
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration----------------------------------------------------------*/
-
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
@@ -114,32 +99,26 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
-  //MX_QUADSPI_Init();
+  //MX_QUADSPI_Init(); // for communicating with the memory chip
   MX_RNG_Init();
   MX_SAI1_Init();
-  //MX_SPI4_Init();
+  //MX_SPI4_Init(); // available for talking to additional peripherals
 
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
 	
+	if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
+	{
+		Error_Handler();
+	}
 	
-		if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
-		{
-			Error_Handler();
-		}
-	
-		
 	audioInit(&hi2c2, &hsai_BlockA1, &hsai_BlockB1, &hrng, ((uint16_t*)&adcValues));		
-	
-		
+
+
   while (1)
   {
-/*
 		
+		//the bulk of the work happens in audiostream.c -- the main while loop becomes low priority
+		//right now this loop is just checking the buttons and lighting up the lights next to them when the buttons are pressed
+		/*
 		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6))
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
@@ -169,26 +148,19 @@ int main(void)
 		
 		if (!HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))
 		{
-			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 		}
 		else
 		{
-			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
 		}
 		*/
-  /* USER CODE END WHILE */
-
-  /* USER CODE BEGIN 3 */
-
   }
-  /* USER CODE END 3 */
-
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
 {
-  /* Turn LED3 on: Transfer process is correct */
-  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+	;
 }
 
 /** System Clock Configuration
@@ -459,7 +431,6 @@ static void MX_QUADSPI_Init(void)
 /* RNG init function */
 static void MX_RNG_Init(void)
 {
-
   hrng.Instance = RNG;
   if (HAL_RNG_Init(&hrng) != HAL_OK)
   {
@@ -614,6 +585,15 @@ static void MX_GPIO_Init(void)
 
 }
 
+// Returns random floating point value [0.0,1.0)
+float randomNumber(void) {
+	uint32_t rand;
+	HAL_RNG_GenerateRandomNumber(&hrng, &rand);
+	float num = (((float)(rand >> 16))- 32768.f) * INV_TWO_TO_15;
+	return num;
+}
+
+
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
@@ -630,7 +610,7 @@ void Error_Handler(void)
   while(1) 
   {
 
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
 
   }
   /* USER CODE END Error_Handler */ 

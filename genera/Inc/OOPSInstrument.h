@@ -89,15 +89,16 @@ void            t808CowbellSetOscMix        (t808Cowbell* const, float oscMix);
 
 
 // 808 Hihat
-t808Hihat*  t808HihatInit               (void);
-float       t808HihatTick               (t808Hihat* const);
+t808Hihat*  t808HihatInit               	(void);
+float       t808HihatTick               	(t808Hihat* const);
 
-void        t808HihatOn                 (t808Hihat* const, float vel);
-void        t808HihatSetOscNoiseMix     (t808Hihat* const, float oscNoiseMix);
-void        t808HihatSetDecay           (t808Hihat* const, float decay);
-void        t808HihatSetHighpassFreq    (t808Hihat* const, float freq);
-void        t808HihatSetOscBandpassFreq (t808Hihat* const, float freq);
-void        t808HihatSetOscFreq         (t808Hihat* const, float freq);
+void        t808HihatOn                 	(t808Hihat* const, float vel);
+void        t808HihatSetOscNoiseMix     	(t808Hihat* const, float oscNoiseMix);
+void        t808HihatSetDecay           	(t808Hihat* const, float decay);
+void        t808HihatSetHighpassFreq    	(t808Hihat* const, float freq);
+void        t808HihatSetOscBandpassFreq 	(t808Hihat* const, float freq);
+void 				t808HihatSetStickBandpassFreq	(t808Hihat* const, float freq);
+void        t808HihatSetOscFreq         	(t808Hihat* const, float freq);
 
 
 // 808 Snare

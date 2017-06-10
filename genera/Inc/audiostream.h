@@ -68,6 +68,12 @@ typedef enum
 /* Exported functions ------------------------------------------------------- */
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrandom, uint16_t* myADCarray);
 
+void audioFrame(uint16_t buffer_offset);
+float audioTickL(float audioIn);
+float audioTickR(float audioIn);
+
+void audioError(void);
+
 void DMA1_TransferCpltCallback(DMA_HandleTypeDef *hdma);
 void DMA1_HalfTransferCpltCallback(DMA_HandleTypeDef *hdma);
 #endif /* __WAVEPLAYER_H */

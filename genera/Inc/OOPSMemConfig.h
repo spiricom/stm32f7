@@ -26,7 +26,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define NI 0
 //#define     N_MYOBJECT            0   // Zero instances is fine.
 #define     N_808SNARE          NI
-#define     N_808HIHAT          NI
+#define     N_808HIHAT          1
 #define     N_808COWBELL        NI
 #define     N_COMPRESSOR        NI
 #define     N_PRCREV            NI
@@ -39,7 +39,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_SAWTOOTH          NI
 #define     N_TRIANGLE          NI + 5 * N_808SNARE
 #define     N_SQUARE            NI + 6 * N_808HIHAT + 2 * N_808COWBELL
-#define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + 4// StifKarp and Pluck each contain 1 Noise component.
+#define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (2 * N_808HIHAT) + 4// StifKarp and Pluck each contain 1 Noise component.
 #define     N_ONEPOLE           NI + (1 * N_PLUCK)
 #define     N_TWOPOLE           NI
 #define     N_ONEZERO           NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (1 * N_NEURON)
@@ -47,12 +47,12 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_POLEZERO          NI + (1 * N_NEURON)
 #define     N_BIQUAD            NI + (4 * N_STIFKARP)
 #define     N_SVF               NI
-#define     N_SVFE              NI 
-#define     N_HIGHPASS          2 
+#define     N_SVFE              NI + (2 * N_808HIHAT)
+#define     N_HIGHPASS          2  + (1 * N_808HIHAT)
 #define     N_DELAY             NI + (14 * N_NREV) + (3 * N_PRCREV) + 5
 #define     N_DELAYL            NI + (1 * N_STIFKARP) + (1 * N_PLUCK) 
 #define     N_DELAYA            NI + (1 * N_PRCREV) + (1 * N_STIFKARP) 
-#define     N_ENVELOPE          NI
+#define     N_ENVELOPE          NI + (2 * N_808HIHAT)
 #define     N_ENVELOPEFOLLOW    NI + 4
 #define     N_ADSR              NI
 #define     N_RAMP              NI + N_NEURON + 10
