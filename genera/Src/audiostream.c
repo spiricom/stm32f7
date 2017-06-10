@@ -51,7 +51,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	//now to send all the necessary messages to the codec
 	AudioCodec_init(hi2c);
 	
-	HAL_Delay(100);
+	//HAL_Delay(100);
 	
 	adcVals = myADCarray;
 	// set up the I2S driver to send audio data to the codec (and retrieve input as well)	
@@ -60,7 +60,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	hrandom = hrand;
 	
-	sk = tStifKarpInit(220.0f, skBuff);
+	sk = tStifKarpInit(220.0f);
 	for (int i = 0; i < NUM_OSC; i++)
 	{
 		saw[i] = tSawtoothInit();
@@ -178,8 +178,9 @@ float audioTickR(float audioIn)
 {
 	
 	//use audioIn if you want the input sample
+	float sample = 0.0f;
 	
-	float sample = 0.9f * tStifKarpTick(sk); //karplus strong pluck
+	sample = 0.9f * tStifKarpTick(sk); //karplus strong pluck
 
 	sample =  tSVFETick(svf, sample); //through a filter
 
@@ -209,3 +210,14 @@ void HAL_I2S_RxHalfCpltCallback(SAI_HandleTypeDef *hsai)
 	;
 }
 
+void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai)
+{
+	if (hsai->ErrorCode == HAL_SAI_ERROR_OVR)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+	}
+	else if (hsai->ErrorCode == HAL_SAI_ERROR_UDR)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+	}
+}
