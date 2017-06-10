@@ -5,7 +5,7 @@
 
 #include "codec.h"
 
-#define AUDIO_FRAME_SIZE      256
+#define AUDIO_FRAME_SIZE      512
 #define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
 #define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
@@ -178,8 +178,9 @@ float audioTickR(float audioIn)
 {
 	
 	//use audioIn if you want the input sample
+	float sample = 0.0f;
 	
-	float sample = 0.9f * tStifKarpTick(sk); //karplus strong pluck
+	sample = 0.9f * tStifKarpTick(sk); //karplus strong pluck
 
 	sample =  tSVFETick(svf, sample); //through a filter
 
@@ -209,3 +210,14 @@ void HAL_I2S_RxHalfCpltCallback(SAI_HandleTypeDef *hsai)
 	;
 }
 
+void HAL_SAI_ErrorCallback(SAI_HandleTypeDef *hsai)
+{
+	if (hsai->ErrorCode == HAL_SAI_ERROR_OVR)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+	}
+	else if (hsai->ErrorCode == HAL_SAI_ERROR_UDR)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+	}
+}
