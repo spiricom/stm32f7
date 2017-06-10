@@ -88,6 +88,47 @@ float tCompressorTick(tCompressor* c, float in)
 }
 
 
+int     tCompressorSetAttack(tCompressor* const comp, float attack)
+{
+    comp->tauAttack = attack;
+    return 0;
+}
+
+int     tCompressorSetRelease(tCompressor* const comp, float release)
+{
+    comp->tauRelease = release;
+    return 0;
+}
+
+//threshold is in negative decibels (like -12.0f)
+int     tCompressorSetThreshold(tCompressor* const comp, float thresh)
+{
+    comp->T = thresh; // Threshold
+    return 0;
+}
+
+//ratio is in positive numbers (like 1.0f to 20.0f) representing the reduction -- 3.0f is 3/1
+int     tCompressorSetRatio(tCompressor* const comp, float ratio)
+{
+    comp->R = ratio; // Threshold
+    return 0;
+}
+
+//makeup gain is in decibels (like 2.0f)
+int     tCompressorSetMakeupGain(tCompressor* const comp, float gain)
+{
+    comp->M = gain; // Threshold
+    return 0;
+}
+
+//knee width is also in decibels (like 3.0f)
+int     tCompressorSetKneeWidth(tCompressor* const comp, float knee)
+{
+    comp->W = knee; // Threshold
+    return 0;
+}
+
+
 #endif
 #if N_ENVELOPE
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Envelope ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //

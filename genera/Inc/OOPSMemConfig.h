@@ -23,7 +23,7 @@
 extern const float shaper1[SHAPER1_TABLE_SIZE];
 
 // Arbitrary number of instances.
-#define NI 1
+#define NI 0
 //#define     N_MYOBJECT            0   // Zero instances is fine.
 #define     N_808SNARE          NI
 #define     N_808HIHAT          NI
@@ -35,8 +35,8 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_STIFKARP          NI
 #define     N_NEURON            NI
 #define     N_PHASOR            NI
-#define     N_CYCLE             NI
-#define     N_SAWTOOTH          5
+#define     N_CYCLE             2
+#define     N_SAWTOOTH          NI
 #define     N_TRIANGLE          NI + 5 * N_808SNARE
 #define     N_SQUARE            NI + 6 * N_808HIHAT + 2 * N_808COWBELL
 #define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + 4// StifKarp and Pluck each contain 1 Noise component.
@@ -48,7 +48,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_BIQUAD            NI + (4 * N_STIFKARP)
 #define     N_SVF               NI
 #define     N_SVFE              NI 
-#define     N_HIGHPASS          NI 
+#define     N_HIGHPASS          2 
 #define     N_DELAY             NI + (14 * N_NREV) + (3 * N_PRCREV) + 5
 #define     N_DELAYL            NI + (1 * N_STIFKARP) + (1 * N_PLUCK) 
 #define     N_DELAYA            NI + (1 * N_PRCREV) + (1 * N_STIFKARP) 
