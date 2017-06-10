@@ -727,12 +727,14 @@ Section Cross References
     oopsinstrument.o(i.tPluckInit) refers to oopsinstrument.o(i.tPluckSampleRateChanged) for tPluckSampleRateChanged
     oopsinstrument.o(i.tPluckNoteOn) refers to oopsfilter.o(i.tOneZeroGetPhaseDelay) for tOneZeroGetPhaseDelay
     oopsinstrument.o(i.tPluckNoteOn) refers to oopsdelay.o(i.tDelayASetDelay) for tDelayASetDelay
-    oopsinstrument.o(i.tPluckNoteOn) refers to oopsinstrument.o(i.tPluckPluck) for tPluckPluck
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsfilter.o(i.tOnePoleSetPole) for tOnePoleSetPole
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsfilter.o(i.tOnePoleSetGain) for tOnePoleSetGain
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsdelay.o(i.tDelayAGetDelay) for tDelayAGetDelay
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsoscillator.o(i.tNoiseTick) for tNoiseTick
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsfilter.o(i.tOnePoleTick) for tOnePoleTick
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsdelay.o(i.tDelayAGetLastOut) for tDelayAGetLastOut
+    oopsinstrument.o(i.tPluckNoteOn) refers to oopsdelay.o(i.tDelayATick) for tDelayATick
     oopsinstrument.o(i.tPluckNoteOn) refers to oops.o(.bss) for oops
-    oopsinstrument.o(i.tPluckPluck) refers to f2d.o(.text) for __aeabi_f2d
-    oopsinstrument.o(i.tPluckPluck) refers to dmul.o(.text) for __aeabi_dmul
-    oopsinstrument.o(i.tPluckPluck) refers to dadd.o(.text) for __aeabi_drsub
-    oopsinstrument.o(i.tPluckPluck) refers to d2f.o(.text) for __aeabi_d2f
     oopsinstrument.o(i.tPluckPluck) refers to oopsfilter.o(i.tOnePoleSetPole) for tOnePoleSetPole
     oopsinstrument.o(i.tPluckPluck) refers to oopsfilter.o(i.tOnePoleSetGain) for tOnePoleSetGain
     oopsinstrument.o(i.tPluckPluck) refers to oopsdelay.o(i.tDelayAGetDelay) for tDelayAGetDelay
@@ -806,10 +808,6 @@ Section Cross References
     oopsoscillator.o(i.tNeuronTick) refers to powf.o(i.__hardfp_powf) for __hardfp_powf
     oopsoscillator.o(i.tNeuronTick) refers to tanhf.o(i.__hardfp_tanhf) for __hardfp_tanhf
     oopsoscillator.o(i.tNeuronTick) refers to oopsmath.o(i.OOPS_clip) for OOPS_clip
-    oopsoscillator.o(i.tNeuronTick) refers to f2d.o(.text) for __aeabi_f2d
-    oopsoscillator.o(i.tNeuronTick) refers to dadd.o(.text) for __aeabi_drsub
-    oopsoscillator.o(i.tNeuronTick) refers to dmul.o(.text) for __aeabi_dmul
-    oopsoscillator.o(i.tNeuronTick) refers to d2f.o(.text) for __aeabi_d2f
     oopsoscillator.o(i.tNeuronTick) refers to oopsfilter.o(i.tPoleZeroTick) for tPoleZeroTick
     oopsoscillator.o(i.tNoiseInit) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tPhasorInit) refers to oops.o(.bss) for oops
@@ -820,28 +818,16 @@ Section Cross References
     oopsoscillator.o(i.tSawtoothInit) refers to oopsoscillator.o(i.tSawtoothSampleRateChanged) for tSawtoothSampleRateChanged
     oopsoscillator.o(i.tSawtoothSampleRateChanged) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tSawtoothSetFreq) refers to oops.o(.bss) for oops
-    oopsoscillator.o(i.tSawtoothTick) refers to f2d.o(.text) for __aeabi_f2d
-    oopsoscillator.o(i.tSawtoothTick) refers to dmul.o(.text) for __aeabi_dmul
-    oopsoscillator.o(i.tSawtoothTick) refers to d2f.o(.text) for __aeabi_d2f
-    oopsoscillator.o(i.tSawtoothTick) refers to dadd.o(.text) for __aeabi_drsub
     oopsoscillator.o(i.tSawtoothTick) refers to oopswavetables.o(.constdata) for sawtooth
     oopsoscillator.o(i.tSquareInit) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tSquareInit) refers to oopsoscillator.o(i.tSquareSampleRateChanged) for tSquareSampleRateChanged
     oopsoscillator.o(i.tSquareSampleRateChanged) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tSquareSetFreq) refers to oops.o(.bss) for oops
-    oopsoscillator.o(i.tSquareTick) refers to f2d.o(.text) for __aeabi_f2d
-    oopsoscillator.o(i.tSquareTick) refers to dmul.o(.text) for __aeabi_dmul
-    oopsoscillator.o(i.tSquareTick) refers to d2f.o(.text) for __aeabi_d2f
-    oopsoscillator.o(i.tSquareTick) refers to dadd.o(.text) for __aeabi_drsub
     oopsoscillator.o(i.tSquareTick) refers to oopswavetables.o(.constdata) for squarewave
     oopsoscillator.o(i.tTriangleInit) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tTriangleInit) refers to oopsoscillator.o(i.tTriangleSampleRateChanged) for tTriangleSampleRateChanged
     oopsoscillator.o(i.tTriangleSampleRateChanged) refers to oops.o(.bss) for oops
     oopsoscillator.o(i.tTriangleSetFreq) refers to oops.o(.bss) for oops
-    oopsoscillator.o(i.tTriangleTick) refers to f2d.o(.text) for __aeabi_f2d
-    oopsoscillator.o(i.tTriangleTick) refers to dmul.o(.text) for __aeabi_dmul
-    oopsoscillator.o(i.tTriangleTick) refers to d2f.o(.text) for __aeabi_d2f
-    oopsoscillator.o(i.tTriangleTick) refers to dadd.o(.text) for __aeabi_drsub
     oopsoscillator.o(i.tTriangleTick) refers to oopswavetables.o(.constdata) for triangle
     oopsreverb.o(i.tNRevInit) refers to f2d.o(.text) for __aeabi_f2d
     oopsreverb.o(i.tNRevInit) refers to dfixi.o(.text) for __aeabi_d2iz
@@ -907,10 +893,6 @@ Section Cross References
     oopsreverb.o(i.tPRCRevSetT60) refers to oops.o(.bss) for oops
     oopsreverb.o(i.tPRCRevTick) refers to oopsdelay.o(i.tDelayGetLastOut) for tDelayGetLastOut
     oopsreverb.o(i.tPRCRevTick) refers to oopsdelay.o(i.tDelayTick) for tDelayTick
-    oopsreverb.o(i.tPRCRevTick) refers to f2d.o(.text) for __aeabi_f2d
-    oopsreverb.o(i.tPRCRevTick) refers to dadd.o(.text) for __aeabi_drsub
-    oopsreverb.o(i.tPRCRevTick) refers to dmul.o(.text) for __aeabi_dmul
-    oopsreverb.o(i.tPRCRevTick) refers to d2f.o(.text) for __aeabi_d2f
     oopsutilities.o(i.tCompressorInit) refers to oops.o(.bss) for oops
     oopsutilities.o(i.tCompressorTick) refers to fmaxf.o(i.__hardfp_fmaxf) for __hardfp_fmaxf
     oopsutilities.o(i.tCompressorTick) refers to log10f.o(i.__hardfp_log10f) for __hardfp_log10f
@@ -1860,8 +1842,8 @@ Removing Unused input sections from the image.
     Removing oopsinstrument.o(i.tPluckGetLastOut), (6 bytes).
     Removing oopsinstrument.o(i.tPluckInit), (208 bytes).
     Removing oopsinstrument.o(i.tPluckNoteOff), (52 bytes).
-    Removing oopsinstrument.o(i.tPluckNoteOn), (140 bytes).
-    Removing oopsinstrument.o(i.tPluckPluck), (228 bytes).
+    Removing oopsinstrument.o(i.tPluckNoteOn), (300 bytes).
+    Removing oopsinstrument.o(i.tPluckPluck), (188 bytes).
     Removing oopsinstrument.o(i.tPluckSampleRateChanged), (2 bytes).
     Removing oopsinstrument.o(i.tPluckSetFrequency), (120 bytes).
     Removing oopsinstrument.o(i.tPluckTick), (44 bytes).
@@ -1892,7 +1874,7 @@ Removing Unused input sections from the image.
     Removing oopsoscillator.o(i.tNeuronSetV1), (6 bytes).
     Removing oopsoscillator.o(i.tNeuronSetV2), (6 bytes).
     Removing oopsoscillator.o(i.tNeuronSetV3), (6 bytes).
-    Removing oopsoscillator.o(i.tNeuronTick), (964 bytes).
+    Removing oopsoscillator.o(i.tNeuronTick), (764 bytes).
     Removing oopsoscillator.o(i.tPhasorInit), (64 bytes).
     Removing oopsoscillator.o(i.tPhasorSampleRateChanged), (24 bytes).
     Removing oopsoscillator.o(i.tPhasorSetFreq), (48 bytes).
@@ -1900,12 +1882,12 @@ Removing Unused input sections from the image.
     Removing oopsoscillator.o(i.tSquareInit), (68 bytes).
     Removing oopsoscillator.o(i.tSquareSampleRateChanged), (24 bytes).
     Removing oopsoscillator.o(i.tSquareSetFreq), (48 bytes).
-    Removing oopsoscillator.o(i.tSquareTick), (932 bytes).
+    Removing oopsoscillator.o(i.tSquareTick), (828 bytes).
     Removing oopsoscillator.o(i.tTriangleInit), (68 bytes).
     Removing oopsoscillator.o(i.tTriangleSampleRateChanged), (24 bytes).
     Removing oopsoscillator.o(i.tTriangleSetFreq), (48 bytes).
     Removing oopsoscillator.o(i.tTriangleStart), (2 bytes).
-    Removing oopsoscillator.o(i.tTriangleTick), (932 bytes).
+    Removing oopsoscillator.o(i.tTriangleTick), (828 bytes).
     Removing oopsreverb.o(i.tNRevInit), (548 bytes).
     Removing oopsreverb.o(i.tNRevSampleRateChanged), (144 bytes).
     Removing oopsreverb.o(i.tNRevSetMix), (6 bytes).
@@ -1915,7 +1897,7 @@ Removing Unused input sections from the image.
     Removing oopsreverb.o(i.tPRCRevSampleRateChanged), (120 bytes).
     Removing oopsreverb.o(i.tPRCRevSetMix), (6 bytes).
     Removing oopsreverb.o(i.tPRCRevSetT60), (144 bytes).
-    Removing oopsreverb.o(i.tPRCRevTick), (208 bytes).
+    Removing oopsreverb.o(i.tPRCRevTick), (162 bytes).
     Removing oopsreverb.o(.constdata), (76 bytes).
     Removing oopsutilities.o(i.tCompressorInit), (116 bytes).
     Removing oopsutilities.o(i.tCompressorTick), (368 bytes).
@@ -1923,11 +1905,11 @@ Removing Unused input sections from the image.
     Removing oopsutilities.o(i.tEnvelopeFollowerDecayCoeff), (14 bytes).
     Removing oopsutilities.o(i.tEnvelopeFollowerInit), (60 bytes).
     Removing oopsutilities.o(i.tEnvelopeFollowerTick), (80 bytes).
-    Removing oopsutilities.o(i.tEnvelopeInit), (264 bytes).
+    Removing oopsutilities.o(i.tEnvelopeInit), (236 bytes).
     Removing oopsutilities.o(i.tEnvelopeLoop), (6 bytes).
     Removing oopsutilities.o(i.tEnvelopeOn), (60 bytes).
-    Removing oopsutilities.o(i.tEnvelopeSetAttack), (74 bytes).
-    Removing oopsutilities.o(i.tEnvelopeSetDecay), (74 bytes).
+    Removing oopsutilities.o(i.tEnvelopeSetAttack), (68 bytes).
+    Removing oopsutilities.o(i.tEnvelopeSetDecay), (68 bytes).
     Removing oopsutilities.o(i.tEnvelopeTick), (276 bytes).
     Removing oopsutilities.o(.data), (4 bytes).
     Removing oopswavetables.o(.constdata), (262144 bytes).
@@ -1946,7 +1928,7 @@ Removing Unused input sections from the image.
     Removing fcmp4.o(.text), (54 bytes).
     Removing fpstat.o(.text), (4 bytes).
 
-643 unused section(s) (total 1046088 bytes) removed from the image.
+643 unused section(s) (total 1045714 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2278,27 +2260,27 @@ Image Symbol Table
     i.tSawtoothSampleRateChanged             0x080052c0   Section        0  oopsoscillator.o(i.tSawtoothSampleRateChanged)
     i.tSawtoothSetFreq                       0x080052d8   Section        0  oopsoscillator.o(i.tSawtoothSetFreq)
     i.tSawtoothTick                          0x08005308   Section        0  oopsoscillator.o(i.tSawtoothTick)
-    i.tStifKarpControlChange                 0x080056ac   Section        0  oopsinstrument.o(i.tStifKarpControlChange)
-    i.tStifKarpInit                          0x08005794   Section        0  oopsinstrument.o(i.tStifKarpInit)
-    i.tStifKarpPluck                         0x0800585c   Section        0  oopsinstrument.o(i.tStifKarpPluck)
-    i.tStifKarpSampleRateChanged             0x080058f8   Section        0  oopsinstrument.o(i.tStifKarpSampleRateChanged)
-    i.tStifKarpSetFrequency                  0x08005914   Section        0  oopsinstrument.o(i.tStifKarpSetFrequency)
-    i.tStifKarpSetStretch                    0x080059a8   Section        0  oopsinstrument.o(i.tStifKarpSetStretch)
-    i.tStifKarpTick                          0x08005aa0   Section        0  oopsinstrument.o(i.tStifKarpTick)
-    .constdata                               0x08005aec   Section        8  stm32f7xx_hal_dma.o(.constdata)
-    flagBitshiftOffset                       0x08005aec   Data           8  stm32f7xx_hal_dma.o(.constdata)
-    .constdata                               0x08005af4   Section       16  system_stm32f7xx.o(.constdata)
-    .constdata                               0x08005b04   Section    90112  oopswavetables.o(.constdata)
-    .constdata                               0x0801bb04   Section    16384  oopswavetables.o(.constdata)
-    .constdata                               0x0801fb08   Section       48  cos_i.o(.constdata)
-    C                                        0x0801fb08   Data          48  cos_i.o(.constdata)
-    .constdata                               0x0801fb38   Section      200  rred.o(.constdata)
-    pio2s                                    0x0801fb38   Data          48  rred.o(.constdata)
-    twooverpi                                0x0801fb68   Data         152  rred.o(.constdata)
-    .constdata                               0x0801fc00   Section       32  rredf.o(.constdata)
-    twooverpi                                0x0801fc00   Data          32  rredf.o(.constdata)
-    .constdata                               0x0801fc20   Section       40  sin_i.o(.constdata)
-    S                                        0x0801fc20   Data          40  sin_i.o(.constdata)
+    i.tStifKarpControlChange                 0x08005644   Section        0  oopsinstrument.o(i.tStifKarpControlChange)
+    i.tStifKarpInit                          0x0800572c   Section        0  oopsinstrument.o(i.tStifKarpInit)
+    i.tStifKarpPluck                         0x080057f4   Section        0  oopsinstrument.o(i.tStifKarpPluck)
+    i.tStifKarpSampleRateChanged             0x08005890   Section        0  oopsinstrument.o(i.tStifKarpSampleRateChanged)
+    i.tStifKarpSetFrequency                  0x080058ac   Section        0  oopsinstrument.o(i.tStifKarpSetFrequency)
+    i.tStifKarpSetStretch                    0x08005940   Section        0  oopsinstrument.o(i.tStifKarpSetStretch)
+    i.tStifKarpTick                          0x08005a38   Section        0  oopsinstrument.o(i.tStifKarpTick)
+    .constdata                               0x08005a84   Section        8  stm32f7xx_hal_dma.o(.constdata)
+    flagBitshiftOffset                       0x08005a84   Data           8  stm32f7xx_hal_dma.o(.constdata)
+    .constdata                               0x08005a8c   Section       16  system_stm32f7xx.o(.constdata)
+    .constdata                               0x08005a9c   Section    90112  oopswavetables.o(.constdata)
+    .constdata                               0x0801ba9c   Section    16384  oopswavetables.o(.constdata)
+    .constdata                               0x0801faa0   Section       48  cos_i.o(.constdata)
+    C                                        0x0801faa0   Data          48  cos_i.o(.constdata)
+    .constdata                               0x0801fad0   Section      200  rred.o(.constdata)
+    pio2s                                    0x0801fad0   Data          48  rred.o(.constdata)
+    twooverpi                                0x0801fb00   Data         152  rred.o(.constdata)
+    .constdata                               0x0801fb98   Section       32  rredf.o(.constdata)
+    twooverpi                                0x0801fb98   Data          32  rredf.o(.constdata)
+    .constdata                               0x0801fbb8   Section       40  sin_i.o(.constdata)
+    S                                        0x0801fbb8   Data          40  sin_i.o(.constdata)
     .data                                    0x20000000   Section        4  stm32f7xx_hal.o(.data)
     .data                                    0x20000004   Section        4  system_stm32f7xx.o(.data)
     .data                                    0x20000008   Section        4  stm32f7xx_hal_msp.o(.data)
@@ -2314,9 +2296,9 @@ Image Symbol Table
     .bss                                     0x200002b4   Section       96  main.o(.bss)
     .bss                                     0x20000314   Section       96  main.o(.bss)
     .bss                                     0x20000374   Section       96  main.o(.bss)
-    .bss                                     0x200003d4   Section     8248  audiostream.o(.bss)
-    .bss                                     0x2000240c   Section    240832  oops.o(.bss)
-    STACK                                    0x2003d0d0   Section     1024  startup_stm32f765xx.o(STACK)
+    .bss                                     0x200003d4   Section     4152  audiostream.o(.bss)
+    .bss                                     0x2000140c   Section    240832  oops.o(.bss)
+    STACK                                    0x2003c0d0   Section     1024  startup_stm32f765xx.o(STACK)
 
     Global Symbols
 
@@ -2591,19 +2573,19 @@ Image Symbol Table
     tSawtoothInit                            0x08005281   Thumb Code    48  oopsoscillator.o(i.tSawtoothInit)
     tSawtoothSampleRateChanged               0x080052c1   Thumb Code    20  oopsoscillator.o(i.tSawtoothSampleRateChanged)
     tSawtoothSetFreq                         0x080052d9   Thumb Code    40  oopsoscillator.o(i.tSawtoothSetFreq)
-    tSawtoothTick                            0x08005309   Thumb Code   784  oopsoscillator.o(i.tSawtoothTick)
-    tStifKarpControlChange                   0x080056ad   Thumb Code   192  oopsinstrument.o(i.tStifKarpControlChange)
-    tStifKarpInit                            0x08005795   Thumb Code   162  oopsinstrument.o(i.tStifKarpInit)
-    tStifKarpPluck                           0x0800585d   Thumb Code   142  oopsinstrument.o(i.tStifKarpPluck)
-    tStifKarpSampleRateChanged               0x080058f9   Thumb Code    26  oopsinstrument.o(i.tStifKarpSampleRateChanged)
-    tStifKarpSetFrequency                    0x08005915   Thumb Code   132  oopsinstrument.o(i.tStifKarpSetFrequency)
-    tStifKarpSetStretch                      0x080059a9   Thumb Code   230  oopsinstrument.o(i.tStifKarpSetStretch)
-    tStifKarpTick                            0x08005aa1   Thumb Code    76  oopsinstrument.o(i.tStifKarpTick)
-    AHBPrescTable                            0x08005af4   Data          16  system_stm32f7xx.o(.constdata)
-    sawtooth                                 0x08005b04   Data       90112  oopswavetables.o(.constdata)
-    filtertan                                0x0801bb04   Data       16384  oopswavetables.o(.constdata)
-    Region$$Table$$Base                      0x0801fc48   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0801fc68   Number         0  anon$$obj.o(Region$$Table)
+    tSawtoothTick                            0x08005309   Thumb Code   694  oopsoscillator.o(i.tSawtoothTick)
+    tStifKarpControlChange                   0x08005645   Thumb Code   192  oopsinstrument.o(i.tStifKarpControlChange)
+    tStifKarpInit                            0x0800572d   Thumb Code   162  oopsinstrument.o(i.tStifKarpInit)
+    tStifKarpPluck                           0x080057f5   Thumb Code   142  oopsinstrument.o(i.tStifKarpPluck)
+    tStifKarpSampleRateChanged               0x08005891   Thumb Code    26  oopsinstrument.o(i.tStifKarpSampleRateChanged)
+    tStifKarpSetFrequency                    0x080058ad   Thumb Code   132  oopsinstrument.o(i.tStifKarpSetFrequency)
+    tStifKarpSetStretch                      0x08005941   Thumb Code   230  oopsinstrument.o(i.tStifKarpSetStretch)
+    tStifKarpTick                            0x08005a39   Thumb Code    76  oopsinstrument.o(i.tStifKarpTick)
+    AHBPrescTable                            0x08005a8c   Data          16  system_stm32f7xx.o(.constdata)
+    sawtooth                                 0x08005a9c   Data       90112  oopswavetables.o(.constdata)
+    filtertan                                0x0801ba9c   Data       16384  oopswavetables.o(.constdata)
+    Region$$Table$$Base                      0x0801fbe0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0801fc00   Number         0  anon$$obj.o(Region$$Table)
     uwTick                                   0x20000000   Data           4  stm32f7xx_hal.o(.data)
     SystemCoreClock                          0x20000004   Data           4  system_stm32f7xx.o(.data)
     counter                                  0x2000000c   Data           4  audiostream.o(.data)
@@ -2628,10 +2610,10 @@ Image Symbol Table
     hdma_sai1_b                              0x20000374   Data          96  main.o(.bss)
     saw                                      0x200003d4   Data          20  audiostream.o(.bss)
     ramp                                     0x200003e8   Data          36  audiostream.o(.bss)
-    audioOutBuffer                           0x2000040c   Data        4096  audiostream.o(.bss)
-    audioInBuffer                            0x2000140c   Data        4096  audiostream.o(.bss)
-    oops                                     0x2000240c   Data       240832  oops.o(.bss)
-    __initial_sp                             0x2003d4d0   Data           0  startup_stm32f765xx.o(STACK)
+    audioOutBuffer                           0x2000040c   Data        2048  audiostream.o(.bss)
+    audioInBuffer                            0x20000c0c   Data        2048  audiostream.o(.bss)
+    oops                                     0x2000140c   Data       240832  oops.o(.bss)
+    __initial_sp                             0x2003c4d0   Data           0  startup_stm32f765xx.o(STACK)
 
 
 
@@ -2641,9 +2623,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001f9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0001fc9c, Max: 0x00200000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0001fc34, Max: 0x00200000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0001fc68, Max: 0x00200000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0001fc00, Max: 0x00200000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2824,28 +2806,28 @@ Memory Map of the image
     0x08005280   0x00000040   Code   RO         4210    i.tSawtoothInit     oopsoscillator.o
     0x080052c0   0x00000018   Code   RO         4211    i.tSawtoothSampleRateChanged  oopsoscillator.o
     0x080052d8   0x00000030   Code   RO         4212    i.tSawtoothSetFreq  oopsoscillator.o
-    0x08005308   0x000003a4   Code   RO         4213    i.tSawtoothTick     oopsoscillator.o
-    0x080056ac   0x000000e8   Code   RO         3901    i.tStifKarpControlChange  oopsinstrument.o
-    0x08005794   0x000000c8   Code   RO         3903    i.tStifKarpInit     oopsinstrument.o
-    0x0800585c   0x0000009c   Code   RO         3906    i.tStifKarpPluck    oopsinstrument.o
-    0x080058f8   0x0000001a   Code   RO         3907    i.tStifKarpSampleRateChanged  oopsinstrument.o
-    0x08005912   0x00000002   PAD
-    0x08005914   0x00000094   Code   RO         3909    i.tStifKarpSetFrequency  oopsinstrument.o
-    0x080059a8   0x000000f8   Code   RO         3911    i.tStifKarpSetStretch  oopsinstrument.o
-    0x08005aa0   0x0000004c   Code   RO         3912    i.tStifKarpTick     oopsinstrument.o
-    0x08005aec   0x00000008   Data   RO          449    .constdata          stm32f7xx_hal_dma.o
-    0x08005af4   0x00000010   Data   RO         2771    .constdata          system_stm32f7xx.o
-    0x08005b04   0x00016000   Data   RO         4592    .constdata          oopswavetables.o
-    0x0801bb04   0x00004000   Data   RO         4597    .constdata          oopswavetables.o
-    0x0801fb04   0x00000004   PAD
-    0x0801fb08   0x00000030   Data   RO         4807    .constdata          m_wm.l(cos_i.o)
-    0x0801fb38   0x000000c8   Data   RO         4852    .constdata          m_wm.l(rred.o)
-    0x0801fc00   0x00000020   Data   RO         4856    .constdata          m_wm.l(rredf.o)
-    0x0801fc20   0x00000028   Data   RO         4859    .constdata          m_wm.l(sin_i.o)
-    0x0801fc48   0x00000020   Data   RO         4914    Region$$Table       anon$$obj.o
+    0x08005308   0x0000033c   Code   RO         4213    i.tSawtoothTick     oopsoscillator.o
+    0x08005644   0x000000e8   Code   RO         3901    i.tStifKarpControlChange  oopsinstrument.o
+    0x0800572c   0x000000c8   Code   RO         3903    i.tStifKarpInit     oopsinstrument.o
+    0x080057f4   0x0000009c   Code   RO         3906    i.tStifKarpPluck    oopsinstrument.o
+    0x08005890   0x0000001a   Code   RO         3907    i.tStifKarpSampleRateChanged  oopsinstrument.o
+    0x080058aa   0x00000002   PAD
+    0x080058ac   0x00000094   Code   RO         3909    i.tStifKarpSetFrequency  oopsinstrument.o
+    0x08005940   0x000000f8   Code   RO         3911    i.tStifKarpSetStretch  oopsinstrument.o
+    0x08005a38   0x0000004c   Code   RO         3912    i.tStifKarpTick     oopsinstrument.o
+    0x08005a84   0x00000008   Data   RO          449    .constdata          stm32f7xx_hal_dma.o
+    0x08005a8c   0x00000010   Data   RO         2771    .constdata          system_stm32f7xx.o
+    0x08005a9c   0x00016000   Data   RO         4592    .constdata          oopswavetables.o
+    0x0801ba9c   0x00004000   Data   RO         4597    .constdata          oopswavetables.o
+    0x0801fa9c   0x00000004   PAD
+    0x0801faa0   0x00000030   Data   RO         4807    .constdata          m_wm.l(cos_i.o)
+    0x0801fad0   0x000000c8   Data   RO         4852    .constdata          m_wm.l(rred.o)
+    0x0801fb98   0x00000020   Data   RO         4856    .constdata          m_wm.l(rredf.o)
+    0x0801fbb8   0x00000028   Data   RO         4859    .constdata          m_wm.l(sin_i.o)
+    0x0801fbe0   0x00000020   Data   RO         4914    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0003d4d0, Max: 0x00080000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0003c4d0, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2861,10 +2843,10 @@ Memory Map of the image
     0x200002b4   0x00000060   Zero   RW         2920    .bss                main.o
     0x20000314   0x00000060   Zero   RW         2922    .bss                main.o
     0x20000374   0x00000060   Zero   RW         2923    .bss                main.o
-    0x200003d4   0x00002038   Zero   RW         3081    .bss                audiostream.o
-    0x2000240c   0x0003acc0   Zero   RW         3223    .bss                oops.o
-    0x2003d0cc   0x00000004   PAD
-    0x2003d0d0   0x00000400   Zero   RW         2759    STACK               startup_stm32f765xx.o
+    0x200003d4   0x00001038   Zero   RW         3081    .bss                audiostream.o
+    0x2000140c   0x0003acc0   Zero   RW         3223    .bss                oops.o
+    0x2003c0cc   0x00000004   PAD
+    0x2003c0d0   0x00000400   Zero   RW         2759    STACK               startup_stm32f765xx.o
 
 
 ==============================================================================
@@ -2874,14 +2856,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       834         96          0         28       8248      14435   audiostream.o
+       834         96          0         28       4152      14439   audiostream.o
        284          4          0          8          0       1305   codec.o
       1326         86          0          0        928       4810   main.o
         36          8          0          0     240832       8506   oops.o
        978         30          0          0          0       5735   oopsdelay.o
        814         58          0          0          0       8702   oopsfilter.o
       1086        126          0          0          0       6354   oopsinstrument.o
-      1288        220          0          0          0       5286   oopsoscillator.o
+      1184        206          0          0          0       4874   oopsoscillator.o
        372         28          0          0          0       3327   oopsutilities.o
          0          0     106496          0          0        973   oopswavetables.o
         36          8        504          0       1024        820   startup_stm32f765xx.o
@@ -2903,7 +2885,7 @@ Image component sizes
         96         20         16          4          0       1279   system_stm32f7xx.o
 
     ----------------------------------------------------------------------
-     18178       1172     107060         48     251036     988741   Object Totals
+     18074       1158     107060         48     246940     988333   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         28          0          4          0          4          0   (incl. Padding)
 
@@ -2971,15 +2953,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     22772       1528     107380         52     251036     980253   Grand Totals
-     22772       1528     107380         52     251036     980253   ELF Image Totals
-     22772       1528     107380         52          0          0   ROM Totals
+     22668       1514     107380         52     246940     979845   Grand Totals
+     22668       1514     107380         52     246940     979845   ELF Image Totals
+     22668       1514     107380         52          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               130152 ( 127.10kB)
-    Total RW  Size (RW Data + ZI Data)            251088 ( 245.20kB)
-    Total ROM Size (Code + RO Data + RW Data)     130204 ( 127.15kB)
+    Total RO  Size (Code + RO Data)               130048 ( 127.00kB)
+    Total RW  Size (RW Data + ZI Data)            246992 ( 241.20kB)
+    Total ROM Size (Code + RO Data + RW Data)     130100 ( 127.05kB)
 
 ==============================================================================
 

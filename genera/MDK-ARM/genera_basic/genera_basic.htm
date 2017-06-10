@@ -3,7 +3,7 @@
 <title>Static Call Graph - [genera_basic\genera_basic.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image genera_basic\genera_basic.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Jun 09 19:54:01 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Jun 09 21:27:34 2017
 <BR><P>
 <H3>Maximum Stack Usage =        392 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -542,8 +542,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSawtoothTick
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
@@ -553,8 +552,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSawtoothTick
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
@@ -587,9 +585,8 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
 
-<P><STRONG><a name="[f4]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSawtoothTick
+<P><STRONG><a name="[101]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
 <P><STRONG><a name="[95]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text))
@@ -597,8 +594,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSawtoothTick
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
 <P><STRONG><a name="[8a]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
@@ -817,14 +813,14 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f7xx_hal.o(i.HAL_GetTick))
 <BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnTXISFlagUntilTimeout
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnSTOPFlagUntilTimeout
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RNG_GenerateRandomNumber
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_EnableOverDrive
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnTXISFlagUntilTimeout
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnSTOPFlagUntilTimeout
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 </UL>
 
 <P><STRONG><a name="[f1]"></a>HAL_I2CEx_ConfigAnalogFilter</STRONG> (Thumb, 100 bytes, Stack size 4 bytes, stm32f7xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter))
@@ -867,11 +863,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ad]"></a>HAL_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, stm32f7xx_hal.o(i.HAL_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_Init &rArr; HAL_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -882,8 +878,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
 <P><STRONG><a name="[b0]"></a>HAL_MspInit</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, stm32f7xx_hal_msp.o(i.HAL_MspInit))
@@ -902,15 +898,15 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, stm32f7xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
 <P><STRONG><a name="[ae]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
 <P><STRONG><a name="[b3]"></a>HAL_PWREx_EnableOverDrive</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, stm32f7xx_hal_pwr_ex.o(i.HAL_PWREx_EnableOverDrive))
@@ -1061,8 +1057,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b1]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_Config))
-<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR><BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
 <P><STRONG><a name="[c5]"></a>HAL_SYSTICK_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler))
@@ -1115,13 +1111,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_EnableOverDrive
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1154,7 +1150,7 @@ Global Symbols
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
 <P><STRONG><a name="[d7]"></a>__hardfp_cosf</STRONG> (Thumb, 280 bytes, Stack size 8 bytes, cosf.o(i.__hardfp_cosf))
@@ -1173,9 +1169,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fabs
@@ -1187,8 +1183,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = __kernel_cos &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
@@ -1315,10 +1311,6 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_InitProtocol
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RNG_Init
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
@@ -1327,6 +1319,10 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Start_DMA
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1337,7 +1333,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> audiostream.o(i.audioInit)
 </UL>
-<P><STRONG><a name="[fa]"></a>tBiQuadInit</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadInit))
+<P><STRONG><a name="[f9]"></a>tBiQuadInit</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadInit))
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpInit
 </UL>
 
@@ -1349,34 +1345,34 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> oopsfilter.o(i.tBiQuadInit)
 </UL>
 <P><STRONG><a name="[102]"></a>tBiQuadSetA1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetA1))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
-<P><STRONG><a name="[ff]"></a>tBiQuadSetA2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetA2))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<P><STRONG><a name="[fe]"></a>tBiQuadSetA2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetA2))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
-<P><STRONG><a name="[100]"></a>tBiQuadSetB0</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetB0))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<P><STRONG><a name="[ff]"></a>tBiQuadSetB0</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetB0))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
 <P><STRONG><a name="[103]"></a>tBiQuadSetB1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetB1))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
-<P><STRONG><a name="[101]"></a>tBiQuadSetB2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetB2))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<P><STRONG><a name="[100]"></a>tBiQuadSetB2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadSetB2))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 </UL>
 
 <P><STRONG><a name="[104]"></a>tBiQuadTick</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, oopsfilter.o(i.tBiQuadTick))
 <BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpTick
 </UL>
 
-<P><STRONG><a name="[fb]"></a>tDelayAGetDelay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayAGetDelay))
+<P><STRONG><a name="[fa]"></a>tDelayAGetDelay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayAGetDelay))
 <BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpPluck
 </UL>
 
-<P><STRONG><a name="[fc]"></a>tDelayAGetLastOut</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayAGetLastOut))
+<P><STRONG><a name="[fb]"></a>tDelayAGetLastOut</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayAGetLastOut))
 <BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpTick
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpPluck
 </UL>
@@ -1394,16 +1390,16 @@ Global Symbols
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetFrequency
 </UL>
 
-<P><STRONG><a name="[fe]"></a>tDelayATick</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayATick))
+<P><STRONG><a name="[fd]"></a>tDelayATick</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayATick))
 <BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpTick
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpPluck
 </UL>
 
-<P><STRONG><a name="[f7]"></a>tDelayLInit</STRONG> (Thumb, 238 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayLInit))
+<P><STRONG><a name="[f6]"></a>tDelayLInit</STRONG> (Thumb, 238 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayLInit))
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpInit
 </UL>
 
-<P><STRONG><a name="[f6]"></a>tDelayLSetDelay</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayLSetDelay))
+<P><STRONG><a name="[f5]"></a>tDelayLSetDelay</STRONG> (Thumb, 152 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayLSetDelay))
 <BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetFrequency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpControlChange
 </UL>
@@ -1414,19 +1410,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpTick
 </UL>
 
-<P><STRONG><a name="[f9]"></a>tNoiseInit</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, oopsoscillator.o(i.tNoiseInit))
+<P><STRONG><a name="[f8]"></a>tNoiseInit</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, oopsoscillator.o(i.tNoiseInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = tNoiseInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpInit
 </UL>
 
-<P><STRONG><a name="[fd]"></a>tNoiseTick</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, oopsoscillator.o(i.tNoiseTick))
+<P><STRONG><a name="[fc]"></a>tNoiseTick</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, oopsoscillator.o(i.tNoiseTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tNoiseTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpPluck
 </UL>
 
-<P><STRONG><a name="[f8]"></a>tOneZeroInit</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, oopsfilter.o(i.tOneZeroInit))
+<P><STRONG><a name="[f7]"></a>tOneZeroInit</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, oopsfilter.o(i.tOneZeroInit))
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpInit
 </UL>
 
@@ -1478,22 +1474,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[e8]"></a>tSawtoothTick</STRONG> (Thumb, 784 bytes, Stack size 24 bytes, oopsoscillator.o(i.tSawtoothTick))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = tSawtoothTick &rArr; __aeabi_drsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
+<P><STRONG><a name="[e8]"></a>tSawtoothTick</STRONG> (Thumb, 694 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSawtoothTick))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
 <P><STRONG><a name="[e4]"></a>tStifKarpControlChange</STRONG> (Thumb, 192 bytes, Stack size 0 bytes, oopsinstrument.o(i.tStifKarpControlChange))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = tStifKarpControlChange &rArr; tStifKarpSetStretch &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLSetDelay
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLSetDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
@@ -1502,10 +1491,10 @@ Global Symbols
 <P><STRONG><a name="[ea]"></a>tStifKarpInit</STRONG> (Thumb, 162 bytes, Stack size 24 bytes, oopsinstrument.o(i.tStifKarpInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = tStifKarpInit &rArr; tStifKarpSetFrequency &rArr; tStifKarpSetStretch &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseInit
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tOneZeroInit
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadInit
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLInit
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseInit
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tOneZeroInit
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadInit
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLInit
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAInit
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetFrequency
 </UL>
@@ -1515,10 +1504,10 @@ Global Symbols
 <P><STRONG><a name="[e5]"></a>tStifKarpPluck</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, oopsinstrument.o(i.tStifKarpPluck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tStifKarpPluck &rArr; tNoiseTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseTick
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayATick
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetLastOut
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetDelay
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseTick
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayATick
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetLastOut
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
@@ -1526,7 +1515,7 @@ Global Symbols
 <P><STRONG><a name="[83]"></a>tStifKarpSampleRateChanged</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, oopsinstrument.o(i.tStifKarpSampleRateChanged))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = tStifKarpSampleRateChanged &rArr; tStifKarpSetFrequency &rArr; tStifKarpSetStretch &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetFrequency
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oopsinstrument.o(i.tStifKarpInit)
@@ -1534,27 +1523,27 @@ Global Symbols
 <P><STRONG><a name="[e3]"></a>tStifKarpSetFrequency</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, oopsinstrument.o(i.tStifKarpSetFrequency))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = tStifKarpSetFrequency &rArr; tStifKarpSetStretch &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLSetDelay
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSetStretch
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLSetDelay
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayASetDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSampleRateChanged
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSampleRateChanged
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpInit
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[f5]"></a>tStifKarpSetStretch</STRONG> (Thumb, 230 bytes, Stack size 56 bytes, oopsinstrument.o(i.tStifKarpSetStretch))
+<P><STRONG><a name="[f4]"></a>tStifKarpSetStretch</STRONG> (Thumb, 230 bytes, Stack size 56 bytes, oopsinstrument.o(i.tStifKarpSetStretch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = tStifKarpSetStretch &rArr; __hardfp_cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cos
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetB2
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetB2
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetB1
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetB0
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetA2
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetB0
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetA2
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadSetA1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tStifKarpSampleRateChanged
@@ -1568,8 +1557,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tOneZeroTick
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tBiQuadTick
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLTick
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayATick
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetLastOut
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayATick
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayAGetLastOut
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
