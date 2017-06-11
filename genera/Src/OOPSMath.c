@@ -21,8 +21,10 @@
 float   OOPS_clip(float min, float val, float max) {
     
     if (val < min) {
+			  audioClipped();
         return min;
     } else if (val > max) {
+				audioClipped();
         return max;
     } else {
         return val;

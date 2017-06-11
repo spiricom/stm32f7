@@ -3,7 +3,7 @@
 <title>Static Call Graph - [genera_basic\genera_basic.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image genera_basic\genera_basic.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat Jun 10 17:15:52 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat Jun 10 21:15:01 2017
 <BR><P>
 <H3>Maximum Stack Usage =        312 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -156,7 +156,7 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f765xx.o(.text)
 </UL>
-<P><STRONG><a name="[dd]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[e0]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[82]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -166,15 +166,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[de]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[e1]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[df]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[e2]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[e0]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[e3]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[e1]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[e4]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[e2]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[e5]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f765xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f765xx.o(RESET)
@@ -488,9 +488,9 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[e3]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e6]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[e4]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e7]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[84]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -500,7 +500,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPSInit
 </UL>
 
-<P><STRONG><a name="[e5]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e8]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[86]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -512,14 +512,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[e6]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[e9]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[8b]"></a>AudioCodec_init</STRONG> (Thumb, 280 bytes, Stack size 40 bytes, codec.o(i.AudioCodec_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = AudioCodec_init &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f7xx_it.o(i.BusFault_Handler))
@@ -573,7 +573,7 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 
-<P><STRONG><a name="[cb]"></a>HAL_ADC_ConfigChannel</STRONG> (Thumb, 442 bytes, Stack size 20 bytes, stm32f7xx_hal_adc.o(i.HAL_ADC_ConfigChannel))
+<P><STRONG><a name="[cf]"></a>HAL_ADC_ConfigChannel</STRONG> (Thumb, 442 bytes, Stack size 20 bytes, stm32f7xx_hal_adc.o(i.HAL_ADC_ConfigChannel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = HAL_ADC_ConfigChannel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -654,15 +654,20 @@ Global Symbols
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<P><STRONG><a name="[c7]"></a>HAL_GPIO_ReadPin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f7xx_hal_gpio.o(i.HAL_GPIO_ReadPin))
+<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
+</UL>
+
 <P><STRONG><a name="[8d]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f7xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemManage_Handler
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
 <LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioClipped
 </UL>
 
 <P><STRONG><a name="[96]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f7xx_hal.o(i.HAL_GetTick))
@@ -678,7 +683,7 @@ Global Symbols
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_EnableOverDrive
 </UL>
 
-<P><STRONG><a name="[cc]"></a>HAL_I2CEx_ConfigAnalogFilter</STRONG> (Thumb, 100 bytes, Stack size 4 bytes, stm32f7xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter))
+<P><STRONG><a name="[d0]"></a>HAL_I2CEx_ConfigAnalogFilter</STRONG> (Thumb, 100 bytes, Stack size 4 bytes, stm32f7xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = HAL_I2CEx_ConfigAnalogFilter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -713,7 +718,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 </UL>
 
-<P><STRONG><a name="[bb]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f7xx_hal.o(i.HAL_IncTick))
+<P><STRONG><a name="[bd]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f7xx_hal.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
@@ -746,7 +751,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[ca]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
+<P><STRONG><a name="[ce]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -756,7 +761,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[9d]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
@@ -769,7 +774,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[ac]"></a>HAL_RCCEx_GetPeriphCLKFreq</STRONG> (Thumb, 288 bytes, Stack size 16 bytes, stm32f7xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq))
@@ -783,7 +788,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[a4]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 492 bytes, Stack size 32 bytes, stm32f7xx_hal_rcc.o(i.HAL_RCC_ClockConfig))
@@ -792,11 +797,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[bd]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f7xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[bf]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f7xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[a5]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 1040 bytes, Stack size 40 bytes, stm32f7xx_hal_rcc.o(i.HAL_RCC_OscConfig))
@@ -804,7 +809,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[a6]"></a>HAL_RNG_GenerateRandomNumber</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, stm32f7xx_hal_rng.o(i.HAL_RNG_GenerateRandomNumber))
@@ -829,7 +834,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RNG_Init
 </UL>
 
-<P><STRONG><a name="[b8]"></a>HAL_SAI_ErrorCallback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, audiostream.o(i.HAL_SAI_ErrorCallback))
+<P><STRONG><a name="[ba]"></a>HAL_SAI_ErrorCallback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, audiostream.o(i.HAL_SAI_ErrorCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMAError
 </UL>
 
@@ -867,14 +872,14 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[b9]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_hal_sai.o(i.HAL_SAI_RxCpltCallback))
+<P><STRONG><a name="[bb]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_hal_sai.o(i.HAL_SAI_RxCpltCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
 </UL>
 
-<P><STRONG><a name="[ba]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_hal_sai.o(i.HAL_SAI_RxHalfCpltCallback))
+<P><STRONG><a name="[bc]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_hal_sai.o(i.HAL_SAI_RxHalfCpltCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxHalfCplt
 </UL>
 
@@ -884,11 +889,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
 <P><STRONG><a name="[b1]"></a>HAL_SAI_TxCpltCallback</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, audiostream.o(i.HAL_SAI_TxCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SAI_TxCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; tNoiseTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_SAI_TxCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
@@ -896,15 +901,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b3]"></a>HAL_SAI_TxHalfCpltCallback</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, audiostream.o(i.HAL_SAI_TxHalfCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SAI_TxHalfCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; tNoiseTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_SAI_TxHalfCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMATxHalfCplt
 </UL>
 
-<P><STRONG><a name="[be]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[c0]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[b5]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_Callback))
@@ -913,7 +918,7 @@ Global Symbols
 
 <P><STRONG><a name="[a0]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_Config))
 <BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[b4]"></a>HAL_SYSTICK_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f7xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler))
@@ -940,11 +945,15 @@ Global Symbols
 <P><STRONG><a name="[b6]"></a>OOPSInit</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, oops.o(i.OOPSInit))
 <BR><BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[dc]"></a>OOPS_clip</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oopsmath.o(i.OOPS_clip))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<P><STRONG><a name="[b8]"></a>OOPS_clip</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, oopsmath.o(i.OOPS_clip))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = OOPS_clip
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioClipped
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f7xx_it.o(i.PendSV_Handler))
@@ -957,20 +966,20 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Handler &rArr; HAL_SYSTICK_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f765xx.o(RESET)
 </UL>
-<P><STRONG><a name="[bc]"></a>SystemClock_Config</STRONG> (Thumb, 244 bytes, Stack size 240 bytes, main.o(i.SystemClock_Config))
+<P><STRONG><a name="[be]"></a>SystemClock_Config</STRONG> (Thumb, 244 bytes, Stack size 240 bytes, main.o(i.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_EnableOverDrive
 </UL>
@@ -987,59 +996,67 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f765xx.o(RESET)
 </UL>
-<P><STRONG><a name="[e7]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[ea]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[e8]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[eb]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[e9]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[ec]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[b2]"></a>audioFrame</STRONG> (Thumb, 274 bytes, Stack size 32 bytes, audiostream.o(i.audioFrame))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = audioFrame &rArr; t808HihatTick &rArr; tNoiseTick
+<P><STRONG><a name="[b9]"></a>audioClipped</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, audiostream.o(i.audioClipped))
+<BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+</UL>
+
+<P><STRONG><a name="[b2]"></a>audioFrame</STRONG> (Thumb, 392 bytes, Stack size 56 bytes, audiostream.o(i.audioFrame))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetStickBandpassFreq
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscNoiseMix
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscBandpassFreq
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetHighpassFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetDecay
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatOn
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetStickBandpassFreq
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscNoiseMix
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscFreq
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscBandpassFreq
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetHighpassFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetDecay
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatOn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_TxHalfCpltCallback
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_TxCpltCallback
 </UL>
 
-<P><STRONG><a name="[c7]"></a>audioInit</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, audiostream.o(i.audioInit))
+<P><STRONG><a name="[ca]"></a>audioInit</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, audiostream.o(i.audioInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = audioInit &rArr; AudioCodec_init &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Transmit_DMA
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Receive_DMA
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleInit
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleInit
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCompressorInit
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPSInit
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AudioCodec_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[73]"></a>main</STRONG> (Thumb, 978 bytes, Stack size 24 bytes, main.o(i.main))
+<P><STRONG><a name="[73]"></a>main</STRONG> (Thumb, 994 bytes, Stack size 24 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_InitProtocol
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RNG_Init
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2CEx_ConfigAnalogFilter
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Start_DMA
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_ConfigChannel
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1050,159 +1067,163 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> audiostream.o(i.audioInit)
 </UL>
-<P><STRONG><a name="[c9]"></a>t808HihatInit</STRONG> (Thumb, 204 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatInit))
+<P><STRONG><a name="[cc]"></a>t808HihatInit</STRONG> (Thumb, 204 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = t808HihatInit &rArr; tEnvelopeInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareSetFreq
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareInit
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseInit
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeInit
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFEInit
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassInit
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareSetFreq
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareInit
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseInit
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeInit
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFEInit
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[c5]"></a>t808HihatOn</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatOn))
+<P><STRONG><a name="[c8]"></a>t808HihatOn</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatOn))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = t808HihatOn
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeOn
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeOn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c4]"></a>t808HihatSetDecay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetDecay))
-<BR><BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeSetDecay
+<P><STRONG><a name="[c6]"></a>t808HihatSetDecay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetDecay))
+<BR><BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeSetDecay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[bf]"></a>t808HihatSetHighpassFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetHighpassFreq))
-<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassSetFreq
+<P><STRONG><a name="[c1]"></a>t808HihatSetHighpassFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetHighpassFreq))
+<BR><BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassSetFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c0]"></a>t808HihatSetOscBandpassFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetOscBandpassFreq))
-<BR><BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFESetFreq
+<P><STRONG><a name="[c2]"></a>t808HihatSetOscBandpassFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetOscBandpassFreq))
+<BR><BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFESetFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c1]"></a>t808HihatSetOscFreq</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatSetOscFreq))
+<P><STRONG><a name="[c3]"></a>t808HihatSetOscFreq</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, oopsinstrument.o(i.t808HihatSetOscFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = t808HihatSetOscFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareSetFreq
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareSetFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c3]"></a>t808HihatSetOscNoiseMix</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetOscNoiseMix))
+<P><STRONG><a name="[c5]"></a>t808HihatSetOscNoiseMix</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetOscNoiseMix))
 <BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c2]"></a>t808HihatSetStickBandpassFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetStickBandpassFreq))
-<BR><BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFESetFreq
+<P><STRONG><a name="[c4]"></a>t808HihatSetStickBandpassFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, oopsinstrument.o(i.t808HihatSetStickBandpassFreq))
+<BR><BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFESetFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c6]"></a>t808HihatTick</STRONG> (Thumb, 170 bytes, Stack size 32 bytes, oopsinstrument.o(i.t808HihatTick))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = t808HihatTick &rArr; tNoiseTick
+<P><STRONG><a name="[c9]"></a>t808HihatTick</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, oopsinstrument.o(i.t808HihatTick))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = t808HihatTick &rArr; OOPS_clip
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareTick
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseTick
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeTick
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFETick
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassTick
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSquareTick
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tNoiseTick
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tEnvelopeTick
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFETick
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tHighpassTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
 
-<P><STRONG><a name="[c8]"></a>tCycleInit</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleInit))
-<BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<P><STRONG><a name="[cd]"></a>tCompressorInit</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, oopsutilities.o(i.tCompressorInit))
+<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+</UL>
+
+<P><STRONG><a name="[cb]"></a>tCycleInit</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleInit))
+<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
 <P><STRONG><a name="[7f]"></a>tCycleSampleRateChanged</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleSampleRateChanged))
 <BR>[Address Reference Count : 1]<UL><LI> oopsoscillator.o(i.tCycleInit)
 </UL>
-<P><STRONG><a name="[d0]"></a>tEnvelopeInit</STRONG> (Thumb, 208 bytes, Stack size 8 bytes, oopsutilities.o(i.tEnvelopeInit))
+<P><STRONG><a name="[d4]"></a>tEnvelopeInit</STRONG> (Thumb, 208 bytes, Stack size 8 bytes, oopsutilities.o(i.tEnvelopeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tEnvelopeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
-<P><STRONG><a name="[d3]"></a>tEnvelopeOn</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, oopsutilities.o(i.tEnvelopeOn))
-<BR><BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatOn
+<P><STRONG><a name="[d7]"></a>tEnvelopeOn</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, oopsutilities.o(i.tEnvelopeOn))
+<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatOn
 </UL>
 
-<P><STRONG><a name="[d4]"></a>tEnvelopeSetDecay</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, oopsutilities.o(i.tEnvelopeSetDecay))
-<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetDecay
+<P><STRONG><a name="[d8]"></a>tEnvelopeSetDecay</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, oopsutilities.o(i.tEnvelopeSetDecay))
+<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetDecay
 </UL>
 
-<P><STRONG><a name="[da]"></a>tEnvelopeTick</STRONG> (Thumb, 268 bytes, Stack size 8 bytes, oopsutilities.o(i.tEnvelopeTick))
+<P><STRONG><a name="[de]"></a>tEnvelopeTick</STRONG> (Thumb, 268 bytes, Stack size 8 bytes, oopsutilities.o(i.tEnvelopeTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tEnvelopeTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 
-<P><STRONG><a name="[d1]"></a>tHighpassInit</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassInit))
-<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<P><STRONG><a name="[d5]"></a>tHighpassInit</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassInit))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
 <P><STRONG><a name="[80]"></a>tHighpassSampleRateChanged</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassSampleRateChanged))
 <BR>[Address Reference Count : 1]<UL><LI> oopsfilter.o(i.tHighpassInit)
 </UL>
-<P><STRONG><a name="[d5]"></a>tHighpassSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassSetFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetHighpassFreq
+<P><STRONG><a name="[d9]"></a>tHighpassSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassSetFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetHighpassFreq
 </UL>
 
-<P><STRONG><a name="[db]"></a>tHighpassTick</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassTick))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<P><STRONG><a name="[df]"></a>tHighpassTick</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, oopsfilter.o(i.tHighpassTick))
+<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 
-<P><STRONG><a name="[ce]"></a>tNoiseInit</STRONG> (Thumb, 60 bytes, Stack size 4 bytes, oopsoscillator.o(i.tNoiseInit))
+<P><STRONG><a name="[d2]"></a>tNoiseInit</STRONG> (Thumb, 60 bytes, Stack size 4 bytes, oopsoscillator.o(i.tNoiseInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = tNoiseInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
-<P><STRONG><a name="[d8]"></a>tNoiseTick</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, oopsoscillator.o(i.tNoiseTick))
+<P><STRONG><a name="[dc]"></a>tNoiseTick</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, oopsoscillator.o(i.tNoiseTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tNoiseTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 
-<P><STRONG><a name="[cf]"></a>tSVFEInit</STRONG> (Thumb, 120 bytes, Stack size 4 bytes, oopsfilter.o(i.tSVFEInit))
+<P><STRONG><a name="[d3]"></a>tSVFEInit</STRONG> (Thumb, 120 bytes, Stack size 4 bytes, oopsfilter.o(i.tSVFEInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = tSVFEInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
-<P><STRONG><a name="[d6]"></a>tSVFESetFreq</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFESetFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetStickBandpassFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscBandpassFreq
+<P><STRONG><a name="[da]"></a>tSVFESetFreq</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFESetFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetStickBandpassFreq
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscBandpassFreq
 </UL>
 
-<P><STRONG><a name="[d9]"></a>tSVFETick</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFETick))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<P><STRONG><a name="[dd]"></a>tSVFETick</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFETick))
+<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 
-<P><STRONG><a name="[cd]"></a>tSquareInit</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareInit))
-<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<P><STRONG><a name="[d1]"></a>tSquareInit</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareInit))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
 <P><STRONG><a name="[81]"></a>tSquareSampleRateChanged</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareSampleRateChanged))
 <BR>[Address Reference Count : 1]<UL><LI> oopsoscillator.o(i.tSquareInit)
 </UL>
-<P><STRONG><a name="[d2]"></a>tSquareSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareSetFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
+<P><STRONG><a name="[d6]"></a>tSquareSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareSetFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatSetOscFreq
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatInit
 </UL>
 
-<P><STRONG><a name="[d7]"></a>tSquareTick</STRONG> (Thumb, 694 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareTick))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
+<P><STRONG><a name="[db]"></a>tSquareTick</STRONG> (Thumb, 694 bytes, Stack size 0 bytes, oopsoscillator.o(i.tSquareTick))
+<BR><BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;t808HihatTick
 </UL>
 <P>
 <H3>
@@ -1236,7 +1257,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SAI_DMAError &rArr; SAI_Disable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_Disable
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_ErrorCallback
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_ErrorCallback
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> stm32f7xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 <LI> stm32f7xx_hal_sai.o(i.HAL_SAI_Transmit_DMA)
@@ -1244,7 +1265,7 @@ Local Symbols
 <P><STRONG><a name="[7a]"></a>SAI_DMARxCplt</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, stm32f7xx_hal_sai.o(i.SAI_DMARxCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SAI_DMARxCplt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f7xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
@@ -1252,12 +1273,12 @@ Local Symbols
 <P><STRONG><a name="[79]"></a>SAI_DMARxHalfCplt</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f7xx_hal_sai.o(i.SAI_DMARxHalfCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SAI_DMARxHalfCplt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f7xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[7d]"></a>SAI_DMATxCplt</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, stm32f7xx_hal_sai.o(i.SAI_DMATxCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SAI_DMATxCplt &rArr; HAL_SAI_TxCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; tNoiseTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SAI_DMATxCplt &rArr; HAL_SAI_TxCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_TxCpltCallback
@@ -1265,7 +1286,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> stm32f7xx_hal_sai.o(i.HAL_SAI_Transmit_DMA)
 </UL>
 <P><STRONG><a name="[7c]"></a>SAI_DMATxHalfCplt</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f7xx_hal_sai.o(i.SAI_DMATxHalfCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SAI_DMATxHalfCplt &rArr; HAL_SAI_TxHalfCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; tNoiseTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SAI_DMATxHalfCplt &rArr; HAL_SAI_TxHalfCpltCallback &rArr; audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_TxHalfCpltCallback
 </UL>

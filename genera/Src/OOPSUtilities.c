@@ -27,10 +27,10 @@ tCompressor*    tCompressorInit(float tauAttack, float tauRelease)
     c->x_T[0] = 0.0f, c->x_T[1] = 0.0f,
     c->y_T[0] = 0.0f, c->y_T[1] = 0.0f;
     
-    c->T = 0.0f; // Threshold
-    c->R = 1.0f; // compression Ratio
+    c->T = -6.0f; // Threshold
+    c->R = 4.0f; // compression Ratio
     c->M = 0.0f; // decibel Make-up gain
-    c->W = 0.0f; // decibel Width of knee transition
+    c->W = 3.0f; // decibel Width of knee transition
     
     return c;
 }

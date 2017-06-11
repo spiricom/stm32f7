@@ -398,7 +398,7 @@ void t808HihatSetOscNoiseMix(t808Hihat* const hihat, float oscNoiseMix) {
 float t808HihatTick(t808Hihat* const hihat) {
     
     float sample = 0.0f;
-    float gainScale = 0.1666f;
+    float gainScale = 0.125f;
     
     for (int i = 0; i < 6; i++)
     {
@@ -407,13 +407,13 @@ float t808HihatTick(t808Hihat* const hihat) {
     
     sample *= gainScale;
     
-    sample = (hihat->oscNoiseMix * sample) + ((1.0f-hihat->oscNoiseMix) * (0.8f * tNoiseTick(hihat->n)));
+    sample = (hihat->oscNoiseMix * sample) + ((1.0f-hihat->oscNoiseMix) * (0.7f * tNoiseTick(hihat->n)));
     
     sample = tSVFETick(hihat->bandpassOsc, sample);
     
     sample *= tEnvelopeTick(hihat->envGain);
     
-    sample = 0.85f * OOPS_clip(0.0f, tHighpassTick(hihat->highpass, sample), 1.0f);
+    sample = 0.85f * OOPS_clip(-1.0f, tHighpassTick(hihat->highpass, sample), 1.0f);
     
     sample += 0.15f * tEnvelopeTick(hihat->envStick) * tSVFETick(hihat->bandpassStick, tNoiseTick(hihat->stick));
     
@@ -469,7 +469,7 @@ t808Hihat* t808HihatInit(void)
     hihat->bandpassOsc = tSVFEInit(SVFTypeBandpass,3500,0.5f);
     
     hihat->envGain = tEnvelopeInit(1.0f, 50.0f, OFALSE);
-    hihat->envStick = tEnvelopeInit(1.0f, 15.0f, OFALSE);
+    hihat->envStick = tEnvelopeInit(1.0f, 12.0f, OFALSE);
     
     hihat->highpass = tHighpassInit(7000.0f);
     

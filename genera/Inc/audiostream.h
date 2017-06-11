@@ -73,6 +73,8 @@ float audioTickL(float audioIn);
 float audioTickR(float audioIn);
 
 void audioError(void);
+void audioClippedMain(void);
+void audioClipped(void);
 
 void DMA1_TransferCpltCallback(DMA_HandleTypeDef *hdma);
 void DMA1_HalfTransferCpltCallback(DMA_HandleTypeDef *hdma);

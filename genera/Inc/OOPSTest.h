@@ -3,3 +3,5 @@
 tCycle* sine[2];
 
 t808Hihat* hat;
+
+tCompressor* comp;

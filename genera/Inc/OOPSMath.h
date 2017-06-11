@@ -49,7 +49,7 @@ typedef enum oBool
 float       OOPS_clip               (float min, float val, float max);
 oBool       OOPS_isPrime            (uint64_t number );
 float       OOPS_midiToFrequency    (float f);
-
+extern void	audioClipped						(void);
 
 
 #endif  // OOPSMATH_H_INCLUDED

@@ -28,7 +28,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_808SNARE          NI
 #define     N_808HIHAT          1
 #define     N_808COWBELL        NI
-#define     N_COMPRESSOR        NI
+#define     N_COMPRESSOR        1
 #define     N_PRCREV            NI
 #define     N_NREV              NI
 #define     N_PLUCK             NI
