@@ -3,7 +3,7 @@
 <title>Static Call Graph - [genera_basic\genera_basic.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image genera_basic\genera_basic.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sat Jun 10 21:15:01 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Mon Jun 26 16:16:06 2017
 <BR><P>
 <H3>Maximum Stack Usage =        312 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1008,7 +1008,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
 </UL>
 
-<P><STRONG><a name="[b2]"></a>audioFrame</STRONG> (Thumb, 392 bytes, Stack size 56 bytes, audiostream.o(i.audioFrame))
+<P><STRONG><a name="[b2]"></a>audioFrame</STRONG> (Thumb, 498 bytes, Stack size 56 bytes, audiostream.o(i.audioFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = audioFrame &rArr; t808HihatTick &rArr; OOPS_clip
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1026,7 +1026,7 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_TxCpltCallback
 </UL>
 
-<P><STRONG><a name="[ca]"></a>audioInit</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, audiostream.o(i.audioInit))
+<P><STRONG><a name="[ca]"></a>audioInit</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, audiostream.o(i.audioInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = audioInit &rArr; AudioCodec_init &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Transmit_DMA
@@ -1040,7 +1040,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[73]"></a>main</STRONG> (Thumb, 994 bytes, Stack size 24 bytes, main.o(i.main))
+<P><STRONG><a name="[73]"></a>main</STRONG> (Thumb, 1166 bytes, Stack size 24 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin

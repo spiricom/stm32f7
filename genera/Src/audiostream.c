@@ -5,7 +5,7 @@
 
 #include "codec.h"
 
-#define AUDIO_FRAME_SIZE      8
+#define AUDIO_FRAME_SIZE      64
 #define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
 #define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
@@ -58,19 +58,35 @@ static int onsetFlag = 0;
 void audioFrame(uint16_t buffer_offset)
 {
 	int16_t current_sample = 0;  
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
 	
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
 	if (audioBusy == 1)
 	{
 		audioError(); // this means it didn't finish the last round before it got interrupted again
 	}
 	audioBusy = 1;
 	
-	t808HihatSetHighpassFreq(hat, (adcVals[1] * 2));
-	t808HihatSetOscBandpassFreq(hat, adcVals[2]);
-	t808HihatSetOscFreq(hat, (80.0f * ((adcVals[3] * INV_TWO_TO_12) + 1.0f)) + 0.0f);
+	uint16_t hatbpfreq = adcVals[2] + adcVals[11];
+	if (hatbpfreq > 4095)
+	{
+		hatbpfreq = 4095;
+	}
+	
+	uint16_t highpass_freq = 	((adcVals[1] * 2) + (adcVals[9] * 2));
+	if (highpass_freq > 14000)
+	{
+		highpass_freq = 14000;
+	}
+
+	float oscFreq = (((30.0f * ((adcVals[3] * INV_TWO_TO_12) + 1.0f)) + 0.0f) +  ((300.0f * ((adcVals[10] * INV_TWO_TO_12) + 1.0f)) + 0.0f));
+	
+	t808HihatSetHighpassFreq(hat, (float) highpass_freq);
+	t808HihatSetOscBandpassFreq(hat, hatbpfreq);
+	t808HihatSetOscFreq(hat, oscFreq);
 	t808HihatSetStickBandpassFreq(hat, adcVals[0]);
 	t808HihatSetOscNoiseMix(hat, (adcVals[4] * INV_TWO_TO_12));
-	t808HihatSetDecay(hat, ((adcVals[5] * 0.125f) + (adcVals[8] * 1.0f)));
+	t808HihatSetDecay(hat, (adcVals[5] * 0.125f) + (adcVals[8] * 0.125f));
 	
 	if ((!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)) && (gateIn == 0))
 	{
@@ -87,7 +103,7 @@ void audioFrame(uint16_t buffer_offset)
 		onsetFlag = 0;
 	}
 
-	
+
 	for (ij = 0; ij < (HALF_BUFFER_SIZE); ij++)
 	{
 		
@@ -108,7 +124,8 @@ void audioFrame(uint16_t buffer_offset)
 		//fill the buffer with the new sample that has just been calculated
 		audioOutBuffer[buffer_offset + ij] = current_sample;
 	}
-	
+
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
 	audioBusy = 0;
 }
 
@@ -117,6 +134,7 @@ float audioTickL(float audioIn)
 	//use audioIn if you want the input sample	
 	
 	float sample = 0.0f;
+	
 	sample = t808HihatTick(hat);
 	sample = sample * 1.5f;
 	
@@ -131,16 +149,18 @@ float audioTickL(float audioIn)
 		sample = -1.0f;
 		audioClippedMain();
 	}
-	
+	//sample = 0.f;
 	//tCycleSetFreq(sine[0], ((4095-adcVals[0]) + (audioIn * (4095-adcVals[4])))); //add together knob value and FM from audio input multiplied by another knob value
 	//sample = .95f * tCycleTick(sine[0]);
+	
+	//sample = audioIn;
 	return sample;
 }
 
 float audioTickR(float audioIn)
 {
 	
-	float sample = 0;
+	float sample = 0.0f;
 	//tCycleSetFreq(sine[1], ((4095-adcVals[1]) + (audioIn * (4095-adcVals[5])))); //add together knob value and FM from audio input multiplied by another knob value
 	//sample = .95f * tCycleTick(sine[1]);
 	return sample;

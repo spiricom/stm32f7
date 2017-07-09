@@ -17,7 +17,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c) {
 	//power reduction register - turn power on but don't turn off OutputPD bit yet (also currently leaving microphone bias and oscillator/clkout disabled)
 	//if you want to use the microphone input, this will have to be set to 0x70 instead of 0x72
 	myI2cData[0] = 0x0c;
-  myI2cData[1] = 0x72;
+  myI2cData[1] = 0x70;
 	HAL_I2C_Master_Transmit(hi2c, CODEC_I2C_ADDRESS, myI2cData, i2cDataSize, I2Ctimeout);
  
 	//digital data format - I2S 
@@ -71,6 +71,6 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c) {
 //power reduction register - now turn off OutputPD bit (also currently leaving microphone bias and oscillator/clkout disabled)
 	//if you want to use the microphone input, this will have to be set to 0x60 instead of 0x62
 	myI2cData[0] = 0x0c;
-  myI2cData[1] = 0x62;
+  myI2cData[1] = 0x60;
 	HAL_I2C_Master_Transmit(hi2c, CODEC_I2C_ADDRESS, myI2cData, i2cDataSize, I2Ctimeout);
 }
