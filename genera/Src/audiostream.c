@@ -26,6 +26,8 @@ typedef enum BOOL {
 } BOOL;
 
 
+float breath_baseline = 0.0f;
+float breath_mult = 0.0f;
 
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrand, uint16_t* myADCarray)
 { 
@@ -42,10 +44,16 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	HAL_SAI_Transmit_DMA(hsaiIn, (uint8_t *)&audioOutBuffer[0], AUDIO_BUFFER_SIZE);
 	HAL_SAI_Receive_DMA(hsaiOut, (uint8_t *)&audioInBuffer[0], AUDIO_BUFFER_SIZE);
 	
-	sine[0] = tCycleInit(); //these are declared in OOPSTest.h, and memory is allocated for them in OOPSMemConfig.h
-	sine[1] = tCycleInit();
+	saw[0] = tSawtoothInit(); //these are declared in OOPSTest.h, and memory is allocated for them in OOPSMemConfig.h
+	saw[1] = tSawtoothInit();
+	
+	tSawtoothSetFreq(saw[0], 440.0f);
 	hat = t808HihatInit();
 	comp = tCompressorInit(15.f, 15.f);
+	sineRamp = tRampInit(100.0f, (48000.0f / (float)AUDIO_FRAME_SIZE));
+	
+	breath_baseline = ((adcVals[3] * INV_TWO_TO_12) + 0.1f);
+	breath_mult = 1.0f / (1.0f-breath_baseline);
 }
 
 static int ij;
@@ -55,10 +63,12 @@ static int audioBusy = 0;
 static int gateIn = 0;
 static int onsetFlag = 0;
 
+float amplitude = 0.0f;
+float rampedAmp = 0.0f;
 void audioFrame(uint16_t buffer_offset)
 {
 	int16_t current_sample = 0;  
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
 	
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
 	if (audioBusy == 1)
@@ -66,7 +76,7 @@ void audioFrame(uint16_t buffer_offset)
 		audioError(); // this means it didn't finish the last round before it got interrupted again
 	}
 	audioBusy = 1;
-	
+	/*
 	uint16_t hatbpfreq = adcVals[2] + adcVals[11];
 	if (hatbpfreq > 4095)
 	{
@@ -102,15 +112,39 @@ void audioFrame(uint16_t buffer_offset)
 		t808HihatOn(hat, 1.0f);
 		onsetFlag = 0;
 	}
+*/
+	//t808HihatSetHighpassFreq(hat, 500.f);
+	//t808HihatSetOscBandpassFreq(hat, 3024);
+	//t808HihatSetOscFreq(hat, 30.f);
+	//t808HihatSetStickBandpassFreq(hat, 2024);
+	//t808HihatSetOscNoiseMix(hat, 0.5f);
+	//t808HihatSetDecay(hat, 800.0f);
+	
+	amplitude = (float)adcVals[3];
+	amplitude = amplitude * INV_TWO_TO_12;
+	amplitude = amplitude - breath_baseline;
+	amplitude = amplitude * breath_mult;
+	if (amplitude < 0.0f)
+	{
+		amplitude = 0.0f;
+	}
+	else if (amplitude > 1.0f)
+	{
+		amplitude = 1.0f;
+	}
+	tRampSetDest(sineRamp, amplitude);
+	rampedAmp = tRampTick(sineRamp);
+	//tSawtoothSetFreq(saw[0], tRampTick(sineRamp));
 
+	if (frameCount >= 800)
+	{
+		//t808HihatOn(hat,1.0f);
+		frameCount = 0;
+	}
+	frameCount++;
 
 	for (ij = 0; ij < (HALF_BUFFER_SIZE); ij++)
 	{
-		
-
-		
-		
-		
 		if ((ij & 1) == 0) 
 		{
 			//Left channel input and output
@@ -119,26 +153,22 @@ void audioFrame(uint16_t buffer_offset)
 		else 
 		{
 			//Right channel input and output
-			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
+			//current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
 		}
 		//fill the buffer with the new sample that has just been calculated
 		audioOutBuffer[buffer_offset + ij] = current_sample;
 	}
 
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
 	audioBusy = 0;
 }
 
 float audioTickL(float audioIn)
 {
-	//use audioIn if you want the input sample	
 	
 	float sample = 0.0f;
+	sample = rampedAmp * tSawtoothTick(saw[0]);
 	
-	sample = t808HihatTick(hat);
-	sample = sample * 1.5f;
-	
-	//sample = tCompressorTick(comp, sample);
 	if (sample > 1.0f)
 	{
 		sample = 1.0f;
@@ -149,9 +179,6 @@ float audioTickL(float audioIn)
 		sample = -1.0f;
 		audioClippedMain();
 	}
-	//sample = 0.f;
-	//tCycleSetFreq(sine[0], ((4095-adcVals[0]) + (audioIn * (4095-adcVals[4])))); //add together knob value and FM from audio input multiplied by another knob value
-	//sample = .95f * tCycleTick(sine[0]);
 	
 	//sample = audioIn;
 	return sample;

@@ -1,6 +1,8 @@
 #include "OOPS.h"
 
-tCycle* sine[2];
+tSawtooth* saw[2];
+
+tRamp* sineRamp;
 
 t808Hihat* hat;
 

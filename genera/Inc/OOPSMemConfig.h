@@ -36,7 +36,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_NEURON            NI
 #define     N_PHASOR            NI
 #define     N_CYCLE             2
-#define     N_SAWTOOTH          NI
+#define     N_SAWTOOTH          2
 #define     N_TRIANGLE          NI + 5 * N_808SNARE
 #define     N_SQUARE            NI + 6 * N_808HIHAT + 2 * N_808COWBELL
 #define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (2 * N_808HIHAT) + 4// StifKarp and Pluck each contain 1 Noise component.
@@ -55,7 +55,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_ENVELOPE          NI + (2 * N_808HIHAT)
 #define     N_ENVELOPEFOLLOW    NI + 4
 #define     N_ADSR              NI
-#define     N_RAMP              NI + N_NEURON + 10
+#define     N_RAMP              1 + N_NEURON + 10
 
 #define     DELAY_LENGTH        2048    // The maximum delay length of all Delay/DelayL/DelayA components.
                                         // Feel free to change to suit memory constraints or desired delay max length / functionality.
