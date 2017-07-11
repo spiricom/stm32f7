@@ -66,6 +66,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	hrandom = hrand;
 
 	myCompressor = tCompressorInit();
+	myDelay = tDelayInit(0);
 	filter = tSVFInit( SVFTypeBandpass, 2000,  100.0f);
 	
 	
@@ -100,8 +101,9 @@ void audioFrame(uint16_t buffer_offset)
 	float bw0 = (float) pow(10,-7.0f*knobs[5]+2.0f); // sets the size of a normal bandwidth
 	float n = 15*knobs[4]; // sets which harmonic to focus on 
 
+	tDelaySetDelay(myDelay,256*knobs[0]);
 	val =  1.0f/(LN2 * bw0 ) -LN2 *bw0/24.0f + ( 0.5f/(LN2*LN2* bw0) + bw0/48.0f)*(n-1);
-	myCompressor->T = knobs[0] * -60.0f ;
+	myCompressor->T = 0.550048828f * -60.0f ;
 	myCompressor->R = knobs[1] * 24.0f ; 
 	myCompressor->tauAttack = knobs[2] * 1024.0f;
 	myCompressor->tauRelease = knobs[3] * 1024.0f;
@@ -140,6 +142,8 @@ float audioTick(float audioIn) {
 	
 	
 	sample = tSVFTick(filter, sample);
+	
+	sample = tDelayTick(myDelay, sample);
 	
 	return sample;
 }

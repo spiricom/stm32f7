@@ -5,6 +5,7 @@
 
 
 tCompressor* myCompressor;
+tDelay* myDelay;
 tSVF* filter;
 
 
