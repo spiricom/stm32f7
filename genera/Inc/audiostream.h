@@ -63,7 +63,8 @@ typedef enum
 #define INV_TWO_TO_15 1.0f/TWO_TO_15
 #define TWO_TO_16_MINUS_ONE 65535.0f
 
-
+extern int16_t currentInput;
+extern int16_t currentOutput;
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrandom, uint16_t* myADCarray);

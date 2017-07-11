@@ -11,19 +11,6 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
   #error ADCHPD value not defined
 #endif
 
-#ifndef ADCS
-  #define ADCS 2
-#elif (ADCS >=0)&&(ADCS <= 2)
-#else
-  #error ADCS value not defined
-#endif
-
-#ifndef HYST
-  #define HYST 32
-#elif (HYST >= 0)&&(HYST <= 255)
-#else
-  #error HYST value not defined
-#endif
 
 #ifndef LINVOL
   #define LINVOL 0x17
@@ -54,7 +41,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 #endif
 
 #ifndef MICBOOST
-  #define MICBOOST 0
+  #define MICBOOST 1
 #elif (MICBOOST == 0)||(MICBOOST == 1)
 #else
   #error MICBOOST value not defined
@@ -62,7 +49,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 
 	// 1 = muted
 #ifndef MUTEMIC
-  #define MUTEMIC 1
+  #define MUTEMIC 0
 #elif (MUTEMIC == 0)||(MUTEMIC == 1)
 #else
   #error MUTEMIC value not defined
@@ -70,7 +57,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 
 	// 0 = line inputs, 1 = mic in
 #ifndef INSEL
-  #define INSEL 0
+  #define INSEL 1
 #elif (INSEL == 0)||(INSEL == 1)
 #else
   #error INSEL value not defined
@@ -91,7 +78,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 #endif
 
 #ifndef SIDETONE
-  #define SIDETONE 0
+  #define SIDETONE 0  //setting this to 1 send the microphone input straight to the output
 #elif (SIDETONE == 0)||(SIDETONE == 1)
 #else
   #error SIDETONE value not defined

@@ -112,23 +112,18 @@ int main(void)
 	}
 	
 	audioInit(&hi2c2, &hsai_BlockA1, &hsai_BlockB1, &hrng, ((uint16_t*)&adcValues));		
-
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
   while (1)
   {
+		/*
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-		
-		for (counter = 0; counter < 100000000; counter++)
-		{
-			;
-		}
+		HAL_Delay(250);
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-		for (counter = 0; counter < 100000000; counter++)
-		{
-			;
-		}
+		HAL_Delay(250);
+		*/
 		//the bulk of the work happens in audiostream.c -- the main while loop becomes low priority
 		//right now this loop is just checking the buttons and lighting up the lights next to them when the buttons are pressed
 		/*
