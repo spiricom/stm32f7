@@ -119,8 +119,6 @@ float audioTickL(float audioIn)
 	
 	float sample = 0.0f;
 	sample = audioIn * rampedAmp;
-	
-	//sample = audioIn;
 	return sample;
 }
 
@@ -128,7 +126,6 @@ float audioTickR(float audioIn)
 {
 	
 	float sample = 0.0f;
-	sample = audioIn * rampedAmp;
 	return sample;
 	
 }

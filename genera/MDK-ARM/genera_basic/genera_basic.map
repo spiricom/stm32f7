@@ -585,7 +585,6 @@ Section Cross References
     audiostream.o(i.audioInit) refers to audiostream.o(.data) for .data
     audiostream.o(i.audioInit) refers to audiostream.o(.bss) for .bss
     audiostream.o(i.audioTickL) refers to audiostream.o(.data) for .data
-    audiostream.o(i.audioTickR) refers to audiostream.o(.data) for .data
     codec.o(i.AudioCodec_init) refers to stm32f7xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) for HAL_I2C_Master_Transmit
     codec.o(i.AudioCodec_init) refers to codec.o(.data) for .data
     oops.o(i.OOPSGetSampleRate) refers to oops.o(.bss) for .bss
@@ -1217,7 +1216,7 @@ Removing Unused input sections from the image.
     Removing audiostream.o(i.audioClippedMain), (2 bytes).
     Removing audiostream.o(i.audioError), (2 bytes).
     Removing audiostream.o(i.audioTickL), (16 bytes).
-    Removing audiostream.o(i.audioTickR), (16 bytes).
+    Removing audiostream.o(i.audioTickR), (12 bytes).
     Removing audiostream.o(.data), (2 bytes).
     Removing audiostream.o(.data), (2 bytes).
     Removing codec.o(.rev16_text), (4 bytes).
@@ -1307,7 +1306,7 @@ Removing Unused input sections from the image.
     Removing fcmp4.o(.text), (54 bytes).
     Removing fpstat.o(.text), (4 bytes).
 
-525 unused section(s) (total 1036658 bytes) removed from the image.
+525 unused section(s) (total 1036654 bytes) removed from the image.
 
 ==============================================================================
 

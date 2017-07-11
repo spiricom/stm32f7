@@ -124,55 +124,6 @@ int main(void)
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
 		HAL_Delay(250);
 		*/
-		//the bulk of the work happens in audiostream.c -- the main while loop becomes low priority
-		//right now this loop is just checking the buttons and lighting up the lights next to them when the buttons are pressed
-		/*
-		noiseTest++;
-		if (noiseTest > 65000)
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
-		}
-		
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
-		}
-			
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
-		}
-		
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
-		}
-		
-		if (!HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-		}
-		*/
   }
 }
 
