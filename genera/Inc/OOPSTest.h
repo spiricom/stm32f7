@@ -7,6 +7,8 @@
 tCompressor* myCompressor;
 tDelay* myDelay;
 tSVF* filter;
+tRamp* myRamp;
+tCycle* mySine;
 
 
 

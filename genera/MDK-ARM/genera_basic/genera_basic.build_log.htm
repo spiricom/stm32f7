@@ -27,71 +27,10 @@ Project File Date:  06/06/2017
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
-compiling OOPS.c...
-compiling OOPSDelay.c...
-compiling OOPSInstrument.c...
-..\Src\OOPSInstrument.c(58): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      tOnePoleSetPole(p->pickFilter, 0.999f - (amplitude * 0.15));
-..\Src\OOPSInstrument.c: 1 warning, 0 errors
-compiling OOPSFilter.c...
-..\Src\OOPSFilter.c(71): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      if ( frequency <= 0.0) frequency = 0.05f;
-..\Src\OOPSFilter.c: 1 warning, 0 errors
-compiling OOPSMath.c...
-compiling OOPSReverb.c...
-..\Src\OOPSReverb.c(20): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      if (t60 <= 0.0) t60 = 0.001f;
-..\Src\OOPSReverb.c(59): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      if ( t60 <= 0.0 ) t60 = 0.001f;
-..\Src\OOPSReverb.c(95): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      temp = (1.0 - r->mix) * input;
-..\Src\OOPSReverb.c(117): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      if (t60 <= 0.0) t60 = 0.001f;
-..\Src\OOPSReverb.c(164): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      if (t60 <= 0.0)           t60 = 0.001f;
-..\Src\OOPSReverb.c: 5 warnings, 0 errors
-compiling OOPSOscillator.c...
-..\Src\OOPSOscillator.c(175): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          c = 0.5 * shapeVoltage * (3.0 - (xc2));
-..\Src\OOPSOscillator.c(175): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          c = 0.5 * shapeVoltage * (3.0 - (xc2));
-..\Src\OOPSOscillator.c(179): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = (1.0 - xc2 * 0.25 + xc4 * 0.015625) * wscale;
-..\Src\OOPSOscillator.c(179): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = (1.0 - xc2 * 0.25 + xc4 * 0.015625) * wscale;
-..\Src\OOPSOscillator.c(181): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          shapeVoltage = w * (c + 0.05 * xc2) * (m_drive + 0.75);
-..\Src\OOPSOscillator.c(181): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          shapeVoltage = w * (c + 0.05 * xc2) * (m_drive + 0.75);
-..\Src\OOPSOscillator.c(352): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((80.0f - c->freq) * 
-NV_40);
-..\Src\OOPSOscillator.c(387): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((10240.0 - c->freq) * INV_5120);
-..\Src\OOPSOscillator.c(465): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((80.0f - c->freq) * 
-NV_40);
-..\Src\OOPSOscillator.c(500): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((10240.0 - c->freq) * INV_5120);
-..\Src\OOPSOscillator.c(570): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((80.0f - c->freq) * 
-NV_40);
-..\Src\OOPSOscillator.c(605): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          w = ((10240.0 - c->freq) * INV_5120);
-..\Src\OOPSOscillator.c: 12 warnings, 0 errors
-compiling OOPSUtilities.c...
-..\Src\OOPSUtilities.c(59): warning:  #177-D: variable "c_dB"  was declared but never referenced
-      float slope, overshoot, c_dB;
-..\Src\OOPSUtilities.c(173): warning:  #173-D: floating-point value does not fit in required integral type
-          attackIndex = ((int16_t)(8192.0f * 8.0f))-1;
-..\Src\OOPSUtilities.c(190): warning:  #173-D: floating-point value does not fit in required integral type
-          decayIndex = ((int16_t)(8192.0f * 8.0f))-1;
-..\Src\OOPSUtilities.c: 3 warnings, 0 errors
-compiling OOPSWavetables.c...
 compiling audiostream.c...
 linking...
-Program Size: Code=24868 RO-data=1228 RW-data=52 ZI-data=303468  
-"genera_basic\genera_basic.axf" - 0 Error(s), 22 Warning(s).
+Program Size: Code=22524 RO-data=796 RW-data=100 ZI-data=303340  
+"genera_basic\genera_basic.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -109,7 +48,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:13
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

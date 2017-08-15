@@ -875,7 +875,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5866F1C4)
-F (../Src/main.c)(0x5936E67E)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\main.o --omf_browse genera_basic\main.crf --depend genera_basic\main.d)
+F (../Src/main.c)(0x598F56A5)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\main.o --omf_browse genera_basic\main.crf --depend genera_basic\main.d)
 I (../Inc/main.h)(0x58814C5D)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5866F1C2)
 I (../Inc/stm32f7xx_hal_conf.h)(0x5881310B)
@@ -911,10 +911,10 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5866F1C4)
 I (../Inc/audiostream.h)(0x59249707)
-I (../Inc/codec.h)(0x58813482)
-F (..\Inc\codec.h)(0x58813482)()
-F (..\Src\codec.c)(0x5881347C)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\codec.o --omf_browse genera_basic\codec.crf --depend genera_basic\codec.d)
-I (../Inc/codec.h)(0x58813482)
+I (../Inc/codec.h)(0x598F508F)
+F (..\Inc\codec.h)(0x598F508F)()
+F (..\Src\codec.c)(0x598F505C)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\codec.o --omf_browse genera_basic\codec.crf --depend genera_basic\codec.d)
+I (../Inc/codec.h)(0x598F508F)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5866F1C2)
 I (../Inc/stm32f7xx_hal_conf.h)(0x5881310B)
 I (../Inc/main.h)(0x58814C5D)
@@ -949,9 +949,9 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5866F1C4)
-F (..\Inc\OOPSTest.h)(0x5936FC59)()
+F (..\Inc\OOPSTest.h)(0x598F7322)()
 F (..\Inc\audiostream.h)(0x59249707)()
-F (..\Src\audiostream.c)(0x593700B1)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\audiostream.o --omf_browse genera_basic\audiostream.crf --depend genera_basic\audiostream.d)
+F (..\Src\audiostream.c)(0x598F787F)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\audiostream.o --omf_browse genera_basic\audiostream.crf --depend genera_basic\audiostream.d)
 I (../Inc/audiostream.h)(0x59249707)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5866F1C2)
 I (../Inc/stm32f7xx_hal_conf.h)(0x5881310B)
@@ -987,10 +987,10 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5866F1C4)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5866F1C4)
-I (../Inc/OOPSTest.h)(0x5936FC59)
+I (../Inc/OOPSTest.h)(0x598F7322)
 I (../Inc/OOPS.h)(0x58F53D4A)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPSMath.h)(0x58F53D4A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
@@ -1000,14 +1000,14 @@ I (../Inc/OOPSFilter.h)(0x58F53D4A)
 I (../Inc/OOPSOscillator.h)(0x58F53D4A)
 I (../Inc/OOPSReverb.h)(0x5936E67E)
 I (../Inc/OOPSInstrument.h)(0x5936E67E)
-I (../Inc/codec.h)(0x58813482)
+I (../Inc/codec.h)(0x598F508F)
 F (..\Inc\OOPS.h)(0x58F53D4A)()
 F (..\Inc\OOPSCore.h)(0x5936E67E)()
 F (..\Inc\OOPSDelay.h)(0x58F53D4A)()
 F (..\Inc\OOPSFilter.h)(0x58F53D4A)()
 F (..\Inc\OOPSInstrument.h)(0x5936E67E)()
 F (..\Inc\OOPSMath.h)(0x58F53D4A)()
-F (..\Inc\OOPSMemConfig.h)(0x59398902)()
+F (..\Inc\OOPSMemConfig.h)(0x598F73BC)()
 F (..\Inc\OOPSOscillator.h)(0x58F53D4A)()
 F (..\Inc\OOPSReverb.h)(0x5936E67E)()
 F (..\Inc\OOPSUtilities.h)(0x5936E67E)()
@@ -1015,7 +1015,7 @@ F (..\Inc\OOPSWavetables.h)(0x5936E67E)()
 F (..\Src\OOPS.c)(0x58F53D4A)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\oops.o --omf_browse genera_basic\oops.crf --depend genera_basic\oops.d)
 I (../Inc/OOPS.h)(0x58F53D4A)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPSMath.h)(0x58F53D4A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
@@ -1033,7 +1033,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPS.h)(0x58F53D4A)
 I (../Inc/OOPSUtilities.h)(0x5936E67E)
 I (../Inc/OOPSFilter.h)(0x58F53D4A)
@@ -1043,7 +1043,7 @@ I (../Inc/OOPSInstrument.h)(0x5936E67E)
 F (..\Src\OOPSFilter.c)(0x593716D5)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\oopsfilter.o --omf_browse genera_basic\oopsfilter.crf --depend genera_basic\oopsfilter.d)
 I (../Inc/OOPSFilter.h)(0x58F53D4A)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPSMath.h)(0x58F53D4A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
@@ -1062,7 +1062,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPS.h)(0x58F53D4A)
 I (../Inc/OOPSUtilities.h)(0x5936E67E)
 I (../Inc/OOPSDelay.h)(0x58F53D4A)
@@ -1075,10 +1075,10 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
 I (../Inc/OOPSWavetables.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 F (..\Src\OOPSOscillator.c)(0x58F53D4A)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\oopsoscillator.o --omf_browse genera_basic\oopsoscillator.crf --depend genera_basic\oopsoscillator.d)
 I (../Inc/OOPSWavetables.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPSOscillator.h)(0x58F53D4A)
 I (../Inc/OOPSCore.h)(0x5936E67E)
 I (../Inc/OOPSMath.h)(0x58F53D4A)
@@ -1098,7 +1098,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPS.h)(0x58F53D4A)
 I (../Inc/OOPSUtilities.h)(0x5936E67E)
 I (../Inc/OOPSDelay.h)(0x58F53D4A)
@@ -1108,7 +1108,7 @@ I (../Inc/OOPSInstrument.h)(0x5936E67E)
 F (..\Src\OOPSUtilities.c)(0x5936E67E)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\oopsutilities.o --omf_browse genera_basic\oopsutilities.crf --depend genera_basic\oopsutilities.d)
 I (../Inc/OOPSUtilities.h)(0x5936E67E)
 I (../Inc/OOPSCore.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (../Inc/OOPSMath.h)(0x58F53D4A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
@@ -1122,5 +1122,5 @@ I (../Inc/OOPSReverb.h)(0x5936E67E)
 I (../Inc/OOPSInstrument.h)(0x5936E67E)
 F (..\Src\OOPSWavetables.c)(0x58F53D4B)(-c --cpu Cortex-M7.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_genera_basic"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic\oopswavetables.o --omf_browse genera_basic\oopswavetables.crf --depend genera_basic\oopswavetables.d)
 I (../Inc/OOPSWavetables.h)(0x5936E67E)
-I (../Inc/OOPSMemConfig.h)(0x59398902)
+I (../Inc/OOPSMemConfig.h)(0x598F73BC)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)

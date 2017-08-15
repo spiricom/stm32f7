@@ -62,7 +62,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 
 	// 1 = muted
 #ifndef MUTEMIC
-  #define MUTEMIC 1
+  #define MUTEMIC 0
 #elif (MUTEMIC == 0)||(MUTEMIC == 1)
 #else
   #error MUTEMIC value not defined
@@ -70,7 +70,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 
 	// 0 = line inputs, 1 = mic in
 #ifndef INSEL
-  #define INSEL 0
+  #define INSEL 1
 #elif (INSEL == 0)||(INSEL == 1)
 #else
   #error INSEL value not defined

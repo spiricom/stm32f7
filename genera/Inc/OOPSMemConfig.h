@@ -32,8 +32,8 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_PLUCK             1
 #define     N_STIFKARP          1
 #define     N_NEURON            5
-#define     N_PHASOR            NI
-#define     N_CYCLE             NI
+#define     N_PHASOR            1
+#define     N_CYCLE             1
 #define     N_SAWTOOTH          NI
 #define     N_TRIANGLE          NI
 #define     N_SQUARE            NI
