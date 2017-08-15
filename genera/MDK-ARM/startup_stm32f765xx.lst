@@ -989,12 +989,12 @@ ARM Macro Assembler    Page 16
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.sp --apcs=
 interwork --depend=genera_basic\startup_stm32f765xx.d -ogenera_basic\startup_st
-m32f765xx.o -I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera\MDK-ARM\RTE
-\_genera_basic" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IC:\Keil_v
-5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include -
--predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 522" --prede
-fine="_RTE_ SETA 1" --predefine="STM32F765xx SETA 1" --list=startup_stm32f765xx
-.lst startup_stm32f765xx.s
+m32f765xx.o -I"C:\Users\Jeff Snyder\Documents\stm32f7\genera\MDK-ARM\RTE\_gener
+a_basic" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include -IC:\Keil_v5\ARM\P
+ACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include --predef
+ine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 522" --predefine="_
+RTE_ SETA 1" --predefine="STM32F765xx SETA 1" --list=startup_stm32f765xx.lst st
+artup_stm32f765xx.s
 
 
 

@@ -48,6 +48,7 @@
 /**
   * @}
   */ 
+void getSPIdata(void);
 
 /**
   * @}

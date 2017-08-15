@@ -31,13 +31,15 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 
 #include "stm32f7xx_hal.h"
+
+#include "main.h"
 
 #include "audiostream.h"
 
 #include "codec.h"
+
 
 /* USER CODE BEGIN Includes */
 
@@ -86,6 +88,9 @@ __IO uint16_t adcValues[NUM_ADC_CHANNELS];
 uint16_t whichADC = 0;
 uint16_t test = 0;
 
+uint8_t SPI_data_in[2] = {0,0};
+uint8_t SPI_data_out[2] = {0,0};
+
 int main(void)
 {
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -102,7 +107,7 @@ int main(void)
   //MX_QUADSPI_Init(); // for communicating with the memory chip
   MX_RNG_Init();
   MX_SAI1_Init();
-  //MX_SPI4_Init(); // available for talking to additional peripherals
+  MX_SPI4_Init(); // available for talking to additional peripherals
 
 	
 	if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
@@ -115,7 +120,7 @@ int main(void)
 
   while (1)
   {
-		
+		getSPIdata();
 		//the bulk of the work happens in audiostream.c -- the main while loop becomes low priority
 		//right now this loop is just checking the buttons and lighting up the lights next to them when the buttons are pressed
 		/*
@@ -478,26 +483,31 @@ static void MX_SAI1_Init(void)
 /* SPI4 init function */
 static void MX_SPI4_Init(void)
 {
-
   hspi4.Instance = SPI4;
   hspi4.Init.Mode = SPI_MODE_MASTER;
   hspi4.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi4.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi4.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+  hspi4.Init.NSS = SPI_NSS_SOFT;
+  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi4.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi4.Init.CRCPolynomial = 7;
   hspi4.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi4.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  //hspi4.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
   if (HAL_SPI_Init(&hspi4) != HAL_OK)
   {
     Error_Handler();
   }
+}
 
+void getSPIdata(void)
+{
+	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_11, GPIO_PIN_RESET);
+	HAL_SPI_TransmitReceive(&hspi4, SPI_data_out, SPI_data_in, 2, 1000);
+	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_11, GPIO_PIN_SET);
 }
 
 /** 
@@ -560,6 +570,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+	
+	  /*Configure GPIO pin : PE13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 	
 	  /*Configure GPIO pin : PB13 */
 		// if using Jack 5 as a digital input instead of an audio input
