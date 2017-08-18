@@ -188,6 +188,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>SPI_data_in</ItemText>
         </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>DAC16Value,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

@@ -15,6 +15,9 @@
 int16_t audioOutBuffer[AUDIO_BUFFER_SIZE];
 int16_t audioInBuffer[AUDIO_BUFFER_SIZE];
 
+uint64_t ADCfilterMemory[4] = {0,0,0,0};
+uint16_t ADCfilteredValue = 0;
+
 uint16_t* adcVals;
 
 float audioTickL(float audioIn);
@@ -91,6 +94,16 @@ void audioFrame(uint16_t buffer_offset)
 		onsetFlag = 0;
 	}
 	
+	getSPIdata();
+	ADCfilterMemory[0] = ADC16Value;
+	getSPIdata();
+	ADCfilterMemory[1] = ADC16Value;
+	getSPIdata();
+	ADCfilterMemory[2] = ADC16Value;
+	getSPIdata();
+	ADCfilterMemory[3] = ADC16Value;
+	
+	ADCfilteredValue = (uint16_t)((ADCfilterMemory[0] + ADCfilterMemory[0] + ADCfilterMemory[0] + ADCfilterMemory[0]) / 4);
 	for (ij = 0; ij < (HALF_BUFFER_SIZE); ij++)
 	{
 		if ((ij & 1) == 0) 
@@ -127,7 +140,7 @@ float audioTickL(float audioIn)
 	else if (sample < -1.0f)
 	{
 		sample = -1.0f;
-		audioClippedMain();
+		audioClippedMain(); 
 	}
 	//sample = 0.0f;
 	//tCycleSetFreq(sine[0], ((4095-adcVals[0]) + (audioIn * (4095-adcVals[4])))); //add together knob value and FM from audio input multiplied by another knob value

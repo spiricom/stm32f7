@@ -88,9 +88,9 @@ __IO uint16_t adcValues[NUM_ADC_CHANNELS];
 uint16_t whichADC = 0;
 uint16_t test = 0;
 
-uint8_t SPI_data_in[2] = {0,0};
-uint8_t SPI_data_out[2] = {0,0};
-
+uint8_t SPI_data_in[3] = {0, 0, 0};
+uint8_t SPI_data_out[3] = {0, 0, 0};
+long ADC16Value = 0;
 int main(void)
 {
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -120,7 +120,7 @@ int main(void)
 
   while (1)
   {
-		getSPIdata();
+		//getSPIdata();
 		//the bulk of the work happens in audiostream.c -- the main while loop becomes low priority
 		//right now this loop is just checking the buttons and lighting up the lights next to them when the buttons are pressed
 		/*
@@ -506,8 +506,10 @@ static void MX_SPI4_Init(void)
 void getSPIdata(void)
 {
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_11, GPIO_PIN_RESET);
-	HAL_SPI_TransmitReceive(&hspi4, SPI_data_out, SPI_data_in, 2, 1000);
+	HAL_SPI_TransmitReceive(&hspi4, SPI_data_out, SPI_data_in, 3, 1000);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_11, GPIO_PIN_SET);
+	
+	ADC16Value = (SPI_data_in[2] >> 4) + (SPI_data_in[1] << 4) + (SPI_data_in[0] << 12);
 }
 
 /** 
@@ -571,10 +573,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 	
-	  /*Configure GPIO pin : PE13 */
+	  /*Configure GPIO pin : PE11 */
   GPIO_InitStruct.Pin = GPIO_PIN_11;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 	
 	  /*Configure GPIO pin : PB13 */
