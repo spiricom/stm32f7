@@ -101,31 +101,34 @@ void audioFrame(uint16_t buffer_offset)
 	uint16_t i = 0;
 	int16_t current_sample = 0;  
 	
-	
 	//int tauAttack, tauRelease;
   //float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
 	for (int i = 0; i < 6; i++)	knobs[i] = (4096.0f - adcVals[i]) / 4096.0f;
 	
 	float bw0 = (float) pow(10,-7.0f*fixed_knobs[5]+2.0f); // sets the size of a normal bandwidth
-	float n = 15*knobs[4]; // sets which harmonic to focus on 
+	
+	float n = 15*((knobs[2] - 0.35f) * 3.0f); // sets which harmonic to focus on 
 
-	tDelaySetDelay(myDelay,256*knobs[1]);
+	tDelaySetDelay(myDelay,128);
 	val =  1.0f/(LN2 * bw0 ) -LN2 *bw0/24.0f + ( 0.5f/(LN2*LN2* bw0) + bw0/48.0f)*(n-1);
-	myCompressor->T = 0.550048828f * -60.0f ;
-	myCompressor->R = fixed_knobs[1] * 24.0f ; 
-	myCompressor->tauAttack = fixed_knobs[2] * 1024.0f;
-	myCompressor->tauRelease = fixed_knobs[3] * 1024.0f;
+	myCompressor->T = -6.0f;
+	myCompressor->R = 2.0f ; 
+	myCompressor->tauAttack = 200.0f;
+	myCompressor->tauRelease = 400.0f;
 	
 	
 	tSVFSetFreq(filter, 58.27f*n);
 	tSVFSetQ(filter,val );
+	
+	//tSVFSetFreq(filter, (adcVals[2] - 900.0f));
+	
 	
 	if (myCompressor->isActive) HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 	else												HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
 	
 	
 	amplitude = (float)adcVals[3];
-
+	tCycleSetFreq(mySine, 1000);
 	
 	amplitude = amplitude * INV_TWO_TO_12;
 	amplitude = amplitude - breath_baseline;
@@ -164,19 +167,18 @@ float sample = 0.f;
 
 float audioTick(float audioIn) {
 	
-	//float sample = audioIn;
-
-	sample = audioIn * rampedAmp;
+	sample = audioIn;
+  sample = tCycleTick(mySine);
+	
+	//sample = sample * rampedAmp;
 
 	//sample = tCompressorTick(myCompressor, sample);
 	
-	sample = tSVFTick(filter, sample);
+	//sample = tSVFTick(filter, sample);
+	//sample = tDelayTick(myDelay, sample);
 	
-	sample = tDelayTick(myDelay, sample);
 	
-	//sample = tCycleTick(mySine);
-	
-	//sample *= 0.5f;
+	sample *= 0.9f;
 	
 	return sample;
 }

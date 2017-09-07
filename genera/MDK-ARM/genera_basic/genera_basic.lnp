@@ -28,6 +28,7 @@
 "genera_basic\main.o"
 "genera_basic\codec.o"
 "genera_basic\audiostream.o"
+"genera_basic\lcd.o"
 "genera_basic\oops.o"
 "genera_basic\oopsdelay.o"
 "genera_basic\oopsfilter.o"

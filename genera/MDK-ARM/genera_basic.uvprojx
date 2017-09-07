@@ -554,6 +554,16 @@
               <FileType>1</FileType>
               <FilePath>..\Src\audiostream.c</FilePath>
             </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\lcd.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

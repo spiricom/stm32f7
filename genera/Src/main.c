@@ -39,6 +39,8 @@
 
 #include "codec.h"
 
+#include "lcd.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -78,7 +80,8 @@ static void MX_QUADSPI_Init(void);
 static void MX_RNG_Init(void);
 static void MX_SAI1_Init(void);
 static void MX_SPI4_Init(void);
-
+void writeLCD(uint8_t myChar);
+void Init_LCD(void);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 
@@ -94,9 +97,14 @@ __IO uint16_t adcValues[NUM_ADC_CHANNELS];
 uint16_t whichADC = 0;
 uint16_t test = 0;
 
+uint8_t ESC = 0xFE;
+uint8_t dataForLCD[32];
+
+uint8_t mycounter[5] = {'H','E','L','L','O'};
+
 int main(void)
 {
-
+ 
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -127,17 +135,29 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	
 	
-		if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
-		{
-			Error_Handler();
-		}
-	
-		
+	if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
+	{
+		Error_Handler();
+	}
 	audioInit(&hi2c2, &hsai_BlockA1, &hsai_BlockB1, &hrng, ((uint16_t*)&adcValues));		
-	
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+
+	HAL_Delay(100);
+	LCD_init(&hi2c2);
   while (1)
   {
+		// writeLCD('A');
+			HAL_Delay(200);
+			LCD_clear(&hi2c2);
+			LCD_home(&hi2c2);
+		
+			LCD_sendInteger(&hi2c2, adcValues[0], 4);
+		  LCD_sendChar(&hi2c2,' ');
+		  LCD_sendInteger(&hi2c2, adcValues[1], 4);
+			LCD_setCursor(&hi2c2, 0x40);
+		  LCD_sendInteger(&hi2c2, adcValues[2], 4);
+			LCD_sendChar(&hi2c2,' ');
+		  LCD_sendInteger(&hi2c2, adcValues[3], 4);
+
 /*
 		
 		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6))
@@ -184,6 +204,7 @@ int main(void)
   /* USER CODE END 3 */
 
 }
+
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
 {
@@ -499,17 +520,17 @@ static void MX_SPI4_Init(void)
   hspi4.Instance = SPI4;
   hspi4.Init.Mode = SPI_MODE_MASTER;
   hspi4.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi4.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi4.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+  hspi4.Init.NSS = SPI_NSS_SOFT;
+  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi4.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi4.Init.CRCPolynomial = 7;
   hspi4.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi4.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi4.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
   if (HAL_SPI_Init(&hspi4) != HAL_OK)
   {
     Error_Handler();
@@ -578,6 +599,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 	
+	  /*Configure GPIO pin : PD11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+	
 	  /*Configure GPIO pin : PB13 */
 		// if using Jack 5 as a digital input instead of an audio input
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -624,8 +651,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
                           |GPIO_PIN_12;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
