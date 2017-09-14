@@ -27,15 +27,13 @@ Project File Date:  09/06/2017
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
-compiling main.c...
-../Src/main.c(449): warning:  #177-D: function "MX_QUADSPI_Init"  was declared but never referenced
-  static void MX_QUADSPI_Init(void)
-../Src/main.c(517): warning:  #177-D: function "MX_SPI4_Init"  was declared but never referenced
-  static void MX_SPI4_Init(void)
-../Src/main.c: 2 warnings, 0 errors
+compiling lcd.c...
+..\Src\lcd.c(123): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		offset = (1.0f - offset) + 0.01;
+..\Src\lcd.c: 1 warning, 0 errors
 linking...
-Program Size: Code=24564 RO-data=9308 RW-data=104 ZI-data=303368  
-"genera_basic\genera_basic.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=22480 RO-data=9168 RW-data=124 ZI-data=308020  
+"genera_basic\genera_basic.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -53,7 +51,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:18
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

@@ -50,4 +50,12 @@ void LCD_sendChar(I2C_HandleTypeDef* hi2c, uint8_t myChar);
 void LCD_sendCharArray(I2C_HandleTypeDef* hi2c, uint8_t* myCharArray, uint8_t arrayLength);
 void LCD_sendInteger(I2C_HandleTypeDef* hi2c, uint32_t myNumber, uint8_t numDigits);
 
+void LCD_sendFixedFloat(I2C_HandleTypeDef* hi2c, float input, uint8_t numDigits, uint8_t numDecimal);
+void LCD_sendFloatyFloat(I2C_HandleTypeDef* hi2c, float myNumber, uint8_t numDigits);
+
+void LCD_writeInteger(uint8_t* buffer, uint32_t myNumber, uint8_t numDigits);
+void LCD_sendPitch(I2C_HandleTypeDef* hi2c, float midi);
+
+	
+
 #endif

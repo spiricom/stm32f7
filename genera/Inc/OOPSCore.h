@@ -109,6 +109,8 @@ typedef struct _tOnePole
     
 } tOnePole;
 
+
+
 // TwoPole filter
 typedef struct _tTwoPole
 {
@@ -203,6 +205,23 @@ typedef struct _tSVFE {
     float g,k,a1,a2,a3;
     
 } tSVFE;
+
+// Butterworth Filter
+#define NUM_SVF_BW 8
+typedef struct _tButterworth
+{
+    float gain;
+	
+		float N;
+	
+		tSVF* low[NUM_SVF_BW];
+		tSVF* high[NUM_SVF_BW];
+	
+		float f1,f2;
+	
+		void (*sampleRateChanged)(struct _tButterworth *self);
+    
+} tButterworth;
 
 // Highpass filter
 typedef struct _tHighpass
@@ -448,6 +467,7 @@ void     tStifKarpSampleRateChanged (tStifKarp *c);
 
 void     tNeuronSampleRateChanged(tNeuron* n);
 void     tCompressorSampleRateChanged(tCompressor* n);
+void     tButterworthSampleRateChanged(tCompressor* n);
 
 typedef enum OOPSRegistryIndex
 {
@@ -479,6 +499,7 @@ typedef enum OOPSRegistryIndex
     T_STIFKARP,
     T_NEURON,
     T_COMPRESSOR,
+		T_BUTTERWORTH,
     T_INDEXCNT
 }OOPSRegistryIndex;
 
@@ -514,6 +535,11 @@ typedef struct _OOPS
         
 #if N_ONEPOLE
     tOnePole           tOnePoleRegistry         [N_ONEPOLE];
+#endif
+
+        
+#if N_BUTTERWORTH
+    tButterworth     	tButterworthRegistry      [N_BUTTERWORTH];
 #endif
         
 #if N_TWOPOLE

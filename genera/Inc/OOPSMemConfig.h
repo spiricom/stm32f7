@@ -41,10 +41,11 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 #define     N_ONEPOLE           NI + (1 * N_PLUCK)
 #define     N_TWOPOLE           NI
 #define     N_ONEZERO           NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (1 * N_NEURON)
+#define 		N_BUTTERWORTH       NI
 #define     N_TWOZERO           NI
 #define     N_POLEZERO          NI + (1 * N_NEURON)
 #define     N_BIQUAD            NI + (4 * N_STIFKARP)
-#define     N_SVF               NI
+#define     N_SVF               NI + 16*N_BUTTERWORTH
 #define     N_SVFE              NI
 #define     N_HIGHPASS          NI
 #define     N_DELAY             NI + (14 * N_NREV) + (3 * N_PRCREV)
@@ -65,7 +66,7 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 // Preprocessor defines to determine whether to include component files in build.
 #define INC_UTILITIES       (N_ENVELOPE || N_ENVELOPEFOLLOW || N_RAMP || N_ADSR || N_COMPRESSOR)
 #define INC_DELAY           (N_DELAY || N_DELAYL || N_DELAYA)
-#define INC_FILTER          (N_ONEPOLE || N_TWOPOLE || N_ONEZERO || N_TWOZERO || N_POLEZERO || N_BIQUAD || N_SVF || N_SVFE || N_HIGHPASS)
+#define INC_FILTER          (N_BUTTERWORTH || N_ONEPOLE || N_TWOPOLE || N_ONEZERO || N_TWOZERO || N_POLEZERO || N_BIQUAD || N_SVF || N_SVFE || N_HIGHPASS)
 #define INC_OSCILLATOR      (N_PHASOR || N_SAWTOOTH || N_CYCLE || N_TRIANGLE || N_SQUARE || N_NOISE)
 #define INC_REVERB          (N_NREV || N_PRCREV)
 #define INC_INSTRUMENT      (N_STIFKARP || N_PLUCK)

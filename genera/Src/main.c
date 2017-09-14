@@ -33,6 +33,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+#include "math.h"
+
 #include "stm32f7xx_hal.h"
 
 #include "audiostream.h"
@@ -102,6 +104,8 @@ uint8_t dataForLCD[32];
 
 uint8_t mycounter[5] = {'H','E','L','L','O'};
 
+uint16_t knobValue;
+
 int main(void)
 {
  
@@ -143,21 +147,73 @@ int main(void)
 
 	HAL_Delay(100);
 	LCD_init(&hi2c2);
+	
   while (1)
   {
-		// writeLCD('A');
-			HAL_Delay(200);
-			LCD_clear(&hi2c2);
-			LCD_home(&hi2c2);
 		
-			LCD_sendInteger(&hi2c2, adcValues[0], 4);
-		  LCD_sendChar(&hi2c2,' ');
-		  LCD_sendInteger(&hi2c2, adcValues[1], 4);
-			LCD_setCursor(&hi2c2, 0x40);
-		  LCD_sendInteger(&hi2c2, adcValues[2], 4);
-			LCD_sendChar(&hi2c2,' ');
-		  LCD_sendInteger(&hi2c2, adcValues[3], 4);
-
+	// writeLCD('A');
+		HAL_Delay(40);
+		LCD_clear(&hi2c2);
+		LCD_home(&hi2c2);
+	
+		/*
+		LCD_sendChar(&hi2c2,'F');
+		LCD_sendChar(&hi2c2,'B');
+		LCD_sendChar(&hi2c2,'T');
+		LCD_sendChar(&hi2c2,' ');
+		LCD_sendInteger(&hi2c2, adcValues[0], 4);
+		LCD_sendChar(&hi2c2,' ');
+		LCD_sendInteger(&hi2c2, adcValues[1], 4);
+		LCD_setCursor(&hi2c2, 0x40);
+		LCD_sendInteger(&hi2c2, adcValues[2], 4);
+		LCD_sendChar(&hi2c2,' ');
+		*/
+		
+		uint16_t tempValue = 4096.0f - adcValues[4];
+		uint16_t diff = knobValue - tempValue;
+		diff = (diff < 0) ? -diff : diff;
+		
+		if (diff > 50) knobValue = tempValue;
+			
+		float midi = (float)(knobValue / 256.0f) + 60.0f;
+		LCD_sendFixedFloat(&hi2c2, midi, 5, 2);
+		LCD_sendChar(&hi2c2,' ');
+		
+		LCD_sendPitch(&hi2c2, midi);
+		
+		LCD_sendChar(&hi2c2,' ');
+	
+		//down button
+		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_9))
+		{
+			LCD_sendChar(&hi2c2,'1');
+		}
+		else
+		{
+			LCD_sendChar(&hi2c2,'0');
+		}		
+	
+		//up button
+		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7))
+		{
+			LCD_sendChar(&hi2c2,'1');
+		}
+		else
+		{
+			LCD_sendChar(&hi2c2,'0');
+		}
+		
+		//P button
+		if (HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))
+		{
+			LCD_sendChar(&hi2c2,'1');
+		}
+		else
+		{
+			LCD_sendChar(&hi2c2,'0');
+		}
+	
+	
 /*
 		
 		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6))
@@ -596,7 +652,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PD13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 	
 	  /*Configure GPIO pin : PD11 */
@@ -611,12 +667,22 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+		  /*Configure GPIO pins : PC7 PC9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+	
 
   /*Configure GPIO pins : PC4 PC6 PC7 PC8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8;
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+
 	
 	  /*Configure GPIO pins : PB0 PB1 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
@@ -632,7 +698,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC9 PC10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_10;
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
