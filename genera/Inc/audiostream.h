@@ -75,7 +75,7 @@ extern float harmonic;
 extern float fundamental;
 
 extern tCompressor* myCompressor;
-extern tDelay* myDelay;
+extern tDelayL* myDelay;
 
 extern tSVF* oldFilter;
 extern tSVF* lp;

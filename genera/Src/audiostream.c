@@ -37,7 +37,7 @@ float amp_mult = 5.0f;
 tRamp* adc[ADCInputCount];
 
 tCompressor* myCompressor;
-tDelay* myDelay;
+tDelayL* myDelay;
 
 tSVF* oldFilter;
 tSVF* lp;
@@ -55,7 +55,7 @@ typedef enum BOOL {
 float breath_baseline = 0.0f;
 float breath_mult = 0.0f;
 
-#define BUTTERWORTH_ORDER 10
+#define BUTTERWORTH_ORDER 8
 
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrand, uint16_t* myADCarray)
 { 
@@ -73,10 +73,10 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	HAL_SAI_Receive_DMA(hsaiOut, (uint8_t *)&audioInBuffer[0], AUDIO_BUFFER_SIZE);
 
 	myCompressor = tCompressorInit();
-	myDelay = tDelayInit(0);
+	myDelay = tDelayLInit(0);
 	
 	filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
-	//oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 20.0f);
+  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 50.0f);
 	//lp = tSVFInit(SVFTypeBandpass, 40.0f, 1.0f);
 	
 
@@ -89,6 +89,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	for (int i = 0; i < ADCInputCount; i++) adc[i] = tRampInit(20, 1);	
 	
+	tRampSetTime(adc[ADCJoyX], 200);
 	
 	tRampSetTime(adc[ADCSlide], 1);
 	
@@ -166,7 +167,7 @@ void audioFrame(uint16_t buffer_offset)
 	uint16_t i = 0;
 	int16_t current_sample = 0;  
 	
-	fundamental_hz = tRampTick(adc[ADCKnob]) * 40.0f + 40.0f;
+	fundamental_hz = tRampTick(adc[ADCKnob]) * 200.0f + 30.0f;
 	fundamental_m = SOS_M / fundamental_hz * 0.5f;
 	
 	cutoff_offset = fundamental_hz * 0.5f;
@@ -242,7 +243,7 @@ float sample = 0.0f;
 #define OUTPUT_GAIN 0.9f
 #define NUM_HARMONICS 10.0f
 #define INV_NUM_HARMONICS 0.1f
-#define INPUT_BOOST 20.0f
+#define INPUT_BOOST 2000.0f
 
 float lastHarmonic, tempHarmonic, mix;
 
@@ -271,7 +272,7 @@ float audioTick(float audioIn)
 	peak =  fundamental * (uint8_t)harmonic;
 	
 	// RAMP JOYX
-	tDelaySetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 1411.0f);
+	tDelayLSetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 64.0f);
 		
 	if (ftMode == FTSynthesisOne)
 	{
@@ -290,15 +291,15 @@ float audioTick(float audioIn)
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		
-		tButterworthSetFreqs(filter, peak - cutoff_offset, peak + cutoff_offset);
-		//tSVFSetFreq(oldFilter, peak);
+		//tButterworthSetFreqs(filter, peak - cutoff_offset, peak + cutoff_offset);
+		tSVFSetFreq(oldFilter, peak);
 		//tSVFSetFreq(lp, peak);
 		
-		sample = tButterworthTick(filter, sample);
-		//sample = tSVFTick(oldFilter, sample);
+		//sample = tButterworthTick(filter, sample);
+		sample = tSVFTick(oldFilter, sample);
 		//sample = tSVFTick(lp, sample);
 		
-		sample = tDelayTick(myDelay, sample);
+		sample = tDelayLTick(myDelay, sample);
 		
 		//sample = OOPS_softClip(sample, 0.99f);
 		
