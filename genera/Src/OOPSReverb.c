@@ -25,7 +25,7 @@ tPRCRev*    tPRCRevInit(float t60)
     double scaler = oops.sampleRate * r->inv_441;
     
     int delay, i;
-    if (scaler != 1.0)
+    if (scaler != 1.0f)
     {
         for (i=0; i<4; i++)
         {
@@ -60,7 +60,7 @@ void    tPRCRevSetT60(tPRCRev* const r, float t60)
     
     r->t60 = t60;
     
-    r->combCoeff = pow(10.0, (-3.0 * tDelayGetDelay(r->combDelay) * oops.invSampleRate / t60 ));
+    r->combCoeff = pow(10.0f, (-3.0f * tDelayGetDelay(r->combDelay) * oops.invSampleRate / t60 ));
     
 }
 
@@ -103,7 +103,7 @@ float   tPRCRevTick(tPRCRev* const r, float input)
 
 void     tPRCRevSampleRateChanged (tPRCRev* const r)
 {
-    r->combCoeff = pow(10.0, (-3.0 * tDelayGetDelay(r->combDelay) * oops.invSampleRate / r->t60 ));
+    r->combCoeff = pow(10.0f, (-3.0f * tDelayGetDelay(r->combDelay) * oops.invSampleRate / r->t60 ));
 }
 #endif // N_PRCREV
 

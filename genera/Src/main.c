@@ -33,11 +33,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+#include "math.h"
+
 #include "stm32f7xx_hal.h"
 
 #include "audiostream.h"
 
 #include "codec.h"
+
+#include "lcd.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -78,58 +82,235 @@ static void MX_QUADSPI_Init(void);
 static void MX_RNG_Init(void);
 static void MX_SAI1_Init(void);
 static void MX_SPI4_Init(void);
+void writeLCD(uint8_t myChar);
+void Init_LCD(void);
+/* USER CODE BEGIN PFP */
+/* Private function prototypes -----------------------------------------------*/
 
+/* USER CODE END PFP */
+
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
 
 #define NUM_ADC_CHANNELS 12
+
+//adc is
+// 0 = joy Y
+// 1 = knob
+// 2 = joy X
+// 3 = breath sensor
+// 4 = slide
+
+/*
+the issue is with the ramps. Right now in feedback, we are ticking them but not using them.
+basically we need to reorganize the ramping so that there is an array of 5 ramps that represent the values derived from analog ins.
+We can calculate the destinations of these ramps in audioFrame()
+Then, we need to tick those ramps in the audioTick() function and use the sampled values for any parameters we are accessing. 
+Never pull a value in audioTick from anything that isn't a ticked ramp. 
+Then we need some hysteresis to avoid the wiggling, and I'll try to improve noise performance on those input in the analog domain.
+*/
+
+
+
 
 __IO uint16_t adcValues[NUM_ADC_CHANNELS];
 uint16_t whichADC = 0;
 uint16_t test = 0;
 
-static uint32_t counter = 0;
+uint8_t ESC = 0xFE;
+uint8_t dataForLCD[32];
+
+
+LCDModeType lcdMode = LCDModeDisplayPitchClass;
+
+
+
+
+int isButtonOneDown = 0;
+int isButtonTwoDown = 0;
+int isPresetButtonDown = 0;
+
+void slideValueChanged(uint16_t value)
+{
+	slideValue = value;
+	
+	LCD_setCursor(&hi2c2, 17);
+}
+
+void knobValueChanged(uint16_t value)
+{
+		knobValue = value;
+	
+		float midi = (float)(value / 256.0f) + 60.0f;
+	
+		if (lcdMode == LCDModeDisplayPitchClass)
+		{
+			//LCD_sendPitch(&hi2c2, midi);
+		}
+		else if (lcdMode == LCDModeDisplayPitchMidi)
+		{
+			//LCD_sendFixedFloat(&hi2c2, midi, 5, 2);
+		}
+		
+		LCD_sendChar(&hi2c2,' ');
+}
+
+void buttonOneDown(void)
+{
+	isButtonOneDown = 1;
+	
+	ftMode = FTFeedback;
+}
+
+void buttonOneUp(void)
+{
+	isButtonOneDown = 0;
+}
+
+void buttonTwoDown(void)
+{
+	isButtonTwoDown = 1;
+	
+	ftMode = FTSynthesisOne;
+}
+
+void buttonTwoUp(void)
+{
+	isButtonTwoDown = 0;
+}
+
+void presetButtonDown(void)
+{
+	if (++lcdMode == LCDModeCount) lcdMode = (LCDModeType)0;
+	knobValueChanged(knobValue);
+	
+	firstPositionValue = position;
+	
+	isPresetButtonDown = 1;
+}
+
+void presetButtonUp(void)
+{
+	isPresetButtonDown = 0;
+}
+
+
 int main(void)
 {
+	uint16_t value;
+	int16_t diff;
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration----------------------------------------------------------*/
+
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+  HAL_Init( );
 
   /* Configure the system clock */
-  SystemClock_Config();
+  SystemClock_Config( );
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
-  //MX_QUADSPI_Init(); // for communicating with the memory chip
+  //MX_QUADSPI_Init();
   MX_RNG_Init();
   MX_SAI1_Init();
-  //MX_SPI4_Init(); // available for talking to additional peripherals
+  //MX_SPI4_Init();
 
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+	
+	
 	
 	if (HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&adcValues, NUM_ADC_CHANNELS) != HAL_OK)
 	{
 		Error_Handler();
 	}
-	
-	audioInit(&hi2c2, &hsai_BlockA1, &hsai_BlockB1, &hrng, ((uint16_t*)&adcValues));		
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+	audioInit(&hi2c2, &hsai_BlockA1, &hsai_BlockB1, &hrng, ((uint16_t*)&adcValues));	
 
+	
+
+	HAL_Delay(100);
+	LCD_init(&hi2c2);
+	
+	knobValueChanged(knobValue);
+	
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
+	
   while (1)
   {
-		/*
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-		HAL_Delay(250);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-		HAL_Delay(250);
-		*/
-  }
+		HAL_Delay(10);
+		LCD_home(&hi2c2);
+		
+		if (lcdMode == LCDModeDisplayPitchClass)
+		{
+			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(fundamental));
+		}
+		else if (lcdMode == LCDModeDisplayPitchMidi)
+		{
+			LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(fundamental), 5, 2);
+		}
+		
+		LCD_sendChar(&hi2c2, ' ');
+		
+		LCD_sendInteger(&hi2c2, harmonic, 2);
+		
+		LCD_sendChar(&hi2c2, ' ');
+		
+		LCD_sendFixedFloat(&hi2c2, fundamental_hz, 4, 2);
+		
+		value = adcValues[ADC_KNOB];
+		diff = knobValue - value;
+		diff = (diff < 0) ? -diff : diff;
+		
+		if (diff > 50) 	knobValueChanged(value);
+	
+		//button1
+		if (HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))	
+		{
+			if (!isButtonOneDown)	buttonOneDown();
+		}
+		else																			
+		{
+			if (isButtonOneDown) 	buttonOneUp();
+		}
+
+		
+		//button2
+		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7))	
+		{
+			if (!isButtonTwoDown)	buttonTwoDown();
+		}
+		else 																			
+		{
+			if (isButtonTwoDown)	buttonTwoUp();
+		}
+	
+		//P button
+		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_9))	
+		{
+			if (!isPresetButtonDown) 	presetButtonDown();
+		}
+		else 																			
+		{
+			if (isPresetButtonDown)		presetButtonUp();
+		}
+	}
 }
+
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
 {
-	;
+	
 }
 
 /** System Clock Configuration
@@ -213,8 +394,7 @@ void SystemClock_Config(void)
 /* ADC1 init function */
 static void MX_ADC1_Init(void)
 {
-
-  ADC_ChannelConfTypeDef sConfig;
+ ADC_ChannelConfTypeDef sConfig;
 
     /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
     */
@@ -391,6 +571,7 @@ static void MX_QUADSPI_Init(void)
 /* RNG init function */
 static void MX_RNG_Init(void)
 {
+
   hrng.Instance = RNG;
   if (HAL_RNG_Init(&hrng) != HAL_OK)
   {
@@ -442,17 +623,17 @@ static void MX_SPI4_Init(void)
   hspi4.Instance = SPI4;
   hspi4.Init.Mode = SPI_MODE_MASTER;
   hspi4.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi4.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi4.Init.NSS = SPI_NSS_HARD_OUTPUT;
-  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
+  hspi4.Init.NSS = SPI_NSS_SOFT;
+  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi4.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi4.Init.CRCPolynomial = 7;
   hspi4.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi4.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi4.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
   if (HAL_SPI_Init(&hspi4) != HAL_OK)
   {
     Error_Handler();
@@ -518,6 +699,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PD13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+	
+	  /*Configure GPIO pin : PD11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 	
@@ -527,12 +714,22 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+		  /*Configure GPIO pins : PC7 PC9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+	
 
   /*Configure GPIO pins : PC4 PC6 PC7 PC8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8;
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+	
+
 	
 	  /*Configure GPIO pins : PB0 PB1 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
@@ -548,7 +745,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PC9 PC10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_10;
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -567,20 +764,22 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
                           |GPIO_PIN_12;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
+
 // Returns random floating point value [0.0,1.0)
 float randomNumber(void) {
+	
 	uint32_t rand;
 	HAL_RNG_GenerateRandomNumber(&hrng, &rand);
 	float num = (((float)(rand >> 16))- 32768.f) * INV_TWO_TO_15;
 	return num;
+	
 }
-
 
 /* USER CODE BEGIN 4 */
 
@@ -598,7 +797,7 @@ void Error_Handler(void)
   while(1) 
   {
 
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 
   }
   /* USER CODE END Error_Handler */ 

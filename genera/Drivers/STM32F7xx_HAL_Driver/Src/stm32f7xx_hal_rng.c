@@ -158,7 +158,7 @@ HAL_StatusTypeDef HAL_RNG_DeInit(RNG_HandleTypeDef *hrng)
   /* Check the RNG handle allocation */
   if(hrng == NULL)
   {
-		return HAL_ERROR;
+    return HAL_ERROR;
   }
   /* Disable the RNG Peripheral */
   CLEAR_BIT(hrng->Instance->CR, RNG_CR_IE | RNG_CR_RNGEN);

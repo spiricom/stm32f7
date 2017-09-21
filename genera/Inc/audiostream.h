@@ -31,6 +31,61 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
 
+#include "OOPS.h"
+
+#define NUM_OSC 16
+
+
+//adc is
+// 0 = joy Y
+// 1 = knob
+// 2 = joy X
+// 3 = breath sensor
+// 4 = slide
+
+
+typedef enum ADCInput
+{
+	ADCJoyY = 0,
+	ADCKnob,
+	ADCJoyX,
+	ADCBreath,
+	ADCSlide,
+	ADCInputNil,
+	ADCInputCount = ADCInputNil
+} ADCInput;
+
+typedef enum FTMode
+{
+	FTFeedback = 0,
+	FTSynthesisOne, 
+	FTModeNil,
+	FTModeCount = FTModeNil
+} FTMode;
+
+extern int16_t position;
+extern uint16_t firstPositionValue;
+extern uint16_t knobValue;
+extern uint16_t slideValue;
+
+extern FTMode ftMode;
+extern tRamp* adc[ADCInputCount];
+
+extern float harmonic;
+extern float fundamental;
+
+extern tCompressor* myCompressor;
+extern tDelay* myDelay;
+
+extern tSVF* oldFilter;
+extern tSVF* lp;
+extern tButterworth* filter;
+extern tRamp* myRamp;
+extern tCycle* mySine;
+
+extern tSawtooth* osc;
+extern tRamp* freqRamp;
+
 
 /* Exported types ------------------------------------------------------------*/
 typedef enum
@@ -41,8 +96,44 @@ typedef enum
 }BUFFER_StateTypeDef;
 
 
+void slideValueChanged(uint16_t value);
+
+void knobValueChanged(uint16_t value);
+
+void buttonOneDown(void);
+
+void buttonOneUp(void);
+
+void buttonTwoDown(void);
+
+void buttonTwoUp(void);
+
+void presetButtonDown(void);
+
+void presetButtonUp(void);
+
+
 
 /* Exported constants --------------------------------------------------------*/
+
+extern float fundamental_hz;
+extern float fundamental_cm;
+extern float fundamental_m;
+extern float inv_fundamental_m;
+extern float cutoff_offset;
+
+#define VAL_PER_CM 14.3f 
+#define VAL_PER_M 1430.0f
+#define CM_PER_VAL 0.06993007f
+#define M_PER_VAL 0.0006993007f
+
+#define ADC_SLIDE 4
+#define ADC_KNOB 1
+#define ADC_JOYX 0
+#define ADC_JOYY 0
+
+
+#define TO_LENGTH(IN) (FUNDAMENTAL_M + M_PER_VAL * IN)
 
 #define SAMPLE_RATE 48000.f
 #define INV_SAMPLE_RATE 1.f/SAMPLE_RATE 
@@ -52,30 +143,20 @@ typedef enum
 #define SAMPLE_RATE_DIV_PARAMS_MS (SAMPLE_RATE_DIV_PARAMS / 1000.f)
 #define INV_SR_DIV_PARAMS_MS 1.f/SAMPLE_RATE_DIV_PARAMS_MS
 
-#define TWO_TO_8 256.f
-#define INV_TWO_TO_8 1.f/TWO_TO_8
-#define TWO_TO_5 32.f
-#define INV_TWO_TO_5 1.0f/TWO_TO_5
-#define TWO_TO_12 4096.f
-#define INV_TWO_TO_12 1.f/TWO_TO_12
-#define TWO_TO_15 32768.f
-#define TWO_TO_16 65536.f
-#define INV_TWO_TO_15 1.0f/TWO_TO_15
-#define TWO_TO_16_MINUS_ONE 65535.0f
+typedef enum LCDModeType
+{
+	LCDModeDisplayPitchClass = 0,
+	LCDModeDisplayPitchMidi,
+	LCDModeTypeNil,
+	LCDModeCount = LCDModeTypeNil
+} LCDModeType;
 
-extern int16_t currentInput;
-extern int16_t currentOutput;
+extern uint16_t knobValue;
+extern LCDModeType lcdMode;
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrandom, uint16_t* myADCarray);
-
-void audioFrame(uint16_t buffer_offset);
-float audioTickL(float audioIn);
-float audioTickR(float audioIn);
-
-void audioError(void);
-void audioClippedMain(void);
-void audioClipped(void);
 
 void DMA1_TransferCpltCallback(DMA_HandleTypeDef *hdma);
 void DMA1_HalfTransferCpltCallback(DMA_HandleTypeDef *hdma);

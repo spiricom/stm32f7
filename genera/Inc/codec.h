@@ -11,6 +11,19 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
   #error ADCHPD value not defined
 #endif
 
+#ifndef ADCS
+  #define ADCS 2
+#elif (ADCS >=0)&&(ADCS <= 2)
+#else
+  #error ADCS value not defined
+#endif
+
+#ifndef HYST
+  #define HYST 32
+#elif (HYST >= 0)&&(HYST <= 255)
+#else
+  #error HYST value not defined
+#endif
 
 #ifndef LINVOL
   #define LINVOL 0x17
@@ -41,7 +54,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 #endif
 
 #ifndef MICBOOST
-  #define MICBOOST 1
+  #define MICBOOST 0
 #elif (MICBOOST == 0)||(MICBOOST == 1)
 #else
   #error MICBOOST value not defined
@@ -78,7 +91,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 #endif
 
 #ifndef SIDETONE
-  #define SIDETONE 0  //setting this to 1 send the microphone input straight to the output
+  #define SIDETONE 0
 #elif (SIDETONE == 0)||(SIDETONE == 1)
 #else
   #error SIDETONE value not defined

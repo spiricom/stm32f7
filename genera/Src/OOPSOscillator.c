@@ -185,7 +185,7 @@ float   tNeuronTick(tNeuron* const n)
     
     
     if (n->voltage > 100.0f)  n->voltage = 100.0f;
-    else if (n->voltage < -100.0f) n->voltage = -100.0f;
+    else if (n->voltage < -100.) n->voltage = -100.0f;
     
     //(inputCurrent + (voltage - ((voltage * timeStep) / timeConstant)) + P[0] + P[1] + P[2]) => voltage;
     // now we should have a result
