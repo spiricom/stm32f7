@@ -76,16 +76,16 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	myDelay = tDelayLInit(0);
 	
 	filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
-  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 50.0f);
-	//lp = tSVFInit(SVFTypeBandpass, 40.0f, 1.0f);
+  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 100.0f);
+	lp = tSVFInit(SVFTypeBandpass, 40.0f, 100.0f);
 	
 
 	myCompressor->M = 0.0f;
 	myCompressor->W = 24.0f;
 	myCompressor->T = -12.0f;
 	myCompressor->R = 3.0f ; 
-	myCompressor->tauAttack = 0.5f;
-	myCompressor->tauRelease = 0.5f;
+	myCompressor->tauAttack = 1;
+	myCompressor->tauRelease = 1;
 	
 	for (int i = 0; i < ADCInputCount; i++) adc[i] = tRampInit(20, 1);	
 	
@@ -266,8 +266,8 @@ float audioTick(float audioIn)
 	// RAMP JOYY
 	tempHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
 	
-	if (((tempHarmonic - harmonic) > 0.2) || 
-			((tempHarmonic - harmonic) < -0.2)) harmonic = tempHarmonic;
+	if (((tempHarmonic - harmonic) > 0.2f) || 
+			((tempHarmonic - harmonic) < -0.2f)) harmonic = tempHarmonic;
 		
 	peak =  fundamental * (uint8_t)harmonic;
 	
@@ -286,18 +286,18 @@ float audioTick(float audioIn)
 	{
 		sample = INPUT_BOOST * audioIn;
 		
-		//sample = tCompressorTick(myCompressor, sample);
+		sample = tCompressorTick(myCompressor, sample);
 		
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
-		sample = OOPS_clip(-1.0f, sample, 1.0f);
+		//sample = OOPS_clip(-1.0f, sample, 1.0f);
 		
 		//tButterworthSetFreqs(filter, peak - cutoff_offset, peak + cutoff_offset);
 		tSVFSetFreq(oldFilter, peak);
-		//tSVFSetFreq(lp, peak);
+		tSVFSetFreq(lp, peak);
 		
 		//sample = tButterworthTick(filter, sample);
 		sample = tSVFTick(oldFilter, sample);
-		//sample = tSVFTick(lp, sample);
+		sample = tSVFTick(lp, sample);
 		
 		sample = tDelayLTick(myDelay, sample);
 		
