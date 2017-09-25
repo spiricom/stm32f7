@@ -3,8 +3,8 @@
 #ifndef __LCD_H
 #define __LCD_H
 
-#define LCD_I2C_ADDRESS (0x50) //(0x1a << 1) // 7-bit address goes one bit over to the left to make room for R/W bit
-//what the hell is this supposed to be? Datasheet says 50 (0x32), but library uses 0x28.  Also may need to be left shifted one bit for stm32
+#define LCD_I2C_ADDRESS (0x50) //datasheet incorrectly says decimal 50/ hex 32. It's hex 50. ]
+//Also datasheet says place r2 jumper for i2c but it's r1.
 
 // Min and Max values
 #define MIN_BRIGHTNESS		1

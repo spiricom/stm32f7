@@ -118,7 +118,7 @@ int LCD_parsePitch(uint8_t* buffer, float midi)
 	if ((midi + 0.5f) > (note+1))
 	{
 		note += 1;
-		offset = (1.0f - offset) + 0.01;
+		offset = (1.0f - offset) + 0.01f;
 		neg = 1;
 	}
 

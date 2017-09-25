@@ -11,9 +11,9 @@
 int16_t audioOutBuffer[AUDIO_BUFFER_SIZE];
 int16_t audioInBuffer[AUDIO_BUFFER_SIZE];
 
-float fundamental_hz;
+float fundamental_hz = 58.27;
 float fundamental_cm;
-float fundamental_m;
+float fundamental_m = 2.943195469366741f;
 float inv_fundamental_m;
 float cutoff_offset;
 
@@ -32,7 +32,7 @@ void audioFrame(uint16_t buffer_offset);
 float LN2;
 float amp_mult = 5.0f;
 
-
+KnobMode knobMode = slideTune;
 
 tRamp* adc[ADCInputCount];
 
@@ -44,6 +44,7 @@ tSVF* lp;
 tButterworth* filter;
 tRamp* myRamp;
 tSawtooth* osc;
+tCycle* mySine;
 tRamp* freqRamp;
 
 
@@ -68,39 +69,43 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	HAL_Delay(100);
 	
 	adcVals = myADCarray;
+	
+	
+	myCompressor = tCompressorInit();
+	//myDelay = tDelayLInit(0);
+	
+	//filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
+  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 200.0f);
+	lp = tSVFInit(SVFTypeBandpass, 40.0f, 200.0f);
+	
+
+	myCompressor->M = 0.0f;
+	myCompressor->W = 12.0f;//24
+	myCompressor->T = -20.0f;//24
+	myCompressor->R = 3.f ; //3
+	myCompressor->tauAttack =0.0f ;//1
+	myCompressor->tauRelease =0.0f;//1
+	
+	adc[ADCJoyY] = tRampInit(15, 1);	
+	adc[ADCPedal] = tRampInit(10, AUDIO_FRAME_SIZE);	
+	adc[ADCBreath] = tRampInit(13, 1);	
+	adc[ADCSlide] = tRampInit(10, AUDIO_FRAME_SIZE);	
+	adc[ADCKnob] = tRampInit(50,AUDIO_FRAME_SIZE);	
+	
+	LN2 = log(2.0f);
+	
+	breath_baseline = ((adcVals[ADCBreath] * INV_TWO_TO_12) + 0.1f);
+	breath_mult = 1.0f / (1.0f-breath_baseline);
+	
+	mySine = tCycleInit();
+	
+	osc = tSawtoothInit();
+	
+	
 	// set up the I2S driver to send audio data to the codec (and retrieve input as well)	
 	HAL_SAI_Transmit_DMA(hsaiIn, (uint8_t *)&audioOutBuffer[0], AUDIO_BUFFER_SIZE);
 	HAL_SAI_Receive_DMA(hsaiOut, (uint8_t *)&audioInBuffer[0], AUDIO_BUFFER_SIZE);
 
-	myCompressor = tCompressorInit();
-	myDelay = tDelayLInit(0);
-	
-	filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
-  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 100.0f);
-	lp = tSVFInit(SVFTypeBandpass, 40.0f, 100.0f);
-	
-
-	myCompressor->M = 0.0f;
-	myCompressor->W = 24.0f;
-	myCompressor->T = -12.0f;
-	myCompressor->R = 3.0f ; 
-	myCompressor->tauAttack = 1;
-	myCompressor->tauRelease = 1;
-	
-	for (int i = 0; i < ADCInputCount; i++) adc[i] = tRampInit(20, 1);	
-	
-	tRampSetTime(adc[ADCJoyX], 200);
-	
-	tRampSetTime(adc[ADCSlide], 1);
-	
-	LN2 = log(2.0f);
-	
-	breath_baseline = ((adcVals[3] * INV_TWO_TO_12) + 0.1f);
-	breath_mult = 1.0f / (1.0f-breath_baseline);
-	
-	osc = tSawtoothInit();
-	
-	tSawtoothSetFreq(osc, 220.0f);
 }
 
 
@@ -161,49 +166,45 @@ float fixed_knobs[6] = {.699f, .816f, .2107f, .3579f, .7641f, .7269f};
 float squished_knobs[2] = {0.f,0.f};
 float peak = 0.0f;
 float harmonic = 0.0f;
+float slide_tune = 1.0f;
 
 void audioFrame(uint16_t buffer_offset)
 {
 	uint16_t i = 0;
 	int16_t current_sample = 0;  
 	
-	fundamental_hz = tRampTick(adc[ADCKnob]) * 200.0f + 30.0f;
-	fundamental_m = SOS_M / fundamental_hz * 0.5f;
+		// SET DEST KNOB
+	tRampSetDest(adc[ADCKnob], adcVals[ADCKnob] * INV_TWO_TO_12);
 	
-	cutoff_offset = fundamental_hz * 0.5f;
+	if (knobMode == masterTune)
+	{
+		fundamental_hz = tRampTick(adc[ADCKnob]) * 60.0f + 30.0f;
+		fundamental_m = SOS_M / fundamental_hz * 0.5f;
+	}
+	else if (knobMode == slideTune)
+	{
+		slide_tune = tRampTick(adc[ADCKnob]) * 0.4f + 0.8f;
+	}
 	
-	//int tauAttack, tauRelease;
-  //float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
-	for (int i = 0; i < 6; i++)	knobs[i] = (4096.0f - adcVals[i]) / 4096.0f;
+	//cutoff_offset = fundamental_hz * 0.5f;
 	
 	// SET DEST SLIDE
-	tRampSetDest(adc[ADCSlide], adcVals[ADC_SLIDE]);
-	
-	// RAMP SLIDE 
+	tRampSetDest(adc[ADCSlide], adcVals[ADCSlide]);
+		// RAMP SLIDE 
 	position = tRampTick(adc[ADCSlide]);
 		
-	slideLengthDiff = (position - firstPositionValue) * M_PER_VAL;
+	slideLengthDiff = (position - firstPositionValue) * M_PER_VAL * slide_tune;
 	slideLength = fundamental_m + slideLengthDiff;
 	
 	float x = 12.0f * logf(slideLength / fundamental_m) * INV_LOG2;
 	
 	fundamental = fundamental_hz * powf(2.0f, (-x * INV_TWELVE));
 
-	squished_knobs[0] = (((float)(adcVals[ADCJoyX] - 2050)) / 550.0f);
-	
-	if (squished_knobs[0] < 0.0f)
-	{
-		squished_knobs[0] = 0.0f;
-	}
-	else if (squished_knobs[0] > 1.0f)
-	{
-		squished_knobs[0] = 1.0f;
-	}
 	
 	// SET DEST JOYY
-	tRampSetDest(adc[ADCJoyX], squished_knobs[0]);
+	tRampSetDest(adc[ADCPedal], (adcVals[ADCPedal] * .000244f));
 	
-	squished_knobs[1] =	((4096.0f - adcVals[ADCJoyY] - 2100) / 550.0f);
+	squished_knobs[1] =	((4096.0f - adcVals[ADCJoyY] - 2060) * 0.0018181818181818f);
 	if (squished_knobs[1] < 0.0f)
 	{
 		squished_knobs[1] = 0.0f;
@@ -212,15 +213,28 @@ void audioFrame(uint16_t buffer_offset)
 	{
 		squished_knobs[1] = 1.0f;
 	}
+	
+	
 
 	// SET DEST JOYX
 	tRampSetDest(adc[ADCJoyY], squished_knobs[1]);
 	
-	// SET DEST KNOB
-	tRampSetDest(adc[ADCKnob], adcVals[ADCKnob] * INV_TWO_TO_12);
+
 	
 	// SET DEST BREATH
-	tRampSetDest(adc[ADCBreath], adcVals[ADCBreath]);
+	amplitude = adcVals[ADCBreath];
+	amplitude = amplitude * INV_TWO_TO_12;
+	amplitude = amplitude - breath_baseline;
+	amplitude = amplitude * breath_mult;
+	
+
+	
+	amplitude *= amp_mult;
+	
+	if (amplitude < 0.0f)					amplitude = 0.0f;
+	else if (amplitude > 1.0f)		amplitude = 1.0f;
+	
+	tRampSetDest(adc[ADCBreath], amplitude);
 	
 	//val =  1.0f/(LN2 * bw0 ) -LN2 *bw0/24.0f + ( 0.5f/(LN2*LN2* bw0) + bw0/48.0f)*(n-1);
 	
@@ -241,9 +255,10 @@ void audioFrame(uint16_t buffer_offset)
 float sample = 0.0f;
 
 #define OUTPUT_GAIN 0.9f
-#define NUM_HARMONICS 10.0f
-#define INV_NUM_HARMONICS 0.1f
-#define INPUT_BOOST 2000.0f
+#define NUM_HARMONICS 14.0f
+#define INV_NUM_HARMONICS 0.0769230769230769f
+//#define INPUT_BOOST 2000.0f
+#define INPUT_BOOST 30.0f
 
 float lastHarmonic, tempHarmonic, mix;
 
@@ -251,62 +266,70 @@ float audioTick(float audioIn)
 {
 	// RAMP BREATH
 	amplitude = tRampTick(adc[ADCBreath]);
-
-	amplitude = amplitude * INV_TWO_TO_12;
-	amplitude = amplitude - breath_baseline;
-	amplitude = amplitude * breath_mult;
 	
-	mix = tRampTick(adc[ADCKnob]);
-	
-	amplitude *= amp_mult;
-	
-	if (amplitude < 0.0f)					amplitude = 0.0f;
-	else if (amplitude > 1.0f)		amplitude = 1.0f;
+	mix = tRampTick(adc[ADCPedal]);
 	
 	// RAMP JOYY
 	tempHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
 	
-	if (((tempHarmonic - harmonic) > 0.2f) || 
-			((tempHarmonic - harmonic) < -0.2f)) harmonic = tempHarmonic;
+	if (((tempHarmonic - harmonic) > 0.25f) || 
+			((tempHarmonic - harmonic) < -0.25f)) harmonic = tempHarmonic;
 		
 	peak =  fundamental * (uint8_t)harmonic;
 	
 	// RAMP JOYX
-	tDelayLSetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 64.0f);
+	//tDelayLSetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 64.0f);
 		
 	if (ftMode == FTSynthesisOne)
 	{
-		tSawtoothSetFreq(osc, peak);
 		
-		sample = tSawtoothTick(osc);
 		
+		tCycleSetFreq(mySine, peak);
+		sample = tCycleTick(mySine);
+		
+		
+		//tSawtoothSetFreq(osc, peak);
+		//sample = tSawtoothTick(osc);
+		
+		
+		//sample = sample * amplitude * 2.0f;
+		//sample = OOPS_shaper(sample, (tRampTick(adc[ADCJoyX]) * 0.0024390243902439f));
+		
+		//sample = OOPS_softClip(sample, .5f);
 		sample = sample * amplitude;
+		//sample = sample * amplitude;
+		//sample = OOPS_clip(-1.0f, sample, 1.0f);
 	}
 	else
 	{
-		sample = INPUT_BOOST * audioIn;
+		sample = INPUT_BOOST * amplitude  * audioIn;
+		
 		
 		sample = tCompressorTick(myCompressor, sample);
 		
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
 		//sample = OOPS_clip(-1.0f, sample, 1.0f);
+		//tSVFSetQ(oldFilter, tRampTick(adc[ADCPedal]));
+		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
 		
-		//tButterworthSetFreqs(filter, peak - cutoff_offset, peak + cutoff_offset);
 		tSVFSetFreq(oldFilter, peak);
-		tSVFSetFreq(lp, peak);
+		lp->g = oldFilter->g;
+		lp->a1 = oldFilter->a1;
+		lp->a2 = oldFilter->a2;
+		lp->a3 = oldFilter->a3;
 		
-		//sample = tButterworthTick(filter, sample);
+
+		//tSVFSetFreq(lp, peak);
+
 		sample = tSVFTick(oldFilter, sample);
 		sample = tSVFTick(lp, sample);
 		
-		sample = tDelayLTick(myDelay, sample);
+		//sample = tDelayLTick(myDelay, sample);
 		
 		//sample = OOPS_softClip(sample, 0.99f);
 		
-		sample = OOPS_clip(-1.0f, sample, 1.0f);
-		
 		sample *= amplitude;
-		
+		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		sample *= OUTPUT_GAIN; 
 	}
 	

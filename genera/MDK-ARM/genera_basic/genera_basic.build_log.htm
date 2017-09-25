@@ -27,10 +27,19 @@ Project File Date:  09/18/2017
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
-compiling audiostream.c...
+compiling main.c...
+../Src/main.c(210): warning:  #177-D: variable "value"  was declared but never referenced
+  	uint16_t value;
+../Src/main.c(211): warning:  #177-D: variable "diff"  was declared but never referenced
+  	int16_t diff;
+../Src/main.c(563): warning:  #177-D: function "MX_QUADSPI_Init"  was declared but never referenced
+  static void MX_QUADSPI_Init(void)
+../Src/main.c(631): warning:  #177-D: function "MX_SPI4_Init"  was declared but never referenced
+  static void MX_SPI4_Init(void)
+../Src/main.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=26620 RO-data=91268 RW-data=180 ZI-data=321148  
-"genera_basic\genera_basic.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=24328 RO-data=9344 RW-data=164 ZI-data=321204  
+"genera_basic\genera_basic.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,7 +57,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

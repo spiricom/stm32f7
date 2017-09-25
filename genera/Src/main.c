@@ -161,6 +161,7 @@ void buttonOneDown(void)
 	isButtonOneDown = 1;
 	
 	ftMode = FTFeedback;
+
 }
 
 void buttonOneUp(void)
@@ -188,13 +189,21 @@ void presetButtonDown(void)
 	firstPositionValue = position;
 	
 	isPresetButtonDown = 1;
+	
+	if (isButtonTwoDown)
+	{
+		knobMode = masterTune;
+	}
+	
 }
 
 void presetButtonUp(void)
 {
 	isPresetButtonDown = 0;
+	knobMode = slideTune;
 }
 
+uint16_t mainCounter = 0;
 
 int main(void)
 {
@@ -248,32 +257,32 @@ int main(void)
 	
   while (1)
   {
-		HAL_Delay(10);
-		LCD_home(&hi2c2);
+		//HAL_Delay(200);
 		
-		if (lcdMode == LCDModeDisplayPitchClass)
+		if (mainCounter > 100)
 		{
-			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(fundamental));
+			
+			LCD_home(&hi2c2);
+			
+			if (lcdMode == LCDModeDisplayPitchClass)
+			{
+				LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(peak));
+			}
+			else if (lcdMode == LCDModeDisplayPitchMidi)
+			{
+				LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(peak), 5, 2);
+			}
+			
+			LCD_sendChar(&hi2c2, ' ');
+			
+			LCD_sendInteger(&hi2c2, harmonic, 2);
+			
+			LCD_sendChar(&hi2c2, ' ');
+			
+			LCD_sendFixedFloat(&hi2c2, peak, 4, 1);
+			
+			mainCounter = 0;
 		}
-		else if (lcdMode == LCDModeDisplayPitchMidi)
-		{
-			LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(fundamental), 5, 2);
-		}
-		
-		LCD_sendChar(&hi2c2, ' ');
-		
-		LCD_sendInteger(&hi2c2, harmonic, 2);
-		
-		LCD_sendChar(&hi2c2, ' ');
-		
-		LCD_sendFixedFloat(&hi2c2, fundamental_hz, 4, 2);
-		
-		value = adcValues[ADC_KNOB];
-		diff = knobValue - value;
-		diff = (diff < 0) ? -diff : diff;
-		
-		if (diff > 50) 	knobValueChanged(value);
-	
 		//button1
 		if (HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))	
 		{
@@ -283,7 +292,7 @@ int main(void)
 		{
 			if (isButtonOneDown) 	buttonOneUp();
 		}
-
+		
 		
 		//button2
 		if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7))	
@@ -304,6 +313,8 @@ int main(void)
 		{
 			if (isPresetButtonDown)		presetButtonUp();
 		}
+		HAL_Delay(1);
+		mainCounter++;
 	}
 }
 

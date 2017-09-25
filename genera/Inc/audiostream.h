@@ -48,7 +48,7 @@ typedef enum ADCInput
 {
 	ADCJoyY = 0,
 	ADCKnob,
-	ADCJoyX,
+	ADCPedal,
 	ADCBreath,
 	ADCSlide,
 	ADCInputNil,
@@ -63,12 +63,21 @@ typedef enum FTMode
 	FTModeCount = FTModeNil
 } FTMode;
 
+typedef enum KnobMode
+{
+	slideTune = 0,
+	masterTune, 
+	knobModeNil,
+	knobModeCount = knobModeNil
+} KnobMode;
+
 extern int16_t position;
 extern uint16_t firstPositionValue;
 extern uint16_t knobValue;
 extern uint16_t slideValue;
 
 extern FTMode ftMode;
+extern KnobMode knobMode;
 extern tRamp* adc[ADCInputCount];
 
 extern float harmonic;
@@ -121,16 +130,12 @@ extern float fundamental_cm;
 extern float fundamental_m;
 extern float inv_fundamental_m;
 extern float cutoff_offset;
+extern float peak;
 
 #define VAL_PER_CM 14.3f 
 #define VAL_PER_M 1430.0f
 #define CM_PER_VAL 0.06993007f
 #define M_PER_VAL 0.0006993007f
-
-#define ADC_SLIDE 4
-#define ADC_KNOB 1
-#define ADC_JOYX 0
-#define ADC_JOYY 0
 
 
 #define TO_LENGTH(IN) (FUNDAMENTAL_M + M_PER_VAL * IN)

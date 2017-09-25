@@ -343,9 +343,17 @@ tRamp*    tRampInit(float time, int samples_per_tick)
     tRamp* ramp = &oops.tRampRegistry[oops.registryIndex[T_RAMP]];
     
     ramp->inv_sr_ms = 1.0f/(oops.sampleRate*0.001f);
+		ramp->minimum_time = ramp->inv_sr_ms * samples_per_tick;
     ramp->curr = 0.0f;
     ramp->dest = 0.0f;
-    ramp->time = time;
+		if (time < ramp->minimum_time)
+		{
+			ramp->time = ramp->minimum_time;
+		}
+		else
+		{
+			ramp->time = time;
+		}
     ramp->samples_per_tick = samples_per_tick;
     ramp->inc = ((ramp->dest - ramp->curr) / ramp->time * ramp->inv_sr_ms) * (float)ramp->samples_per_tick;
     
@@ -358,15 +366,24 @@ tRamp*    tRampInit(float time, int samples_per_tick)
 
 int     tRampSetTime(tRamp* const r, float time)
 {
-    r->time = time;
-    r->inc = ((r->dest-r->curr)/r->time * r->inv_sr_ms)*((float)r->samples_per_tick);
+		if (time < r->minimum_time)
+		{
+			r->time = r->minimum_time;
+		}
+		else
+		{
+			r->time = time;
+		}
+		
+		r->time = time;
+    r->inc = ((r->dest-r->curr)/r->time * r->inv_sr_ms) * ((float)r->samples_per_tick);
     return 0;
 }
 
 int     tRampSetDest(tRamp* const r, float dest)
 {
     r->dest = dest;
-    r->inc = ((r->dest-r->curr)/r->time * r->inv_sr_ms)*((float)r->samples_per_tick);
+    r->inc = ((r->dest-r->curr)/r->time * r->inv_sr_ms) * ((float)r->samples_per_tick);
     return 0;
 }
 

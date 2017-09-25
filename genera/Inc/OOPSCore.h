@@ -16,7 +16,7 @@
 #include "OOPSMath.h"
 typedef struct _tCompressor
 {
-    int tauAttack, tauRelease;
+    float tauAttack, tauRelease;
     float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
     
     float x_G[2], y_G[2], x_T[2], y_T[2];
@@ -237,6 +237,7 @@ typedef struct _tHighpass
 typedef struct _tRamp {
     float inc;
     float inv_sr_ms;
+		float minimum_time;
     float curr,dest;
     float time;
     int samples_per_tick;
