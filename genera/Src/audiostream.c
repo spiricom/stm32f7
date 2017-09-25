@@ -46,6 +46,7 @@ tRamp* myRamp;
 tSawtooth* osc;
 tCycle* mySine;
 tRamp* freqRamp;
+tNoise* noise;
 
 
 typedef enum BOOL {
@@ -101,6 +102,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	osc = tSawtoothInit();
 	
+	noise = tNoiseInit(PinkNoise);
 	
 	// set up the I2S driver to send audio data to the codec (and retrieve input as well)	
 	HAL_SAI_Transmit_DMA(hsaiIn, (uint8_t *)&audioOutBuffer[0], AUDIO_BUFFER_SIZE);
@@ -202,7 +204,7 @@ void audioFrame(uint16_t buffer_offset)
 
 	
 	// SET DEST JOYY
-	tRampSetDest(adc[ADCPedal], (adcVals[ADCPedal] * .000244f));
+	tRampSetDest(adc[ADCPedal], (adcVals[ADCPedal] * INV_TWO_TO_12));
 	
 	squished_knobs[1] =	((4096.0f - adcVals[ADCJoyY] - 2060) * 0.0018181818181818f);
 	if (squished_knobs[1] < 0.0f)
@@ -261,6 +263,7 @@ float sample = 0.0f;
 #define INPUT_BOOST 30.0f
 
 float lastHarmonic, tempHarmonic, mix;
+float sawSample = 0.0f;
 
 float audioTick(float audioIn) 
 {
@@ -276,29 +279,34 @@ float audioTick(float audioIn)
 			((tempHarmonic - harmonic) < -0.25f)) harmonic = tempHarmonic;
 		
 	peak =  fundamental * (uint8_t)harmonic;
-	
+	//peak = peak * powf(2.0f, (float)((uint8_t)(tRampSample(adc[ADCPedal]) * 2.9f)));
+	if (peak > 40000)
+	{
+		peak = 40000;
+	}
 	// RAMP JOYX
 	//tDelayLSetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 64.0f);
 		
 	if (ftMode == FTSynthesisOne)
 	{
 		
-		
 		tCycleSetFreq(mySine, peak);
 		sample = tCycleTick(mySine);
 		
 		
-		//tSawtoothSetFreq(osc, peak);
-		//sample = tSawtoothTick(osc);
+		tSawtoothSetFreq(osc, peak);
+		sawSample = tSawtoothTick(osc);
+		//sawSample = sawSample *amplitude * 2.0f;
+		sawSample = OOPS_reedTable(sample, mix, mix);
 		
 		
 		//sample = sample * amplitude * 2.0f;
 		//sample = OOPS_shaper(sample, (tRampTick(adc[ADCJoyX]) * 0.0024390243902439f));
 		
-		//sample = OOPS_softClip(sample, .5f);
-		sample = sample * amplitude;
+		sawSample = OOPS_softClip(sawSample, .8f);
+		sample = ((sample * (1.0f - mix)) + (sawSample * sawSample * sawSample * mix)) * amplitude;
 		//sample = sample * amplitude;
-		//sample = OOPS_clip(-1.0f, sample, 1.0f);
+		sample = OOPS_softClip(sample, .8f);
 	}
 	else
 	{
@@ -318,7 +326,6 @@ float audioTick(float audioIn)
 		lp->a2 = oldFilter->a2;
 		lp->a3 = oldFilter->a3;
 		
-
 		//tSVFSetFreq(lp, peak);
 
 		sample = tSVFTick(oldFilter, sample);
@@ -327,7 +334,7 @@ float audioTick(float audioIn)
 		//sample = tDelayLTick(myDelay, sample);
 		
 		//sample = OOPS_softClip(sample, 0.99f);
-		
+		sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
 		sample *= amplitude;
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		sample *= OUTPUT_GAIN; 
