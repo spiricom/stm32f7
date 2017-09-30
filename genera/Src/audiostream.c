@@ -75,10 +75,10 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	
 	myCompressor = tCompressorInit();
-	//myDelay = tDelayLInit(0);
+	myDelay = tDelayLInit(0);
 	
 	//filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
-  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 200.0f);
+  oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 10.0f);
 	lp = tSVFInit(SVFTypeBandpass, 40.0f, 200.0f);
 	
 
@@ -292,7 +292,8 @@ float audioTick(float audioIn)
 	{
 		//sample = INPUT_BOOST * amplitude  * audioIn;
 		//sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
-		sample = INPUT_BOOST * audioIn;
+		//sample = INPUT_BOOST * audioIn;
+		sample = audioIn;
 		sample = tCompressorTick(myCompressor, sample);
 		
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
@@ -301,22 +302,34 @@ float audioTick(float audioIn)
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
 		
 		tSVFSetFreq(oldFilter, peak);
-		lp->g = oldFilter->g;
-		lp->a1 = oldFilter->a1;
-		lp->a2 = oldFilter->a2;
-		lp->a3 = oldFilter->a3;
+		//lp->g = oldFilter->g;
+		//lp->a1 = oldFilter->a1;
+		//lp->a2 = oldFilter->a2;
+		//lp->a3 = oldFilter->a3;
 		
 		//tSVFSetFreq(lp, peak);
 
 		sample = tSVFTick(oldFilter, sample);
-		sample = tSVFTick(lp, sample);
+		//sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
 		//sample = tDelayLTick(myDelay, sample);
 		
 		//sample = OOPS_softClip(sample, 0.8f);
 		//sample = tNoiseTick(noise);
-		
+		/*
+		if (counter > 48000)
+		{
+			sample = 1;
+			counter = 0;
+		}
+		else
+		{
+			sample = 0;
+		}
+		counter++;
+		*/
 		sample *= tRampTick(adc[ADCPedal]);
+		
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		sample *= OUTPUT_GAIN; 
 	}
