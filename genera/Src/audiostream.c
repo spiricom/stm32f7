@@ -93,7 +93,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	adc[ADCPedal] = tRampInit(50, AUDIO_FRAME_SIZE);	
 	adc[ADCBreath] = tRampInit(19, 1);	
 	adc[ADCSlide] = tRampInit(50, AUDIO_FRAME_SIZE);	
-	adc[ADCKnob] = tRampInit(50,AUDIO_FRAME_SIZE);	
+	adc[ADCKnob] = tRampInit(500,1);	
 	
 	LN2 = log(2.0f);
 	
@@ -312,7 +312,10 @@ float audioTick(float audioIn)
 		sample = tSVFTick(oldFilter, sample);
 		//sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
-		//sample = tDelayLTick(myDelay, sample);
+		sample *= .8f;
+		float delayTime = (tRampTick(adc[ADCKnob]) * 128.0f);
+		tDelayLSetDelay(myDelay, delayTime);
+		sample = tDelayLTick(myDelay, sample);
 		
 		//sample = OOPS_softClip(sample, 0.8f);
 		//sample = tNoiseTick(noise);
