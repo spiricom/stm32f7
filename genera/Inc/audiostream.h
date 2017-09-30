@@ -65,10 +65,10 @@ typedef enum FTMode
 
 typedef enum KnobMode
 {
-	slideTune = 0,
-	masterTune, 
-	knobModeNil,
-	knobModeCount = knobModeNil
+	SlideTune = 0,
+	MasterTune = 1, 
+	KnobModeNil = 2,
+	KnobModeCount = 3
 } KnobMode;
 
 extern int16_t position;
@@ -77,7 +77,7 @@ extern uint16_t knobValue;
 extern uint16_t slideValue;
 
 extern FTMode ftMode;
-extern KnobMode knobMode;
+extern KnobMode kMode;
 extern tRamp* adc[ADCInputCount];
 
 extern float harmonic;
@@ -131,14 +131,10 @@ extern float fundamental_m;
 extern float inv_fundamental_m;
 extern float cutoff_offset;
 extern float peak;
+extern float slide_tune;
 
-#define VAL_PER_CM 14.3f 
-#define VAL_PER_M 1430.0f
-#define CM_PER_VAL 0.06993007f
-#define M_PER_VAL 0.0006993007f
-
-
-#define TO_LENGTH(IN) (FUNDAMENTAL_M + M_PER_VAL * IN)
+extern float valPerM;
+extern float mPerVal;
 
 #define SAMPLE_RATE 48000.f
 #define INV_SAMPLE_RATE 1.f/SAMPLE_RATE 

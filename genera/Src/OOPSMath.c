@@ -23,6 +23,21 @@ float OOPS_chebyshevT(float in, int n){
 	else return 2.0f * in * OOPS_chebyshevT(in, n-1) - OOPS_chebyshevT(in, n-2);
 }
 
+float OOPS_CompoundChebyshevT(float in, int n, float* amps){
+	float T[n+1];
+	T[0] = 1.0f;
+	T[1] = in;
+	for (int i = 2; i <= n; ++i)
+		T[i] = 2*in*T[i-1] - T[i-2];
+	float out = 0;
+	float amp = 0;
+	for (int i = 0; i < n; ++i){
+		out += amps[i]*T[i+1];
+		amp += amps[i];
+	}
+	return out / amp ;
+}
+
 float OOPS_frequencyToMidi(float f)
 {
 	return (69.0f + 12.0f * log2(f * INV_440));

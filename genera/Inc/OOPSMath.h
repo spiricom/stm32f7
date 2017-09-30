@@ -77,6 +77,7 @@ float       OOPS_midiToFrequency    (float f);
 
 // dope af
 float OOPS_chebyshevT(float in, int n);
+float OOPS_CompoundChebyshevT(float in, int n, float* amps);
 float OOPS_frequencyToMidi(float f);
 
 

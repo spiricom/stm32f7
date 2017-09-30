@@ -124,7 +124,7 @@ uint8_t dataForLCD[32];
 
 LCDModeType lcdMode = LCDModeDisplayPitchClass;
 
-
+KnobMode kMode = SlideTune;
 
 
 int isButtonOneDown = 0;
@@ -141,19 +141,6 @@ void slideValueChanged(uint16_t value)
 void knobValueChanged(uint16_t value)
 {
 		knobValue = value;
-	
-		float midi = (float)(value / 256.0f) + 60.0f;
-	
-		if (lcdMode == LCDModeDisplayPitchClass)
-		{
-			//LCD_sendPitch(&hi2c2, midi);
-		}
-		else if (lcdMode == LCDModeDisplayPitchMidi)
-		{
-			//LCD_sendFixedFloat(&hi2c2, midi, 5, 2);
-		}
-		
-		LCD_sendChar(&hi2c2,' ');
 }
 
 void buttonOneDown(void)
@@ -181,26 +168,46 @@ void buttonTwoUp(void)
 	isButtonTwoDown = 0;
 }
 
+int knobModeCount = 3;
+
 void presetButtonDown(void)
 {
-	if (++lcdMode == LCDModeCount) lcdMode = (LCDModeType)0;
+	lcdMode+=1;
+	
+	if (lcdMode == LCDModeCount)
+	{		
+		lcdMode = (LCDModeType)0;
+	}
+	
 	knobValueChanged(knobValue);
 	
 	firstPositionValue = position;
 	
 	isPresetButtonDown = 1;
 	
-	if (isButtonTwoDown)
+	if (kMode == KnobModeNil)
 	{
-		knobMode = masterTune;
+		kMode = SlideTune;
+		fundamental_hz = 58.27f;
+		fundamental_m = SOS_M / fundamental_hz * 0.5f;
+		
 	}
+	else if (kMode == SlideTune)
+	{
+		kMode = MasterTune;
+	}
+	else if (kMode == MasterTune)
+	{
+		kMode = KnobModeNil;
+		fundamental_hz = 58.27f;
+		fundamental_m = SOS_M / fundamental_hz * 0.5f;
 	
+	}
 }
 
 void presetButtonUp(void)
 {
 	isPresetButtonDown = 0;
-	knobMode = slideTune;
 }
 
 uint16_t mainCounter = 0;
@@ -254,6 +261,10 @@ int main(void)
 	knobValueChanged(knobValue);
 	
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
+	firstPositionValue = position;
+	
+	valPerM = 1430.0f;
+	mPerVal = 1.0f/valPerM;
 	
   while (1)
   {
@@ -263,15 +274,8 @@ int main(void)
 		{
 			
 			LCD_home(&hi2c2);
-			
-			if (lcdMode == LCDModeDisplayPitchClass)
-			{
-				LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(peak));
-			}
-			else if (lcdMode == LCDModeDisplayPitchMidi)
-			{
-				LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(peak), 5, 2);
-			}
+
+			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(peak));
 			
 			LCD_sendChar(&hi2c2, ' ');
 			
@@ -279,7 +283,31 @@ int main(void)
 			
 			LCD_sendChar(&hi2c2, ' ');
 			
-			LCD_sendFixedFloat(&hi2c2, peak, 4, 1);
+			LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(peak), 4, 2);
+			
+			LCD_setCursor(&hi2c2, 0x40);
+			
+			if (kMode == SlideTune)
+			{
+				LCD_sendChar(&hi2c2, 'S');
+				LCD_sendChar(&hi2c2, ' ');
+				LCD_sendFixedFloat(&hi2c2, slide_tune, 5, 3);
+			}
+			else 
+			{
+				if (kMode == MasterTune)
+				{	
+					LCD_sendChar(&hi2c2, 'F');
+					LCD_sendChar(&hi2c2, ' ');
+				}
+				else if (kMode == KnobModeNil)
+				{
+					LCD_sendChar(&hi2c2, '*');
+					LCD_sendChar(&hi2c2, ' ');
+				}
+				
+				LCD_sendFixedFloat(&hi2c2, peak, 5, 1);
+			}
 			
 			mainCounter = 0;
 		}
