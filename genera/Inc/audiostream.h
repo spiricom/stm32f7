@@ -33,13 +33,12 @@
 
 #include "OOPS.h"
 
-#define NUM_OSC 16
 
 
 //adc is
 // 0 = joy Y
 // 1 = knob
-// 2 = joy X
+// 2 = pedal
 // 3 = breath sensor
 // 4 = slide
 
@@ -67,8 +66,9 @@ typedef enum KnobMode
 {
 	SlideTune = 0,
 	MasterTune = 1, 
-	KnobModeNil = 2,
-	KnobModeCount = 3
+	OctaveTune = 2,
+	KnobModeNil = 3,
+	KnobModeCount = 4
 } KnobMode;
 
 extern int16_t position;
@@ -80,8 +80,10 @@ extern FTMode ftMode;
 extern KnobMode kMode;
 extern tRamp* adc[ADCInputCount];
 
-extern float harmonic;
+extern float intHarmonic;
+extern float floatHarmonic;
 extern float fundamental;
+extern float customFundamental;
 
 extern tCompressor* myCompressor;
 extern tDelayL* myDelay;
@@ -121,6 +123,7 @@ void presetButtonDown(void);
 
 void presetButtonUp(void);
 
+void setFundamental(float fund);
 
 
 /* Exported constants --------------------------------------------------------*/
@@ -130,7 +133,8 @@ extern float fundamental_cm;
 extern float fundamental_m;
 extern float inv_fundamental_m;
 extern float cutoff_offset;
-extern float peak;
+extern float intPeak;
+extern float floatPeak;
 extern float slide_tune;
 
 extern float valPerM;
@@ -153,6 +157,8 @@ typedef enum LCDModeType
 } LCDModeType;
 
 extern uint16_t knobValue;
+extern int knobMoved;
+extern int calibrated;
 extern LCDModeType lcdMode;
 
 /* Exported macro ------------------------------------------------------------*/

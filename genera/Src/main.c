@@ -93,23 +93,7 @@ void Init_LCD(void);
 
 /* USER CODE END 0 */
 
-#define NUM_ADC_CHANNELS 12
-
-//adc is
-// 0 = joy Y
-// 1 = knob
-// 2 = joy X
-// 3 = breath sensor
-// 4 = slide
-
-/*
-the issue is with the ramps. Right now in feedback, we are ticking them but not using them.
-basically we need to reorganize the ramping so that there is an array of 5 ramps that represent the values derived from analog ins.
-We can calculate the destinations of these ramps in audioFrame()
-Then, we need to tick those ramps in the audioTick() function and use the sampled values for any parameters we are accessing. 
-Never pull a value in audioTick from anything that isn't a ticked ramp. 
-Then we need some hysteresis to avoid the wiggling, and I'll try to improve noise performance on those input in the analog domain.
-*/
+#define NUM_ADC_CHANNELS 5
 
 
 
@@ -125,6 +109,9 @@ uint8_t dataForLCD[32];
 LCDModeType lcdMode = LCDModeDisplayPitchClass;
 
 KnobMode kMode = SlideTune;
+
+int knobMoved = 0;
+int calibrated = 0;
 
 
 int isButtonOneDown = 0;
@@ -147,28 +134,53 @@ void buttonOneDown(void)
 {
 	isButtonOneDown = 1;
 	
-	ftMode = FTFeedback;
-
+	if (isButtonTwoDown)
+	{
+		//calibrate
+		firstPositionValue = position;
+		calibrated = 1;
+	}
 }
 
 void buttonOneUp(void)
 {
 	isButtonOneDown = 0;
+	
+	if (calibrated == 0)
+	{
+		ftMode = FTFeedback;
+	}
+	else if (!isButtonTwoDown)
+	{
+		 calibrated = 0;
+	}
 }
 
 void buttonTwoDown(void)
 {
 	isButtonTwoDown = 1;
 	
-	ftMode = FTSynthesisOne;
+	if (isButtonOneDown)
+	{
+		//calibrate
+		firstPositionValue = position;
+		calibrated = 1;
+	}
 }
 
 void buttonTwoUp(void)
 {
 	isButtonTwoDown = 0;
+	
+	if (calibrated == 0)
+	{
+		ftMode = FTSynthesisOne;
+	}
+	else if (!isButtonOneDown)
+	{
+			calibrated = 0;
+	}
 }
-
-int knobModeCount = 3;
 
 void presetButtonDown(void)
 {
@@ -181,27 +193,31 @@ void presetButtonDown(void)
 	
 	knobValueChanged(knobValue);
 	
-	firstPositionValue = position;
-	
 	isPresetButtonDown = 1;
 	
 	if (kMode == KnobModeNil)
 	{
 		kMode = SlideTune;
-		fundamental_hz = 58.27f;
-		fundamental_m = SOS_M / fundamental_hz * 0.5f;
 		
+		knobMoved = 0;
+		
+		setFundamental(58.27f);
 	}
 	else if (kMode == SlideTune)
 	{
 		kMode = MasterTune;
+		
+		knobMoved = 0;
+		
+		setFundamental(customFundamental);
 	}
 	else if (kMode == MasterTune)
 	{
 		kMode = KnobModeNil;
-		fundamental_hz = 58.27f;
-		fundamental_m = SOS_M / fundamental_hz * 0.5f;
-	
+		
+		knobMoved = 0;
+		
+		setFundamental(58.27f);
 	}
 }
 
@@ -275,15 +291,15 @@ int main(void)
 			
 			LCD_home(&hi2c2);
 
-			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(peak));
+			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(intPeak));
 			
 			LCD_sendChar(&hi2c2, ' ');
 			
-			LCD_sendInteger(&hi2c2, harmonic, 2);
+			LCD_sendInteger(&hi2c2, intHarmonic, 2);
 			
 			LCD_sendChar(&hi2c2, ' ');
 			
-			LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(peak), 4, 2);
+			LCD_sendFixedFloat(&hi2c2, OOPS_frequencyToMidi(intPeak), 4, 2);
 			
 			LCD_setCursor(&hi2c2, 0x40);
 			
@@ -306,8 +322,10 @@ int main(void)
 					LCD_sendChar(&hi2c2, ' ');
 				}
 				
-				LCD_sendFixedFloat(&hi2c2, peak, 5, 1);
+				LCD_sendFixedFloat(&hi2c2, intPeak, 5, 1);
 			}
+			LCD_sendChar(&hi2c2,' ');
+			LCD_sendFixedFloat(&hi2c2, floatHarmonic, 5, 2);
 			
 			mainCounter = 0;
 		}
@@ -459,7 +477,7 @@ static void MX_ADC1_Init(void)
     */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
 	
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
@@ -495,17 +513,13 @@ static void MX_ADC1_Init(void)
 
 
 
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
   sConfig.Channel = ADC_CHANNEL_4;
   sConfig.Rank = 5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
+/*
   sConfig.Channel = ADC_CHANNEL_5;
   sConfig.Rank = 6;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -513,8 +527,7 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
+
   sConfig.Channel = ADC_CHANNEL_6;
   sConfig.Rank = 7;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -522,8 +535,6 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
   sConfig.Channel = ADC_CHANNEL_7;
   sConfig.Rank = 8;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -531,8 +542,7 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 	
-	    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
+
   sConfig.Channel = ADC_CHANNEL_8;
   sConfig.Rank = 9;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -540,8 +550,6 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
   sConfig.Channel = ADC_CHANNEL_9;
   sConfig.Rank = 10;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -549,15 +557,14 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
+
   sConfig.Channel = ADC_CHANNEL_14;
   sConfig.Rank = 11;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-
+*/
 }
 
 /* I2C2 init function */

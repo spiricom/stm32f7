@@ -3,7 +3,7 @@
 
 #include "codec.h"
 
-#define AUDIO_FRAME_SIZE      128
+#define AUDIO_FRAME_SIZE      64
 #define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
 #define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
@@ -58,8 +58,8 @@ typedef enum BOOL {
 
 float breath_baseline = 0.0f;
 float breath_mult = 0.0f;
-
-#define BUTTERWORTH_ORDER 8
+float harmonicHysteresis = 0.60f;
+#define BUTTERWORTH_ORDER 2
 
 void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTypeDef* hsaiOut, RNG_HandleTypeDef* hrand, uint16_t* myADCarray)
 { 
@@ -77,7 +77,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	myCompressor = tCompressorInit();
 	myDelay = tDelayLInit(0);
 	
-	//filter = tButterworthInit(BUTTERWORTH_ORDER, 2000.0f - cutoff_offset, 2000.0f + cutoff_offset);
+	filter = tButterworthInit(BUTTERWORTH_ORDER, 233.0f - cutoff_offset, 233.0f + cutoff_offset);
   oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 10.0f);
 	lp = tSVFInit(SVFTypeBandpass, 40.0f, 200.0f);
 	
@@ -89,11 +89,11 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	myCompressor->tauAttack =0.0f ;//1
 	myCompressor->tauRelease =00.0f;//1
 	
-	adc[ADCJoyY] = tRampInit(18, 1);	
-	adc[ADCPedal] = tRampInit(50, AUDIO_FRAME_SIZE);	
+	adc[ADCJoyY] = tRampInit(18, 1);	//18
+	adc[ADCPedal] = tRampInit(18, 1);	
 	adc[ADCBreath] = tRampInit(19, 1);	
-	adc[ADCSlide] = tRampInit(50, AUDIO_FRAME_SIZE);	
-	adc[ADCKnob] = tRampInit(500,1);	
+	adc[ADCSlide] = tRampInit(20, AUDIO_FRAME_SIZE);	
+	adc[ADCKnob] = tRampInit(30,1);	
 	
 	LN2 = log(2.0f);
 	
@@ -121,6 +121,7 @@ float slideLengthDiff = 0;
 float slideLength = 0;
 
 float fundamental = 0.0f;
+float customFundamental = 58.27f;
 int16_t position = 0;
 uint16_t firstPositionValue = 0;
 
@@ -129,97 +130,89 @@ int flip = 1;
 int envTimeout;
 
 
-FTMode ftMode = FTFeedback;
+FTMode ftMode = FTSynthesisOne;
 float val; 
 
-float amplitude = 0.0f;
-float rampedAmp = 0.0f;
+float breath = 0.0f;
+float rampedBreath = 0.0f;
 
-float fixed_knobs[6] = {.699f, .816f, .2107f, .3579f, .7641f, .7269f};
-float squished_knobs[2] = {0.f,0.f};
-float peak = 0.0f;
-float harmonic = 0.0f;
 float slide_tune = 1.0f;
+
+int hysteresisKnob = 0;
+int hysteresisAmount = 512;
+
+void setFundamental(float fund)
+{
+	fundamental_hz = fund;
+	cutoff_offset = fundamental_hz * 0.5f;
+}
+
+float temp = 0.0f, diff = 0.0f;
+void thingToDoWhenKnobMoves(int input)
+{
+	hysteresisKnob = input;
+	tRampSetDest(adc[ADCKnob], hysteresisKnob * INV_TWO_TO_12);
+	
+	if (kMode == MasterTune)
+	{
+		
+		temp = tRampSample(adc[ADCKnob]) * 400.0f + 20.0f;
+		diff = customFundamental - temp; 
+		diff = (diff < 0.0f) ? -diff : diff;
+		
+		if (diff < 1.0f)
+		{
+			customFundamental = temp;
+			setFundamental(customFundamental);
+		}
+	}
+	else if (kMode == SlideTune)
+	{
+		slide_tune = tRampSample(adc[ADCKnob]) * 0.4f + 0.8f;
+	}
+}
 
 void audioFrame(uint16_t buffer_offset)
 {
 	uint16_t i = 0;
 	int16_t current_sample = 0;  
 	
-		// SET DEST KNOB
+	tRampSetDest(adc[ADCPedal], (adcVals[ADCPedal] * INV_TWO_TO_12));
 	tRampSetDest(adc[ADCKnob], adcVals[ADCKnob] * INV_TWO_TO_12);
+	tRampSetDest(adc[ADCJoyY], 1.0f - ((adcVals[ADCJoyY] * INV_TWO_TO_12) - 0.366f) * 3.816f);
 	
-	if (kMode == MasterTune)
+	if (knobMoved)
 	{
-		fundamental_hz = tRampTick(adc[ADCKnob]) * 400.0f + 20.0f;
-		fundamental_m = SOS_M / fundamental_hz * 0.5f;
+		thingToDoWhenKnobMoves(adcVals[ADCKnob]);
 	}
-	else if (kMode == SlideTune)
+	else
 	{
-		slide_tune = tRampTick(adc[ADCKnob]) * 0.4f + 0.8f;
+		if ((adcVals[ADCKnob] > (hysteresisKnob + hysteresisAmount)) || 
+				(adcVals[ADCKnob] < (hysteresisKnob - hysteresisAmount)))
+		{
+			thingToDoWhenKnobMoves(adcVals[ADCKnob]);
+			knobMoved = 1;
+		}
 	}
-	
-	//cutoff_offset = fundamental_hz * 0.5f;
 	
 	// SET DEST SLIDE
 	tRampSetDest(adc[ADCSlide], adcVals[ADCSlide]);
-		// RAMP SLIDE 
 	position = tRampTick(adc[ADCSlide]);
-		
 	slideLengthDiff = (position - firstPositionValue) * mPerVal * slide_tune;
 	slideLength = fundamental_m + slideLengthDiff;
 	
 	float x = 12.0f * logf(slideLength / fundamental_m) * INV_LOG2;
 	
 	fundamental = fundamental_hz * powf(2.0f, (-x * INV_TWELVE));
-
-	
-	// SET DEST JOYY
-	tRampSetDest(adc[ADCPedal], (adcVals[ADCPedal] * INV_TWO_TO_12));
-	
-	squished_knobs[1] =	((4096.0f - adcVals[ADCJoyY] - 2060) * 0.0018181818181818f);
-	if (squished_knobs[1] < 0.0f)
-	{
-		squished_knobs[1] = 0.0f;
-	}
-	else if (squished_knobs[1] > 1.0f)
-	{
-		squished_knobs[1] = 1.0f;
-	}
-	
-	
-
-	// SET DEST JOYX
-	tRampSetDest(adc[ADCJoyY], squished_knobs[1]);
-	
-
-	
-	// SET DEST BREATH
-	amplitude = adcVals[ADCBreath];
-	amplitude = amplitude * INV_TWO_TO_12;
-	amplitude = amplitude - breath_baseline;
-	amplitude = amplitude * breath_mult;
-	
-
-	
-	amplitude *= amp_mult;
-	
-	if (amplitude < 0.0f)					amplitude = 0.0f;
-	else if (amplitude > 1.0f)		amplitude = 1.0f;
-	
-	tRampSetDest(adc[ADCBreath], amplitude);
-	
-	//val =  1.0f/(LN2 * bw0 ) -LN2 *bw0/24.0f + ( 0.5f/(LN2*LN2* bw0) + bw0/48.0f)*(n-1);
 	
 	if (myCompressor->isActive) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 	else												HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
-
+	
+	
 	for (i = 0; i < (HALF_BUFFER_SIZE); i++)
 	{
 		if ((i & 1) == 0) {
-			//current_sample = (int16_t)(audioTick((float) (audioInBuffer[buffer_offset + i] * INV_TWO_TO_15)) * TWO_TO_15);
 			current_sample = (int16_t)(audioTick((float) (audioInBuffer[buffer_offset + i] * INV_TWO_TO_15)) * TWO_TO_15);
-			//current_sample = (uint16_t) 0;
 		}
 		audioOutBuffer[buffer_offset + i] = current_sample;
 	}
@@ -228,50 +221,54 @@ void audioFrame(uint16_t buffer_offset)
 float sample = 0.0f;
 
 #define OUTPUT_GAIN 0.9f
-#define NUM_HARMONICS 14.0f
-#define INV_NUM_HARMONICS 0.0769230769230769f
-//#define INPUT_BOOST 2000.0f
+#define NUM_HARMONICS 15.0f
 #define INPUT_BOOST 30.0f
 
-float lastHarmonic, tempHarmonic, mix;
+float floatHarmonic, floatPeak, intPeak, mix;
+float intHarmonic;
 float sawSample = 0.0f;
-		float amps[7] = {1.0f, 0.5f, .33f, .25f, .2f, .125f, .125f};
+float amps[7] = {1.0f, 0.5f, .33f, .25f, .2f, .125f, .125f};
+
+
 float audioTick(float audioIn) 
 {
-	// RAMP BREATH
-	amplitude = tRampTick(adc[ADCBreath]);
-	
-	mix = tRampTick(adc[ADCPedal]);
-	
-	// RAMP JOYY
-	tempHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
-	/*
-	if (((tempHarmonic - harmonic) > 0.25f) || 
-			((tempHarmonic - harmonic) < -0.25f)) harmonic = tempHarmonic;
-		*/
-	harmonic = tempHarmonic;
-	//peak =  fundamental * (uint8_t)harmonic;
-	peak =  fundamental * harmonic;
-	//peak = peak * powf(2.0f, (float)((uint8_t)(tRampSample(adc[ADCPedal]) * 2.9f)));
-	if (peak > 40000)
+	//choose harmonic
+	floatHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
+	if (((floatHarmonic - intHarmonic) > (harmonicHysteresis)) || ((floatHarmonic - intHarmonic) < ( -1.0f * harmonicHysteresis)))
 	{
-		peak = 40000;
+		intHarmonic = (uint16_t) (floatHarmonic + 0.5f);
 	}
-	// RAMP JOYX
-	//tDelayLSetDelay(myDelay,tRampTick(adc[ADCJoyX]) * 64.0f);
-		
+	floatPeak = fundamental * floatHarmonic;
+	intPeak = fundamental * intHarmonic;
+	
+	//some code to jump octaves if desired
+	//floatPeak = peak * powf(2.0f, (float)((uint8_t)(tRampSample(adc[ADCPedal]) * 2.9f)));
+	
+	
+	float delayTime = (tRampTick(adc[ADCKnob]) * 256.0f);
+
+	float pedal = tRampTick(adc[ADCPedal]);
+	
+	breath = adcVals[ADCBreath];
+	breath = breath * INV_TWO_TO_12;
+	breath = breath - breath_baseline;
+	breath = breath * breath_mult;
+	breath *= amp_mult;
+	if (breath < 0.0f)					breath = 0.0f;
+	else if (breath > 1.0f)		breath = 1.0f;
+	tRampSetDest(adc[ADCBreath], breath);
+	
+	rampedBreath = tRampTick(adc[ADCBreath]);
 	if (ftMode == FTSynthesisOne)
 	{
 		
-		tCycleSetFreq(mySine, peak);
+		tCycleSetFreq(mySine, intPeak);
 		sample = tCycleTick(mySine);
-		
-		
-		
-		tSawtoothSetFreq(osc, peak);
-		sawSample = tSawtoothTick(osc);
+	
+		//tSawtoothSetFreq(osc, peak);
+		//sawSample = tSawtoothTick(osc);
 		//sawSample = sawSample *amplitude * 2.0f;
-		//sawSample = OOPS_reedTable(sample, mix, mix);
+		//sawSample = OOPS_reedTable(sample, -.6f, .2f);
 		
 		
 		//sample = sample * amplitude * 2.0f;
@@ -282,10 +279,12 @@ float audioTick(float audioIn)
 		//sample = sample * amplitude;
 		//sample = OOPS_softClip(sample, .8f);
 		
-		sample = (sample * (1.0f - mix)) + (OOPS_CompoundChebyshevT(sample, 7, amps) * mix);
-		sample *= 2.0f;
+		sample = (sample * (1.0f - pedal)) + (OOPS_CompoundChebyshevT(sample, 7, amps) * pedal);
+		sample *= 1.0f + pedal;
 		sample = OOPS_softClip(sample, .8f);
-		sample *= amplitude;
+		
+		sample *= rampedBreath;
+		//sample *= amplitude;
 		//sample *= tRampTick(adc[ADCPedal]) * amplitude;
 	}
 	else
@@ -294,14 +293,17 @@ float audioTick(float audioIn)
 		//sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
 		//sample = INPUT_BOOST * audioIn;
 		sample = audioIn;
-		sample = tCompressorTick(myCompressor, sample);
+		tButterworthSetFreqs(filter, floatPeak - cutoff_offset, floatPeak + cutoff_offset);
+		sample = tButterworthTick(filter, sample);
+		
+		//sample = tCompressorTick(myCompressor, sample);
 		
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
 		//sample = OOPS_clip(-1.0f, sample, 1.0f);
-		//tSVFSetQ(oldFilter, tRampTick(adc[ADCPedal]));
+
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
 		
-		tSVFSetFreq(oldFilter, peak);
+		//tSVFSetFreq(oldFilter, floatPeak);
 		//lp->g = oldFilter->g;
 		//lp->a1 = oldFilter->a1;
 		//lp->a2 = oldFilter->a2;
@@ -309,32 +311,22 @@ float audioTick(float audioIn)
 		
 		//tSVFSetFreq(lp, peak);
 
-		sample = tSVFTick(oldFilter, sample);
+		//sample = tSVFTick(oldFilter, sample);
 		//sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
-		sample *= .8f;
-		float delayTime = (tRampTick(adc[ADCKnob]) * 128.0f);
+		//sample = tNoiseTick(noise);
+		//sample *= .8f;
+		
 		tDelayLSetDelay(myDelay, delayTime);
 		sample = tDelayLTick(myDelay, sample);
-		
-		//sample = OOPS_softClip(sample, 0.8f);
+		sample *= 10.0f;
+		sample = OOPS_softClip(sample, 1.0f - pedal);
 		//sample = tNoiseTick(noise);
-		/*
-		if (counter > 48000)
-		{
-			sample = 1;
-			counter = 0;
-		}
-		else
-		{
-			sample = 0;
-		}
-		counter++;
-		*/
-		sample *= tRampTick(adc[ADCPedal]);
+		
+		sample *= rampedBreath;
 		
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
-		sample *= OUTPUT_GAIN; 
+		//sample *= OUTPUT_GAIN; 
 	}
 	
 	return sample;

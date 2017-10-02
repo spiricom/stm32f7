@@ -24,6 +24,8 @@ typedef enum oBool
 
 
 
+
+
 #define SQRT8 2.82842712475f
 #define WSCALE 1.30612244898f
 #define PI              (3.14159265358979f)
