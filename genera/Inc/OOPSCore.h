@@ -14,13 +14,14 @@
 #include "OOPSMemConfig.h"
 
 #include "OOPSMath.h"
-
 typedef struct _tCompressor
 {
-    int tauAttack, tauRelease;
+    float tauAttack, tauRelease;
     float T, R, W, M; // Threshold, compression Ratio, decibel Width of knee transition, decibel Make-up gain
     
     float x_G[2], y_G[2], x_T[2], y_T[2];
+	
+	  oBool isActive;
     
     void (*sampleRateChanged)(struct _tCompressor *self);
     
@@ -107,6 +108,8 @@ typedef struct _tOnePole
     float lastIn, lastOut;
     
 } tOnePole;
+
+
 
 // TwoPole filter
 typedef struct _tTwoPole
@@ -203,6 +206,23 @@ typedef struct _tSVFE {
     
 } tSVFE;
 
+// Butterworth Filter
+#define NUM_SVF_BW 8
+typedef struct _tButterworth
+{
+    float gain;
+	
+		float N;
+	
+		tSVF* low[NUM_SVF_BW];
+		tSVF* high[NUM_SVF_BW];
+	
+		float f1,f2;
+	
+		void (*sampleRateChanged)(struct _tButterworth *self);
+    
+} tButterworth;
+
 // Highpass filter
 typedef struct _tHighpass
 {
@@ -217,6 +237,7 @@ typedef struct _tHighpass
 typedef struct _tRamp {
     float inc;
     float inv_sr_ms;
+		float minimum_time;
     float curr,dest;
     float time;
     int samples_per_tick;
@@ -427,62 +448,44 @@ typedef struct _tNeuron
     
 } tNeuron;
 
-typedef struct _t808Cowbell {
-    
-    tSquare* p[2];
-    tNoise* stick;
-    tSVFE* bandpassOsc;
-    tSVFE* bandpassStick;
-    tEnvelope* envGain;
-    tEnvelope* envStick;
-    tEnvelope* envFilter;
-    tHighpass* highpass;
-    float oscMix;
-    float filterCutoff;
-    
-} t808Cowbell;
+#define NUM_VOCODER_PARAM 8
+#define NBANDS 16
 
-typedef struct _t808Hihat {
+typedef struct _tVocoder
+{
+    float param[NUM_VOCODER_PARAM];
     
-    // 6 Square waves
-    tSquare* p[6];
-    tNoise* n;
-    tSVFE* bandpassOsc;
-    tSVFE* bandpassStick;
-    tEnvelope* envGain;
-    tEnvelope* envStick;
-    tHighpass* highpass;
-    tNoise* stick;
+    float gain;         //output level
+    float thru, high;   //hf thru
+    float kout;         //downsampled output
+    int32_t  kval;      //downsample counter
+    int32_t  nbnd;      //number of bands
     
-    float oscNoiseMix;
+    //filter coeffs and buffers - seems it's faster to leave this global than make local copy
+    float f[NBANDS][13]; //[0-8][0 1 2 | 0 1 2 3 | 0 1 2 3 | val rate]
     
-    
-} t808Hihat;
+    void (*sampleRateChanged)(struct _tVocoder *self);
+} tVocoder;
 
-typedef struct _t808Snare {
+#define NUM_TALKBOX_PARAM 4
+
+typedef struct _tTalkbox
+{
+    float param[NUM_TALKBOX_PARAM];
     
-    // Tone 1, Tone 2, Noise
-    tTriangle* tone[2]; // Tri (not yet antialiased or wavetabled)
-    tNoise* noiseOsc;
-    tSVFE* toneLowpass[2];
-    tSVFE* noiseLowpass; // Lowpass from SVF filter
-    tEnvelope* toneEnvOsc[2];
-    tEnvelope* toneEnvGain[2];
-    tEnvelope* noiseEnvGain;
-    tEnvelope* toneEnvFilter[2];
-    tEnvelope* noiseEnvFilter;
+    ///global internal variables
+    float car0[TALKBOX_BUFFER_LENGTH], car1[TALKBOX_BUFFER_LENGTH];
+    float window[TALKBOX_BUFFER_LENGTH];
+    float buf0[TALKBOX_BUFFER_LENGTH], buf1[TALKBOX_BUFFER_LENGTH];
     
-    float toneGain[2];
-    float noiseGain;
+    float emphasis;
+    int32_t K, N, O, pos;
+    float wet, dry, FX;
+    float d0, d1, d2, d3, d4;
+    float u0, u1, u2, u3, u4;
     
-    float toneNoiseMix;
-    
-    float tone1Freq, tone2Freq;
-    
-    float noiseFilterFreq;
-    
-    
-} t808Snare;
+    void (*sampleRateChanged)(struct _tTalkbox *self);
+} tTalkbox;
 
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
@@ -504,11 +507,9 @@ void     tStifKarpSampleRateChanged (tStifKarp *c);
 
 void     tNeuronSampleRateChanged(tNeuron* n);
 void     tCompressorSampleRateChanged(tCompressor* n);
+void     tButterworthSampleRateChanged(tButterworth* n);
 
-
-void     t808SnareSampleRateChanged(t808Snare* n);
-void     t808HihatSampleRateChanged(t808Hihat* n);
-void     t808CowbellSampleRateChanged(t808Cowbell* n);
+void     tVocoderSampleRateChanged(tVocoder* n);
 
 typedef enum OOPSRegistryIndex
 {
@@ -540,9 +541,9 @@ typedef enum OOPSRegistryIndex
     T_STIFKARP,
     T_NEURON,
     T_COMPRESSOR,
-    T_808SNARE,
-    T_808HIHAT,
-    T_808COWBELL,
+    T_BUTTERWORTH,
+    T_VOCODER,
+    T_TALKBOX,
     T_INDEXCNT
 }OOPSRegistryIndex;
 
@@ -579,13 +580,18 @@ typedef struct _OOPS
 #if N_ONEPOLE
     tOnePole           tOnePoleRegistry         [N_ONEPOLE];
 #endif
+
+        
+#if N_BUTTERWORTH
+    tButterworth     	tButterworthRegistry      [N_BUTTERWORTH];
+#endif
         
 #if N_TWOPOLE
     tTwoPole           tTwoPoleRegistry         [N_TWOPOLE];
 #endif
         
 #if N_ONEZERO
-    tOneZero           tOneZeroRegistry         [N_ONEZERO];
+    tOneZero           tOneZeroRegistry         [N_ONEPOLE];
 #endif
         
 #if N_TWOZERO
@@ -662,20 +668,16 @@ typedef struct _OOPS
     tNeuron            tNeuronRegistry          [N_NEURON];
 #endif
     
-#if N_COMPRESSOR
+#if N_COMPRESSOR    
     tCompressor        tCompressorRegistry      [N_COMPRESSOR];
 #endif
     
-#if N_808SNARE
-    t808Snare        t808SnareRegistry      [N_808SNARE];
+#if N_VOCODER
+    tVocoder           tVocoderRegistry      [N_VOCODER];
 #endif
     
-#if N_808HIHAT
-    t808Hihat         t808HihatRegistry      [N_808HIHAT];
-#endif
-    
-#if N_808COWBELL
-    t808Cowbell       t808CowbellRegistry      [N_808COWBELL];
+#if N_TALKBOX
+    tTalkbox           tTalkboxRegistry         [N_TALKBOX];
 #endif
     
     

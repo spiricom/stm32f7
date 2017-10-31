@@ -39,7 +39,7 @@
 #include "audiostream.h"
 
 #include "codec.h"
-
+#include "OOPSMath.h"
 
 /* USER CODE BEGIN Includes */
 

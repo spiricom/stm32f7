@@ -8,9 +8,20 @@
   ==============================================================================
 */
 
-#include "OOPSWavetables.h"
-#include "OOPSOscillator.h"
-#include "OOPS.h"
+#if _WIN32 || _WIN64
+
+#include "..\Inc\OOPSWavetables.h"
+#include "..\Inc\OOPSOscillator.h"
+#include "..\Inc\OOPS.h"
+
+#else
+
+#include "../Inc/OOPSWavetables.h"
+#include "../Inc/OOPSOscillator.h"
+#include "../Inc/OOPS.h"
+
+#endif
+
 
 #if N_NEURON
 
@@ -185,7 +196,7 @@ float   tNeuronTick(tNeuron* const n)
     
     
     if (n->voltage > 100.0f)  n->voltage = 100.0f;
-    else if (n->voltage < -100.0f) n->voltage = -100.0f;
+    else if (n->voltage < -100.) n->voltage = -100.0f;
     
     //(inputCurrent + (voltage - ((voltage * timeStep) / timeConstant)) + P[0] + P[1] + P[2]) => voltage;
     // now we should have a result

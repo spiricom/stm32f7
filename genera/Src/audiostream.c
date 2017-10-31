@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-#define AUDIO_FRAME_SIZE      128
+#define AUDIO_FRAME_SIZE      512
 #define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
 #define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
@@ -49,8 +49,14 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	sine[0] = tCycleInit(); //these are declared in OOPSTest.h, and memory is allocated for them in OOPSMemConfig.h
 	sine[1] = tCycleInit();
-	hat = t808HihatInit();
-	comp = tCompressorInit(15.f, 15.f);
+	tCycleSetFreq(sine[0], 440.f);
+	
+	saw = tSawtoothInit();
+	tSawtoothSetFreq(saw, 110.f);
+	
+	tb = tTalkboxInit();
+	voc = tVocoderInit();
+	comp = tCompressorInit();
 }
 
 static int ij;
@@ -71,14 +77,8 @@ void audioFrame(uint16_t buffer_offset)
 		audioError(); // this means it didn't finish the last round before it got interrupted again
 	}
 	audioBusy = 1;
-	
-	t808HihatSetHighpassFreq(hat, (adcVals[1] * 2));
-	t808HihatSetOscBandpassFreq(hat, adcVals[2]);
-	t808HihatSetOscFreq(hat, (80.0f * ((adcVals[3] * INV_TWO_TO_12) + 1.0f)) + 0.0f);
-	t808HihatSetStickBandpassFreq(hat, adcVals[0]);
-	t808HihatSetOscNoiseMix(hat, (adcVals[4] * INV_TWO_TO_12));
-	t808HihatSetDecay(hat, 20.0f);//((adcVals[5] * 0.125f) + (adcVals[8] * 1.0f)));
-	
+
+	/*
 	if ((!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)) && (gateIn == 0))
 	{
 		onsetFlag = 1;
@@ -90,7 +90,6 @@ void audioFrame(uint16_t buffer_offset)
 	}
 	if (onsetFlag)
 	{
-		t808HihatOn(hat, 1.0f);
 		onsetFlag = 0;
 	}
 	
@@ -104,6 +103,7 @@ void audioFrame(uint16_t buffer_offset)
 	ADCfilterMemory[3] = ADC16Value;
 	
 	ADCfilteredValue = (uint16_t)((ADCfilterMemory[0] + ADCfilterMemory[0] + ADCfilterMemory[0] + ADCfilterMemory[0]) / 4);
+	*/
 	for (ij = 0; ij < (HALF_BUFFER_SIZE); ij++)
 	{
 		if ((ij & 1) == 0) 
@@ -114,7 +114,7 @@ void audioFrame(uint16_t buffer_offset)
 		else 
 		{
 			//Right channel input and output
-			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
+			//current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
 		}
 		//fill the buffer with the new sample that has just been calculated
 		audioOutBuffer[buffer_offset + ij] = current_sample;
@@ -126,11 +126,12 @@ void audioFrame(uint16_t buffer_offset)
 float audioTickL(float audioIn)
 {
 	//use audioIn if you want the input sample	
-	
-	float sample = 0.0f;
-	sample = t808HihatTick(hat);
-	sample = sample * 1.5f;
-	
+	//float sample = 0.0f;
+	float sample = tTalkboxTick(tb, tSawtoothTick(saw), audioIn);
+	//float sample = tVocoderTick(voc, tSawtoothTick(saw), audioIn);
+	//sample = sample * 1.5f;
+	//sample = .95f * tCycleTick(sine[0]);
+	/*
 	//sample = tCompressorTick(comp, sample);
 	if (sample > 1.0f)
 	{
@@ -142,9 +143,12 @@ float audioTickL(float audioIn)
 		sample = -1.0f;
 		audioClippedMain(); 
 	}
+	*/
 	//sample = 0.0f;
 	//tCycleSetFreq(sine[0], ((4095-adcVals[0]) + (audioIn * (4095-adcVals[4])))); //add together knob value and FM from audio input multiplied by another knob value
-	//sample = .95f * tCycleTick(sine[0]);
+	
+
+
 	return sample;
 }
 

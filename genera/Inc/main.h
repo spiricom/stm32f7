@@ -49,7 +49,7 @@
   * @}
   */ 
 	
-extern long DAC16Value;
+extern long ADC16Value;
 void getSPIdata(void);
 
 /**

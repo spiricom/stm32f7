@@ -8,7 +8,15 @@
   ==============================================================================
 */
 
-#include "OOPS.h"
+#if _WIN32 || _WIN64
+
+#include "..\Inc\OOPS.h"
+
+#else
+
+#include "../Inc/OOPS.h"
+
+#endif
 
 OOPS oops;
 
@@ -56,6 +64,10 @@ void OOPSSetSampleRate(float sampleRate)
 #if N_TWOPOLE 
 		for (int i = 0; i < oops.registryIndex[T_TWOPOLE]; i++)        OOPSSampleRateChanged(tTwoPoleRegistry[i]);
 #endif
+
+#if N_BUTTERWORTH 
+		for (int i = 0; i < oops.registryIndex[T_BUTTERWORTH]; i++)    OOPSSampleRateChanged(tButterworthRegistry[i]);
+#endif
     
 #if N_TWOZERO 
 		for (int i = 0; i < oops.registryIndex[T_TWOZERO]; i++)        OOPSSampleRateChanged(tTwoZeroRegistry[i]);
@@ -98,7 +110,15 @@ void OOPSSetSampleRate(float sampleRate)
 #endif
     
 #if N_COMPRESSOR
-        for (int i = 0; i < oops.registryIndex[T_COMPRESSOR]; i++)         OOPSSampleRateChanged(tCompressorRegistry[i]);
+        for (int i = 0; i < oops.registryIndex[T_COMPRESSOR]; i++)      OOPSSampleRateChanged(tCompressorRegistry[i]);
+#endif
+    
+#if N_VOCODER
+        for (int i = 0; i < oops.registryIndex[T_VOCODER]; i++)         OOPSSampleRateChanged(tVocoderRegistry[i]);
+#endif
+    
+#if N_TALKBOX
+    for (int i = 0; i < oops.registryIndex[T_TALKBOX]; i++)             OOPSSampleRateChanged(tTalkboxRegistry[i]);
 #endif
 }
 
