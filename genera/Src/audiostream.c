@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-#define AUDIO_FRAME_SIZE      512
+#define AUDIO_FRAME_SIZE      256
 #define HALF_BUFFER_SIZE      AUDIO_FRAME_SIZE * 2 //number of samples per half of the "double-buffer" (twice the audio frame size because there are interleaved samples for both left and right channels)
 #define AUDIO_BUFFER_SIZE     AUDIO_FRAME_SIZE * 4 //number of samples in the whole data structure (four times the audio frame size because of stereo and also double-buffering/ping-ponging)
 
@@ -66,6 +66,7 @@ static int audioBusy = 0;
 static int gateIn = 0;
 static int onsetFlag = 0;
 
+float rightIn = 0.0f;
 
 
 void audioFrame(uint16_t buffer_offset)
@@ -114,7 +115,7 @@ void audioFrame(uint16_t buffer_offset)
 		else 
 		{
 			//Right channel input and output
-			//current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
+			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + ij] * INV_TWO_TO_15)) * TWO_TO_15);
 		}
 		//fill the buffer with the new sample that has just been calculated
 		audioOutBuffer[buffer_offset + ij] = current_sample;
@@ -127,7 +128,7 @@ float audioTickL(float audioIn)
 {
 	//use audioIn if you want the input sample	
 	//float sample = 0.0f;
-	float sample = tTalkboxTick(tb, tSawtoothTick(saw), audioIn);
+	float sample = tTalkboxTick(tb, rightIn, audioIn);
 	//float sample = tVocoderTick(voc, tSawtoothTick(saw), audioIn);
 	//sample = sample * 1.5f;
 	//sample = .95f * tCycleTick(sine[0]);
@@ -156,6 +157,7 @@ float audioTickR(float audioIn)
 {
 	
 	float sample = 0;
+	rightIn = audioIn;
 	//tCycleSetFreq(sine[1], ((4095-adcVals[1]) + (audioIn * (4095-adcVals[5])))); //add together knob value and FM from audio input multiplied by another knob value
 	//sample = .95f * tCycleTick(sine[1]);
 	return sample;
