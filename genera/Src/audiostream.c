@@ -27,6 +27,8 @@ static HAL_DMA_StateTypeDef spi1rx;
 */
 
 float audioTick(float audioIn);
+float audioTickL(float audioIn);
+float audioTickR(float audioIn);
 float randomNumber(void);
 void audioFrame(uint16_t buffer_offset);
 float LN2;
@@ -36,6 +38,7 @@ tRamp* adc[ADCInputCount];
 
 tCompressor* myCompressor;
 tDelayL* myDelay;
+tDelayL* feedbackDelay;
 
 tSVF* oldFilter;
 tSVF* lp;
@@ -46,6 +49,7 @@ tCycle* mySine;
 tRamp* freqRamp;
 tNoise* noise;
 
+float testFreq = 0.0f;
 
 float valPerM;
 float mPerVal;
@@ -76,6 +80,8 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	myCompressor = tCompressorInit();
 	myDelay = tDelayLInit(0);
+	tDelayLSetDelay(myDelay, 10000); 
+	feedbackDelay = tDelayLInit(0);
 	
 	filter = tButterworthInit(BUTTERWORTH_ORDER, 233.0f - cutoff_offset, 233.0f + cutoff_offset);
   oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 10.0f);
@@ -110,6 +116,8 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	HAL_SAI_Transmit_DMA(hsaiIn, (uint8_t *)&audioOutBuffer[0], AUDIO_BUFFER_SIZE);
 	HAL_SAI_Receive_DMA(hsaiOut, (uint8_t *)&audioInBuffer[0], AUDIO_BUFFER_SIZE);
 
+	testFreq = 0;
+
 }
 
 
@@ -121,7 +129,7 @@ float slideLengthDiff = 0;
 float slideLength = 0;
 
 float fundamental = 0.0f;
-float customFundamental = 58.27f;
+float customFundamental = 48.9994294977f;
 int16_t position = 0;
 uint16_t firstPositionValue = 0;
 
@@ -141,6 +149,9 @@ float slide_tune = 1.0f;
 int hysteresisKnob = 0;
 int hysteresisAmount = 512;
 
+int octave = 3;
+float octaveTransp[7] = { 0.125f, 0.25f, 0.5f, 1.0f, 2.0f, 4.0f, 8.0f};
+
 void setFundamental(float fund)
 {
 	fundamental_hz = fund;
@@ -155,20 +166,16 @@ void thingToDoWhenKnobMoves(int input)
 	
 	if (kMode == MasterTune)
 	{
-		
-		temp = tRampSample(adc[ADCKnob]) * 400.0f + 20.0f;
-		diff = customFundamental - temp; 
-		diff = (diff < 0.0f) ? -diff : diff;
-		
-		if (diff < 1.0f)
-		{
-			customFundamental = temp;
-			setFundamental(customFundamental);
-		}
+		customFundamental = knobValueToUse * 400.0f + 20.0f;
+		setFundamental(customFundamental);
 	}
 	else if (kMode == SlideTune)
 	{
-		slide_tune = tRampSample(adc[ADCKnob]) * 0.4f + 0.8f;
+		slide_tune = knobValueToUse * 0.4f + 0.8f;
+	}
+	else if (kMode == OctaveTune)
+	{
+		octave = (int)(knobValueToUse * 7);
 	}
 }
 
@@ -212,13 +219,19 @@ void audioFrame(uint16_t buffer_offset)
 	for (i = 0; i < (HALF_BUFFER_SIZE); i++)
 	{
 		if ((i & 1) == 0) {
-			current_sample = (int16_t)(audioTick((float) (audioInBuffer[buffer_offset + i] * INV_TWO_TO_15)) * TWO_TO_15);
+			current_sample = (int16_t)(audioTickR((float) (audioInBuffer[buffer_offset + i] * INV_TWO_TO_15)) * TWO_TO_15);
+		}
+		else
+		{
+			//current_sample = (int16_t)(audioTick((float) (audioInBuffer[buffer_offset + i] * INV_TWO_TO_15)) * TWO_TO_15);
 		}
 		audioOutBuffer[buffer_offset + i] = current_sample;
 	}
 }
 
 float sample = 0.0f;
+
+
 
 #define OUTPUT_GAIN 0.9f
 #define NUM_HARMONICS 15.0f
@@ -229,23 +242,41 @@ float intHarmonic;
 float sawSample = 0.0f;
 float amps[7] = {1.0f, 0.5f, .33f, .25f, .2f, .125f, .125f};
 
+float thisDelayOut, lastDelayOut;
+float feedbackAmt = 1.0f;
 
-float audioTick(float audioIn) 
+HarmonicMode hMode = CaraMode;
+float knobValueToUse = 0.0f;
+
+float audioTickL(float audioIn) 
 {
 	//choose harmonic
-	floatHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
+	knobValueToUse = tRampTick(adc[ADCKnob]);
+	
+	if (hMode == CaraMode)
+	{
+		floatHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
+	}
+	else if (hMode == RajeevMode)
+	{
+		floatHarmonic = NUM_HARMONICS * (1.0f - tRampTick(adc[ADCJoyY])) + 1.0f;
+	}
+	else if (hMode == JennyMode)
+	{
+		floatHarmonic = tRampTick(adc[ADCJoyY]) * 2.0f - 1.0f;
+		floatHarmonic = (floatHarmonic < 0.0f) ? 1.0f : (floatHarmonic * NUM_HARMONICS + 1.0f);
+	}
+	
 	if (((floatHarmonic - intHarmonic) > (harmonicHysteresis)) || ((floatHarmonic - intHarmonic) < ( -1.0f * harmonicHysteresis)))
 	{
 		intHarmonic = (uint16_t) (floatHarmonic + 0.5f);
 	}
-	floatPeak = fundamental * floatHarmonic;
-	intPeak = fundamental * intHarmonic;
+	
+	floatPeak = fundamental * floatHarmonic * octaveTransp[octave];
+	intPeak = fundamental * intHarmonic * octaveTransp[octave];
 	
 	//some code to jump octaves if desired
 	//floatPeak = peak * powf(2.0f, (float)((uint8_t)(tRampSample(adc[ADCPedal]) * 2.9f)));
-	
-	
-	float delayTime = (tRampTick(adc[ADCKnob]) * 256.0f);
 
 	float pedal = tRampTick(adc[ADCPedal]);
 	
@@ -254,22 +285,27 @@ float audioTick(float audioIn)
 	breath = breath - breath_baseline;
 	breath = breath * breath_mult;
 	breath *= amp_mult;
+	
 	if (breath < 0.0f)					breath = 0.0f;
-	else if (breath > 1.0f)		breath = 1.0f;
+	else if (breath > 1.0f)		  breath = 1.0f;
+	
 	tRampSetDest(adc[ADCBreath], breath);
 	
 	rampedBreath = tRampTick(adc[ADCBreath]);
 	if (ftMode == FTSynthesisOne)
 	{
+	
 		
-		tCycleSetFreq(mySine, intPeak);
+		
+		
+		tCycleSetFreq(mySine, floatPeak);
+		
 		sample = tCycleTick(mySine);
 	
 		//tSawtoothSetFreq(osc, peak);
 		//sawSample = tSawtoothTick(osc);
 		//sawSample = sawSample *amplitude * 2.0f;
 		//sawSample = OOPS_reedTable(sample, -.6f, .2f);
-		
 		
 		//sample = sample * amplitude * 2.0f;
 		//sample = OOPS_shaper(sample, (tRampTick(adc[ADCJoyX]) * 0.0024390243902439f));
@@ -279,11 +315,25 @@ float audioTick(float audioIn)
 		//sample = sample * amplitude;
 		//sample = OOPS_softClip(sample, .8f);
 		
-		sample = (sample * (1.0f - pedal)) + (OOPS_CompoundChebyshevT(sample, 7, amps) * pedal);
-		sample *= 1.0f + pedal;
-		sample = OOPS_softClip(sample, .8f);
+		//sample = (sample * (1.0f - pedal)) + (OOPS_CompoundChebyshevT(sample, 7, amps) * pedal);
+		//sample *= 1.0f + pedal;
 		
-		sample *= rampedBreath;
+		//sample *= rampedBreath;
+	
+		if (kMode == DelayTune)
+		{
+			feedbackAmt = knobValueToUse;
+			
+			thisDelayOut = tDelayLTick(myDelay, sample + (feedbackAmt * lastDelayOut));
+			
+			sample = (0.5f * sample) + (0.5f * thisDelayOut);
+			
+			lastDelayOut = thisDelayOut;
+		}
+		
+		//sample = OOPS_softClip(sample, .8f);
+		//sample *= pedal;
+		
 		//sample *= amplitude;
 		//sample *= tRampTick(adc[ADCPedal]) * amplitude;
 	}
@@ -292,9 +342,10 @@ float audioTick(float audioIn)
 		//sample = INPUT_BOOST * amplitude  * audioIn;
 		//sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
 		//sample = INPUT_BOOST * audioIn;
+	
 		sample = audioIn;
-		tButterworthSetFreqs(filter, floatPeak - cutoff_offset, floatPeak + cutoff_offset);
-		sample = tButterworthTick(filter, sample);
+		//tButterworthSetFreqs(filter, floatPeak  - cutoff_offset, floatPeak + cutoff_offset);
+		//sample = tButterworthTick(filter, sample);
 		
 		//sample = tCompressorTick(myCompressor, sample);
 		
@@ -302,36 +353,209 @@ float audioTick(float audioIn)
 		//sample = OOPS_clip(-1.0f, sample, 1.0f);
 
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
+		/*
+		intPeak = 48.9994294977f * (intHarmonic - 1);
+		tSVFSetFreq(oldFilter, floatPeak);
+		tSVFSetQ(oldFilter, 200.0f);
+		lp->g = oldFilter->g;
+		lp->a1 = oldFilter->a1;
+		lp->a2 = oldFilter->a2;
+		lp->a3 = oldFilter->a3;
+		*/
+		//tSVFSetFreq(lp, floatPeak);
+
+		//sample = tSVFTick(oldFilter, sample);
+		//sample = tSVFTick(lp, sample);
+		//sample = sample * 12.0f;
+		//sample = tNoiseTick(noise);
+
+		//sample *= .8f;
+
+		//tDelayLSetDelay(feedbackDelay,knobValueToUse * 256.0f);
+		//tDelayLSetDelay(feedbackDelay,212.0f);
+		//sample = tDelayLTick(feedbackDelay, sample);
 		
-		//tSVFSetFreq(oldFilter, floatPeak);
-		//lp->g = oldFilter->g;
-		//lp->a1 = oldFilter->a1;
-		//lp->a2 = oldFilter->a2;
-		//lp->a3 = oldFilter->a3;
+		sample *= 10.0f;
+		sample = OOPS_softClip(sample, 1.0f - pedal);
+
+		//sample = tNoiseTick(noise);
 		
-		//tSVFSetFreq(lp, peak);
+		//sample *= rampedBreath;
+		sample *= pedal;
+		
+		sample = OOPS_clip(-1.0f, sample, 1.0f);
+		//sample *= OUTPUT_GAIN; 
+		/*
+		if (counter > 24000)
+		{
+			sample = 1.0f;
+			counter = 0; 
+		}
+		else
+		{
+			sample = 0.0f;
+		}
+		counter++;
+		*/
+	}
+	
+	return sample;
+}
+
+float audioTickR(float audioIn) 
+{
+	//choose harmonic
+	knobValueToUse = tRampTick(adc[ADCKnob]);
+	
+	if (hMode == CaraMode)
+	{
+		floatHarmonic = (NUM_HARMONICS * tRampTick(adc[ADCJoyY])) + 1.0f; // sets which harmonic to focus on
+	}
+	else if (hMode == RajeevMode)
+	{
+		floatHarmonic = NUM_HARMONICS * (1.0f - tRampTick(adc[ADCJoyY])) + 1.0f;
+	}
+	else if (hMode == JennyMode)
+	{
+		floatHarmonic = tRampTick(adc[ADCJoyY]) * 2.0f - 1.0f;
+		floatHarmonic = (floatHarmonic < 0.0f) ? 1.0f : (floatHarmonic * NUM_HARMONICS + 1.0f);
+	}
+	
+	if (((floatHarmonic - intHarmonic) > (harmonicHysteresis)) || ((floatHarmonic - intHarmonic) < ( -1.0f * harmonicHysteresis)))
+	{
+		intHarmonic = (uint16_t) (floatHarmonic + 0.5f);
+	}
+	
+	floatPeak = fundamental * floatHarmonic * octaveTransp[octave];
+	intPeak = fundamental * intHarmonic * octaveTransp[octave];
+	
+	//some code to jump octaves if desired
+	//floatPeak = peak * powf(2.0f, (float)((uint8_t)(tRampSample(adc[ADCPedal]) * 2.9f)));
+
+	float pedal = tRampTick(adc[ADCPedal]);
+	
+	breath = adcVals[ADCBreath];
+	breath = breath * INV_TWO_TO_12;
+	breath = breath - breath_baseline;
+	breath = breath * breath_mult;
+	breath *= amp_mult;
+	
+	if (breath < 0.0f)					breath = 0.0f;
+	else if (breath > 1.0f)		  breath = 1.0f;
+	
+	tRampSetDest(adc[ADCBreath], breath);
+	
+	rampedBreath = tRampTick(adc[ADCBreath]);
+	if (ftMode == FTSynthesisOne)
+	{
+		
+		testFreq += 0.001f;
+		if (testFreq > 2000.0f) testFreq = 0.0f;
+		tCycleSetFreq(mySine, testFreq);
+		
+		sample = tCycleTick(mySine);
+		sample *= .2f;
+		//tSawtoothSetFreq(osc, peak);
+		//sawSample = tSawtoothTick(osc);
+		//sawSample = sawSample *amplitude * 2.0f;
+		//sawSample = OOPS_reedTable(sample, -.6f, .2f);
+		
+		//sample = sample * amplitude * 2.0f;
+		//sample = OOPS_shaper(sample, (tRampTick(adc[ADCJoyX]) * 0.0024390243902439f));
+		
+		//sawSample = OOPS_softClip(sawSample, .8f);
+		//sample = ((sample * (1.0f - mix)) + (sawSample * sawSample * sawSample * mix)) * amplitude;
+		//sample = sample * amplitude;
+		//sample = OOPS_softClip(sample, .8f);
+		
+		//sample = (sample * (1.0f - pedal)) + (OOPS_CompoundChebyshevT(sample, 7, amps) * pedal);
+		//sample *= 1.0f + pedal;
+		
+		//sample *= rampedBreath;
+	
+		if (kMode == DelayTune)
+		{
+			feedbackAmt = knobValueToUse;
+			
+			thisDelayOut = tDelayLTick(myDelay, sample + (feedbackAmt * lastDelayOut));
+			
+			sample = (0.5f * sample) + (0.5f * thisDelayOut);
+			
+			lastDelayOut = thisDelayOut;
+		}
+		
+		//sample = OOPS_softClip(sample, .8f);
+		//sample *= pedal;
+		
+		//sample *= amplitude;
+		//sample *= tRampTick(adc[ADCPedal]) * amplitude;
+	}
+	else
+	{
+		//sample = INPUT_BOOST * amplitude  * audioIn;
+		//sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
+		//sample = INPUT_BOOST * audioIn;
+	
+		sample = audioIn;
+		//tButterworthSetFreqs(filter, floatPeak  - cutoff_offset, floatPeak + cutoff_offset);
+		//sample = tButterworthTick(filter, sample);
+		
+		//sample = tCompressorTick(myCompressor, sample);
+		
+		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
+		//sample = OOPS_clip(-1.0f, sample, 1.0f);
+
+		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
+		/*
+		intPeak = 48.9994294977f * (intHarmonic - 1);
+		tSVFSetFreq(oldFilter, floatPeak);
+		tSVFSetQ(oldFilter, 200.0f);
+		lp->g = oldFilter->g;
+		lp->a1 = oldFilter->a1;
+		lp->a2 = oldFilter->a2;
+		lp->a3 = oldFilter->a3;
+		*/
+		//tSVFSetFreq(lp, floatPeak);
 
 		//sample = tSVFTick(oldFilter, sample);
 		//sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
 		//sample = tNoiseTick(noise);
 		//sample *= .8f;
+
+		//tDelayLSetDelay(feedbackDelay,knobValueToUse * 256.0f);
+		//tDelayLSetDelay(feedbackDelay,212.0f);
+		//sample = tDelayLTick(feedbackDelay, sample);
 		
-		tDelayLSetDelay(myDelay, delayTime);
-		sample = tDelayLTick(myDelay, sample);
-		sample *= 10.0f;
-		sample = OOPS_softClip(sample, 1.0f - pedal);
+		//sample *= 10.0f;
+		//sample = OOPS_softClip(sample, 1.0f - pedal);
+
 		//sample = tNoiseTick(noise);
 		
-		sample *= rampedBreath;
+		//sample *= rampedBreath;
+		sample *= pedal;
 		
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		//sample *= OUTPUT_GAIN; 
+		
+		/*
+		if (counter > 24000)
+		{
+			sample = 1.0f;
+			counter = 0; 
+		}
+		else
+		{
+			sample = 0.0f;
+		}
+		counter++;
+		*/
+		sample = 0.0f;
+		
 	}
 	
 	return sample;
 }
-
 
 void HAL_SAI_TxCpltCallback(SAI_HandleTypeDef *hsai)
 {

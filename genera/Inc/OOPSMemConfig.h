@@ -23,33 +23,33 @@
 extern const float shaper1[SHAPER1_TABLE_SIZE];
 
 // Arbitrary number of instances.
-#define NI 5
+#define NI 0
 
 //#define     N_MYOBJECT            0   // Zero instances is fine.
-#define     N_COMPRESSOR        NI
-#define     N_PRCREV            1
-#define     N_NREV              1
-#define     N_PLUCK             1
-#define     N_STIFKARP          1
-#define     N_NEURON            5
+#define     N_COMPRESSOR        1
+#define     N_PRCREV            0
+#define     N_NREV              0
+#define     N_PLUCK             0
+#define     N_STIFKARP          0
+#define     N_NEURON            0
 #define     N_PHASOR            1
 #define     N_CYCLE             1
-#define     N_SAWTOOTH          NI
-#define     N_TRIANGLE          NI
-#define     N_SQUARE            NI
-#define     N_NOISE             NI + (1 * N_STIFKARP) + (1 * N_PLUCK) // StifKarp and Pluck each contain 1 Noise component.
+#define     N_SAWTOOTH          1
+#define     N_TRIANGLE          1
+#define     N_SQUARE            1
+#define     N_NOISE             1 + (1 * N_STIFKARP) + (1 * N_PLUCK) // StifKarp and Pluck each contain 1 Noise component.
 #define     N_ONEPOLE           NI + (1 * N_PLUCK)
 #define     N_TWOPOLE           NI
 #define     N_ONEZERO           NI + (1 * N_STIFKARP) + (1 * N_PLUCK) + (1 * N_NEURON)
-#define 		N_BUTTERWORTH       NI
+#define 		N_BUTTERWORTH       1
 #define     N_TWOZERO           NI
 #define     N_POLEZERO          NI + (1 * N_NEURON)
 #define     N_BIQUAD            NI + (4 * N_STIFKARP)
-#define     N_SVF               NI + 16*N_BUTTERWORTH * 5
+#define     N_SVF               1 + 32*N_BUTTERWORTH
 #define     N_SVFE              NI
 #define     N_HIGHPASS          NI
 #define     N_DELAY             NI + (14 * N_NREV) + (3 * N_PRCREV)
-#define     N_DELAYL            NI + (1 * N_STIFKARP) + (1 * N_PLUCK)
+#define     N_DELAYL            2 + (1 * N_STIFKARP) + (1 * N_PLUCK)
 #define     N_DELAYA            NI + (1 * N_PRCREV) + (1 * N_STIFKARP)
 #define     N_ENVELOPE          NI
 #define     N_ADSR              NI
@@ -57,8 +57,8 @@ extern const float shaper1[SHAPER1_TABLE_SIZE];
 
 #define     N_ENVELOPEFOLLOW    NI
 
-#define     DELAY_LENGTH        2048    // The maximum delay length of all Delay/DelayL/DelayA components.
-                                        // Feel free to change to suit memory constraints or desired delay max length / functionality.
+#define     DELAY_LENGTH        16000   // The maximum delay length of all Delay/DelayL/DelayA components.
+                                            // Feel free to change to suit memory constraints or desired delay max length / functionality.
 
 #define     INC_MISC_WT         0     // Set this to 1 if you are interested in the mtof1, adc1, tanh1, and shaper1 wavetables
                                         // and have spare memory.

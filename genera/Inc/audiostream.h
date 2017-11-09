@@ -42,6 +42,8 @@
 // 3 = breath sensor
 // 4 = slide
 
+extern float testFreq;
+
 
 typedef enum ADCInput
 {
@@ -67,13 +69,27 @@ typedef enum KnobMode
 	SlideTune = 0,
 	MasterTune = 1, 
 	OctaveTune = 2,
-	KnobModeNil = 3,
-	KnobModeCount = 4
+	DelayTune = 3,
+	KnobModeNil = 4,
+	KnobModeCount = 5
 } KnobMode;
 
+typedef enum HarmonicMode
+{
+	CaraMode = 0,
+	RajeevMode,
+	JennyMode,
+	HarmonicModeNil,
+	HarmonicModeCount = HarmonicModeNil
+} HarmonicMode;
+
+extern HarmonicMode hMode;
+
+extern int octave;
 extern int16_t position;
 extern uint16_t firstPositionValue;
 extern uint16_t knobValue;
+extern float knobValueToUse;
 extern uint16_t slideValue;
 
 extern FTMode ftMode;
@@ -87,6 +103,7 @@ extern float customFundamental;
 
 extern tCompressor* myCompressor;
 extern tDelayL* myDelay;
+extern tDelayL* feedbackDelay;
 
 extern tSVF* oldFilter;
 extern tSVF* lp;

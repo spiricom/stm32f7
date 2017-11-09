@@ -108,7 +108,7 @@ uint8_t dataForLCD[32];
 
 LCDModeType lcdMode = LCDModeDisplayPitchClass;
 
-KnobMode kMode = SlideTune;
+KnobMode kMode = KnobModeNil;
 
 int knobMoved = 0;
 int calibrated = 0;
@@ -175,6 +175,7 @@ void buttonTwoUp(void)
 	if (calibrated == 0)
 	{
 		ftMode = FTSynthesisOne;
+		testFreq = 1.0f;
 	}
 	else if (!isButtonOneDown)
 	{
@@ -184,6 +185,21 @@ void buttonTwoUp(void)
 
 void presetButtonDown(void)
 {
+	isPresetButtonDown = 1;
+	
+	if (calibrated == 1)
+	{
+		// switch harmonicModes
+		hMode+=1;
+	
+		if (hMode == HarmonicModeCount)
+		{		
+			hMode = (HarmonicMode)0;
+		}
+		
+		return;
+	}
+	
 	lcdMode+=1;
 	
 	if (lcdMode == LCDModeCount)
@@ -193,7 +209,6 @@ void presetButtonDown(void)
 	
 	knobValueChanged(knobValue);
 	
-	isPresetButtonDown = 1;
 	
 	if (kMode == KnobModeNil)
 	{
@@ -201,7 +216,7 @@ void presetButtonDown(void)
 		
 		knobMoved = 0;
 		
-		setFundamental(58.27f);
+		setFundamental(48.9994294977f);
 	}
 	else if (kMode == SlideTune)
 	{
@@ -209,9 +224,22 @@ void presetButtonDown(void)
 		
 		knobMoved = 0;
 		
+		customFundamental = 58.27f;
 		setFundamental(customFundamental);
 	}
 	else if (kMode == MasterTune)
+	{
+		kMode = OctaveTune;
+		
+		knobMoved = 0;
+	}
+	else if (kMode == OctaveTune)
+	{
+		kMode = DelayTune;
+		
+		knobMoved = 0;
+	}
+	else if (kMode == DelayTune)
 	{
 		kMode = KnobModeNil;
 		
@@ -290,6 +318,7 @@ int main(void)
 		{
 			
 			LCD_home(&hi2c2);
+			LCD_clear(&hi2c2);
 
 			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(intPeak));
 			
@@ -303,11 +332,41 @@ int main(void)
 			
 			LCD_setCursor(&hi2c2, 0x40);
 			
-			if (kMode == SlideTune)
+			if (calibrated == 1)
+			{
+				if (hMode == CaraMode)
+				{
+					LCD_sendChar(&hi2c2, 'C');
+					LCD_sendChar(&hi2c2, 'A');
+					LCD_sendChar(&hi2c2, 'R');
+					LCD_sendChar(&hi2c2, 'A');
+				}
+				else if (hMode == RajeevMode)
+				{
+					LCD_sendChar(&hi2c2, 'R');
+					LCD_sendChar(&hi2c2, 'A');
+					LCD_sendChar(&hi2c2, 'J');
+					LCD_sendChar(&hi2c2, 'E');
+					LCD_sendChar(&hi2c2, 'E');
+					LCD_sendChar(&hi2c2, 'V');
+				}
+				else if (hMode == JennyMode)
+				{
+					LCD_sendChar(&hi2c2, 'J');
+					LCD_sendChar(&hi2c2, 'E');
+					LCD_sendChar(&hi2c2, 'N');
+					LCD_sendChar(&hi2c2, 'N');
+					LCD_sendChar(&hi2c2, 'Y');
+				}
+			}
+			else if (kMode == SlideTune)
 			{
 				LCD_sendChar(&hi2c2, 'S');
 				LCD_sendChar(&hi2c2, ' ');
 				LCD_sendFixedFloat(&hi2c2, slide_tune, 5, 3);
+				
+				LCD_sendChar(&hi2c2,' ');
+				LCD_sendFixedFloat(&hi2c2, floatHarmonic, 4, 2);
 			}
 			else 
 			{
@@ -321,11 +380,25 @@ int main(void)
 					LCD_sendChar(&hi2c2, '*');
 					LCD_sendChar(&hi2c2, ' ');
 				}
+				else if (kMode == OctaveTune)
+				{
+					LCD_sendChar(&hi2c2, 'O');
+					LCD_sendChar(&hi2c2, ' ');
+				}
+				else if (kMode == DelayTune)
+				{
+					LCD_sendChar(&hi2c2, 'D');
+					LCD_sendChar(&hi2c2, ' ');
+				}
 				
-				LCD_sendFixedFloat(&hi2c2, intPeak, 5, 1);
+				LCD_sendFixedFloat(&hi2c2, intPeak, 6, 1);
+				
+				LCD_sendChar(&hi2c2,' ');
+				LCD_sendFixedFloat(&hi2c2, floatHarmonic, 4, 2);
 			}
-			LCD_sendChar(&hi2c2,' ');
-			LCD_sendFixedFloat(&hi2c2, floatHarmonic, 5, 2);
+			
+			
+			
 			
 			mainCounter = 0;
 		}

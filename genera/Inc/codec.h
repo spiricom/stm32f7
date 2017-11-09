@@ -91,7 +91,7 @@ void AudioCodec_init(I2C_HandleTypeDef* hi2c);
 #endif
 
 #ifndef SIDETONE
-  #define SIDETONE 0
+  #define SIDETONE 1
 #elif (SIDETONE == 0)||(SIDETONE == 1)
 #else
   #error SIDETONE value not defined
