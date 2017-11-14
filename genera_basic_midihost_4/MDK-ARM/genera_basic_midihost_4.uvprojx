@@ -310,7 +310,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -387,9 +387,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
@@ -416,6 +413,176 @@
               <FileName>stm32f7xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/stm32f7xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>audiostream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\audiostream.h</FilePath>
+            </File>
+            <File>
+              <FileName>codec.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\codec.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\main.h</FilePath>
+            </File>
+            <File>
+              <FileName>MIDI_application.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\MIDI_application.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPS.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSCore.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSCore.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSDelay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSDelay.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSFilter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSFilter.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSInstrument.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSInstrument.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMath.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSMath.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMemConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSMemConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSOscillator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSOscillator.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSReverb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSReverb.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSTest.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSTest.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSUtilities.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSUtilities.h</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSWavetables.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\OOPSWavetables.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_hal_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\stm32f7xx_hal_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_it.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\stm32f7xx_it.h</FilePath>
+            </File>
+            <File>
+              <FileName>usb_host.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\usb_host.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\usbh_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_MIDI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\usbh_MIDI.h</FilePath>
+            </File>
+            <File>
+              <FileName>audiostream.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\audiostream.c</FilePath>
+            </File>
+            <File>
+              <FileName>codec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\codec.c</FilePath>
+            </File>
+            <File>
+              <FileName>MIDI_application.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\MIDI_application.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPS.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSDelay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSDelay.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSFilter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSFilter.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSInstrument.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSInstrument.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSMath.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSMath.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSOscillator.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSOscillator.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSReverb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSReverb.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSUtilities.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSUtilities.c</FilePath>
+            </File>
+            <File>
+              <FileName>OOPSWavetables.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OOPSWavetables.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbh_MIDI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\usbh_MIDI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -583,6 +750,9 @@
               <FilePath>../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>
