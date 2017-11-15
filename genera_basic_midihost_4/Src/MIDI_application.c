@@ -86,7 +86,7 @@ void ProcessReceivedMidiDatas(void)
 				case (0x90): // Note On
 					key = pack.evnt1;
 					velocity = pack.evnt2;
-					//tSawtoothSetFreq(saw, OOPS_midiToFrequency(key));
+					tSawtoothSetFreq(saw, OOPS_midiToFrequency(key));
 					break;
 				case (0xA0):
 					break;

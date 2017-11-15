@@ -143,7 +143,7 @@ float audioTickL(float audioIn)
 
 	//float sample = tTalkboxTick(tb, tSawtoothTick(saw), audioIn);
 	
-	float sample = tSawtoothTick(saw);
+	float sample = 0.1f * tSawtoothTick(saw);
 
 	return sample;
 }
