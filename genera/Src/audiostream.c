@@ -126,29 +126,10 @@ void audioFrame(uint16_t buffer_offset)
 
 float audioTickL(float audioIn)
 {
-	//use audioIn if you want the input sample	
-	//float sample = 0.0f;
-	//float sample = audioIn;
-	float sample = tTalkboxTick(tb, rightIn, audioIn);
-	//float sample = tVocoderTick(voc, tSawtoothTick(saw), audioIn);
-	//sample = sample * 1.5f;
-	//sample = .95f * tCycleTick(sine[0]);
-	/*
-	//sample = tCompressorTick(comp, sample);
-	if (sample > 1.0f)
-	{
-		sample = 1.0f;
-		audioClippedMain();
-	}
-	else if (sample < -1.0f)
-	{
-		sample = -1.0f;
-		audioClippedMain(); 
-	}
-	*/
-	//sample = 0.0f;
-	//tCycleSetFreq(sine[0], ((4095-adcVals[0]) + (audioIn * (4095-adcVals[4])))); //add together knob value and FM from audio input multiplied by another knob value
-	
+
+	//float sample = tTalkboxTick(tb, rightIn, audioIn);
+	float sample = audioIn;
+
 
 
 	return sample;

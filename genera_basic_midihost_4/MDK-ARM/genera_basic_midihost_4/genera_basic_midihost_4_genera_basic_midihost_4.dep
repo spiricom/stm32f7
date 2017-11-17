@@ -1,1690 +1,0 @@
-Dependencies for Project 'genera_basic_midihost_4', Target 'genera_basic_midihost_4': (DO NOT MODIFY !)
-F (startup_stm32f765xx.s)(0x5A0B7F20)(--cpu Cortex-M7.fp.dp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "STM32F765xx SETA 1"--list startup_stm32f765xx.lst --xref -o genera_basic_midihost_4\startup_stm32f765xx.o --depend genera_basic_midihost_4\startup_stm32f765xx.d)
-F (../Src/usb_host.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usb_host.o --omf_browse genera_basic_midihost_4\usb_host.crf --depend genera_basic_midihost_4\usb_host.d)
-I (../Inc/usb_host.h)(0x5A0B7F20)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-I (../Inc/usbh_MIDI.h)(0x5A0B7F20)
-I (../Inc/MIDI_application.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6BD88)
-F (../Src/main.c)(0x5A0B8294)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\main.o --omf_browse genera_basic_midihost_4\main.crf --depend genera_basic_midihost_4\main.d)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Inc/usb_host.h)(0x5A0B7F20)
-I (../Inc/audiostream.h)(0x5A0B7F20)
-I (../Inc/OOPSTest.h)(0x5A0B7F20)
-I (../Inc/OOPS.h)(0x5A0B7F20)
-I (../Inc/OOPSCore.h)(0x5A0B7F20)
-I (../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (../Inc/OOPSInstrument.h)(0x5A0B7F20)
-I (../Inc/codec.h)(0x5A0B7F20)
-F (../Src/usbh_conf.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_conf.o --omf_browse genera_basic_midihost_4\usbh_conf.crf --depend genera_basic_midihost_4\usbh_conf.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Src/stm32f7xx_hal_msp.c)(0x5A0B844A)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_msp.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_msp.crf --depend genera_basic_midihost_4\stm32f7xx_hal_msp.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Src/stm32f7xx_it.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_it.o --omf_browse genera_basic_midihost_4\stm32f7xx_it.crf --depend genera_basic_midihost_4\stm32f7xx_it.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Inc/stm32f7xx_it.h)(0x5A0B7F20)
-F (..\Inc\audiostream.h)(0x5A0B7F20)()
-F (..\Inc\codec.h)(0x5A0B7F20)()
-F (..\Inc\main.h)(0x5A0B7F20)()
-F (..\Inc\MIDI_application.h)(0x5A0B7F20)()
-F (..\Inc\OOPS.h)(0x5A0B7F20)()
-F (..\Inc\OOPSCore.h)(0x5A0B7F20)()
-F (..\Inc\OOPSDelay.h)(0x5A0B7F20)()
-F (..\Inc\OOPSFilter.h)(0x5A0B7F20)()
-F (..\Inc\OOPSInstrument.h)(0x5A0B7F20)()
-F (..\Inc\OOPSMath.h)(0x5A0B7F20)()
-F (..\Inc\OOPSMemConfig.h)(0x5A0B7F20)()
-F (..\Inc\OOPSOscillator.h)(0x5A0B7F20)()
-F (..\Inc\OOPSReverb.h)(0x5A0B7F20)()
-F (..\Inc\OOPSTest.h)(0x5A0B7F20)()
-F (..\Inc\OOPSUtilities.h)(0x5A0B7F20)()
-F (..\Inc\OOPSWavetables.h)(0x5A0B7F20)()
-F (..\Inc\stm32f7xx_hal_conf.h)(0x5A0B7F20)()
-F (..\Inc\stm32f7xx_it.h)(0x5A0B7F20)()
-F (..\Inc\usb_host.h)(0x5A0B7F20)()
-F (..\Inc\usbh_conf.h)(0x5A0B7F20)()
-F (..\Inc\usbh_MIDI.h)(0x5A0B7F20)()
-F (..\Src\audiostream.c)(0x5A0B8713)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\audiostream.o --omf_browse genera_basic_midihost_4\audiostream.crf --depend genera_basic_midihost_4\audiostream.d)
-I (../Inc/audiostream.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Inc/OOPSTest.h)(0x5A0B7F20)
-I (../Inc/OOPS.h)(0x5A0B7F20)
-I (../Inc/OOPSCore.h)(0x5A0B7F20)
-I (../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (../Inc/OOPSInstrument.h)(0x5A0B7F20)
-I (../Inc/codec.h)(0x5A0B7F20)
-I (../Inc/usb_host.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-I (../Inc/usbh_MIDI.h)(0x5A0B7F20)
-I (../Inc/MIDI_application.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6BD88)
-F (..\Src\codec.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\codec.o --omf_browse genera_basic_midihost_4\codec.crf --depend genera_basic_midihost_4\codec.d)
-I (../Inc/codec.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (..\Src\MIDI_application.c)(0x5A0B8713)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\midi_application.o --omf_browse genera_basic_midihost_4\midi_application.crf --depend genera_basic_midihost_4\midi_application.d)
-I (../Inc/audiostream.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Inc/OOPSTest.h)(0x5A0B7F20)
-I (../Inc/OOPS.h)(0x5A0B7F20)
-I (../Inc/OOPSCore.h)(0x5A0B7F20)
-I (../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (../Inc/OOPSInstrument.h)(0x5A0B7F20)
-I (../Inc/MIDI_application.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-I (../Inc/usbh_MIDI.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6BD88)
-I (../Inc/usb_host.h)(0x5A0B7F20)
-F (..\Src\OOPS.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oops.o --omf_browse genera_basic_midihost_4\oops.crf --depend genera_basic_midihost_4\oops.d)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSDelay.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsdelay.o --omf_browse genera_basic_midihost_4\oopsdelay.crf --depend genera_basic_midihost_4\oopsdelay.d)
-I (..\Src\../Inc/OOPSDelay.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSFilter.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsfilter.o --omf_browse genera_basic_midihost_4\oopsfilter.crf --depend genera_basic_midihost_4\oopsfilter.d)
-I (..\Src\../Inc/OOPSFilter.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSWavetables.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSInstrument.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsinstrument.o --omf_browse genera_basic_midihost_4\oopsinstrument.crf --depend genera_basic_midihost_4\oopsinstrument.d)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-F (..\Src\OOPSMath.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsmath.o --omf_browse genera_basic_midihost_4\oopsmath.crf --depend genera_basic_midihost_4\oopsmath.d)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSWavetables.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-F (..\Src\OOPSOscillator.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsoscillator.o --omf_browse genera_basic_midihost_4\oopsoscillator.crf --depend genera_basic_midihost_4\oopsoscillator.d)
-I (..\Src\../Inc/OOPSWavetables.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSReverb.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsreverb.o --omf_browse genera_basic_midihost_4\oopsreverb.crf --depend genera_basic_midihost_4\oopsreverb.d)
-I (..\Src\../Inc/OOPSReverb.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSUtilities.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopsutilities.o --omf_browse genera_basic_midihost_4\oopsutilities.crf --depend genera_basic_midihost_4\oopsutilities.d)
-I (..\Src\../Inc/OOPSUtilities.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSCore.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMath.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x57F6BD86)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (..\Src\../Inc/OOPSWavetables.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPS.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSOscillator.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSInstrument.h)(0x5A0B7F20)
-F (..\Src\OOPSWavetables.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\oopswavetables.o --omf_browse genera_basic_midihost_4\oopswavetables.crf --depend genera_basic_midihost_4\oopswavetables.d)
-I (..\Src\../Inc/OOPSWavetables.h)(0x5A0B7F20)
-I (..\Src\../Inc/OOPSMemConfig.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-F (..\Src\usbh_MIDI.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_midi.o --omf_browse genera_basic_midihost_4\usbh_midi.crf --depend genera_basic_midihost_4\usbh_midi.d)
-I (../Inc/usbh_MIDI.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Src/system_stm32f7xx.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\system_stm32f7xx_1.o --omf_browse genera_basic_midihost_4\system_stm32f7xx_1.crf --depend genera_basic_midihost_4\system_stm32f7xx_1.d)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Src/usbh_audio.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_audio.o --omf_browse genera_basic_midihost_4\usbh_audio.crf --depend genera_basic_midihost_4\usbh_audio.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc/usbh_audio.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_ioreq.o --omf_browse genera_basic_midihost_4\usbh_ioreq.crf --depend genera_basic_midihost_4\usbh_ioreq.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_core.o --omf_browse genera_basic_midihost_4\usbh_core.crf --depend genera_basic_midihost_4\usbh_core.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_ctlreq.o --omf_browse genera_basic_midihost_4\usbh_ctlreq.crf --depend genera_basic_midihost_4\usbh_ctlreq.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-F (../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\usbh_pipes.o --omf_browse genera_basic_midihost_4\usbh_pipes.crf --depend genera_basic_midihost_4\usbh_pipes.d)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_pipes.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h)(0x5A0B7F20)
-I (../Inc/usbh_conf.h)(0x5A0B7F20)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6BD88)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h)(0x5A0B7F20)
-I (../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ctlreq.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_rcc.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_rcc.crf --depend genera_basic_midihost_4\stm32f7xx_hal_rcc.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_dma.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_dma.crf --depend genera_basic_midihost_4\stm32f7xx_hal_dma.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_cortex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_cortex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_cortex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_qspi.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_qspi.crf --depend genera_basic_midihost_4\stm32f7xx_hal_qspi.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_spi.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_spi.crf --depend genera_basic_midihost_4\stm32f7xx_hal_spi.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_tim_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_tim_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_tim_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_flash_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_flash_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_flash_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_pwr.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_pwr.crf --depend genera_basic_midihost_4\stm32f7xx_hal_pwr.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_gpio.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_gpio.crf --depend genera_basic_midihost_4\stm32f7xx_hal_gpio.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_adc.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_adc.crf --depend genera_basic_midihost_4\stm32f7xx_hal_adc.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal.crf --depend genera_basic_midihost_4\stm32f7xx_hal.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_ll_usb.o --omf_browse genera_basic_midihost_4\stm32f7xx_ll_usb.crf --depend genera_basic_midihost_4\stm32f7xx_ll_usb.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_hcd.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_hcd.crf --depend genera_basic_midihost_4\stm32f7xx_hal_hcd.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_sai.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_sai.crf --depend genera_basic_midihost_4\stm32f7xx_hal_sai.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_adc_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_adc_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_adc_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_rcc_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_rcc_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_rcc_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_rng.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_rng.crf --depend genera_basic_midihost_4\stm32f7xx_hal_rng.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_dma_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_dma_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_dma_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_pwr_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_pwr_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_pwr_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_tim.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_tim.crf --depend genera_basic_midihost_4\stm32f7xx_hal_tim.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_i2c.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_i2c.crf --depend genera_basic_midihost_4\stm32f7xx_hal_i2c.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_sai_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_sai_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_sai_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_flash.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_flash.crf --depend genera_basic_midihost_4\stm32f7xx_hal_flash.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
-F (../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c)(0x5A0B7F20)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Host_Library/Class/AUDIO/Inc -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include --C99-I"C:\Users\Jeff Snyder\Documents\GitHub\stm32f7\genera_basic_midihost_4\MDK-ARM\RTE\_genera_basic_midihost_4"-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F7xx_DFP\2.8.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F765xx -DUSE_HAL_DRIVER -DSTM32F765xx-o genera_basic_midihost_4\stm32f7xx_hal_i2c_ex.o --omf_browse genera_basic_midihost_4\stm32f7xx_hal_i2c_ex.crf --depend genera_basic_midihost_4\stm32f7xx_hal_i2c_ex.d)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5A0B7F1F)
-I (../Inc/stm32f7xx_hal_conf.h)(0x5A0B7F20)
-I (../Inc/main.h)(0x5A0B7F20)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f765xx.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cm7.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6BD88)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Include/core_cmSimd.h)(0x5A0B7F1F)
-I (../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5A0B7F1F)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6BD88)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_qspi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rng.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sai.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_hcd.h)(0x5A0B7F1F)
-I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h)(0x5A0B7F20)
