@@ -91,8 +91,6 @@ void ProcessReceivedMidiDatas(void)
 			pack.evnt1 = *ptr ; ptr++ ;
 			pack.evnt2 = *ptr ; ptr++ ;
 			
-			
-			
 			// Handle MIDI messages 
 			switch(pack.evnt0)
 			{
