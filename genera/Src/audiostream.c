@@ -353,7 +353,7 @@ float audioTickL(float audioIn)
 		//sample = OOPS_clip(-1.0f, sample, 1.0f);
 
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
-		/*
+		
 		intPeak = 48.9994294977f * (intHarmonic - 1);
 		tSVFSetFreq(oldFilter, floatPeak);
 		tSVFSetQ(oldFilter, 200.0f);
@@ -361,10 +361,10 @@ float audioTickL(float audioIn)
 		lp->a1 = oldFilter->a1;
 		lp->a2 = oldFilter->a2;
 		lp->a3 = oldFilter->a3;
-		*/
+		
 		//tSVFSetFreq(lp, floatPeak);
 
-		//sample = tSVFTick(oldFilter, sample);
+		sample = tSVFTick(oldFilter, sample);
 		//sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
 		//sample = tNoiseTick(noise);
@@ -375,15 +375,17 @@ float audioTickL(float audioIn)
 		//tDelayLSetDelay(feedbackDelay,212.0f);
 		//sample = tDelayLTick(feedbackDelay, sample);
 		
-		sample *= 10.0f;
+		sample *= 50.0f;
 		sample = OOPS_softClip(sample, 1.0f - pedal);
 
 		//sample = tNoiseTick(noise);
 		
 		//sample *= rampedBreath;
-		sample *= pedal;
+		//sample *= pedal;
 		
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
+		
+		//sample = 0.0f;
 		//sample *= OUTPUT_GAIN; 
 		/*
 		if (counter > 24000)
@@ -497,16 +499,19 @@ float audioTickR(float audioIn)
 		//sample = INPUT_BOOST * audioIn;
 	
 		sample = audioIn;
+		
+		sample = tCompressorTick(myCompressor, sample);
+		
 		//tButterworthSetFreqs(filter, floatPeak  - cutoff_offset, floatPeak + cutoff_offset);
 		//sample = tButterworthTick(filter, sample);
 		
-		//sample = tCompressorTick(myCompressor, sample);
+
 		
 		//sample = mix * OOPS_clip(-1.0f, sample, 1.0f) + (1.0f - mix) * tCompressorTick(myCompressor, sample);
 		//sample = OOPS_clip(-1.0f, sample, 1.0f);
 
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
-		/*
+		
 		intPeak = 48.9994294977f * (intHarmonic - 1);
 		tSVFSetFreq(oldFilter, floatPeak);
 		tSVFSetQ(oldFilter, 200.0f);
@@ -514,11 +519,12 @@ float audioTickR(float audioIn)
 		lp->a1 = oldFilter->a1;
 		lp->a2 = oldFilter->a2;
 		lp->a3 = oldFilter->a3;
-		*/
+		
 		//tSVFSetFreq(lp, floatPeak);
 
-		//sample = tSVFTick(oldFilter, sample);
-		//sample = tSVFTick(lp, sample);
+		sample = tSVFTick(oldFilter, sample);
+		
+		sample = tSVFTick(lp, sample);
 		//sample = sample * 12.0f;
 		//sample = tNoiseTick(noise);
 		//sample *= .8f;
@@ -533,7 +539,8 @@ float audioTickR(float audioIn)
 		//sample = tNoiseTick(noise);
 		
 		//sample *= rampedBreath;
-		sample *= pedal;
+		//sample *= pedal;
+		//sample *= 8.0f;
 		
 		sample = OOPS_clip(-1.0f, sample, 1.0f);
 		//sample *= OUTPUT_GAIN; 
@@ -550,7 +557,7 @@ float audioTickR(float audioIn)
 		}
 		counter++;
 		*/
-		sample = 0.0f;
+		//sample = 0.0f;
 		
 	}
 	
