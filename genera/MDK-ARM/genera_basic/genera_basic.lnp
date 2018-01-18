@@ -28,6 +28,8 @@
 "genera_basic\stm32f7xx_hal_msp.o"
 "genera_basic\audiostream.o"
 "genera_basic\codec.o"
+"genera_basic\n25q.o"
+"genera_basic\serialize.o"
 "genera_basic\oops.o"
 "genera_basic\oopsdelay.o"
 "genera_basic\oopsfilter.o"

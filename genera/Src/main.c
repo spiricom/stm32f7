@@ -37,6 +37,8 @@
 
 #include "audiostream.h"
 
+#include "N25Q.h"
+
 #include "codec.h"
 
 /* USER CODE BEGIN Includes */
@@ -94,6 +96,15 @@ __IO uint16_t adcValues[NUM_ADC_CHANNELS];
 uint16_t whichADC = 0;
 uint16_t test = 0;
 
+#define DATA_SIZE 10
+ParameterType writePacket;
+uint8_t writeData[DATA_SIZE];
+
+uint8_t fake[DATA_SIZE];
+
+ParameterType readPacket;
+uint8_t readData[DATA_SIZE];
+
 int main(void)
 {
 
@@ -114,10 +125,38 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
-  //MX_QUADSPI_Init();
+  MX_QUADSPI_Init();
   MX_RNG_Init();
   MX_SAI1_Init();
   //MX_SPI4_Init();
+	
+	
+	HAL_Delay(100);
+	
+	// 00010111
+	FlashWriteVolatileEnhancedConfigurationRegister(0x17);
+	
+	HAL_Delay(100);
+	
+	for (int i = 0; i < DATA_SIZE; i++)
+	{
+			writeData[i] = (i+1);
+			fake[i] = (i+1);
+	}
+	
+	writePacket.PageProgram.udAddr = 0;
+	writePacket.PageProgram.udNrOfElementsInArray = DATA_SIZE;
+	writePacket.PageProgram.pArray = &writeData;
+	
+	readPacket.PageProgram.udAddr = 0;
+	readPacket.PageProgram.udNrOfElementsInArray = DATA_SIZE;
+	readPacket.PageProgram.pArray = &readData;
+	
+	DataProgram(QuadInputProgram, &writePacket); 
+	
+	HAL_Delay(100);
+	
+	DataRead(QuadInputOutputFastRead, &readPacket);
 
   /* USER CODE BEGIN 2 */
 
@@ -138,44 +177,6 @@ int main(void)
 		
   while (1)
   {
-/*
-		
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_6))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
-		}
-			
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
-		}
-		
-		if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8))
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
-		}
-		
-		if (!HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_13))
-		{
-			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-		}
-		else
-		{
-			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-		}
-		*/
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -412,7 +413,6 @@ static void MX_ADC1_Init(void)
 /* I2C2 init function */
 static void MX_I2C2_Init(void)
 {
-
   hi2c2.Instance = I2C2;
   hi2c2.Init.Timing = 0x20404768;
   hi2c2.Init.OwnAddress1 = 0;
@@ -439,7 +439,6 @@ static void MX_I2C2_Init(void)
 /* QUADSPI init function */
 static void MX_QUADSPI_Init(void)
 {
-
   hqspi.Instance = QUADSPI;
   hqspi.Init.ClockPrescaler = 255;
   hqspi.Init.FifoThreshold = 1;
