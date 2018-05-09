@@ -1913,58 +1913,58 @@ Image Symbol Table
     i.audioFrame                             0x080050a8   Section        0  audiostream.o(i.audioFrame)
     i.audioInit                              0x08005278   Section        0  audiostream.o(i.audioInit)
     i.audioTickR                             0x08005420   Section        0  audiostream.o(i.audioTickR)
-    i.frexp                                  0x080056d8   Section        0  frexp.o(i.frexp)
-    i.log                                    0x08005764   Section        0  log.o(i.log)
-    i.main                                   0x08005774   Section        0  main.o(i.main)
-    i.randomNumber                           0x08005ed8   Section        0  main.o(i.randomNumber)
-    i.setFundamental                         0x08005f0c   Section        0  audiostream.o(i.setFundamental)
-    i.tButterworthInit                       0x08005f24   Section        0  oopsfilter.o(i.tButterworthInit)
-    i.tCompressorInit                        0x08006104   Section        0  oopsutilities.o(i.tCompressorInit)
-    i.tCompressorTick                        0x08006160   Section        0  oopsutilities.o(i.tCompressorTick)
-    i.tCycleInit                             0x080062dc   Section        0  oopsoscillator.o(i.tCycleInit)
-    i.tCycleSampleRateChanged                0x08006314   Section        0  oopsoscillator.o(i.tCycleSampleRateChanged)
-    i.tCycleSetFreq                          0x0800632c   Section        0  oopsoscillator.o(i.tCycleSetFreq)
-    i.tCycleTick                             0x0800635c   Section        0  oopsoscillator.o(i.tCycleTick)
-    i.tDelayLInit                            0x080063cc   Section        0  oopsdelay.o(i.tDelayLInit)
-    i.tDelayLSetDelay                        0x080064d4   Section        0  oopsdelay.o(i.tDelayLSetDelay)
-    i.tDelayLTick                            0x0800657c   Section        0  oopsdelay.o(i.tDelayLTick)
-    i.tNoiseInit                             0x080065fc   Section        0  oopsoscillator.o(i.tNoiseInit)
-    i.tRampInit                              0x08006640   Section        0  oopsutilities.o(i.tRampInit)
-    i.tRampSampleRateChanged                 0x080066dc   Section        0  oopsutilities.o(i.tRampSampleRateChanged)
-    i.tRampSetDest                           0x08006728   Section        0  oopsutilities.o(i.tRampSetDest)
-    i.tRampTick                              0x08006758   Section        0  oopsutilities.o(i.tRampTick)
-    i.tSVFInit                               0x080067a4   Section        0  oopsfilter.o(i.tSVFInit)
-    i.tSVFSetFreq                            0x08006850   Section        0  oopsfilter.o(i.tSVFSetFreq)
-    i.tSVFSetQ                               0x080068a8   Section        0  oopsfilter.o(i.tSVFSetQ)
-    i.tSVFTick                               0x080068f8   Section        0  oopsfilter.o(i.tSVFTick)
-    i.tSawtoothInit                          0x08006990   Section        0  oopsoscillator.o(i.tSawtoothInit)
-    i.tSawtoothSampleRateChanged             0x080069d0   Section        0  oopsoscillator.o(i.tSawtoothSampleRateChanged)
-    i.thingToDoWhenKnobMoves                 0x080069e8   Section        0  audiostream.o(i.thingToDoWhenKnobMoves)
-    .constdata                               0x08006a84   Section        8  stm32f7xx_hal_dma.o(.constdata)
-    flagBitshiftOffset                       0x08006a84   Data           8  stm32f7xx_hal_dma.o(.constdata)
-    .constdata                               0x08006a8c   Section       16  system_stm32f7xx.o(.constdata)
-    .constdata                               0x08006a9c   Section     8192  oopswavetables.o(.constdata)
-    .constdata                               0x08008a9c   Section       48  expf.o(.constdata)
-    twotokover4top                           0x08008a9c   Data          16  expf.o(.constdata)
-    twotokover4bot                           0x08008aac   Data          16  expf.o(.constdata)
-    twotokover4all                           0x08008abc   Data          16  expf.o(.constdata)
-    .constdata                               0x08008ad0   Section       56  log.o(.constdata)
-    Lg2                                      0x08008ad0   Data          24  log.o(.constdata)
-    Lg                                       0x08008ae8   Data          32  log.o(.constdata)
-    .constdata                               0x08008b08   Section       64  log10f.o(.constdata)
-    logahi                                   0x08008b08   Data          32  log10f.o(.constdata)
-    logalo                                   0x08008b28   Data          32  log10f.o(.constdata)
-    .constdata                               0x08008b48   Section       64  logf.o(.constdata)
-    logahi                                   0x08008b48   Data          32  logf.o(.constdata)
-    logalo                                   0x08008b68   Data          32  logf.o(.constdata)
-    .constdata                               0x08008b88   Section      320  powf.o(.constdata)
-    table                                    0x08008b88   Data         128  powf.o(.constdata)
-    powersof2to1over16top                    0x08008c08   Data          64  powf.o(.constdata)
-    powersof2to1over16bot                    0x08008c48   Data          64  powf.o(.constdata)
-    powersof2to1over16all                    0x08008c88   Data          64  powf.o(.constdata)
-    .constdata                               0x08008cc8   Section        8  qnan.o(.constdata)
-    .constdata                               0x08008cd0   Section       32  rredf.o(.constdata)
-    twooverpi                                0x08008cd0   Data          32  rredf.o(.constdata)
+    i.frexp                                  0x080056f8   Section        0  frexp.o(i.frexp)
+    i.log                                    0x08005784   Section        0  log.o(i.log)
+    i.main                                   0x08005794   Section        0  main.o(i.main)
+    i.randomNumber                           0x08005ef8   Section        0  main.o(i.randomNumber)
+    i.setFundamental                         0x08005f2c   Section        0  audiostream.o(i.setFundamental)
+    i.tButterworthInit                       0x08005f44   Section        0  oopsfilter.o(i.tButterworthInit)
+    i.tCompressorInit                        0x08006124   Section        0  oopsutilities.o(i.tCompressorInit)
+    i.tCompressorTick                        0x08006180   Section        0  oopsutilities.o(i.tCompressorTick)
+    i.tCycleInit                             0x080062fc   Section        0  oopsoscillator.o(i.tCycleInit)
+    i.tCycleSampleRateChanged                0x08006334   Section        0  oopsoscillator.o(i.tCycleSampleRateChanged)
+    i.tCycleSetFreq                          0x0800634c   Section        0  oopsoscillator.o(i.tCycleSetFreq)
+    i.tCycleTick                             0x0800637c   Section        0  oopsoscillator.o(i.tCycleTick)
+    i.tDelayLInit                            0x080063ec   Section        0  oopsdelay.o(i.tDelayLInit)
+    i.tDelayLSetDelay                        0x080064f4   Section        0  oopsdelay.o(i.tDelayLSetDelay)
+    i.tDelayLTick                            0x0800659c   Section        0  oopsdelay.o(i.tDelayLTick)
+    i.tNoiseInit                             0x0800661c   Section        0  oopsoscillator.o(i.tNoiseInit)
+    i.tRampInit                              0x08006660   Section        0  oopsutilities.o(i.tRampInit)
+    i.tRampSampleRateChanged                 0x080066fc   Section        0  oopsutilities.o(i.tRampSampleRateChanged)
+    i.tRampSetDest                           0x08006748   Section        0  oopsutilities.o(i.tRampSetDest)
+    i.tRampTick                              0x08006778   Section        0  oopsutilities.o(i.tRampTick)
+    i.tSVFInit                               0x080067c4   Section        0  oopsfilter.o(i.tSVFInit)
+    i.tSVFSetFreq                            0x08006870   Section        0  oopsfilter.o(i.tSVFSetFreq)
+    i.tSVFSetQ                               0x080068c8   Section        0  oopsfilter.o(i.tSVFSetQ)
+    i.tSVFTick                               0x08006918   Section        0  oopsfilter.o(i.tSVFTick)
+    i.tSawtoothInit                          0x080069b0   Section        0  oopsoscillator.o(i.tSawtoothInit)
+    i.tSawtoothSampleRateChanged             0x080069f0   Section        0  oopsoscillator.o(i.tSawtoothSampleRateChanged)
+    i.thingToDoWhenKnobMoves                 0x08006a08   Section        0  audiostream.o(i.thingToDoWhenKnobMoves)
+    .constdata                               0x08006aa4   Section        8  stm32f7xx_hal_dma.o(.constdata)
+    flagBitshiftOffset                       0x08006aa4   Data           8  stm32f7xx_hal_dma.o(.constdata)
+    .constdata                               0x08006aac   Section       16  system_stm32f7xx.o(.constdata)
+    .constdata                               0x08006abc   Section     8192  oopswavetables.o(.constdata)
+    .constdata                               0x08008abc   Section       48  expf.o(.constdata)
+    twotokover4top                           0x08008abc   Data          16  expf.o(.constdata)
+    twotokover4bot                           0x08008acc   Data          16  expf.o(.constdata)
+    twotokover4all                           0x08008adc   Data          16  expf.o(.constdata)
+    .constdata                               0x08008af0   Section       56  log.o(.constdata)
+    Lg2                                      0x08008af0   Data          24  log.o(.constdata)
+    Lg                                       0x08008b08   Data          32  log.o(.constdata)
+    .constdata                               0x08008b28   Section       64  log10f.o(.constdata)
+    logahi                                   0x08008b28   Data          32  log10f.o(.constdata)
+    logalo                                   0x08008b48   Data          32  log10f.o(.constdata)
+    .constdata                               0x08008b68   Section       64  logf.o(.constdata)
+    logahi                                   0x08008b68   Data          32  logf.o(.constdata)
+    logalo                                   0x08008b88   Data          32  logf.o(.constdata)
+    .constdata                               0x08008ba8   Section      320  powf.o(.constdata)
+    table                                    0x08008ba8   Data         128  powf.o(.constdata)
+    powersof2to1over16top                    0x08008c28   Data          64  powf.o(.constdata)
+    powersof2to1over16bot                    0x08008c68   Data          64  powf.o(.constdata)
+    powersof2to1over16all                    0x08008ca8   Data          64  powf.o(.constdata)
+    .constdata                               0x08008ce8   Section        8  qnan.o(.constdata)
+    .constdata                               0x08008cf0   Section       32  rredf.o(.constdata)
+    twooverpi                                0x08008cf0   Data          32  rredf.o(.constdata)
     .data                                    0x20000000   Section        4  stm32f7xx_hal.o(.data)
     .data                                    0x20000004   Section        4  system_stm32f7xx.o(.data)
     .data                                    0x20000008   Section        4  stm32f7xx_hal_msp.o(.data)
@@ -2254,39 +2254,39 @@ Image Symbol Table
     __set_errno                              0x0800509d   Thumb Code     6  errno.o(i.__set_errno)
     audioFrame                               0x080050a9   Thumb Code   412  audiostream.o(i.audioFrame)
     audioInit                                0x08005279   Thumb Code   362  audiostream.o(i.audioInit)
-    audioTickR                               0x08005421   Thumb Code   646  audiostream.o(i.audioTickR)
-    frexp                                    0x080056d9   Thumb Code   118  frexp.o(i.frexp)
-    log                                      0x08005765   Thumb Code    16  log.o(i.log)
-    main                                     0x08005775   Thumb Code  1856  main.o(i.main)
-    randomNumber                             0x08005ed9   Thumb Code    40  main.o(i.randomNumber)
-    setFundamental                           0x08005f0d   Thumb Code    20  audiostream.o(i.setFundamental)
-    tButterworthInit                         0x08005f25   Thumb Code   462  oopsfilter.o(i.tButterworthInit)
-    tCompressorInit                          0x08006105   Thumb Code    78  oopsutilities.o(i.tCompressorInit)
-    tCompressorTick                          0x08006161   Thumb Code   362  oopsutilities.o(i.tCompressorTick)
-    tCycleInit                               0x080062dd   Thumb Code    42  oopsoscillator.o(i.tCycleInit)
-    tCycleSampleRateChanged                  0x08006315   Thumb Code    20  oopsoscillator.o(i.tCycleSampleRateChanged)
-    tCycleSetFreq                            0x0800632d   Thumb Code    40  oopsoscillator.o(i.tCycleSetFreq)
-    tCycleTick                               0x0800635d   Thumb Code   104  oopsoscillator.o(i.tCycleTick)
-    tDelayLInit                              0x080063cd   Thumb Code   252  oopsdelay.o(i.tDelayLInit)
-    tDelayLSetDelay                          0x080064d5   Thumb Code   164  oopsdelay.o(i.tDelayLSetDelay)
-    tDelayLTick                              0x0800657d   Thumb Code   126  oopsdelay.o(i.tDelayLTick)
-    tNoiseInit                               0x080065fd   Thumb Code    58  oopsoscillator.o(i.tNoiseInit)
-    tRampInit                                0x08006641   Thumb Code   140  oopsutilities.o(i.tRampInit)
-    tRampSampleRateChanged                   0x080066dd   Thumb Code    68  oopsutilities.o(i.tRampSampleRateChanged)
-    tRampSetDest                             0x08006729   Thumb Code    48  oopsutilities.o(i.tRampSetDest)
-    tRampTick                                0x08006759   Thumb Code    72  oopsutilities.o(i.tRampTick)
-    tSVFInit                                 0x080067a5   Thumb Code   156  oopsfilter.o(i.tSVFInit)
-    tSVFSetFreq                              0x08006851   Thumb Code    78  oopsfilter.o(i.tSVFSetFreq)
-    tSVFSetQ                                 0x080068a9   Thumb Code    76  oopsfilter.o(i.tSVFSetQ)
-    tSVFTick                                 0x080068f9   Thumb Code   148  oopsfilter.o(i.tSVFTick)
-    tSawtoothInit                            0x08006991   Thumb Code    48  oopsoscillator.o(i.tSawtoothInit)
-    tSawtoothSampleRateChanged               0x080069d1   Thumb Code    20  oopsoscillator.o(i.tSawtoothSampleRateChanged)
-    thingToDoWhenKnobMoves                   0x080069e9   Thumb Code   128  audiostream.o(i.thingToDoWhenKnobMoves)
-    AHBPrescTable                            0x08006a8c   Data          16  system_stm32f7xx.o(.constdata)
-    sinewave                                 0x08006a9c   Data        8192  oopswavetables.o(.constdata)
-    __mathlib_zero                           0x08008cc8   Data           8  qnan.o(.constdata)
-    Region$$Table$$Base                      0x08008cf0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08008d10   Number         0  anon$$obj.o(Region$$Table)
+    audioTickR                               0x08005421   Thumb Code   678  audiostream.o(i.audioTickR)
+    frexp                                    0x080056f9   Thumb Code   118  frexp.o(i.frexp)
+    log                                      0x08005785   Thumb Code    16  log.o(i.log)
+    main                                     0x08005795   Thumb Code  1856  main.o(i.main)
+    randomNumber                             0x08005ef9   Thumb Code    40  main.o(i.randomNumber)
+    setFundamental                           0x08005f2d   Thumb Code    20  audiostream.o(i.setFundamental)
+    tButterworthInit                         0x08005f45   Thumb Code   462  oopsfilter.o(i.tButterworthInit)
+    tCompressorInit                          0x08006125   Thumb Code    78  oopsutilities.o(i.tCompressorInit)
+    tCompressorTick                          0x08006181   Thumb Code   362  oopsutilities.o(i.tCompressorTick)
+    tCycleInit                               0x080062fd   Thumb Code    42  oopsoscillator.o(i.tCycleInit)
+    tCycleSampleRateChanged                  0x08006335   Thumb Code    20  oopsoscillator.o(i.tCycleSampleRateChanged)
+    tCycleSetFreq                            0x0800634d   Thumb Code    40  oopsoscillator.o(i.tCycleSetFreq)
+    tCycleTick                               0x0800637d   Thumb Code   104  oopsoscillator.o(i.tCycleTick)
+    tDelayLInit                              0x080063ed   Thumb Code   252  oopsdelay.o(i.tDelayLInit)
+    tDelayLSetDelay                          0x080064f5   Thumb Code   164  oopsdelay.o(i.tDelayLSetDelay)
+    tDelayLTick                              0x0800659d   Thumb Code   126  oopsdelay.o(i.tDelayLTick)
+    tNoiseInit                               0x0800661d   Thumb Code    58  oopsoscillator.o(i.tNoiseInit)
+    tRampInit                                0x08006661   Thumb Code   140  oopsutilities.o(i.tRampInit)
+    tRampSampleRateChanged                   0x080066fd   Thumb Code    68  oopsutilities.o(i.tRampSampleRateChanged)
+    tRampSetDest                             0x08006749   Thumb Code    48  oopsutilities.o(i.tRampSetDest)
+    tRampTick                                0x08006779   Thumb Code    72  oopsutilities.o(i.tRampTick)
+    tSVFInit                                 0x080067c5   Thumb Code   156  oopsfilter.o(i.tSVFInit)
+    tSVFSetFreq                              0x08006871   Thumb Code    78  oopsfilter.o(i.tSVFSetFreq)
+    tSVFSetQ                                 0x080068c9   Thumb Code    76  oopsfilter.o(i.tSVFSetQ)
+    tSVFTick                                 0x08006919   Thumb Code   148  oopsfilter.o(i.tSVFTick)
+    tSawtoothInit                            0x080069b1   Thumb Code    48  oopsoscillator.o(i.tSawtoothInit)
+    tSawtoothSampleRateChanged               0x080069f1   Thumb Code    20  oopsoscillator.o(i.tSawtoothSampleRateChanged)
+    thingToDoWhenKnobMoves                   0x08006a09   Thumb Code   128  audiostream.o(i.thingToDoWhenKnobMoves)
+    AHBPrescTable                            0x08006aac   Data          16  system_stm32f7xx.o(.constdata)
+    sinewave                                 0x08006abc   Data        8192  oopswavetables.o(.constdata)
+    __mathlib_zero                           0x08008ce8   Data           8  qnan.o(.constdata)
+    Region$$Table$$Base                      0x08008d10   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08008d30   Number         0  anon$$obj.o(Region$$Table)
     uwTick                                   0x20000000   Data           4  stm32f7xx_hal.o(.data)
     SystemCoreClock                          0x20000004   Data           4  system_stm32f7xx.o(.data)
     lcdMode                                  0x2000000c   Data           1  main.o(.data)
@@ -2373,9 +2373,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001f9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00008e20, Max: 0x00200000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00008e40, Max: 0x00200000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00008d10, Max: 0x00200000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00008d30, Max: 0x00200000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2543,48 +2543,47 @@ Memory Map of the image
     0x080050a8   0x000001cc   Code   RO         3189    i.audioFrame        audiostream.o
     0x08005274   0x00000004   PAD
     0x08005278   0x000001a8   Code   RO         3190    i.audioInit         audiostream.o
-    0x08005420   0x000002b4   Code   RO         3192    i.audioTickR        audiostream.o
-    0x080056d4   0x00000004   PAD
-    0x080056d8   0x0000008c   Code   RO         4032    i.frexp             m_wm.l(frexp.o)
-    0x08005764   0x00000010   Code   RO         3877    i.log               m_wm.l(log.o)
-    0x08005774   0x00000764   Code   RO         3020    i.main              main.o
-    0x08005ed8   0x00000034   Code   RO         3023    i.randomNumber      main.o
-    0x08005f0c   0x00000018   Code   RO         3193    i.setFundamental    audiostream.o
-    0x08005f24   0x000001e0   Code   RO         3485    i.tButterworthInit  oopsfilter.o
-    0x08006104   0x0000005c   Code   RO         3773    i.tCompressorInit   oopsutilities.o
-    0x08006160   0x0000017c   Code   RO         3774    i.tCompressorTick   oopsutilities.o
-    0x080062dc   0x00000038   Code   RO         3620    i.tCycleInit        oopsoscillator.o
-    0x08006314   0x00000018   Code   RO         3621    i.tCycleSampleRateChanged  oopsoscillator.o
-    0x0800632c   0x00000030   Code   RO         3622    i.tCycleSetFreq     oopsoscillator.o
-    0x0800635c   0x00000070   Code   RO         3623    i.tCycleTick        oopsoscillator.o
-    0x080063cc   0x00000108   Code   RO         3418    i.tDelayLInit       oopsdelay.o
-    0x080064d4   0x000000a8   Code   RO         3419    i.tDelayLSetDelay   oopsdelay.o
-    0x0800657c   0x0000007e   Code   RO         3423    i.tDelayLTick       oopsdelay.o
-    0x080065fa   0x00000002   PAD
-    0x080065fc   0x00000044   Code   RO         3624    i.tNoiseInit        oopsoscillator.o
-    0x08006640   0x0000009c   Code   RO         3775    i.tRampInit         oopsutilities.o
-    0x080066dc   0x0000004c   Code   RO         3777    i.tRampSampleRateChanged  oopsutilities.o
-    0x08006728   0x00000030   Code   RO         3778    i.tRampSetDest      oopsutilities.o
-    0x08006758   0x0000004c   Code   RO         3780    i.tRampTick         oopsutilities.o
-    0x080067a4   0x000000ac   Code   RO         3490    i.tSVFInit          oopsfilter.o
-    0x08006850   0x00000058   Code   RO         3491    i.tSVFSetFreq       oopsfilter.o
-    0x080068a8   0x00000050   Code   RO         3492    i.tSVFSetQ          oopsfilter.o
-    0x080068f8   0x00000098   Code   RO         3493    i.tSVFTick          oopsfilter.o
-    0x08006990   0x00000040   Code   RO         3630    i.tSawtoothInit     oopsoscillator.o
-    0x080069d0   0x00000018   Code   RO         3631    i.tSawtoothSampleRateChanged  oopsoscillator.o
-    0x080069e8   0x0000009c   Code   RO         3194    i.thingToDoWhenKnobMoves  audiostream.o
-    0x08006a84   0x00000008   Data   RO          449    .constdata          stm32f7xx_hal_dma.o
-    0x08006a8c   0x00000010   Data   RO         2771    .constdata          system_stm32f7xx.o
-    0x08006a9c   0x00002000   Data   RO         3834    .constdata          oopswavetables.o
-    0x08008a9c   0x00000030   Data   RO         3864    .constdata          m_wm.l(expf.o)
-    0x08008acc   0x00000004   PAD
-    0x08008ad0   0x00000038   Data   RO         3878    .constdata          m_wm.l(log.o)
-    0x08008b08   0x00000040   Data   RO         3892    .constdata          m_wm.l(log10f.o)
-    0x08008b48   0x00000040   Data   RO         3914    .constdata          m_wm.l(logf.o)
-    0x08008b88   0x00000140   Data   RO         3928    .constdata          m_wm.l(powf.o)
-    0x08008cc8   0x00000008   Data   RO         4052    .constdata          m_wm.l(qnan.o)
-    0x08008cd0   0x00000020   Data   RO         4054    .constdata          m_wm.l(rredf.o)
-    0x08008cf0   0x00000020   Data   RO         4110    Region$$Table       anon$$obj.o
+    0x08005420   0x000002d8   Code   RO         3192    i.audioTickR        audiostream.o
+    0x080056f8   0x0000008c   Code   RO         4032    i.frexp             m_wm.l(frexp.o)
+    0x08005784   0x00000010   Code   RO         3877    i.log               m_wm.l(log.o)
+    0x08005794   0x00000764   Code   RO         3020    i.main              main.o
+    0x08005ef8   0x00000034   Code   RO         3023    i.randomNumber      main.o
+    0x08005f2c   0x00000018   Code   RO         3193    i.setFundamental    audiostream.o
+    0x08005f44   0x000001e0   Code   RO         3485    i.tButterworthInit  oopsfilter.o
+    0x08006124   0x0000005c   Code   RO         3773    i.tCompressorInit   oopsutilities.o
+    0x08006180   0x0000017c   Code   RO         3774    i.tCompressorTick   oopsutilities.o
+    0x080062fc   0x00000038   Code   RO         3620    i.tCycleInit        oopsoscillator.o
+    0x08006334   0x00000018   Code   RO         3621    i.tCycleSampleRateChanged  oopsoscillator.o
+    0x0800634c   0x00000030   Code   RO         3622    i.tCycleSetFreq     oopsoscillator.o
+    0x0800637c   0x00000070   Code   RO         3623    i.tCycleTick        oopsoscillator.o
+    0x080063ec   0x00000108   Code   RO         3418    i.tDelayLInit       oopsdelay.o
+    0x080064f4   0x000000a8   Code   RO         3419    i.tDelayLSetDelay   oopsdelay.o
+    0x0800659c   0x0000007e   Code   RO         3423    i.tDelayLTick       oopsdelay.o
+    0x0800661a   0x00000002   PAD
+    0x0800661c   0x00000044   Code   RO         3624    i.tNoiseInit        oopsoscillator.o
+    0x08006660   0x0000009c   Code   RO         3775    i.tRampInit         oopsutilities.o
+    0x080066fc   0x0000004c   Code   RO         3777    i.tRampSampleRateChanged  oopsutilities.o
+    0x08006748   0x00000030   Code   RO         3778    i.tRampSetDest      oopsutilities.o
+    0x08006778   0x0000004c   Code   RO         3780    i.tRampTick         oopsutilities.o
+    0x080067c4   0x000000ac   Code   RO         3490    i.tSVFInit          oopsfilter.o
+    0x08006870   0x00000058   Code   RO         3491    i.tSVFSetFreq       oopsfilter.o
+    0x080068c8   0x00000050   Code   RO         3492    i.tSVFSetQ          oopsfilter.o
+    0x08006918   0x00000098   Code   RO         3493    i.tSVFTick          oopsfilter.o
+    0x080069b0   0x00000040   Code   RO         3630    i.tSawtoothInit     oopsoscillator.o
+    0x080069f0   0x00000018   Code   RO         3631    i.tSawtoothSampleRateChanged  oopsoscillator.o
+    0x08006a08   0x0000009c   Code   RO         3194    i.thingToDoWhenKnobMoves  audiostream.o
+    0x08006aa4   0x00000008   Data   RO          449    .constdata          stm32f7xx_hal_dma.o
+    0x08006aac   0x00000010   Data   RO         2771    .constdata          system_stm32f7xx.o
+    0x08006abc   0x00002000   Data   RO         3834    .constdata          oopswavetables.o
+    0x08008abc   0x00000030   Data   RO         3864    .constdata          m_wm.l(expf.o)
+    0x08008aec   0x00000004   PAD
+    0x08008af0   0x00000038   Data   RO         3878    .constdata          m_wm.l(log.o)
+    0x08008b28   0x00000040   Data   RO         3892    .constdata          m_wm.l(log10f.o)
+    0x08008b68   0x00000040   Data   RO         3914    .constdata          m_wm.l(logf.o)
+    0x08008ba8   0x00000140   Data   RO         3928    .constdata          m_wm.l(powf.o)
+    0x08008ce8   0x00000008   Data   RO         4052    .constdata          m_wm.l(qnan.o)
+    0x08008cf0   0x00000020   Data   RO         4054    .constdata          m_wm.l(rredf.o)
+    0x08008d10   0x00000020   Data   RO         4110    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00020a40, Max: 0x00080000, ABSOLUTE)
@@ -2620,7 +2619,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1768        188          0        196       1044       9549   audiostream.o
+      1804        192          0        196       1044       9561   audiostream.o
        304          6          0          8          0       1313   codec.o
        960         96          0         28         32       8564   lcd.o
       2222        182          0         24        914      16964   main.o
@@ -2650,9 +2649,9 @@ Image component sizes
         96         20         16          4          0       1279   system_stm32f7xx.o
 
     ----------------------------------------------------------------------
-     19358       1220       8752        268     133424     993325   Object Totals
+     19390       1220       8752        268     133424     993337   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        30          8          0          0          2          0   (incl. Padding)
+        26          4          0          0          2          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2724,15 +2723,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     26764       1854       9348        272     133424     985677   Grand Totals
-     26764       1854       9348        272     133424     985677   ELF Image Totals
-     26764       1854       9348        272          0          0   ROM Totals
+     26796       1854       9348        272     133424     985689   Grand Totals
+     26796       1854       9348        272     133424     985689   ELF Image Totals
+     26796       1854       9348        272          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                36112 (  35.27kB)
+    Total RO  Size (Code + RO Data)                36144 (  35.30kB)
     Total RW  Size (RW Data + ZI Data)            133696 ( 130.56kB)
-    Total ROM Size (Code + RO Data + RW Data)      36384 (  35.53kB)
+    Total ROM Size (Code + RO Data + RW Data)      36416 (  35.56kB)
 
 ==============================================================================
 

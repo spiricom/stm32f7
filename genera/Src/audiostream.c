@@ -451,8 +451,8 @@ float audioTickR(float audioIn)
 	if (ftMode == FTSynthesisOne)
 	{
 		
-		testFreq += 0.001f;
-		if (testFreq > 2000.0f) testFreq = 0.0f;
+		testFreq -= 0.005f;
+		if (testFreq <= 0.0f) testFreq = 2000.0f;
 		tCycleSetFreq(mySine, testFreq);
 		
 		sample = tCycleTick(mySine);
@@ -513,7 +513,10 @@ float audioTickR(float audioIn)
 		//tSVFSetQ(lp, tRampTick(adc[ADCPedal]));
 		
 		intPeak = 48.9994294977f * (intHarmonic - 1);
-		tSVFSetFreq(oldFilter, floatPeak);
+
+		testFreq -= 0.001f;
+		if (testFreq <= 0.0f) testFreq = 2000.0f;
+		tSVFSetFreq(oldFilter, testFreq);
 		tSVFSetQ(oldFilter, 200.0f);
 		lp->g = oldFilter->g;
 		lp->a1 = oldFilter->a1;
