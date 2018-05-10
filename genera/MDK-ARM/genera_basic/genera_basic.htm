@@ -3,7 +3,7 @@
 <title>Static Call Graph - [genera_basic\genera_basic.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image genera_basic\genera_basic.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 09 13:13:11 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed May 09 15:57:47 2018
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1192,8 +1192,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[107]"></a>OOPS_clip</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oopsmath.o(i.OOPS_clip))
-<BR><BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetQ
+<P><STRONG><a name="[104]"></a>OOPS_clip</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oopsmath.o(i.OOPS_clip))
+<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetQ
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFInit
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tButterworthInit
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
@@ -1385,7 +1385,7 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetFreq
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetFreq
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFInit
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tButterworthInit
 </UL>
@@ -1524,19 +1524,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f8]"></a>audioTickR</STRONG> (Thumb, 678 bytes, Stack size 32 bytes, audiostream.o(i.audioTickR))
+<P><STRONG><a name="[f8]"></a>audioTickR</STRONG> (Thumb, 638 bytes, Stack size 32 bytes, audiostream.o(i.audioTickR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = audioTickR &rArr; tCompressorTick &rArr; __hardfp_powf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFTick
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetQ
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetFreq
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFTick
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetQ
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tSVFSetFreq
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tRampTick
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tRampSetDest
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLTick
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleTick
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleSetFreq
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLTick
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tDelayLSetDelay
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleTick
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCycleSetFreq
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tCompressorTick
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioFrame
 </UL>
@@ -1604,7 +1605,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = tButterworthInit &rArr; __hardfp_tanf &rArr; __mathlib_rredf2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tanf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
@@ -1632,11 +1633,11 @@ Global Symbols
 <P><STRONG><a name="[80]"></a>tCycleSampleRateChanged</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleSampleRateChanged))
 <BR>[Address Reference Count : 1]<UL><LI> oopsoscillator.o(i.tCycleInit)
 </UL>
-<P><STRONG><a name="[108]"></a>tCycleSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleSetFreq))
+<P><STRONG><a name="[109]"></a>tCycleSetFreq</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleSetFreq))
 <BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
 </UL>
 
-<P><STRONG><a name="[109]"></a>tCycleTick</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleTick))
+<P><STRONG><a name="[10a]"></a>tCycleTick</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, oopsoscillator.o(i.tCycleTick))
 <BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
 </UL>
 
@@ -1647,10 +1648,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[fc]"></a>tDelayLSetDelay</STRONG> (Thumb, 164 bytes, Stack size 0 bytes, oopsdelay.o(i.tDelayLSetDelay))
-<BR><BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
+<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[10a]"></a>tDelayLTick</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, oopsdelay.o(i.tDelayLTick))
+<P><STRONG><a name="[108]"></a>tDelayLTick</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, oopsdelay.o(i.tDelayLTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tDelayLTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
@@ -1683,13 +1685,13 @@ Global Symbols
 <P><STRONG><a name="[fe]"></a>tSVFInit</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, oopsfilter.o(i.tSVFInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = tSVFInit &rArr; __hardfp_tanf &rArr; __mathlib_rredf2
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tanf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioInit
 </UL>
 
-<P><STRONG><a name="[104]"></a>tSVFSetFreq</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, oopsfilter.o(i.tSVFSetFreq))
+<P><STRONG><a name="[105]"></a>tSVFSetFreq</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, oopsfilter.o(i.tSVFSetFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = tSVFSetFreq &rArr; __hardfp_tanf &rArr; __mathlib_rredf2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_tanf
@@ -1697,15 +1699,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
 </UL>
 
-<P><STRONG><a name="[105]"></a>tSVFSetQ</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, oopsfilter.o(i.tSVFSetQ))
+<P><STRONG><a name="[106]"></a>tSVFSetQ</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, oopsfilter.o(i.tSVFSetQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tSVFSetQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OOPS_clip
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
 </UL>
 
-<P><STRONG><a name="[106]"></a>tSVFTick</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFTick))
+<P><STRONG><a name="[107]"></a>tSVFTick</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, oopsfilter.o(i.tSVFTick))
 <BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;audioTickR
 </UL>
 
