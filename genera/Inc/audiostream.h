@@ -152,6 +152,7 @@ extern float inv_fundamental_m;
 extern float cutoff_offset;
 extern float intPeak;
 extern float floatPeak;
+extern float testDelay;
 extern float slide_tune;
 
 extern float valPerM;

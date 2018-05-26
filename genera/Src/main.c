@@ -320,6 +320,13 @@ int main(void)
 			LCD_home(&hi2c2);
 			LCD_clear(&hi2c2);
 
+			LCD_sendChar(&hi2c2, 'D');
+			LCD_sendFixedFloat(&hi2c2, testDelay, 6, 2);
+			
+			LCD_sendChar(&hi2c2, ' ');
+			
+			LCD_sendInteger(&hi2c2, intHarmonic, 2);
+			/*
 			LCD_sendPitch(&hi2c2, OOPS_frequencyToMidi(intPeak));
 			
 			LCD_sendChar(&hi2c2, ' ');
@@ -396,7 +403,7 @@ int main(void)
 				LCD_sendChar(&hi2c2,' ');
 				LCD_sendFixedFloat(&hi2c2, floatHarmonic, 4, 2);
 			}
-			
+			*/
 			
 			
 			

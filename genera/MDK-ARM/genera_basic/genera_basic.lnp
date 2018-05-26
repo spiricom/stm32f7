@@ -39,6 +39,6 @@
 "genera_basic\oopsutilities.o"
 "genera_basic\oopswavetables.o"
 --library_type=microlib --strict --scatter "genera_basic\genera_basic.sct"
---diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "genera_basic.map" -o genera_basic\genera_basic.axf
