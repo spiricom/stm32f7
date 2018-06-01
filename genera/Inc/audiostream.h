@@ -154,6 +154,8 @@ extern float intPeak;
 extern float floatPeak;
 extern float testDelay;
 extern float slide_tune;
+extern float slideLengthM;
+extern float intPeak;
 
 extern float valPerM;
 extern float mPerVal;

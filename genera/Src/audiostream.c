@@ -53,9 +53,10 @@ tSawtooth* osc;
 tCycle* mySine;
 tRamp* freqRamp;
 tNoise* noise;
+tRamp* slideRamp;
 
 float testFreq = 0.0f;
-float testDelay = 1.0f;
+float testDelay = 0.0f;
 
 float valPerM;
 float mPerVal;
@@ -92,7 +93,7 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	
 	filter = tButterworthInit(BUTTERWORTH_ORDER, 233.0f - cutoff_offset, 233.0f + cutoff_offset);
   oldFilter = tSVFInit(SVFTypeBandpass, 2000.0f, 20000.0f);
-	lp = tSVFInit(SVFTypeBandpass, 40.0f, 1000.0f);
+	lp = tSVFInit(SVFTypeBandpass, 40.0f, 20000.0f);
 	
 
 	myCompressor->M = 24.0f;
@@ -106,7 +107,9 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	adc[ADCPedal] = tRampInit(18, 1);	
 	adc[ADCBreath] = tRampInit(19, 1);	
 	adc[ADCSlide] = tRampInit(20, AUDIO_FRAME_SIZE);	
-	adc[ADCKnob] = tRampInit(30,1);	
+	adc[ADCKnob] = tRampInit(30,1);
+	myRamp = tRampInit(10, 1);
+	slideRamp = tRampInit(10, 1);
 	
 	LN2 = log(2.0f);
 	
@@ -124,6 +127,8 @@ void audioInit(I2C_HandleTypeDef* hi2c, SAI_HandleTypeDef* hsaiIn, SAI_HandleTyp
 	HAL_SAI_Receive_DMA(hsaiOut, (uint8_t *)&audioInBuffer[0], AUDIO_BUFFER_SIZE);
 
 	testFreq = 0;
+	
+	firstPositionValue = adcVals[ADCSlide];
 
 }
 
@@ -190,6 +195,43 @@ void thingToDoWhenKnobMoves(int input)
 	}
 }
 
+//correct slidelengths for positions in m (determined by printing slideLengthM
+float slidePositions[8] = {0.0f, 0.09f, 0.17f, 0.27f, 0.34f, 0.39f, 0.47f, 0.7f};
+float slideLengthM = 0.0f;
+float slideLengthChange = 0.0f;
+float oldSlideLengthM = 0.0f;
+float newTestDelay = 0.0f;
+float oldIntHarmonic = 0.0f;
+
+float delayCor[8][16] = {{0.0f, 0.0f, 43.0f, 56.0f, 48.0f, 32.0f, 18.0f, 26.0f, 23.0f, 14.0f, 11.0f, 5.0f, 1.0f, 0.0f, 0.0f, 7.0f}, 
+													{0.0f, 0.0f, 24.0f, 39.0f, 41.0f, 31.0f, 17.0f, 1.0f, 104.0f, 100.0f, 93.0f, 74.0f, 4.0f, 66.0f, 3.0f, 63.0f},
+													{0.0f, 0.0f, 56.0f, 82.0f, 69.0f, 39.0f, 29.0f, 23.0f, 121.0f, 97.0f, 179.0f, 80.0f, -5.0f, 76.0f, -4.0f, 0.0f},
+													{0.0f, 0.0f, 1.0f, 18.0f, 38.0f, 20.0f, 9.0f, 123.0f, 109.0f, -1.0f, 93.0f, 69.0f, 65.0f, 140.0f, 1.0f, 67.0f},
+													{0.0f, 0.0f, 6.0f, 37.0f, 43.0f, 30.0f, 10.0f, 4.0f, 117.0f, 99.0f, 93.0f, 56.0f, 74.0f, 54.0f, 1.0f, 132.0f},
+													{0.0f, 0.0f, 159.0f, 133.0f, 117.0f, 95.0f, 56.0f, 151.0f, 120.0f, 108.0f, 104.0f, 103.0f, 103.0f, 22.0f, 87.0f, 78.0f},
+													{0.0f, 0.0f, 141.0f, 119.0f, 104.0f, 92.0f, 215.0f, 162.0f, 125.0f, 111.0f, 108.0f, 104.0f, 104.0f, 98.0f, 95.0f, 80.0f},
+													{0.0f, 0.0f, 141.0f, 119.0f, 104.0f, 92.0f, 215.0f, 162.0f, 125.0f, 111.0f, 108.0f, 104.0f, 104.0f, 98.0f, 95.0f, 80.0f}};
+
+//takes index from delayValueCorrection to calculate weight for weighted average and returns the correct delay value (don't call directly)
+float delayValCor(int slidePosInd, float slidePos){
+    float fraction = ((slidePos - slidePositions[slidePosInd-1]) / (slidePositions[slidePosInd] - slidePositions[slidePosInd-1]));
+    //determines weighted average of the appropriate two delayCor[][] values based on slide position and harmonic
+    return ((delayCor[slidePosInd-1][((uint8_t) intHarmonic) - 1] * (1 - fraction)) + (delayCor[slidePosInd][((uint8_t) intHarmonic) - 1] * fraction));
+}
+
+//calculates first index in slidePositions[] that is past the current slide position and passes into delayValCor to return the correct delay value
+float delayValueCorrection(float slidePos){
+    uint8_t i = 0;
+    for(i; i < 8; i++){
+        if(slidePos < slidePositions[i]){
+            return delayValCor(i, slidePos);
+        }
+    }
+    return NULL;
+}		
+
+float slideLengthPreRamp;
+
 void audioFrame(uint16_t buffer_offset)
 {
 	uint16_t i = 0;
@@ -214,21 +256,33 @@ void audioFrame(uint16_t buffer_offset)
 	}
 	
 	// SET DEST SLIDE
-	tRampSetDest(adc[ADCSlide], adcVals[ADCSlide]);
+	tRampSetDest(adc[ADCSlide], adcVals[ADCSlide]>>4);
+	
+	
+	//slideLength = fundamental_m + slideLengthDiff;
+	
+	//slideLength = tRampTick(slideRamp);
 	position = tRampTick(adc[ADCSlide]);
+	//position = adc[ADCSlide];
 	slideLengthDiff = (position - firstPositionValue) * mPerVal * slide_tune;
-	slideLength = fundamental_m + slideLengthDiff;
+	slideLengthM = (position - firstPositionValue) * mPerVal;
+	slideLengthPreRamp = fundamental_m + slideLengthDiff;
+	tRampSetDest(slideRamp, slideLengthPreRamp);
+	//if(oldIntHarmonic != intHarmonic){
 	
-	float x = 12.0f * logf(slideLength / fundamental_m) * INV_LOG2;
+	//}
+	//tRampSetDest(myRamp, newTestDelay);
+	//oldSlideLengthM = slideLengthM;
+	//oldIntHarmonic = intHarmonic;
 	
-	fundamental = fundamental_hz * powf(2.0f, (-x * INV_TWELVE));
+	
 	
 	if (myCompressor->isActive) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 	else												HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
 	
 	//tButterworthSetFreqs(filter, floatPeak  - cutoff_offset, floatPeak + cutoff_offset);
 	//intPeak = 10 * fundamental_hz;
-	//tButterworthSetFreqs(filter, intPeak  - cutoff_offset, intPeak + cutoff_offset);
+	tButterworthSetFreqs(filter, intPeak  - cutoff_offset, intPeak + cutoff_offset);
 	tSVFSetFreq(oldFilter, intPeak);
 	lp->g = oldFilter->g;
 	lp->a1 = oldFilter->a1;
@@ -266,10 +320,18 @@ float feedbackAmt = 1.0f;
 
 HarmonicMode hMode = RajeevMode;
 float knobValueToUse = 0.0f;
+//float newTestDelay = 0.0f;
+float testDelayDiff = 0.0f;
+//float oldIntHarmonic = 0.0f;
+
+
+
 
 float prevInput = 0.0f;
 float delayVals[16] = {0.0f, 0.0f, 25.0f, 30.0f, 58.0f, 75.0f, 58.0f, 90.0f, 107.0f, 24.0f, 26.0f, 170.0f, 172.0f, 170.0f, 7.0f, 14.0f};
-float delayCorOne[16] = {0.0f, 0.0f, 27.0f, 38.0f, 41.0f, 29.0f, 6.0f, 6.0f, 11.0f, 15.0f, 8.0f, 7.0f, 1.0f, 6.0f, 1.0f, -1.0f};
+							
+
+										
 float audioTickL(float audioIn) 
 {
 	//choose harmonic
@@ -392,7 +454,7 @@ float audioTickL(float audioIn)
 		//sample = (sample * (1.0f - mix)) + (tNoiseTick(noise) * mix);
 		//sample = INPUT_BOOST * audioIn;
 	
-		sample = audioIn * 0.1f;
+		sample = audioIn * 0.05f;
 		
 		//sample = tButterworthTick(filter, sample);
 		//tSVFSetFreq(oldFilter, testFreq);
@@ -427,10 +489,30 @@ float audioTickL(float audioIn)
 		
 		
 		//testDelay += 0.0002f;
-		//if (testDelay >= 128.0f) testDelay = 1.0f;
+	  //if (testDelay >= 128.0f) testDelay = 1.0f;
 		//testDelay = knobValueToUse * 511.0f + 1.0f;
 		//uncomment the second half of this line to add the delay corrections for 1st position
-		testDelay = d(intPeak);// + delayCorOne[((uint8_t)intHarmonic)-1];
+		//testDelay = d(intPeak) + knobValueToUse * 255.0f + 1.0f;
+		
+		/**
+		if(oldIntHarmonic != intHarmonic){
+			newTestDelay = (uint8_t) d(intPeak) + (uint8_t) delayValueCorrection(slideLengthM);
+		}
+		**/
+		
+		slideLength = tRampTick(slideRamp);
+		float x = 12.0f * logf(slideLength / fundamental_m) * INV_LOG2;
+		fundamental = fundamental_hz * powf(2.0f, (-x * INV_TWELVE));
+		
+		//testDelay = (uint8_t) d(intPeak) + (uint8_t) delayValueCorrection(slideLengthM);
+		//newTestDelay = (uint8_t) d(intPeak) + (uint8_t) delayValueCorrection(slideLengthM);
+		newTestDelay = (uint8_t) d(intPeak) + (uint8_t) delayValueCorrection(slideLengthM);
+		tRampSetDest(myRamp, newTestDelay);
+		//
+		testDelay = (uint8_t) tRampTick(myRamp);
+		
+		
+		//testDelay = d(intPeak);
 		//testDelay = delayVals[((uint8_t)intHarmonic)-1];
 		tDelayLSetDelay(feedbackDelay, testDelay);
 		

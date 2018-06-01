@@ -307,7 +307,7 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
 	firstPositionValue = position;
 	
-	valPerM = 1430.0f;
+	valPerM = 1430.0f / 16.0f;
 	mPerVal = 1.0f/valPerM;
 	
   while (1)
@@ -321,7 +321,7 @@ int main(void)
 			LCD_clear(&hi2c2);
 
 			LCD_sendChar(&hi2c2, 'D');
-			LCD_sendFixedFloat(&hi2c2, testDelay, 6, 2);
+			LCD_sendFixedFloat(&hi2c2, position, 6, 2);
 			
 			LCD_sendChar(&hi2c2, ' ');
 			

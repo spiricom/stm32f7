@@ -65,7 +65,8 @@ typedef enum oBool
 #define INV_TWO_TO_12 		0.00024414062f
 #define TWO_TO_15 				32768.f
 #define TWO_TO_16 				65536.f
-#define INV_TWO_TO_15 		0.00001525878f
+#define INV_TWO_TO_15 		0.00003051757
+#define INV_TWO_TO_16 		0.00001525878
 #define TWO_TO_16_MINUS_ONE 65535.0f
 
 // Erbe shaper
