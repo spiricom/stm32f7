@@ -160,6 +160,9 @@ extern float intPeak;
 extern float valPerM;
 extern float mPerVal;
 
+extern uint16_t* adcVals;
+
+#define SLIDE_BITS 2
 #define SAMPLE_RATE 48000.f
 #define INV_SAMPLE_RATE 1.f/SAMPLE_RATE 
 #define SAMPLE_RATE_MS (SAMPLE_RATE / 1000.f)

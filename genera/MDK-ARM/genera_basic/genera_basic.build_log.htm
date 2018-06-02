@@ -27,22 +27,13 @@ Project File Date:  05/23/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'genera_basic'
-compiling main.c...
-../Src/main.c(261): warning:  #177-D: variable "value"  was declared but never referenced
-  	uint16_t value;
-../Src/main.c(262): warning:  #177-D: variable "diff"  was declared but never referenced
-  	int16_t diff;
-../Src/main.c(905): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  	float num = (((float)(rand >> 16))- 32768.f) * 
-NV_TWO_TO_15;
-../Src/main.c(678): warning:  #177-D: function "MX_QUADSPI_Init"  was declared but never referenced
-  static void MX_QUADSPI_Init(void)
-../Src/main.c(746): warning:  #177-D: function "MX_SPI4_Init"  was declared but never referenced
-  static void MX_SPI4_Init(void)
-../Src/main.c: 5 warnings, 0 errors
+compiling audiostream.c...
+..\Src\audiostream.c(226): warning:  #174-D: expression has no effect
+      for(i; i < 8; i++){
+..\Src\audiostream.c: 1 warning, 0 errors
 linking...
-Program Size: Code=24728 RO-data=1040 RW-data=856 ZI-data=134448  
-"genera_basic\genera_basic.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=24600 RO-data=1040 RW-data=848 ZI-data=134448  
+"genera_basic\genera_basic.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -65,7 +56,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.1
-Build Time Elapsed:  00:00:09
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

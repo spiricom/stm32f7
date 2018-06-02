@@ -146,14 +146,13 @@ void buttonOneUp(void)
 {
 	isButtonOneDown = 0;
 	
-	if (calibrated == 0)
-	{
-		ftMode = FTFeedback;
-	}
+	ftMode = FTFeedback;
+	/*
 	else if (!isButtonTwoDown)
 	{
 		 calibrated = 0;
 	}
+	*/
 }
 
 void buttonTwoDown(void)
@@ -172,15 +171,15 @@ void buttonTwoUp(void)
 {
 	isButtonTwoDown = 0;
 	
-	if (calibrated == 0)
-	{
-		ftMode = FTSynthesisOne;
-		testFreq = 1.0f;
-	}
+
+	ftMode = FTSynthesisOne;
+	testFreq = 1.0f;
+	/*
 	else if (!isButtonOneDown)
 	{
 			calibrated = 0;
 	}
+	*/
 }
 
 void presetButtonDown(void)
@@ -307,7 +306,7 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
 	firstPositionValue = position;
 	
-	valPerM = 1430.0f / 16.0f;
+	valPerM = 1430.0f / powf(2.0f,SLIDE_BITS);
 	mPerVal = 1.0f/valPerM;
 	
   while (1)
